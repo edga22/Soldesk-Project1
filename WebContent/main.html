@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>BookkCafe</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* {box-sizing:border-box}
+
+body {
+	font-family: 'NotoSansKR', 'Nanum Gothic', "Times New Roman", Times, sans-serif;
+	background-color: transparent;
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+#wrap, #headerwrap, #section, #footer {
+	max-width:1000px;
+	margin:0 auto;
+	padding:0;
+	text-align:left;
+}
+
+h2{
+    font-size:3rem;
+}
+
+.affix {
+      top: 0;
+      width: 100%;
+}
+
+.affix + .container-fluid {
+      padding-top: 70px;
+}
+
+.headerwrap{
+    background-color:#33afe9;
+    height:36px;
+    border-bottom:1px solid #ddd;
+    z-index: 1000;
+}
+
+ul.nav-tabs {
+    list-style: none;
+    background-color: transparent;
+    font-size: 1.4rem;
+}
+ul.nav-tabs li a {
+    height:36px;
+    color: #fff;
+    text-decoration: none;
+}
+ul.nav-tabs li:before {
+    color: #0275d8;
+}
+ul.nav-tabs li a:hover {
+    color: #0275d8;
+}
+ul.nav-tabs li.active a {
+    color: #0275d8;
+}
+
+/* Style the list */
+ul.breadcrumb {
+    padding: 10px 16px 0px 16px;
+    list-style: none;
+    background-color: transparent;
+    font-size: 1.4rem;
+}
+ul.breadcrumb li {
+    display: inline;
+}
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: #fff;
+    content: "|";
+}
+ul.breadcrumb li a {
+    color: #fff;
+    text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+ul.breadcrumb .member_rate {
+	font-size: 1.2rem;
+	color: #fff;
+	background-color: red;
+	padding:3px 5px;
+	margin-right:10px;
+}
+
+.navbar-brand {
+    font-size:2.6rem;
+    color:#0275d8;
+}
+.navbar-brand span{
+    font-size:3rem;
+    color:#0275d8;
+}
+.navbar-brand font{
+    font-size:1.6rem;
+    color:#0275d8;
+}
+
+.navbar-form {
+    width:100%;
+    margin-top:15px;
+}
+
+#sel1 {
+    color:#0275d8;
+    font-weight: 600;
+    background-color:#e6f2ff;
+}
+
+.navbar-form #search {
+    width:52%;
+    background-color:#e6f2ff;
+}
+
+#ad1 {    
+    background-color: transparent;
+    width:170px;
+    height:68px;
+}
+
+.mySlides {display:none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  height:337px;
+  position: relative;
+  margin: auto;
+  border:2px solid #e6f2ff;
+}
+
+/* Caption text */
+.text {
+  color: #000;
+  font-size: 2rem;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 18px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Style the slideshow list */
+#slideshow_list {
+    max-height:50px;
+    margin-bottom:2%;
+    background-color:#e6f2ff;
+    border:1px solid #ccc;
+}
+ul.slideshow_list {
+    padding: 0.5% 1.6% 0% 1.6%;
+    color: #00ace6;
+    list-style: none;
+    background-color: transparent;
+    font-size: 1.6rem;
+    font-weight: 600;
+    width:100%
+}
+ul.slideshow_list li {
+    display: inline;
+    cursor: pointer;
+}
+ul.slideshow_list li+li:before {
+    padding: 0.8% 4%;
+    color: #00ace6;
+    content: "|";
+}
+ul.slideshow_list li a {
+    color: #00ace6;
+    text-decoration: none;
+    border: 3px solid transparent;
+    border-radius: 15px;
+    padding:0.3% 1.5%;
+}
+ul.slideshow_list li a:hover {
+    color: #00ace6;
+    border: 3px solid #0275d8;
+    border-radius: 15px;
+    background-color:#fff;
+    padding:0.3% 1.5%;
+}
+.slide-4, .slide-3 {
+    margin:auto;
+    width:100%;
+}
+.slide-4 img{
+    margin: 0 1.3%;
+    width:22%;   
+}
+.slide-3 img{
+    margin: 0;
+    width:27%;   
+}
+.slide-3 img.eb1{
+    margin: 0 1.3%;
+    width:47px;
+    height:337px;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation: fade 1.5s forwards;
+  animation: fade 1.5s forwards;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 0.687rem}
+}
+
+.main_lmenu {
+    list-style: none outside;
+    margin:0;
+    padding:0;
+}
+.main_lmenu li{
+    font-size:1.3rem;
+    font-weight: 400;
+    padding:2px 0;
+}
+.main_lmenu .title{
+    font-size:1.5rem;
+    font-weight: 600;
+    color:#00ace6;
+    margin-bottom:3px;
+}
+.main_lmenu li a{
+    color:#000;
+}
+
+.main_book_img{
+    height:122px;
+    width: 100%;;
+    display:flex;    
+    align-items:flex-end;
+}
+.main_book_img img{ 
+    display: block;
+    margin: auto;
+}
+
+.main_book_titel{
+    font-size:1.8rem;
+    font-weight: 600;
+    color:#666;
+    margin:10px 0 20px 0;    
+}
+
+.main_book_info p{
+    font-size:1.3rem;
+    font-weight: 600;
+    padding:5px 0;
+}
+
+.main_book_info p span{
+    font-size:1.2rem;
+    padding:7px 0;
+    font-weight: 200;
+    color:#666;
+}
+
+.main_book_info2 {
+     padding:0 20px 5px 35px;
+}
+.main_book_info2 img{
+     padding:5px 7px 0 10px;
+     float:left;
+}
+
+#ad2 {
+    border:1px solid #e6f2ff;
+    background-color: transparent;
+    width:216px;
+    height:144px;
+    margin-bottom:10px;
+}
+
+.best10 {
+    width:216px;
+    border:1px solid #e6f2ff;
+    background-color: #fff;
+    padding:10px;
+}
+.best10 ul.best10_text {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.best10 ul.best10_text li{
+    margin:5px;
+    font-size:1.2rem;
+}
+.best10 .title{
+    font-size:1.3rem;
+    padding:1px 0px 5px 10px;
+    font-weight: 600;
+    color:#666;
+}
+.best10_text .number{
+    float: left;
+    width:20px;
+    height:16px;
+    margin-right:5px;
+    color: white;    
+    text-align: center;
+    font-size:1.2rem;
+    background-color: #00ace6;    
+    border-radius: 3px;
+}
+.best10_text .active {
+    margin-right:1px;
+    background-color: #ff8c1a;
+    color: white;
+}
+.best10_text .best10_img{
+    float: left;
+    width:85%;
+    margin-bottom:5px;
+}
+.best10_text .best10_img img{
+    padding-right:3px;
+    float:left;
+    width:65px;
+    height:auto;
+}
+
+#footer {
+    padding:20px 10px;
+    font-size:1.2rem;
+    line-height: 1.8;
+}
+#footer p{
+    margin-top:20px;
+    font-size:1.3rem;
+}
+.footer_line{
+    background-color:#0275d8;
+    height:5px;
+}
+.footer_header{
+    background-color:#F4F4F4;
+    height:30px;
+    margin-bottom:20px;
+}
+
+.footer_header ul.breadcrumb {
+    padding: 7px 15px 0 20px;
+    font-size: 1.2rem;
+    width:100%;
+}
+.footer_header ul.breadcrumb li+li:before {
+    padding:0 7px;
+    color: #999;
+    content: "|";
+}
+.footer_header ul.breadcrumb li a {
+    color: #777;
+    text-decoration: none;
+}
+.footer_header ul.breadcrumb li a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+#MOVE_TOP_BTN{
+    position: fixed; 
+    bottom: 10px; 
+    right: 10px; 
+    z-index: 100; 
+    cursor: pointer; 
+    display: block;
+}
+</style>
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="row">
+	   <div class="col-sm-6 text-right" style="background-color:#ffd11a;height:70px;">
+	     <h2 style="margin-right:7%"><span class="glyphicon">&#xe233;</span> 북앤카페 새학기 맞이 대잔치</h2>
+	   </div>
+	   <div class="col-sm-6 text-left" style="background-color:#ff99bb;height:70px;">
+	     <h2 style="margin-left:7%"><span class="glyphicon">&#xe103;</span> 봄도 독서의 계절, 졸음싹 커피</h2>
+	   </div>
+	</div>
+</div>
+<nav class="headerwrap" data-spy="affix" data-offset-top="97">
+    <div class="row" id="wrap">
+	   <div class="col-md-12"> 
+	       <div class="row" >
+	           <div class="col-md-6">
+	                <ul class="nav nav-tabs">
+                       <li class="active">
+	                       <a>Home</a>
+	                   </li>
+	                   <li>
+	                       <a href="#">국내도서</a>
+	                   </li>
+	                   <li>
+	                       <a href="#">외국도서</a>
+	                   </li>
+	                   <li>
+	                       <a href="#">eBook</a>
+	                   </li>                                                            
+	               </ul>
+	           </div>
+	           <div class="col-md-6 text-right">
+	               <ul class="breadcrumb" style="height:36px">
+	               		<!--  li>
+	                       <span class="member_rate"> 회원등급 </span> <a href="main.html"><b>회원아이디</b>님</a> <span class="divider"></span>
+	                   </li>
+	                   <li>
+	                       <a href="main.html">로그아웃</a> <span class="divider"></span>
+	                   </li-->
+	                   <li>
+	                       <a href="./member/login.html">로그인</a> <span class="divider"></span>
+	                   </li>
+	                   <li>
+	                       <a href="./member/join.html">회원가입</a> <span class="divider"></span>
+	                   </li>
+	                   <li>
+	                       <a href="#">마이페이지</a> <span class="divider"></span>
+	                   </li>
+	                   <li>
+	                       <a href="#">장바구니</a>
+	                   </li>
+	               </ul>
+	           </div>
+	       </div>
+	   </div>
+    </div>
+</nav>
+
+<header id="headerwrap">
+    <div class="container-fluid">	   
+        <div class="row">
+            <div class="col-md-2">
+              <a class="navbar-brand" href="#"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
+            </div>        
+                          
+            <div class="col-md-7">              
+                <form class="navbar-form navbar-left" role="search">
+                    <select class="form-control" id="sel1">
+                        <option>통합검색</option>
+                        <option>국내도서</option>
+	                    <option>외국도서</option>
+	                    <option>eBook</option>
+	                </select>
+                    <input type="text" class="form-control" id="search" />                            
+                    <button type="submit" class="btn btn-primary">검색</button>
+                    <button type="button" class="btn btn-link"><strong>상세검색</strong></button>
+                </form>
+            </div>
+	        <div class="col-md-3">
+	           <div id="ad1">
+	               <img alt="Bootstrap Image Preview" src="./img/main/161111_head_mgt.jpg" />
+	           </div>
+	        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+               
+                <button type="button" class="btn btn-default">
+                    전체카타고리
+                </button>
+            </div>
+            <div class="col-md-10">
+                <div class="btn-group">
+                   
+                    <button class="btn btn-default" type="button">
+                        <em class="glyphicon glyphicon-align-left"></em> 베스트셀러
+                    </button> 
+                    <button class="btn btn-default" type="button">
+                        <em class="glyphicon glyphicon-align-center"></em> 새로나온책
+                    </button> 
+                    <button class="btn btn-default" type="button">
+                        <em class="glyphicon glyphicon-align-right"></em> 이벤트
+                    </button> 
+                    <button class="btn btn-default" type="button">
+                        <em class="glyphicon glyphicon-align-justify"></em> 추천도서
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+   
+<section id="section">
+    <div class="row">
+        <div class="col-md-12">
+	        <div class="panel panel-default">
+	            <div class="slideshow-container panel-body">                    
+	                <div class="mySlides fade slide-4">	                    
+	                    <img alt="slide-MD초이스1" src="./img/main/170228_book01.png" />
+	                    <img alt="slide-MD초이스2" src="./img/main/170228_book02.png" />
+	                    <img alt="slide-MD초이스3" src="./img/main/170228_book03.png" />
+	                    <img alt="slide-MD초이스4" src="./img/main/170228_book04.png" />
+	                    <div class="text">MD 초이스</div>
+	                </div>
+	                <div class="mySlides fade slide-4">	                    
+	                    <img alt="slide-신간소개1" src="./img/main/170306_ad05.png" />
+                        <img alt="slide-신간소개2" src="./img/main/170306_ad06.png" />
+                        <img alt="slide-신간소개3" src="./img/main/170306_ad07.png" />
+                        <img alt="slide-신간소개4" src="./img/main/170306_ad08.png" />
+	                    <div class="text">신간소개</div>
+	                </div>
+	                <div class="mySlides fade slide-4">	                    
+	                    <img alt="slide-이벤트도서1" src="./img/main/170307_book01.png" />
+                        <img alt="slide-이벤트도서2" src="./img/main/170307_book02.png" />
+                        <img alt="slide-이벤트도서3" src="./img/main/170307_book03.png" />
+                        <img alt="slide-이벤트도서4" src="./img/main/170307_book04.png" />
+	                    <div class="text">이벤트도서</div>
+	                </div>
+	                <div class="mySlides fade slide-4">                        
+                        <img alt="slide-화제의 책1" src="./img/main/170310_ad01.png" />
+                        <img alt="slide-화제의 책2" src="./img/main/170310_ad02.png" />
+                        <img alt="slide-화제의 책3" src="./img/main/170310_ad03.png" />
+                        <img alt="slide-화제의 책4" src="./img/main/170310_ad04.png" />
+                        <div class="text">화제의 책</div>
+                    </div>
+                    <div class="mySlides fade slide-3">                       
+                        <img alt="slide-e-Book1" src="./img/main/161207_payback2.jpg" />
+                        <img alt="slide-bar" class="eb1" src="./img/main/ev_line.png" />
+                        <img alt="slide-e-Book2" src="./img/main/170302b_10yrent.jpg" />
+                        <img alt="slide-bar" class="eb1" src="./img/main/ev_line.png" />
+                        <img alt="slide-e-Book3" src="./img/main/170307_ebookgoods.jpg" />
+                        <div class="text">e-Book</div>
+                    </div>               
+	            </div>
+	            <div class="col-md-12 text-center panel-footer" id="slideshow_list">
+                   <ul class="slideshow_list">
+                       <li>
+                           <a onclick="currentSlide(1)">MD 초이스</a><span class="divider"></span>
+                       </li>
+                       <li>
+                           <a onclick="currentSlide(2)">신간소개</a><span class="divider"></span>
+                       </li>
+                       <li>
+                           <a onclick="currentSlide(3)">이벤트도서</a><span class="divider"></span>
+                       </li>
+                       <li>
+                           <a onclick="currentSlide(4)">화제의 책</a><span class="divider"></span>
+                       </li>
+                       <li>
+                           <a onclick="currentSlide(5)">e-Book</a><span class="divider"></span>
+                       </li>
+                   </ul>
+               </div>	           
+	        </div>
+	   </div>
+    </div>   
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="#" class="list-group-item"><strong>전체카타고리</strong></a>
+            <div class="list-group-item">
+                <ul class="main_lmenu">
+                    <li class="title">국내도서</li>
+                    <li><a href="#" class="list-group">국내도서1</a></li>
+                    <li><a href="#" class="list-group">국내도서2</a></li>
+                    <li><a href="#" class="list-group">국내도서3</a></li>
+                    <li><a href="#" class="list-group">국내도서4</a></li>
+                    <li><a href="#" class="list-group">국내도서5</a></li>
+                    <li><a href="#" class="list-group">국내도서6</a></li>
+                    <li><a href="#" class="list-group">국내도서7</a></li>
+                    <li><a href="#" class="list-group">국내도서8</a></li>
+                    <li><a href="#" class="list-group">국내도서9</a></li>
+                    <li><a href="#" class="list-group">국내도서10</a></li>
+                </ul>
+            </div>
+            <div class="list-group-item">
+                <ul class="main_lmenu">
+                    <li class="title">외국도서</li>
+                    <li><a href="#" class="list-group">외국도서1</a></li>
+                    <li><a href="#" class="list-group">외국도서2</a></li>
+                    <li><a href="#" class="list-group">외국도서3</a></li>
+                    <li><a href="#" class="list-group">외국도서4</a></li>
+                    <li><a href="#" class="list-group">외국도서5</a></li>
+                    <li><a href="#" class="list-group">외국도서6</a></li>
+                </ul>
+            </div>
+            <div class="list-group-item">
+                <ul class="main_lmenu">
+                    <li class="title">전자책</li>
+                    <li><a href="#" class="list-group">전자책1</a></li>
+                    <li><a href="#" class="list-group">전자책2</a></li>
+                    <li><a href="#" class="list-group">전자책3</a></li>
+                </ul>
+            </div>            
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-12 main_book_titel">MD 초이스</div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="MD 초이스1" src="./img/main/8956605815_2.jpg" />
+                </p>
+                <p>작은 친구들 1<br>
+                <span>어째서 진실은 밝혀져야 하는지</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="MD 초이스2" src="./img/main/8937434067_1.jpg" />
+                </p>
+                <p>어떻게 질문할 것인가<br>
+                <span>뇌과학자 김대식 교수의 질문 찾는 법</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="MD 초이스3" src="./img/main/k512536684_1.jpg" />
+                </p>
+                <p>여중생A 1~3 세트 - 전3권<br>
+                <span>그냥 내가 나인게 잘못인가요?</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="MD 초이스4" src="./img/main/894916194x_1.jpg" />
+                </p>
+                <p>변신돼지<br>
+                <span>제6회 비룡소 문학상 대상 수상작</span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 main_book_titel">이달의 추천도서</div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의추천도서1" src="./img/main/k272536082_1.jpg" />
+                </p>
+                <p>고발<br>
+                <span>반디 지음 / 다산책방</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의추천도서2" src="./img/main/8950968983_1.jpg" />
+                </p>
+                <p>고슴도치의 소원<br>
+                <span>톤 텔레헨 지음 / arte(아르테)</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의추천도서3" src="./img/main/8934976837_1.jpg" />
+                </p>
+                <p>꿈은 토리노를 달리고<br>
+                <span>히가시노 게이고 지음 / 비채</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의추천도서4" src="./img/main/k842536287_2.jpg" />
+                </p>
+                <p>페미니스트 유토피아<br>
+                <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 main_book_titel">화제의 책 소식</div>
+            <div class="col-md-6 main_book_info2">
+                <img alt="화제의책소식1" src="./img/main/8949112752_1.jpg" />
+                <div class="main_book_info">
+                    <p>하늘을 나는 마법약<br>
+                        <span>칼데콧 상 2회, 뉴베리 상 수상 작가 윌리엄 스타이그의 신나는 상상</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 main_book_info2">                
+                <img alt="화제의책소식2" src="./img/main/8956253455_2.jpg" />                
+                <div class="main_book_info">
+                    <p>길 위의 인생<br>
+                        <span>벨 훅스, 엠마 왓슨 추천. 글로리아 스타이넘 '여전히 도전 중'</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 main_book_info2">
+                <img alt="화제의책소식3" src="./img/main/8960863262_1.jpg" />
+                <div class="main_book_info">
+                    <p>오래된 생각<br>
+                        <span>'노무현의 필사' 윤태영, 삶과 죽음을 가로지는 이야기</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 main_book_info2">
+                <img alt="화제의책소식4" src="./img/main/k362536482_1.jpg" />
+                <div class="main_book_info">
+                    <p>처음 늙어보는 사람들에게<br>
+                        <span>아툴 가완디 강력 추천작, 남들보다 일찍 늙어가며 깨달은 것들</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 main_book_titel">이달의 이벤트도서</div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의이벤트도서1" src="./img/main/k272536082_1.jpg" />
+                </p>
+                <p>고발<br>
+                <span>반디 지음 / 다산책방</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의이벤트도서2" src="./img/main/8950968983_1.jpg" />
+                </p>
+                <p>고슴도치의 소원<br>
+                <span>톤 텔레헨 지음 / arte(아르테)</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의이벤트도서3" src="./img/main/8934976837_1.jpg" />
+                </p>
+                <p>꿈은 토리노를 달리고<br>
+                <span>히가시노 게이고 지음 / 비채</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의이벤트도서4" src="./img/main/k842536287_2.jpg" />
+                </p>
+                <p>페미니스트 유토피아<br>
+                <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 main_book_titel">이달의 새로운 도서</div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의새로운도서1" src="./img/main/k272536082_1.jpg" />
+                </p>
+                <p>고발<br>
+                <span>반디 지음 / 다산책방</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의새로운도서2" src="./img/main/8950968983_1.jpg" />
+                </p>
+                <p>고슴도치의 소원<br>
+                <span>톤 텔레헨 지음 / arte(아르테)</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의새로운도서3" src="./img/main/8934976837_1.jpg" />
+                </p>
+                <p>꿈은 토리노를 달리고<br>
+                <span>히가시노 게이고 지음 / 비채</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의새로운도서4" src="./img/main/k842536287_2.jpg" />
+                </p>
+                <p>페미니스트 유토피아<br>
+                <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 main_book_titel">이달의 eBook</div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의eBook1" src="./img/main/k272536082_1.jpg" />
+                </p>
+                <p>고발<br>
+                <span>반디 지음 / 다산책방</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의eBook2" src="./img/main/8950968983_1.jpg" />
+                </p>
+                <p>고슴도치의 소원<br>
+                <span>톤 텔레헨 지음 / arte(아르테)</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의eBook3" src="./img/main/8934976837_1.jpg" />
+                </p>
+                <p>꿈은 토리노를 달리고<br>
+                <span>히가시노 게이고 지음 / 비채</span>
+                </p>
+            </div>
+            <div class="col-md-3 text-center main_book_info">
+                <p class="main_book_img">
+                    <img alt="이달의eBook4" src="./img/main/k842536287_2.jpg" />
+                </p>
+                <p>페미니스트 유토피아<br>
+                <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="ad2">
+                    <img alt="ad2" src="./img/main/170320_ebook.jpg" />
+                </div>
+	        </div>
+	    </div>
+        <div class="row">
+           	<div class="col-md-12">
+               	<div class="best10">
+					<div class="title">베스트셀러 <font color="#0275d8">TOP10</font></div>
+                       	<ul class="best10_text">
+	                  		<li>
+	                      		<div class="best10_1">
+		                      		<div class="number active">1</div>
+		                      		<div class="best10_img">	                      
+		                          		<img alt="ad2" src="./img/main/8971998016_1.jpg" />
+		                      			국가란 무엇인가 - 2017 개정신판<br />유시민
+		                      		</div>
+	                      		</div>	                      
+		                  	</li>
+		                  	<li><div class="number">2</div>2017 선재국어 나침판 실전...</li>
+		                  	<li><div class="number">3</div>자존감 수업</li>
+		                  	<li><div class="number">4</div>나쁜 페미니스트</li>
+		                  	<li><div class="number">5</div>우리에겐 언어가 필요하다</li>
+		                  	<li><div class="number">6</div>유혹하는 글쓰기 (특별판)</li>
+		                  	<li><div class="number">7</div>언어의 온도</li>
+		                  	<li><div class="number">8</div>2017 민준호 사회 실전동형...</li>
+		                  	<li><div class="number">9</div>82년생 김지영</li>
+		                  	<li><div class="number">10</div>2017 이동기 영어 실전동형...</li>
+		              	</ul>
+	               	</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</section>
+
+<!-- 맨아래 탑버튼 -->
+<img id="MOVE_TOP_BTN" src="./img/main/btn_top2.png" alt="맨위로">
+<script>
+$(function() {
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 500) {
+            $('#MOVE_TOP_BTN').fadeIn();
+        } else {
+            $('#MOVE_TOP_BTN').fadeOut();
+        }
+    });
+    
+    $("#MOVE_TOP_BTN").click(function() {
+        $('html, body').animate({
+            scrollTop : 0
+        }, 400);
+        return false;
+    });
+});
+</script>
+
+<!-- 하단 -->
+<footer id="footer">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="footer_line"></div>
+            <div class="footer_header">
+                <ul class="breadcrumb">
+                   <li>
+                       <a href="#">회사소개</a>
+                   </li>
+                   <li>
+                       <a href="#">이용약관</a>
+                   </li>
+                   <li>
+                       <a href="#">개인정보취급방침</a> 
+                   </li>
+                   <li>
+                       <a href="#">고객센터</a> 
+                   </li>
+                   <li>
+                       <a href="#">판매자 매니저</a> 
+                   </li>
+                   <li>
+                       <a href="#">학교/기업/기관 대량구매</a>
+                   </li>             
+                   <li style="float:right">
+                       <a href="#">▲TOP</a>
+                   </li>
+               </ul>                            
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 text-center">
+            <a class="navbar-brand" href="#"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe<br><span style="font-size:2rem;">북앤카페</span></a>
+        </div>
+        <div class="col-md-5">
+            <div style="width:50%;float: left;">   
+	            <address>
+	                <strong>Book&Cafe, Inc.</strong><br /> 대표이사 : 윤광재<br /> <abbr title="Phone">전화상담 : 02) 1234-5678</abbr><br />
+	                사업자등록 : 
+	                <div style="position: absolute;width:100%;clear: left;margin:0;">서울 종로구 종로12길 15 코아빌딩1 5층  <a href="http://naver.me/xicaa2oH" target="blank">약도</a></div>
+	            </address>
+	            
+	        </div>
+	        <div style="width:50%;float: left;">               
+	            <address>
+	                <strong></strong><br /> 고객정보보호 책임자:<br /> E-mail:<br /> 통신판매업신고:
+	            </address>
+	        </div>	        
+        </div>   
+        <div class="col-md-5">               
+            <address>
+                <strong></strong><br />
+                <ul>
+                    <li>1:1고객상담 : 메일로 빠르게 답신드립니다.  <a href="#" target="blank">문의하기</a></li>
+                    <li>구매안전 에스크로 서비스 : <br />
+                    안전거래를 위해 현금 결제시 이용가능  <a href="#" target="blank">서비스가입확인</a></li>                
+                </ul>
+            </address>
+        </div>
+    </div>
+    <p class="text-center">Copyright 2017ⓒ BookNcafe Inc.. All rights reserved. System by: cwsys</p>
+</footer>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }  
+  slides[slideIndex-1].style.display = "block"; 
+}
+</script>
+</body>
+</html>
