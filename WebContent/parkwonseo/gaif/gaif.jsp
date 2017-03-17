@@ -17,7 +17,7 @@
 </style>
 </head>
 <body>
-<a href="#"><img src="../img/로고.png"/></a>
+<jsp:include page="../img/logo.jsp"/>
 <div class="container">
 	<h2>회원가입</h2>
 <form action="gaifResult.jsp">

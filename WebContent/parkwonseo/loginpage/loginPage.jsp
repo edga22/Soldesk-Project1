@@ -18,11 +18,7 @@
 </head>
 <body>
 <div class="container">
-	<div class="form-group">
-	<div class="col-sm-offset-2 col-sm-10">
-		<img src="../img/로고.png"/>
-	</div>
-	</div>.
+	<jsp:include page="../img/logo.jsp"/>
 	<ul class="nav nav-tabs">
     	<li><a data-toggle="tab" href="#logIn">로그인</a></li>
     	<li><a data-toggle="tab" href="#findId">아이디 찾기</a></li>
