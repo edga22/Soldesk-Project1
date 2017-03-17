@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 10px;
+      background-color: #f1f1f1;
+      height: 170%;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+    th{
+     background-color: #f1f1f1;
+    }
+
+
+  </style>
+</head>
+<body>
+
+
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <h2>My Account</h2>
+      <br>
+      <h3>주문내역</h3>
+      <h4><a href="mypage1.html">주문조회/변경/취소</a></h4>
+      <h4><a href="mypage2.html">반품/교환내역</a></h4>
+      <br>
+      <br>
+      <h3>개인정보관리</h3>
+      <h4><a href="mypage3.html">개인정보 수정</a></h4>
+      <h4><a href="mypage4.html">이벤트 당첨 내역</a></h4>
+      <h4><a href="mypage6.html">포인트 조회</a></h4>
+      <h4><a href="mypage5.html">회원 탈퇴</a></h4>
+      <br>
+      <br>
+      <h3>고객센터</h3>
+      <h4><a href="mypage7.html">자주 묻는 질문</a></h4>
+      <h4><a href="#">1:1문의</a></h4>
+      
+     
+
+    
+    </div>
+    <div align="center"class="col-sm-3 text-left">
+      <h2>개인정보 수정</h2>
+      <br>
+      <h4>회원정보</h4>
+      <table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>회원번호</th>
+			<td>123456</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>아이디</th>
+			<td>mosa10</td>
+		</tr>
+		<tr>
+			<th>성명</th>
+			<td>송성우</td>
+		</tr>
+		<tr>
+			<th>닉네임</th>
+			<td>꾸겜꼑<button type="button">변경하기</button></td>
+		</tr>
+		<tr>
+			<th>성별</th>
+			<td><input type="radio" name="gender"checked>남
+			<input type="radio" name="gender">여
+			</td>
+		</tr>
+		<tr>
+			<th>주민등록번호</th>
+			<td>000000-000000</td>
+		</tr>
+		<tr>
+			<th>E-mail</th>
+			<td><input type="text" name="email"placeholder="mosa10@nate.com"><br>
+			<input type="radio" name="email">수신
+			<input type="radio" name="email">수신거부</td>
+		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td><button type="button">비밀번호 변경하기</button></td>
+		</tr>
+		
+	</tbody>
+	</table>
+     <input type="submit" value="수정완료">
+    </div>
+   </div>
+  </div>
+</body>
+</html>
