@@ -48,14 +48,19 @@
 	</div>
 	<div class="form-group">
 		<label for="inputdefault">우편번호</label>
-		<button type="button" class="btn-default">우편번호찾기</button>
-		<input class="form-control" id="postNumber" name="postNumber" type="number" size="5" maxlength="5" style="width:200px" required>		
+		<button id="postcodify_search_button" class="btn-default">우편번호찾기</button>
+		<!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 class를 부여한다 -->
+		<input type="text" name="" class="postcodify_postcode5 form-control" id="postNumber" value="" placeholder="우편번호 버튼을 누르세요." readonly/>
 	</div>
 	<div class="form-group">
-		<label for="inputdefault">주소</label>
-		<button type="button" class="btn-default">주소찾기</button>
-		<input class="form-control" id="address" name="address1" type="text" required>
-		<input class="form-control" id="address" name="address2" type="text" required>
+		<label for="inputdefault">주소</label><br>
+		<input type="text" name="" class="postcodify_address form-control" value="" required readonly/><br />
+		<input type="text" name="" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요." required />
+		<!-- jQuery와 Postcodify를 로딩한다 -->
+		<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+
+		<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+		<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 	</div>
 	<div class="form-group">
 		<label for="inputdefault">전화번호</label>
@@ -95,10 +100,6 @@ $('#selectEmail').change(function(){
    });
 });
 </script>
-</div>
-		<div class="form-group">
-			<input type="submit" class="btn btn-default" style="margin-top:50px" value="회원가입"/>
-		</div>
 </form>
 </div>
 </body>
