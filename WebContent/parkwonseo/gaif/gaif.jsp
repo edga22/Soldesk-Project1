@@ -48,7 +48,7 @@
 	</div>
 	<div class="form-group">
 		<label for="inputdefault">우편번호</label>
-		<button id="postcodify_search_button" class="btn-default">우편번호찾기</button>
+		<button id="postcodify_search_button" class="btn btn-default">우편번호찾기</button>
 		<!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 class를 부여한다 -->
 		<input type="text" name="" class="postcodify_postcode5 form-control" id="postNumber" value="" placeholder="우편번호 버튼을 누르세요." readonly/>
 	</div>
@@ -100,6 +100,9 @@ $('#selectEmail').change(function(){
    });
 });
 </script>
+	<div class="form-group">
+		<input type="submit" class="btn btn-default" style="margin-top:30px" value="회원가입"/>
+	</div>
 </form>
 </div>
 </body>
