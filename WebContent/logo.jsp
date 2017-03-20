@@ -22,6 +22,6 @@
 
 <div class="row wrap">
         <div class="col-md-12 text-center">
-            <a class="navbar-brand" href="../../main.html"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe<br><span style="font-size:3.2rem;">북앤카페</span></a>
+            <a class="navbar-brand" href="main.html"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe<br><span style="font-size:3.2rem;">북앤카페</span></a>
        </div>
 </div> 

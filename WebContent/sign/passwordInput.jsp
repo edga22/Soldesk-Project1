@@ -31,7 +31,7 @@
 	}else %>등록되지 않은 아이디입니다.
 
 
-<a href="loginPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
+<a href="signUpPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
 </div>
 </body>
 </html>
