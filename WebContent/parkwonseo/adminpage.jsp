@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-	<a href="#"><img src="img/로고.png"></a>
+	<jsp:include page="img/logo.jsp"/>
 	<div class="form-group">
 	<form>
 		<div class="col-sm-2">

@@ -14,6 +14,7 @@
 </head>
 <body>
 <div class="container">
+<jsp:include page="img/logo.jsp"/>
 탈퇴 하시려면 한번더 아이디 비밀번호를 입력하세요.
 <form>
 	<div class="form-group">

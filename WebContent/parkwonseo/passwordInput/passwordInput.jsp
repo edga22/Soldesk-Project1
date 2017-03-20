@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="container">
-<a href="#"><img src="../img/로고.png"/></a><br>
+<jsp:include page="../img/logo.jsp"/>
 <%
 	String name = request.getParameter("name");
 	String email = request.getParameter("str_email01")+"@"+request.getParameter("str_email02");

@@ -78,9 +78,25 @@
 			</div>
 		</div>
 		<%for(int i=1;i<=2;i++){ %>
-		<div class="row"> <!-- items -->
-			<div class="col-md-1"></div>
-			<div class="col-md-"></div>
+		<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
+			<div class="col-md-1">
+				<p><%=i %></p>
+				<input type="checkbox">
+			</div>
+			<div class="col-md-2"><img src="http://lorempixel.com/140/180"></div>
+			<div class="col-md-7">
+				<h3>책 제목<%=i %></h3>
+				<p>저자 : 저자<%=i %>  옮긴이 : 옮긴이 <%=i %>  출판사 : 시공출판사</p>
+				<ul>
+					<li>10000원 -> 9000원</li>
+					<li>적립포인트 : <%=i %>%</li>
+					<li>사은품 : </li>
+				</ul>
+			</div>
+			<div class="col-md-2">
+				<p><button class="btn btn-default">장바구니 추가</button></p>
+				<p><button class="btn btn-default">바로 구매</button></p>
+			</div>
 		</div>
 		<%} %>
 	</div><!-- result -->
