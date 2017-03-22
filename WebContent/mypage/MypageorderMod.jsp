@@ -25,13 +25,20 @@
 		</tr>
 	</thead>
 	<tbody>
+<%  
+	int temp=1;
+	for(int i = 0; i< temp ; i++){
+%>	
 		<tr>
-			<td>2017-03-09</td>
-			<td>123456</td>
-			<td>송성우</td>
-			<td>Java의정석</td>
+			<td><%=temp %></td>
+			<td><%=temp %></td>
+			<td><%=temp %></td>
+			<td><%=temp %></td>
 			<td><a href="#">상세조회</a></td>
 		</tr>
+<%
+	}
+%>		
 	</tbody>
 	</table>
 

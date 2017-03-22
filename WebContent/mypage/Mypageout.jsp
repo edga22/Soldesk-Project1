@@ -14,8 +14,8 @@
 
       <h2> 회원 탈퇴</h2>
       <h3> -회원 탈퇴시 적립금,예치금,마일리지 등이 자동삭제 됩니다.</h3>
-      비밀번호:<input type="password" name="pwd">
-      		 <small><button>회원탈퇴</button></small>
+      비밀번호:<input type="password" name="">
+      		 <small><button type="button" name="">회원탈퇴</button></small>
 
 </body>
 </html>
