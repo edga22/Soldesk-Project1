@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
+	<div>
 		<div class="row">			
 			<div class="col-sm-12">
 				<h3>포인트 마일리지 보유 현황</h3>
@@ -26,37 +26,20 @@
 						</tr>
 					</thead>
 					<tbody>
+						<%  
+							int temp = 1;
+							for(int i=0; i<temp ; i++){
+						%>
 						<tr>
-							<th>사용</th>
-							<th>2017.01.03</th>
-							<th>수학의정석 구매</th>
-							<th>- 50p</th>
-							<th>100P</th>						
+							<th><%= temp%></th>
+							<th><%= temp%></th>
+							<th><%= temp%></th>
+							<th><%= temp%></th>
+							<th><%= temp%></th>
 						</tr>
-						<tr>
-							<th>적립</th>
-							<th>2017.01.03</th>
-							<th>자바의정석 구매</th>
-							<th>+ 50p</th>
-							<th>150P</th>						
-						</tr>
-						<tr>
-							<th>적립</th>
-							<th>2017.01.02</th>
-							<th>한국사 구매</th>
-							<th>+ 50 p</th>
-							<th>100 P</th>						
-						</tr>
-						<tr>
-							<th>적립</th>
-							<th>2017.01.01</th>
-							<th>세계사 구매</th>
-							<th>+ 50 p</th>
-							<th>50 P</th>						
-						</tr>										
+						<%	} %>						
 					</tbody>
 				</table>
-				<br><br><br>
 			</div>
 		</div>		
 	</div>

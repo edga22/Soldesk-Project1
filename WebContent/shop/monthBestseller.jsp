@@ -43,11 +43,11 @@
   	<div class="row">
     	<h3 class="col-sm-10">이 달의 베스트</h3>
     	<div class="col-sm-2">
-    		<form action="#">
-    			<input type="button" class="btn btn-default btn-block" value="장바구니에 담기">
+    		<form action="basket.jsp">
+    			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
     		<form action="#">
- 	  			<input type="button" class="btn btn-default btn-block" value="바로구매">
+ 	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
  	  		</form>
  	  	</div>
     </div>
@@ -63,7 +63,7 @@
  	  		<p>지금 주문하면 언제(0일,0요일) 도착 예정입니다</p>
  	  	</div>
  	  	<div class="col-sm-2">
- 	  		<form action="#">
+ 	  		<form action="basket.jsp">
     			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
     		<form action="#">
@@ -81,7 +81,7 @@
  	  		<p>지금 주문하면 언제(0일,0요일) 도착 예정입니다</p>
  	  	</div>
  	  	<div class="col-sm-2">
- 	  		<form action="#">
+ 	  		<form action="basket.jsp">
     			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
     		<form action="#">
