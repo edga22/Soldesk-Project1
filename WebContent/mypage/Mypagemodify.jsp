@@ -17,27 +17,23 @@
       <h4>회원정보</h4>
       <table class="table table-bordered">
 	<thead>
-	<%
-	int temp = 1;
-	for(int i=0; i <temp; i++){
-	%>
 		<tr>
 			<th>회원번호</th>
-			<td><%=temp %></td>
+			<td><%= 1%></td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<th>아이디</th>
-			<td><%=temp%></td>
+			<td><%= 2%></td>
 		</tr>
 		<tr>
 			<th>성명</th>
-			<td><%=temp %></td>
+			<td><%= 3%></td>
 		</tr>
 		<tr>
 			<th>닉네임</th>
-			<td><%=temp %><input type="button" name="" value="닉네임변경"></td>
+			<td><%= 4%><input type="button" name="" value="닉네임변경"></td>
 		</tr>
 		<tr>
 			<th>성별</th>
@@ -46,11 +42,9 @@
 		</tr>
 		<tr>
 			<th>주민등록번호</th>
-			<td><%=temp %></td>
+			<td><%=5%></td>
 		</tr>
-<%
-	}
-%>
+
 		<tr>
 			<th>E-mail</th>
 			<td><input type="text" name=""><br>
