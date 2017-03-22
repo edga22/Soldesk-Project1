@@ -118,7 +118,7 @@
 <!-- 주문 및 되돌아가기 -->
 <div class="row">
 	<div class="col-sm-7"></div>
-	<form action="#">
+	<form action="../main.html">
 	<div class="col-sm-2"> 
     	<input type="submit" class="btn btn-default" value="쇼핑 계속하기"/>
     </div>
