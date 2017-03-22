@@ -28,16 +28,21 @@
 		</tr>
 	</thead>
 	<tbody>
+<%  
+	int temp;
+	for(int i = 0; i< temp ; i++){
+%>	
 		<tr>
-			<td>2017-03-09</td>
-			<td>123456</td>
-			<td>회송</td>
-			<td>준비중</td>
-			<td>변경취소</td>
+			<td><%= %></td>
+			<td><%= %></td>
+			<td><%= %></td>
+			<td><%= %></td>
+			<td><%= %></td>
 		</tr>
+<%
+	}
+%>		
 	</tbody>
 	</table>
- 
-
 </body>
 </html>

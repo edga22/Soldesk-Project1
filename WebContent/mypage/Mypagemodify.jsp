@@ -17,48 +17,55 @@
       <h4>회원정보</h4>
       <table class="table table-bordered">
 	<thead>
+	<%
+	int temp;
+	for(int i=0; i <temp; i++){
+	%>
 		<tr>
 			<th>회원번호</th>
-			<td>123456</td>
+			<td><%= %></td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<th>아이디</th>
-			<td>mosa10</td>
+			<td><%= %></td>
 		</tr>
 		<tr>
 			<th>성명</th>
-			<td>송성우</td>
+			<td><%= %></td>
 		</tr>
 		<tr>
 			<th>닉네임</th>
-			<td>꾸겜꼑<button type="button">변경하기</button></td>
+			<td><%= %><button type="button" name="">변경하기</button></td>
 		</tr>
 		<tr>
 			<th>성별</th>
-			<td><input type="radio" name="gender"checked>남
-			<input type="radio" name="gender">여
+			<td><input type="radio" name=""checked>남 
+			<input type="radio" name="">여
 			</td>
 		</tr>
 		<tr>
 			<th>주민등록번호</th>
-			<td>000000-000000</td>
+			<td><%= %></td>
 		</tr>
+<%
+	}
+%>
 		<tr>
 			<th>E-mail</th>
-			<td><input type="text" name="email"><br>
-			<input type="radio" name="email">수신
-			<input type="radio" name="email">수신거부</td>
+			<td><input type="text" name=""><br>
+			<input type="radio" name="">수신
+			<input type="radio" name="">수신거부</td>
 		</tr>
 		<tr>
 			<th>비밀번호</th>
-			<td><button type="button">비밀번호 변경하기</button></td>
+			<td><button type="button"name=""></button></td>
 		</tr>
 		
 	</tbody>
 	</table>
-     <input type="submit" value="수정완료">
+     <input type="submit" name="" value="수정완료">
 
   
 </body>
