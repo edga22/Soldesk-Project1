@@ -29,15 +29,15 @@
 	</thead>
 	<tbody>
 <%  
-	int temp;
+	int temp =1;
 	for(int i = 0; i< temp ; i++){
 %>	
 		<tr>
-			<td><%= %></td>
-			<td><%= %></td>
-			<td><%= %></td>
-			<td><%= %></td>
-			<td><%= %></td>
+			<td><%=temp %></td>
+			<td><%=temp %></td>
+			<td><%=temp %></td>
+			<td><%=temp %></td>
+			<td><%=temp %></td>
 		</tr>
 <%
 	}
