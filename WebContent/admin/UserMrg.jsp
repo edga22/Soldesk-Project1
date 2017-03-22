@@ -42,25 +42,15 @@
 			<td>생년월일</td>
 			<td>주소</td>
 			<td>전화번호</td>
-			<td>이메일</td>
 		</tr>
 		</thead>
 		<tbody>
 		<tr>
-			<th>pdords</th>
-			<th>박원서</th>
-			<th>19890914</th>
-			<th>경기도 고양시 덕양구 화정동</th>
-			<th>010-1234-1234</th>
-			<th>pdords@naver.com</th>
-		</tr>
-		<tr>
-			<th><%=request.getParameter("ID")%></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th><%=request.getParameter("str_email01")+"@"+request.getParameter("str_email02")%></th>
+			<th><%=request.getParameter("name")%></th>
+			<th><%=request.getParameter("birthday") %></th>
+			<th><%=request.getParameter("address1")+" "+request.getParameter("address2") %></th>
+			<th><%=request.getParameter("phoneNumber") %></th>
 		</tr>
 		</tbody>
 	</table>
