@@ -28,12 +28,21 @@
 		</tr>
 	</thead>
 	<tbody>
+<%  
+	int temp;
+	for(int i = 0; i< temp ; i++){
+%>	
 		<tr>
-			<td>TV뿌리기</td>
-			<td>2017.03-09~ 2017.03.28</td>
-			<td>2017.4.15</td>
-			<td>Tv</td>
-			<td>당첨</td>
+			<td><%= %></td>
+			<td><%= %></td>
+			<td><%= %></td>
+			<td><%= %></td>
+			<td><%= %></td>
+		</tr>
+<%
+	}
+%>		
+			
 	</tbody>
 	</table>
     </div>
