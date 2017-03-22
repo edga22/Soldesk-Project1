@@ -18,36 +18,35 @@
       <table class="table table-bordered">
 	<thead>
 	<%
-	int temp;
+	int temp = 1;
 	for(int i=0; i <temp; i++){
 	%>
 		<tr>
 			<th>회원번호</th>
-			<td><%= %></td>
+			<td><%=temp %></td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<th>아이디</th>
-			<td><%= %></td>
+			<td><%=temp%></td>
 		</tr>
 		<tr>
 			<th>성명</th>
-			<td><%= %></td>
+			<td><%=temp %></td>
 		</tr>
 		<tr>
 			<th>닉네임</th>
-			<td><%= %><button type="button" name="">변경하기</button></td>
+			<td><%=temp %><input type="button" name="" value="닉네임변경"></td>
 		</tr>
 		<tr>
 			<th>성별</th>
-			<td><input type="radio" name=""checked>남 
-			<input type="radio" name="">여
-			</td>
+			<td><input type="radio" name="radio"checked="checked">남 
+				<input type="radio" name="radio">여</td>
 		</tr>
 		<tr>
 			<th>주민등록번호</th>
-			<td><%= %></td>
+			<td><%=temp %></td>
 		</tr>
 <%
 	}
@@ -55,12 +54,12 @@
 		<tr>
 			<th>E-mail</th>
 			<td><input type="text" name=""><br>
-			<input type="radio" name="">수신
+			<input type="radio" name="" checked>수신
 			<input type="radio" name="">수신거부</td>
 		</tr>
 		<tr>
 			<th>비밀번호</th>
-			<td><button type="button"name=""></button></td>
+			<td><input type="button" name="" value="비밀번호변경"></td>
 		</tr>
 		
 	</tbody>
