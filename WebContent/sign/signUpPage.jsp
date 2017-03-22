@@ -58,47 +58,18 @@
 
 <div id="findId" class="tab-pane fade">
 	<h3>아이디를 찾으시나요?</h3>
-	가입여부를 확인하시려면 성명과 email주소를 입력해주세요
-	<div class="form-group">
-		<label class="control-label col-xs-2" for="name">성명 :</label>
-		<div class="col-sm-10">
+	가입여부를 확인하시려면 성명과 생년월일를 입력해주세요
+	<div class="form-group" style="margin-top:10px">
+		<label class="control-label col-xs-3" for="name">성명 :</label>
+		<div class="col-sm-9">
 			<input type="text" class="form-control" id="name" placeholder="name" required>
 		</div>
+		<label class="control-label col-xs-3" for="name" style="margin-top:10px">생년월일 :</label>
+		<div class="col-sm-9">
+			<input type="number" class="form-control" id="" placeholder="ex)19890914" style="margin-top:10px" required>
+		</div>
 	</div>
-<div class="form-group">
-	<label class="control-label col-xs-2" for="email">이메일 :</label>
-	<div class="col-xs-3">
-	<input type="text" class="from-control" style="width:120px;" id="str_email01" required>
-	</div>
-	<label class="control-label col-xs-1 text-right"style="margin:0;width:5px;margin-right:-10px;margin-top:-5px;"> @</label>
-	<div class="col-xs-3"> 
-	<input type="text" class="from-control" style="width:120px" id="str_email02" disabled value="naver.com" required>
-	</div>
-	<div class="col-xs-3">
-		<select class="form-control" id="selectEmail">
-	  	<option value="1">직접입력</option>
-     	<option value="naver.com" selected>naver.com</option>
-     	<option value="hanmail.net">hanmail.net</option>
-     	<option value="nate.com">nate.com</option>
-     	<option value="gmail.com">gmail.com</option>
- 		</select>
- 	</div>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-//이메일 입력방식 선택
-$('#selectEmail').change(function(){
-   $("#selectEmail option:selected").each(function () {
-        if($(this).val()== '1'){ //직접입력일 경우
-             $("#str_email02").val('');                        //값 초기화
-             $("#str_email02").attr("disabled",false); //활성화
-        }else{ //직접입력이 아닐경우
-             $("#str_email02").val($(this).text());      //선택값 입력
-             $("#str_email02").attr("disabled",true); //비활성화
-        }
-   });
-});
-</script>
-</div>
+
 	<div class="btn-default">
  		<div class="col-sm-12">
  		<a href="findId.jsp"><input type="submit" class="btn btn-primary" value="아이디찾기"/></a>
@@ -123,40 +94,7 @@ $('#selectEmail').change(function(){
 			<input type="text" class="form-control" id="name" placeholder="name" required>
 		</div>
 	</div>
-	<div class="form-group">
-	<label class="control-label col-xs-2" for="email">이메일 :</label>
-	<div class="col-xs-3">
-	<input type="text" class="from-control" style="width:120px;" id="str_email01" required>
-	</div>
-	<label class="control-label col-xs-1 text-right"style="margin:0;width:5px;margin-right:-10px;margin-top:-5px;"> @</label>
-	<div class="col-xs-3"> 
-	<input type="text" class="from-control" style="width:120px" id="str_email02" disabled value="naver.com" required>
-	</div>
-	<div class="col-xs-3">
-		<select class="form-control" id="selectEmail">
-	  	<option value="1">직접입력</option>
-     	<option value="naver.com" selected>naver.com</option>
-     	<option value="hanmail.net">hanmail.net</option>
-     	<option value="nate.com">nate.com</option>
-     	<option value="gmail.com">gmail.com</option>
- 		</select>
- 	</div>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-//이메일 입력방식 선택
-$('#selectEmail').change(function(){
-   $("#selectEmail option:selected").each(function () {
-        if($(this).val()== '1'){ //직접입력일 경우
-             $("#str_email02").val('');                        //값 초기화
-             $("#str_email02").attr("disabled",false); //활성화
-        }else{ //직접입력이 아닐경우
-             $("#str_email02").val($(this).text());      //선택값 입력
-             $("#str_email02").attr("disabled",true); //비활성화
-        }
-   });
-});
-</script>
-</div>
+	
 	<div class="col-sm-4">
 	<button type="button" class="btn btn-default">휴대폰 인증</button>
 	</div>
