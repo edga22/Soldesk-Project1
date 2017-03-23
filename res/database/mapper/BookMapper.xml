@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="config.BookMapper">
+	<resultMap id="BookMap" type="domain.Book">
+		<id		property="bookID"		column="BOOK_ID" />
+		<result	property="categoryID"	column="CATEGORY_ID" />
+		<result	property="eventID"	column="EVENT_ID" />
+		<result	property="bookName"	column="BOOK_NAME" />
+		<result	property="author"	column="AUTHOR" />
+		<result	property="publisher"	column="PUBLISHER" />
+		<result	property="publishDate"	column="PUBLISH_DATE" />
+		<result	property="imageID"	column="IMAGE_ID" />
+	</resultMap>
+	
+	<select id="getBooks" resultMap="BookMap">
+		SELECT * FROM Books ORDER BY book_ID
+	</select>
+	
+	<select id="getBook" parameterType="int" resultMap="BookMap">
+		SELECT * FROM Books WHERE book_ID = #{bookID}
+	</select>
+	
+	<insert id="addBook" parameterType="domain.Book">
+		INSERT INTO Books (book_id, category_id, event_id, book_Name, author, publisher, publish_Date, image_id)
+		values (BOOK_ID_SEQ.NEXTVAL, #{categoryID}, #{eventID}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{publishDate,jdbcType=DATE}, #{imageID,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="cntBooks" resultType="int">
+		SELECT count(*) FROM Books
+	</select>
+	<select id="cntBook" parameterType="int" resultType="int">
+		SELECT count(*) FROM Books WHERE book_ID = #{bookID}
+	</select>
+<!--  
+    <resultMap id="MemberMap" type="">
+        <id     property="user_no"  column="user_no"/>
+        <result property="name"     column="name"/>
+        <result property="regDate"  column="reg_date"/>
+    </resultMap>
+         
+    <select id="getMembers" resultType="">
+        select user_no, name, reg_date from users
+    </select>
+    
+    <select id="getMember" parameterType="int" resultMap="MemberMap">
+        select user_no, name, reg_date from users where user_no=#{user_no}
+    </select>
+   
+    <insert id="addMember" parameterType="">
+    	insert into users (user_no, name)
+    	values (userno_seq.NEXTVAL, #{name})
+    </insert>
+    
+    <update id="updateMember" parameterType="">
+    	update users
+    	<set>
+    		<if test="name != null">name = #{name}</if>
+    	</set>
+    	where user_no = #{user_no}
+    </update>
+    
+    <delete id="delMember" parameterType="int">
+    	delete from users
+    	where user_no = #{user_no}
+    </delete>
+-->
+</mapper>

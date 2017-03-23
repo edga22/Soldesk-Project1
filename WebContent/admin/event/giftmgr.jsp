@@ -34,7 +34,7 @@ p .form-control {
 </style>
 </head>
 <body>
-
+<jsp:include page="/admin/admin_nav.jsp"></jsp:include>
 <div class="container"> <!-- main container -->
 
 <div class="row">
