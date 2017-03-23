@@ -73,7 +73,7 @@
 <!-- 상품 1열. -->
 	<div class="row" align="center">
 		<div class="col-sm-4" style="border:0.1rem solid; margin:0.5rem;">
-			<a href="bookDetail.html">
+			<a href="BookDetail.jsp">
 				<img src="img/book1.jpg" style="height:250px; float:left; margin:1rem;">
 			</a>	
 				<br><br>
@@ -85,12 +85,12 @@
 				</div>
 			
 			<div align="center" style="margin:0.5rem;">			
-			<a href="bookDetail.html" class="btn btn-default" target="_blank">즉시 구매</a>
+			<a href="../shop/Payment.jsp" class="btn btn-default">즉시 구매</a>
 			<a href="#" class="btn btn-default">찜하기</a>
 			</div>			
 		</div>
 		<div class="col-sm-4" style="border:0.1rem solid; margin:0.5rem;">
-			<a href="bookDetail.html">
+			<a href="BookDetail.jsp">
 				<img src="img/book1.jpg" style="height:250px; float:left; margin:1rem;">
 			</a>	
 				<br><br>
@@ -102,13 +102,13 @@
 				</div>
 			
 			<div align="center" style="margin:0.5rem;">			
-			<a href="bookDetail.html" class="btn btn-default" target="_blank">즉시 구매</a>
+			<a href="../shop/Payment.jsp" class="btn btn-default">즉시 구매</a>
 			<a href="#" class="btn btn-default">찜하기</a>
 			</div>			
 		</div>								
 <!-- 2열 -->	
 		<div class="col-sm-4" style="border:0.1rem solid; margin:0.5rem;">
-			<a href="bookDetail.html">
+			<a href="BookDetail.jsp">
 				<img src="img/book1.jpg" style="height:250px; float:left; margin:1rem;">
 			</a>	
 				<br><br>
@@ -120,12 +120,12 @@
 				</div>
 			
 			<div align="center" style="margin:0.5rem;">			
-			<a href="bookDetail.html" class="btn btn-default" target="_blank">즉시 구매</a>
+			<a href="../shop/Payment.jsp" class="btn btn-default">즉시 구매</a>
 			<a href="#" class="btn btn-default">찜하기</a>
 			</div>			
 		</div>
 		<div class="col-sm-4" style="border:0.1rem solid; margin:0.5rem;">
-			<a href="bookDetail.html">
+			<a href="BookDetail.jsp">
 				<img src="img/book1.jpg" style="height:250px; float:left; margin:1rem;">
 			</a>	
 				<br><br>
@@ -137,7 +137,7 @@
 				</div>
 			
 			<div align="center" style="margin:0.5rem;">			
-			<a href="bookDetail.html" class="btn btn-default" target="_blank">즉시 구매</a>
+			<a href="../shop/Payment.jsp" class="btn btn-default">즉시 구매</a>
 			<a href="#" class="btn btn-default">찜하기</a>
 			</div>			
 		</div>
