@@ -46,7 +46,7 @@
     		<form action="basket.jsp">
     			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
-    		<form action="#">
+    		<form action="Payment.jsp">
  	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
  	  		</form>
  	  	</div>
@@ -59,14 +59,14 @@
  	  	<div class="col-sm-1"><input type="checkbox"/></div>
  	  	<div class="col-sm-2"><img id="img" src="img/book/buket1.PNG"/></div>
  	  	<div class="col-sm-7">
- 	  		<p><a href="#">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
+ 	  		<p><a href="../inven/BookDetails.html">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
  	  		<p>지금 주문하면 언제(0일,0요일) 도착 예정입니다</p>
  	  	</div>
  	  	<div class="col-sm-2">
  	  		<form action="basket.jsp">
     			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
-    		<form action="#">
+    		<form action="Payment.jsp">
  	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
  	  		</form>
  	  	</div>
@@ -77,14 +77,14 @@
  	  	<div class="col-sm-1"><input type="checkbox"/></div>
  	  	<div class="col-sm-2"><img id="img" src="img/book/buket1.PNG"/></div>
  	  	<div class="col-sm-7">
- 	  		<p><a href="#">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
+ 	  		<p><a href="../inven/BookDetails.html">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
  	  		<p>지금 주문하면 언제(0일,0요일) 도착 예정입니다</p>
  	  	</div>
  	  	<div class="col-sm-2">
  	  		<form action="basket.jsp">
     			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
-    		<form action="#">
+    		<form action="Payment.jsp">
  	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
  	  		</form>
  	  	</div>

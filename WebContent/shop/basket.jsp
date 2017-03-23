@@ -57,7 +57,7 @@
         <td><strong>합계</strong></td>
         <td>도착예정일(0일,0요일)</td>
         <td>
-        <form action="#">
+        <form action="Payment.jsp">
        		 <input type="button" class="btn btn-default btn-block" value="바로구매">
         </form>
         <button type="button" class="btn btn-default btn-block">삭제</button></td>
@@ -78,7 +78,7 @@
         <td><strong>합계</strong></td>
         <td>도착예정일(0일,0요일)</td>
         <td>
-        <form action="#">
+        <form action="Payment.jsp">
        		 <input type="button" class="btn btn-default btn-block" value="바로구매">
         </form>
         <button type="button" class="btn btn-default btn-block">삭제</button></td>
@@ -124,7 +124,7 @@
     </div>
     </form>
     
-    <form action="#">
+    <form action="Payment.jsp">
 	<div class="col-sm-2"> 
     	<input type="submit" class="btn btn-default" value="주문하기"/>
 	</div>

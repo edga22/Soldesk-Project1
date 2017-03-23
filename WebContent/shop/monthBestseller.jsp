@@ -46,7 +46,7 @@
     		<form action="basket.jsp">
     			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
-    		<form action="#">
+    		<form action="Payment.jsp">
  	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
  	  		</form>
  	  	</div>
@@ -66,7 +66,7 @@
  	  		<form action="basket.jsp">
     			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
-    		<form action="#">
+    		<form action="Payment.jsp">
  	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
  	  		</form>
  	  	</div>
@@ -84,7 +84,7 @@
  	  		<form action="basket.jsp">
     			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
-    		<form action="#">
+    		<form action="Payment.jsp">
  	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
  	  		</form>
  	  	</div>
