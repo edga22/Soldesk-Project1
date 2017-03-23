@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<jsp:include page="/admin/admin_nav.jsp"></jsp:include>
+
 <div class="container">
 
 	<h3> 재고관리 페이지 입니다.</h3>

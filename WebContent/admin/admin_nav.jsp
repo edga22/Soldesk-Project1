@@ -17,6 +17,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="/admin/event/eventmgr.jsp">이벤트 관리</a></li>
 				<li><a href="/admin/event/giftmgr.jsp">사은품 관리</a></li>
+				<li><a href="/inven/BookManagement.jsp">재고 관리</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="disabled"><a href="#">Settings</a>
