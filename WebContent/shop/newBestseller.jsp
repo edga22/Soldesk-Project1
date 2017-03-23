@@ -60,7 +60,6 @@
  	  	<div class="col-sm-2"><img id="img" src="img/book/buket1.PNG"/></div>
  	  	<div class="col-sm-7">
  	  		<p><a href="../inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
- 	  		<p>지금 주문하면 언제(0일,0요일) 도착 예정입니다</p>
  	  	</div>
  	  	<div class="col-sm-2">
  	  		<form action="basket.jsp">
@@ -78,7 +77,6 @@
  	  	<div class="col-sm-2"><img id="img" src="img/book/buket1.PNG"/></div>
  	  	<div class="col-sm-7">
  	  		<p><a href="../inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
- 	  		<p>지금 주문하면 언제(0일,0요일) 도착 예정입니다</p>
  	  	</div>
  	  	<div class="col-sm-2">
  	  		<form action="basket.jsp">
