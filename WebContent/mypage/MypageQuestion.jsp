@@ -10,14 +10,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
+<div id="MypageQuestion">
 <body>
-
       <h2>자주 묻는 질문</h2>
       <h3>-Q&A</h3>
  	<a href="#"><p>1.장바구니에 담아둔 내역이 자꾸 사라집니다.</p></a>
  	<a href="#">2.장바구니 담기가 안됩니다.</p></a>
- 	<a href="#">3.장바구니 복원신청은 어떻게하나요?</p></a>  
-
-
+ 	<a href="#">3.장바구니 복원신청은 어떻게하나요?</p></a>
 </body>
+</div>
 </html>

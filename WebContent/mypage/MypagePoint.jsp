@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
+	<div id="MypagePoint">
 		<div class="row">			
 			<div class="col-sm-12">
 				<h3>포인트 마일리지 보유 현황</h3>

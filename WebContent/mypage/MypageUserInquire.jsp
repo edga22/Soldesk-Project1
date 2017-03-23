@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
+	<div id="MypageUserInquire">
 	<h3 style="text-align:center">1:1 문의</h3>
 		<form class="form-horizontal">
 			<div class="form-group">
