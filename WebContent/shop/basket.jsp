@@ -34,9 +34,8 @@
       	<th></th>
         <th class="col-sm-3">상품명</th>
         <th class="col-sm-2">가격</th>
-        <th class="col-sm-1">수량</th>
-        <th class="col-sm-1">합계</th>
-        <th class="col-sm-3">도착예정일</th>
+        <th class="col-sm-2">수량</th>
+        <th class="col-sm-2">합계</th>
         <th class="col-sm-2">선택</th>
       </tr>
     </thead>
@@ -55,7 +54,6 @@
        	</form>
         </td>
         <td><strong>합계</strong></td>
-        <td>도착예정일(0일,0요일)</td>
         <td>
         <form action="Payment.jsp">
     		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
@@ -77,7 +75,6 @@
        	</form>
         </td>
         <td><strong>합계</strong></td>
-        <td>도착예정일(0일,0요일)</td>
         <td>
         <form action="Payment.jsp">
     		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
