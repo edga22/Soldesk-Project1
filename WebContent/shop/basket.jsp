@@ -11,6 +11,7 @@
 <title>장바구니</title>
 </head>
 <body>
+<div id="basket">
 <div class="container"> <!-- 시작 -->
 <!-- 장바구니 패널 -->
 <div class="panel panel-default"> 
@@ -129,5 +130,6 @@
 	</form>
 </div> <!-- 주문 및 되돌아가기 -->
 </div> <!-- 끝 -->
+</div>
 </body>
 </html>
