@@ -25,7 +25,7 @@ body {
 </style>
 </head>
 <body>
-
+<jsp:include page="/admin/admin_nav.jsp"></jsp:include>
 <div class="container"> <!-- main container -->
 
 <div class="row">
@@ -35,7 +35,7 @@ body {
 </div>
 
 <div class="row">
-	<form class="form-inline" action="">
+	<form class="form-inline" action="/admin/event/eventmodOK.jsp">
 	<div class="form-group">
 		<p class="form-control-static">할인율:</p>
 		<input type="number" max="100" class="form-control" id="percent" name="dc_percent">
