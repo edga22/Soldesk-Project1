@@ -8,10 +8,21 @@
 
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<title>Insert title here</title>
+
+<title>어드민 페이지</title>
+
 </head>
 <body>
-<jsp:include page="event/eventmgr.jsp"></jsp:include>
+
+<jsp:include page="/admin/admin_nav.jsp"></jsp:include>
+	
+<div class="container-fluid">
+<div class="row">
+	<div class="col-sm-12">
+		<p>어드민 페이지 입니다</p>
+	</div>
+</div>
+</div>
 
 
 <!-- jQuery library -->
