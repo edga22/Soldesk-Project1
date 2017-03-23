@@ -4,13 +4,14 @@
 	import="mgr.SearchMgr" %>
 <%
 SearchMgr mymgr = new SearchMgr();
-/* 
-Book newbook = new Book();
-newbook.setBookName("시험용");
-newbook.setAuthor("작가1"); 
-mymgr.addBook(newbook);
-*/
 
+String flag = "시험용 페이지";
+if(mymgr.getBook(1) == null) {
+	Book newbook = new Book();
+	newbook.setBookName("시험용1번");
+	newbook.setAuthor("작가1"); 
+	mymgr.addBook(newbook);
+}
 %>
 <!DOCTYPE html PUBLIC>
 <html>
@@ -23,8 +24,8 @@ mymgr.addBook(newbook);
 <title>Insert title here</title>
 </head>
 <body>
-<h2><%=mymgr.cntBooks() %></h2>
-<h2><%=mymgr.cntBook(3) %></h2>
+<h2><%=flag %></h2>
+<h2>총 추가된 책의 갯수 : <%=mymgr.cntBooks() %></h2>
 <%
 	for(Book output:mymgr.getBooks()){
 %>
