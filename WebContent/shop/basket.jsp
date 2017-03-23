@@ -58,9 +58,10 @@
         <td>도착예정일(0일,0요일)</td>
         <td>
         <form action="Payment.jsp">
-       		 <input type="button" class="btn btn-default btn-block" value="바로구매">
-        </form>
-        <button type="button" class="btn btn-default btn-block">삭제</button></td>
+    		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
+		</form>
+		<button type="button" class="btn btn-default btn-block">삭제</button></td>
+        </td>
       </tr>
       <tr>
       	<td><input type="checkbox" name="#"/></td>
@@ -79,8 +80,8 @@
         <td>도착예정일(0일,0요일)</td>
         <td>
         <form action="Payment.jsp">
-       		 <input type="button" class="btn btn-default btn-block" value="바로구매">
-        </form>
+    		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
+		</form>
         <button type="button" class="btn btn-default btn-block">삭제</button></td>
      </tr>
     </tbody>
