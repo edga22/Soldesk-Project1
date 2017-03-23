@@ -14,14 +14,14 @@ public class SearchMgr {
 		return mapper.getBooks().toArray(new Book[mapper.getBooks().size()]);
 	}
 	
+	public Book getBook(int bookID){
+		return mapper.getBook(bookID);
+	}
+	
 	public int cntBooks(){
 		return mapper.cntBooks();
 	}
-	
-	public int cntBook(int bookID){
-		return mapper.cntBook(bookID);
-	}
-	
+		
 	public int addBook(Book book){
 		return mapper.addBook(book);
 	}

@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<jsp:include page="event/eventmgr.jsp"></jsp:include>
 
 
 <!-- jQuery library -->

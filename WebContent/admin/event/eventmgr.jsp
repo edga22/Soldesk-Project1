@@ -33,7 +33,7 @@ h3 {
 </div>
 
 <div class="row">
-	<form class="form-inline" action="">
+	<form class="form-inline" action="eventmgr.jsp">
 	<div class="form-group">
 		<p class="form-control-static">대상도서:</p>
 		<select name="type" class="form-control">
@@ -49,6 +49,7 @@ h3 {
 </div>
 
 <!-- 결과물 출력 반복 -->
+<form action="eventmod.jsp">
 <%for(int i=1;i<=3;i++){ %> 
 <div class="row result-group">
 	<div class="col-md-1">
@@ -68,10 +69,11 @@ h3 {
 		</ul>
 	</div>
 	<div class="col-md-3">
-		<button class="btn btn-primary">이벤트 수정</button>
+		<button class="btn btn-primary" type="submit">이벤트 수정</button>
 	</div>
 </div>
 <%} %>
+</form>
 <!-- 반복 끝 -->
 
 </div> <!-- main container -->
