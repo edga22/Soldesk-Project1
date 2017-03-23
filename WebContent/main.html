@@ -91,14 +91,13 @@
             </div>
             <div class="col-md-3">
                <div id="ad1">
-                   <img alt="Bootstrap Image Preview" src="./img/main/161111_head_mgt.jpg" />
+                   <img alt="상단광고" src="./img/main/161111_head_mgt.jpg" />
                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2">
-               
-                <button type="button" class="btn btn-default">
+            <div class="col-md-2">               
+                <button id="allMenu" type="button" class="btn btn-default">
                     전체카타고리
                 </button>
             </div>
@@ -119,70 +118,121 @@
                     </button>
                 </div>
             </div>
+        </div>        
+        <div id="allMenuPannel">
+            <div class="allMenu-container panel-body">
+                <div class="allMenu">                     
+		            <div class="allMenu_list">
+		                <ul>
+		                    <li class="title">국내도서</li>
+		                    <li><a href="#" class="list-group">국내도서1</a></li>
+		                    <li><a href="#" class="list-group">국내도서2</a></li>
+		                    <li><a href="#" class="list-group">국내도서3</a></li>
+		                    <li><a href="#" class="list-group">국내도서4</a></li>
+		                    <li><a href="#" class="list-group">국내도서5</a></li>
+		                    <li><a href="#" class="list-group">국내도서6</a></li>
+		                    <li><a href="#" class="list-group">국내도서7</a></li>
+		                    <li><a href="#" class="list-group">국내도서8</a></li>
+		                    <li><a href="#" class="list-group">국내도서9</a></li>
+		                    <li><a href="#" class="list-group">국내도서10</a></li>
+		                </ul>
+		            </div>
+		            <div class="allMenuLine"></div>
+		            <div class="allMenu_list">
+		                <ul>
+		                    <li class="title">외국도서</li>
+		                    <li><a href="#" class="list-group">외국도서1</a></li>
+		                    <li><a href="#" class="list-group">외국도서2</a></li>
+		                    <li><a href="#" class="list-group">외국도서3</a></li>
+		                    <li><a href="#" class="list-group">외국도서4</a></li>
+		                    <li><a href="#" class="list-group">외국도서5</a></li>
+		                    <li><a href="#" class="list-group">외국도서6</a></li>
+		                </ul>
+		            </div>
+		            <div class="allMenuLine"></div>
+		            <div class="allMenu_list">
+		                <ul>
+		                    <li class="title">전자책</li>
+		                    <li><a href="#" class="list-group">전자책1</a></li>
+		                    <li><a href="#" class="list-group">전자책2</a></li>
+		                    <li><a href="#" class="list-group">전자책3</a></li>
+		                </ul>
+		            </div>       
+                </div>
+            </div>
         </div>
     </div>
 </header>
+<script> 
+$(document).ready(function(){
+    $("#allMenu").click(function(){
+        $("#allMenuPannel").slideToggle("slow");
+    });
+});
+</script>
 <!-- 공통 상단 끝 -->
 
 <!-- 메인 화면 시작 -->   
 <section id="section">
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="slideshow-container panel-body">                    
-                    <div class="mySlides fade slide-4">                     
+            <div id="myCarousel" class="panel panel-default">
+                <div class="slideshow-container panel-body">                                      
+                    <div class="mySlides fade slide-4" onmouseover="stopSlides(1)">                     
                         <img alt="slide-MD초이스1" src="./img/main/170228_book01.png" />
                         <img alt="slide-MD초이스2" src="./img/main/170228_book02.png" />
                         <img alt="slide-MD초이스3" src="./img/main/170228_book03.png" />
                         <img alt="slide-MD초이스4" src="./img/main/170228_book04.png" />
                         <div class="text">MD 초이스</div>
                     </div>
-                    <div class="mySlides fade slide-4">                     
+                    <div class="mySlides fade slide-4" onmouseover="stopSlides(2)">                     
                         <img alt="slide-신간소개1" src="./img/main/170306_ad05.png" />
                         <img alt="slide-신간소개2" src="./img/main/170306_ad06.png" />
                         <img alt="slide-신간소개3" src="./img/main/170306_ad07.png" />
                         <img alt="slide-신간소개4" src="./img/main/170306_ad08.png" />
                         <div class="text">신간소개</div>
                     </div>
-                    <div class="mySlides fade slide-4">                     
+                    <div class="mySlides fade slide-4" onmouseover="stopSlides(3)">                     
                         <img alt="slide-이벤트도서1" src="./img/main/170307_book01.png" />
                         <img alt="slide-이벤트도서2" src="./img/main/170307_book02.png" />
                         <img alt="slide-이벤트도서3" src="./img/main/170307_book03.png" />
                         <img alt="slide-이벤트도서4" src="./img/main/170307_book04.png" />
                         <div class="text">이벤트도서</div>
                     </div>
-                    <div class="mySlides fade slide-4">                        
+                    <div class="mySlides fade slide-4" onmouseover="stopSlides(4)">                        
                         <img alt="slide-화제의 책1" src="./img/main/170310_ad01.png" />
                         <img alt="slide-화제의 책2" src="./img/main/170310_ad02.png" />
                         <img alt="slide-화제의 책3" src="./img/main/170310_ad03.png" />
                         <img alt="slide-화제의 책4" src="./img/main/170310_ad04.png" />
                         <div class="text">화제의 책</div>
                     </div>
-                    <div class="mySlides fade slide-3">                       
+                    <div class="mySlides fade slide-3 " onmouseover="stopSlides(5)">                       
                         <img alt="slide-e-Book1" src="./img/main/161207_payback2.jpg" />
                         <img alt="slide-bar" class="eb1" src="./img/main/ev_line.png" />
                         <img alt="slide-e-Book2" src="./img/main/170302b_10yrent.jpg" />
                         <img alt="slide-bar" class="eb1" src="./img/main/ev_line.png" />
                         <img alt="slide-e-Book3" src="./img/main/170307_ebookgoods.jpg" />
                         <div class="text">e-Book</div>
-                    </div>               
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>               
                 </div>
                 <div class="col-md-12 text-center panel-footer" id="slideshow_list">
                    <ul class="slideshow_list">
                        <li>
-                           <a onclick="currentSlide(1)">MD 초이스</a><span class="divider"></span>
+                           <span class="dot" onmouseover="stopSlides(1)">MD 초이스</span><span class="divider"></span>
                        </li>
                        <li>
-                           <a onclick="currentSlide(2)">신간소개</a><span class="divider"></span>
+                           <span class="dot" onmouseover="stopSlides(2)">신간소개</span><span class="divider"></span>
                        </li>
                        <li>
-                           <a onclick="currentSlide(3)">이벤트도서</a><span class="divider"></span>
+                           <span class="dot" onmouseover="stopSlides(3)">이벤트도서</span><span class="divider"></span>
                        </li>
                        <li>
-                           <a onclick="currentSlide(4)">화제의 책</a><span class="divider"></span>
+                           <span class="dot" onmouseover="stopSlides(4)">화제의 책</span><span class="divider"></span>
                        </li>
                        <li>
-                           <a onclick="currentSlide(5)">e-Book</a><span class="divider"></span>
+                           <span class="dot" onmouseover="stopSlides(5)">e-Book</span><span class="divider"></span>
                        </li>
                    </ul>
                </div>              
@@ -481,28 +531,41 @@
         </div>
     </div>
 </section>
-<!-- 메인 화면 끝 -->
- 
-<!-- 맨아래 탑버튼 -->
-<img id="MOVE_TOP_BTN" src="./img/main/btn_top2.png" alt="맨위로">
 <script>
-$(function() {
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 500) {
-            $('#MOVE_TOP_BTN').fadeIn();
-        } else {
-            $('#MOVE_TOP_BTN').fadeOut();
-        }
-    });
-    
-    $("#MOVE_TOP_BTN").click(function() {
-        $('html, body').animate({
-            scrollTop : 0
-        }, 400);
-        return false;
-    });
-});
+var slideIndex = 0;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 3000); // Change image every 2 seconds
+}
+
+function stopSlides(n) {
+    showSlides(slideIndex = n-1);
+    slideIndex = n-1;
+}
 </script>
+<!-- 메인 화면 끝 -->
 
 <!-- 공통 하단 -->
 <footer id="footer">
@@ -568,29 +631,25 @@ $(function() {
     </div>
     <p class="text-center">Copyright 2017ⓒ BookNcafe Inc.. All rights reserved. System by: cwsys</p>
 </footer>
-
+<!-- 맨아래 탑버튼 -->
+<img id="MOVE_TOP_BTN" src="./img/main/btn_top2.png" alt="맨위로">
 <script>
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }  
-  slides[slideIndex-1].style.display = "block"; 
-}
+$(function() {
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 500) {
+            $('#MOVE_TOP_BTN').fadeIn();
+        } else {
+            $('#MOVE_TOP_BTN').fadeOut();
+        }
+    });
+    
+    $("#MOVE_TOP_BTN").click(function() {
+        $('html, body').animate({
+            scrollTop : 0
+        }, 400);
+        return false;
+    });
+});
 </script>
 </body>
 </html>
