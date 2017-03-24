@@ -12,7 +12,7 @@
 <title>관리자 페이지</title>
 </head>
 <body>
-<div class="container">
+<div class="container" id="pws5">
 	<jsp:include page="../logo.jsp"/>
 	<div class="form-group">
 	<form>

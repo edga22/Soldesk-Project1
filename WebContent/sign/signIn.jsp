@@ -18,7 +18,7 @@
 </head>
 <body>
 <jsp:include page="../logo.jsp"/>
-<div class="container">
+<div class="container" id="pws2">
 	<h2>회원가입</h2>
 <form action="../admin/UserMrg.jsp">
 	<div class="form-group">

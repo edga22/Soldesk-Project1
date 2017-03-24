@@ -39,6 +39,9 @@
 </style>
 </head>
 <body>
+
+<jsp:include page="/main_navbar.jsp"></jsp:include>
+
 <div class="container"> <!-- Main container -->
 <div class="row" id="cate-top">
 	<ul class="nav nav-tabs">
@@ -103,7 +106,7 @@
 </div>
 
 </div> <!-- Main container -->
-
+<jsp:include page="/main_foot.jsp"></jsp:include>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
