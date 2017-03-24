@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
- <div class="col-sm-10 text-left"> 
+
       <h2>이벤트 당첨 내역</h2>
       <h3>-고객님께서 당첨되신 이벤트 내역을 보여드립니다.</h3>
       <div align="right">
@@ -45,6 +45,6 @@
 			
 	</tbody>
 	</table>
-    </div>
+ 
 </body>
 </html>
