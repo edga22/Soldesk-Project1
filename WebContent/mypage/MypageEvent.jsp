@@ -15,7 +15,7 @@
       <h2>이벤트 당첨 내역</h2>
       <h3>-고객님께서 당첨되신 이벤트 내역을 보여드립니다.</h3>
       <div align="right">
-       <button type="button">진행중인 이벤트</button>
+     <button type="button" class="btn btn-primary">진행중인 이벤트</button>
        </div>
       <table class="table table-hover">
 	<thead>

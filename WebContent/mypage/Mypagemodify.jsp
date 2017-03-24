@@ -33,7 +33,7 @@
 		</tr>
 		<tr>
 			<th>닉네임</th>
-			<td><%= 4%><input type="button" name="" value="닉네임변경"></td>
+			<td><%= 4%><input type="button"class="btn btn-default" name="" value="닉네임변경"></td>
 		</tr>
 		<tr>
 			<th>성별</th>
@@ -53,12 +53,12 @@
 		</tr>
 		<tr>
 			<th>비밀번호</th>
-			<td><input type="button" name="" value="비밀번호변경"></td>
+			<td><input type="button"class="btn btn-default"name="" value="비밀번호변경"></td>
 		</tr>
 		
 	</tbody>
 	</table>
-     <input type="submit" name="" value="수정완료">
+     <input type="submit" name=""class="btn btn-primary" value="수정완료">
 
   
 </body>
