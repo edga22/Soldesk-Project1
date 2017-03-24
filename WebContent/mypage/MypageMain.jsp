@@ -11,7 +11,8 @@
 <title>마이페이지</title>
 </head>
 <body>
-<div class="container">
+<jsp:include page="/main_navbar.jsp"></jsp:include>
+<div class="container " id="MypageMain">
   <div class="row content">
     <div class="col-sm-2 sidenav">
       <h2>My Account</h2>
@@ -37,5 +38,6 @@
     </div>
 </div>
 </div>
+<jsp:include page="/main_foot.jsp"></jsp:include>
 </body>
 </html>
