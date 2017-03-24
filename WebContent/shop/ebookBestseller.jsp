@@ -19,6 +19,7 @@
 </style>
 </head>
 <body>
+<div id="ebookBestseller">
 <!-- 시작 -->
 <div class="container"> 
 <!-- 베스트셀러 패널 -->
@@ -102,5 +103,6 @@
 </div>
 </div> <!-- 베스트셀러 탭 내용 -->
 </div> <!-- 끝 -->
+</div>
 </body>
 </html>
