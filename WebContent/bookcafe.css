@@ -8,7 +8,6 @@ body {
     background-color: transparent;
     margin:0;
     padding:0;
-    text-align:center;
 }
 #wrap, #headerwrap, #section, #footer {
     max-width:1000px;
@@ -18,7 +17,7 @@ body {
 }
 
 /* 상단 광고 */
-h2{
+#topheader h2{
     font-size:3rem;
 }
 /* 상단 고정메뉴 */
@@ -30,57 +29,57 @@ h2{
       padding-top: 70px;
 }
 
-.headerwrap{
+#topheaderwrap {
     background-color:#33afe9;
     height:36px;
     border-bottom:1px solid #ddd;
     z-index: 1000;
 }
 /* 최상단 메뉴*/
-ul.nav-tabs {
+#topheaderwrap ul.nav-tabs {
     list-style: none;
     background-color: transparent;
     font-size: 1.4rem;
 }
-ul.nav-tabs li a {
+#topheaderwrap ul.nav-tabs li a {
     height:36px;
     color: #fff;
     text-decoration: none;
 }
-ul.nav-tabs li:before {
+#topheaderwrap ul.nav-tabs li:before {
     color: #0275d8;
 }
-ul.nav-tabs li a:hover {
+#topheaderwrap ul.nav-tabs li a:hover {
     color: #0275d8;
 }
-ul.nav-tabs li.active a {
+#topheaderwrap ul.nav-tabs li.active a {
     color: #0275d8;
 }
 
 /* 상단 오른쪽 */
-ul.breadcrumb {
+#topheaderwrap ul.breadcrumb {
     padding: 10px 16px 0px 16px;
     list-style: none;
     background-color: transparent;
     font-size: 1.4rem;
 }
-ul.breadcrumb li {
+#topheaderwrap ul.breadcrumb li {
     display: inline;
 }
-ul.breadcrumb li+li:before {
+#topheaderwrap ul.breadcrumb li+li:before {
     padding: 8px;
     color: #fff;
     content: "|";
 }
-ul.breadcrumb li a {
+#topheaderwrap ul.breadcrumb li a {
     color: #fff;
     text-decoration: none;
 }
-ul.breadcrumb li a:hover {
+#topheaderwrap ul.breadcrumb li a:hover {
     color: #fff;
     text-decoration: underline;
 }
-ul.breadcrumb .member_rate {
+#topheaderwrap ul.breadcrumb .member_rate {
     font-size: 1.2rem;
     color: #fff;
     background-color: red;
@@ -89,20 +88,20 @@ ul.breadcrumb .member_rate {
 }
 /* 최상단 메뉴 끝 */
 /* 최상단 로고 검색창 */
-.navbar-brand {
+#headerwrap .navbar-brand {
     font-size:2.6rem;
     color:#0275d8;
 }
-.navbar-brand span{
+#headerwrap .navbar-brand span{
     font-size:3rem;
     color:#0275d8;
 }
-.navbar-brand font{
+#headerwrap .navbar-brand font{
     font-size:1.6rem;
     color:#0275d8;
 }
 
-.navbar-form {
+headerwrap .navbar-form {
     width:100%;
     margin-top:15px;
 }
@@ -113,7 +112,7 @@ ul.breadcrumb .member_rate {
     background-color:#e6f2ff;
 }
 
-.navbar-form #search {
+headerwrap .navbar-form #search {
     width:52%;
     background-color:#e6f2ff;
 }

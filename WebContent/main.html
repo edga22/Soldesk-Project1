@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<div class="container-fluid">
+<div id="topheader" class="container-fluid">
     <div class="row">
        <div class="col-sm-6 text-right" style="background-color:#ffd11a;height:70px;">
          <h2 style="margin-right:7%"><span class="glyphicon">&#xe233;</span> 북앤카페 새학기 맞이 대잔치</h2>
@@ -22,7 +22,7 @@
        </div>
     </div>
 </div>
-<nav class="headerwrap" data-spy="affix" data-offset-top="97">
+<nav id="topheaderwrap" class="headerwrap" data-spy="affix" data-offset-top="97">
     <div class="row" id="wrap">
        <div class="col-md-12"> 
            <div class="row" >
@@ -561,6 +561,7 @@ function showSlides() {
 }
 
 function stopSlides(n) {
+	clearTimeout(showSlides);
     showSlides(slideIndex = n-1);
     slideIndex = n-1;
 }
