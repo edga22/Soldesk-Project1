@@ -15,7 +15,7 @@
       <h2>반품/교환 내역 조회</h2>
       <h3>-반품환불:</h3>
       <div align="right">
-       <button type="button">반품/교환신청</button>
+       <a href="mypagerefundDetail.jsp" target="_blank" class="btn btn-default">반품/교환신청</a>
        </div>
       <table class="table table-hover">
 	<thead>
