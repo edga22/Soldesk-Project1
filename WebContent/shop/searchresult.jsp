@@ -80,11 +80,12 @@
 			</select>
 			</div>
 		</div>
-		<%for(int i=1;i<=2;i++){ %>
+		<form action="/shop/Payment.jsp">
+		<%for(int i=1;i<=5;i++){ %>
 		<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
 			<div class="col-md-1">
 				<p><%=i %></p>
-				<input type="checkbox">
+				<input type="checkbox" name="bookID" value="<%=i %>">
 			</div>
 			<div class="col-md-2"><img src="http://lorempixel.com/140/180"></div>
 			<div class="col-md-7">
@@ -98,10 +99,11 @@
 			</div>
 			<div class="col-md-2">
 				<p><button class="btn btn-default">장바구니 추가</button></p>
-				<p><button class="btn btn-default">바로 구매</button></p>
+				<p><button class="btn btn-default" type="submit" name="bookID" value="<%=i %>">바로 구매</button></p>
 			</div>
 		</div>
 		<%} %>
+		</form>
 	</div><!-- result -->
 </div>
 
