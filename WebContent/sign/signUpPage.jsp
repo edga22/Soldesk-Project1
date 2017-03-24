@@ -40,7 +40,7 @@
 			<div class="form-group">
 		 		<div class="col-sm-offset-8 col-sm-10">
 		 			<div class="checkbox">
-						<label><input type="checkbox" />비밀번호 기억</label>
+						<label><input type="checkbox" />로그인 유지</label>
 					</div>
 				</div>
 			</div>
