@@ -57,7 +57,7 @@
                            <a href="sign/signIn.jsp">회원가입</a> <span class="divider"></span>
                        </li>
                        <li>
-                           <a href="#">마이페이지</a> <span class="divider"></span>
+                           <a href="/mypage/MypageMain.jsp">마이페이지</a> <span class="divider"></span>
                        </li>
                        <li>
                            <a href="#">장바구니</a>
