@@ -26,33 +26,33 @@
     </ul>
 	<div class="tab-content">
 		<div id="logIn" class="tab-pane fade in active">
-			<form action="#" method="post">
+			<form action="login.jsp" method="post">
 			<div class="form-group">
-				<div class="col-sm-12" style="margin-top:30px">
-					<input type="text" class="form-control" id="id" placeholder="ID" required>
+				<div class="col-sm-12" style="margin:30px 0 15px 0">
+					<input type="text" class="form-control" id="id" placeholder="ID를 입력하세요." required />
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-12">
-					<input type="password" class="form-control" id="psw" placeholder="password" required>
+					<input type="password" class="form-control" id="psw" placeholder="패스워드를 입력하세요." required />
 				</div>
 			</div>
 			<div class="form-group">
 		 		<div class="col-sm-offset-8 col-sm-10">
 		 			<div class="checkbox">
-						<label><input type="checkbox">비밀번호 기억</label>
+						<label><input type="checkbox" />비밀번호 기억</label>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-		 		<div class="col-sm-12">
-		 		<input type="submit" class="btn btn-primary btn-block" value="로그인"/>
+		 		<div class="col-sm-6 center">
+		 		   <input type="submit" class="btn btn-primary btn-block" value="로그인" />
 		 		</div>
-		 	</div>
-		 	</form>
-			<div class="btn-default" style="margin-left:15px;">
-			<a href="signIn.jsp"><button type="button" class="btn btn-primary">회원가입</button></a>
-			</div>	
+				<div class="col-sm-6 center">
+				     <a href="signIn.jsp"><button type="button" class="btn btn-primary btn-block">회원가입</button></a>
+				</div>
+			</div>
+			</form>	
 		</div>	
 	
 		<div id="findId" class="tab-pane fade">
