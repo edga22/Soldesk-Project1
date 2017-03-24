@@ -51,10 +51,10 @@
                            <a href="main.html">로그아웃</a> <span class="divider"></span>
                        </li-->
                        <li>
-                           <a href="sign/signUpPage.jsp">로그인</a> <span class="divider"></span>
+                           <a href="/sign/signUpPage.jsp">로그인</a> <span class="divider"></span>
                        </li>
                        <li>
-                           <a href="sign/signIn.jsp">회원가입</a> <span class="divider"></span>
+                           <a href="/sign/signIn.jsp">회원가입</a> <span class="divider"></span>
                        </li>
                        <li>
                            <a href="/mypage/MypageMain.jsp">마이페이지</a> <span class="divider"></span>
