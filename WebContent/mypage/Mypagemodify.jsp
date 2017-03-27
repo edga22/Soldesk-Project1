@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div class="container">
       <h2>개인정보 수정</h2>
       <br>
       <h4>회원정보</h4>
@@ -19,21 +19,21 @@
 	<thead>
 		<tr>
 			<th>회원번호</th>
-			<td><%= 1%></td>
+			<td><%=152%></td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<th>아이디</th>
-			<td><%= 2%></td>
+			<td><%="mosa10"%></td>
 		</tr>
 		<tr>
 			<th>성명</th>
-			<td><%= 3%></td>
+			<td><%= "송성우"%></td>
 		</tr>
 		<tr>
 			<th>닉네임</th>
-			<td><%= 4%><input type="button"class="btn btn-default" name="" value="닉네임변경"></td>
+			<td><%= "송싱우"%><input type="button"class="btn btn-default" name="" value="닉네임변경"></td>
 		</tr>
 		<tr>
 			<th>성별</th>
@@ -42,7 +42,7 @@
 		</tr>
 		<tr>
 			<th>주민등록번호</th>
-			<td><%=5%></td>
+			<td><%="911008-1011111"%></td>
 		</tr>
 
 		<tr>
@@ -59,7 +59,6 @@
 	</tbody>
 	</table>
      <input type="submit" name=""class="btn btn-primary" value="수정완료">
-
-  
+  </div>
 </body>
 </html>
