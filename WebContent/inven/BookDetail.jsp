@@ -12,12 +12,14 @@
 </head>
 <body>
 
-<div class="container"><br><br>
+<jsp:include page="/main_navbar.jsp"></jsp:include>
+
+<div class="container" id="BD"><br><br>
 <div class="row">
 	<div class="col-lg-2"></div>
 	<div class="col-lg-6" style="border:solid 0.1rem; margin:1rem; padding:1rem;">
 <!-- 12열을 나눠서 가운데 4열만 상세페이지로 사용 -->					
-			<button type="button" class="close" align="rignt" onClick="window.close()">X</button>
+			<!--닫힘버튼 <button type="button" class="close" align="rignt" onClick="window.close()">X</button> -->
 			<h3>자존감 수업(2017년 최신개정판)</h3>	
 			<div style="bor\der: black solid 0.1rem; margin:2rem; padding:2rem;">
 				<img src="img/book1.jpg" style="width:150px;height:200px; float:left; margin:3rem;">
@@ -39,12 +41,13 @@
 			<div align="left">			
 			<a href="#" class="btn btn-default">즉시 구매</a>
 			<a href="#" class="btn btn-default">찜하기</a>
-			<button type="button" class="close" align="rignt" onClick="window.close()">닫기</button>
+			<!--닫힘버튼 <button type="button" class="close" align="rignt" onClick="window.close()">닫기</button> -->
 			</div>
 						
 		</div>	
 	</div>
 </div>
 
+<jsp:include page="/main_foot.jsp"></jsp:include>
 </body>
 </html>
