@@ -10,6 +10,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>마이페이지</title>
 </head>
+
 <body>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container " id="MypageMain">
@@ -24,7 +25,6 @@
       <br>
       <h4>개인정보관리</h4>
       <h5><a href="Mypagemodify.jsp"		target="content">개인정보 수정</a></h5>
-      <h5><a href="MypageEvent.jsp"			target="content">이벤트 당첨 내역</a></h5>
       <h5><a href="MypagePoint.jsp"			target="content">포인트 조회</a></h5>
       <h5><a href="Mypageout.jsp"			target="content">회원 탈퇴</a></h5>
       <br>
