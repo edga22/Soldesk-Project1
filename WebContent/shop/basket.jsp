@@ -30,7 +30,7 @@
                <div class="col-md-6">
                     <ul class="nav nav-tabs">
                        <li>
-                           <a href="/main.html">Home</a>
+                           <a href="/main.jsp">Home</a>
                        </li>
                        <li>
                            <a href="#">국내도서</a>
@@ -185,7 +185,7 @@ $(document).ready(function(){
 <!-- 주문 및 되돌아가기 -->
 <div class="row">
 	<div class="col-sm-7"></div>
-	<form action="../main.html">
+	<form action="/main.jsp">
 	<div class="col-sm-2"> 
     	<input type="submit" class="btn btn-default" value="쇼핑 계속하기"/>
     </div>
