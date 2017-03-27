@@ -60,7 +60,7 @@
                            <a href="/mypage/MypageMain.jsp">마이페이지</a> <span class="divider"></span>
                        </li>
                        <li>
-                           <a href="#">장바구니</a>
+                           <a href="/shop/basket.jsp">장바구니</a>
                        </li>
                    </ul>
                </div>
@@ -103,10 +103,11 @@
             </div>
             <div class="col-md-10">
                 <div class="btn-group">
-                   
+                   <a href="/shop/monthBestseller.jsp">
                     <button class="btn btn-default" type="button">
                         <em class="glyphicon glyphicon-align-left"></em> 베스트셀러
                     </button> 
+                    </a>
                     <button class="btn btn-default" type="button">
                         <em class="glyphicon glyphicon-align-center"></em> 새로나온책
                     </button> 
