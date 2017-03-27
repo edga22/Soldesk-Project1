@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../bookcafe.css">
 <title>베스트셀러</title>
 <style>
 #img{
@@ -19,16 +20,16 @@
 </style>
 </head>
 <body>
+
+<div class="container"> 
+<jsp:include page="/main_navbar.jsp"></jsp:include>
+</div>
+
+<div id="ebookBestseller">
 <!-- 시작 -->
 <div class="container"> 
-<!-- 베스트셀러 패널 -->
-<div class="panel panel-default"> 
-  <div class="panel-heading"><h2>베스트셀러</h2></div>
-</div> <!-- 베스트셀러 패널 -->
-
 <!-- 베스트셀러 탭 -->
 <div class="row">
-
 <!-- 탭 제목 -->
 <ul class="nav nav-tabs">
   <li><a href="monthBestseller.jsp">월간베스트</a></li>
@@ -59,7 +60,7 @@
  	  	<div class="col-sm-1"><input type="checkbox"/></div>
  	  	<div class="col-sm-2"><img id="img" src="img/book/buket1.PNG"/></div>
  	  	<div class="col-sm-7">
- 	  		<p><a href="../inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
+ 	  		<p><a href="/inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
  	  	</div>
  	  	<div class="col-sm-2">
  	  		<form action="basket.jsp">
@@ -76,7 +77,7 @@
  	  	<div class="col-sm-1"><input type="checkbox"/></div>
  	  	<div class="col-sm-2"><img id="img" src="img/book/buket1.PNG"/></div>
  	  	<div class="col-sm-7">
- 	  		<p><a href="../inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
+ 	  		<p><a href="/inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
  	  	</div>
  	  	<div class="col-sm-2">
  	  		<form action="basket.jsp">
@@ -102,5 +103,11 @@
 </div>
 </div> <!-- 베스트셀러 탭 내용 -->
 </div> <!-- 끝 -->
+</div>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

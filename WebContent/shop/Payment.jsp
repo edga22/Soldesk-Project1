@@ -11,8 +11,8 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<div class="container">
+<jsp:include page="/main_navbar.jsp"></jsp:include>
+<div class="container" id="Payment">
 <!-- 주문정보 확인창 -->
 	<h3>주문 상품 확인</h3>
 	<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">
@@ -24,19 +24,19 @@
 		<th>판 매 가(원)</th>
 		<th>수 량</th>
 		<th>합 계</th>
-		<th>적 립 금</th>
+		<th>적 립 금(p)</th>
 		<th>사 은 품</th>
 	  </tr>
 	 </thead>
 	 <tbody>	 	
 	  <tr>
-		<td><%=1  %></td>
-		<td><%=2  %></td>
-		<td><%=3  %></td>
-		<td><%=4  %></td>
-		<td><%=5  %></td>
-		<td><%=6  %></td>
-		<td><%=7  %></td>
+		<td><%="세계사"  %></td>
+		<td><%="14,000"  %></td>
+		<td><%="12,000"  %></td>
+		<td><%="1"  %></td>
+		<td><%="12,000"  %></td>
+		<td><%="120"  %></td>
+		<td><%="usb 충전기"  %></td>
 	  </tr>  			
 	 </tbody>
 	</table>	
@@ -76,6 +76,6 @@
 	
 	</form>		
 </div>
-
+<jsp:include page="/main_foot.jsp"></jsp:include>
 </body>
 </html>

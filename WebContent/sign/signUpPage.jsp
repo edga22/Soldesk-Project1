@@ -26,7 +26,7 @@
     </ul>
 	<div class="tab-content">
 		<div id="logIn" class="tab-pane fade in active">
-			<form action="login.jsp" method="post">
+			<form action="/main.jsp" method="post">
 			<div class="form-group">
 				<div class="col-sm-12" style="margin:30px 0 15px 0">
 					<input type="text" class="form-control" id="id" placeholder="ID를 입력하세요." required />
@@ -81,28 +81,22 @@
 			<h3>비밀번호를 찾으시나요?</h3>
 			<form action="findPassword.jsp" method="post">
 			<div class="form-group">
-				<label class="control-label col-sm-3" for="I">아이디 :</label>
+				<label class="control-label col-sm-3" for="I" style="margin-top:10px">아이디 :</label>
 				<div class="col-sm-9">
-					<input type="text" class="form-control" id="ID" placeholder="ID" required>
+					<input type="text" class="form-control" id="ID" placeholder="ID" style="margin-top:10px" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-3" for="name">성명 :</label>
+				<label class="control-label col-sm-3" for="name" style="margin-top:10px">성명 :</label>
 				<div class="col-sm-9">
-					<input type="text" class="form-control" id="name" placeholder="name" required>
+					<input type="text" class="form-control" id="name" placeholder="name" style="margin-top:10px" required>
+				</div>
+				<label class="control-label col-sm-3" for="name" style="margin-top:10px">생년월일 :</label>
+				<div class="col-sm-9">
+					<input type="number" class="form-control" id="" placeholder="ex)19890914" style="margin-top:10px" required>
 				</div>
 			</div>
-			
-			<div class="col-sm-4">
-				<button type="button" class="btn btn-default" style="margin-top:10px">휴대폰 인증</button>
-			</div>
-			<div class="col-sm-4">
-				<button type="button" class="btn btn-default" style="margin-top:10px">아이핀 인증</button>
-			</div>
-			<div class="col-sm-4">
-				<input type="checkbox" id="phoneCheck"  style="margin-top:10px"/> 확인되었습니다.
-			</div>
-			<div class="bnt-default">
+`			<div class="bnt-default">
 		 		<div class="col-sm-12">
 		 			<input type="submit" class="btn btn-primary" style="margin-top:30px" value="비밀번호 찾기">
 		 		</div>

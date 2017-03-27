@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
+	<div id="MypagePoint">
 		<div class="row">			
 			<div class="col-sm-12">
 				<h3>포인트 마일리지 보유 현황</h3>
@@ -31,11 +31,11 @@
 							for(int i=0; i<temp ; i++){
 						%>
 						<tr>
-							<th><%= temp%></th>
-							<th><%= temp%></th>
-							<th><%= temp%></th>
-							<th><%= temp%></th>
-							<th><%= temp%></th>
+							<th><%= "구분"%></th>
+							<th><%= "2017-03-27"%></th>
+							<th><%= "세부내용"%></th>
+							<th><%= "1820p"%></th>
+							<th><%= "4000p"%></th>
 						</tr>
 						<%	} %>						
 					</tbody>

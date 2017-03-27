@@ -15,7 +15,7 @@
       <h2>반품/교환 내역 조회</h2>
       <h3>-반품환불:</h3>
       <div align="right">
-       <button type="button">반품/교환신청</button>
+       <a href="mypagerefundDetail.jsp" target="_blank" class="btn btn-primary">반품/교환신청</a>
        </div>
       <table class="table table-hover">
 	<thead>
@@ -33,11 +33,11 @@
 	for(int i = 0; i< temp ; i++){
 %>	
 		<tr>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
+			<td><%="2017-01-12"%></td>
+			<td><%=123 %></td>
+			<td><%="택배" %></td>
+			<td><%="배송중"%></td>
+			<td><%="조회" %></td>
 		</tr>
 <%
 	}

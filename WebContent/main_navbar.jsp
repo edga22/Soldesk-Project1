@@ -29,7 +29,7 @@
                <div class="col-md-6">
                     <ul class="nav nav-tabs">
                        <li class="active">
-                           <a>Home</a>
+                           <a href="/main.jsp">Home</a>
                        </li>
                        <li>
                            <a href="#">국내도서</a>
@@ -51,16 +51,16 @@
                            <a href="main.html">로그아웃</a> <span class="divider"></span>
                        </li-->
                        <li>
-                           <a href="sign/signUpPage.jsp">로그인</a> <span class="divider"></span>
+                           <a href="/sign/signUpPage.jsp">로그인</a> <span class="divider"></span>
                        </li>
                        <li>
-                           <a href="sign/signIn.jsp">회원가입</a> <span class="divider"></span>
+                           <a href="/sign/signIn.jsp">회원가입</a> <span class="divider"></span>
                        </li>
                        <li>
-                           <a href="#">마이페이지</a> <span class="divider"></span>
+                           <a href="/mypage/MypageMain.jsp">마이페이지</a> <span class="divider"></span>
                        </li>
                        <li>
-                           <a href="#">장바구니</a>
+                           <a href="/shop/basket.jsp">장바구니</a>
                        </li>
                    </ul>
                </div>
@@ -73,7 +73,7 @@
     <div class="container-fluid">      
         <div class="row">
             <div class="col-md-2">
-              <a class="navbar-brand" href="#"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
+              <a class="navbar-brand" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
             </div>        
                           
             <div class="col-md-7">              
@@ -86,7 +86,7 @@
                     </select>
                     <input type="text" class="form-control" id="search" />                            
                     <button type="submit" class="btn btn-primary">검색</button>
-                    <button type="button" class="btn btn-link"><strong>상세검색</strong></button>
+                    <button type="button" class="btn btn-link" style="display:none;"><strong>상세검색</strong></button>
                 </form>
             </div>
             <div class="col-md-3">
@@ -98,19 +98,20 @@
         <div class="row">
             <div class="col-md-2">               
                 <button id="allMenu" type="button" class="btn btn-default">
-                    전체카타고리
+                   	 전체카타고리
                 </button>
             </div>
             <div class="col-md-10">
                 <div class="btn-group">
-                   
+                   <a href="/shop/monthBestseller.jsp">
                     <button class="btn btn-default" type="button">
                         <em class="glyphicon glyphicon-align-left"></em> 베스트셀러
                     </button> 
-                    <button class="btn btn-default" type="button">
+                    </a>
+                    <button class="btn btn-default" type="button" style="display:none;">
                         <em class="glyphicon glyphicon-align-center"></em> 새로나온책
                     </button> 
-                    <button class="btn btn-default" type="button">
+                    <button class="btn btn-default" type="button" style="display:none;">
                         <em class="glyphicon glyphicon-align-right"></em> 이벤트
                     </button> 
                     <button class="btn btn-default" type="button">
