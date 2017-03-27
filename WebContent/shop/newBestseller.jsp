@@ -44,13 +44,15 @@
 <div class="tab-content"> 
   <div class="tab-pane fade in active">
   	<div class="row">
-    	<h3 class="col-sm-10">신간베스트</h3>
+    	<h3 class="col-sm-8">신간베스트</h3>
     	<div class="col-sm-2">
-    		<form action="basket.jsp">
-    			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
+       		<form action="basket.jsp">
+    			<input type="submit" class="btn btn-default" value="장바구니에 담기">
     		</form>
+    	</div>
+    	<div class="col-sm-2">
     		<form action="Payment.jsp">
- 	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
+ 	  			<input type="submit" class="btn btn-default" value="바로구매">
  	  		</form>
  	  	</div>
     </div>
@@ -60,7 +62,7 @@
  	  <li class="list-group-item"> 
  	  <div class="row">
  	  	<div class="col-sm-1"><input type="checkbox"/></div>
- 	  	<div class="col-sm-2"><img id="img" src="img/book/buket1.PNG"/></div>
+ 	  	<div class="col-sm-2"><img id="img" src="http://lorempixel.com/140/180"/></div>
  	  	<div class="col-sm-7">
  	  		<p><a href="/inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
  	  	</div>
@@ -77,7 +79,7 @@
  	  <li class="list-group-item"> 
  	  <div class="row">
  	  	<div class="col-sm-1"><input type="checkbox"/></div>
- 	  	<div class="col-sm-2"><img id="img" src="img/book/buket1.PNG"/></div>
+ 	  	<div class="col-sm-2"><img id="img" src="http://lorempixel.com/140/180"/></div>
  	  	<div class="col-sm-7">
  	  		<p><a href="/inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
  	  	</div>
@@ -106,10 +108,6 @@
 </div> <!-- 베스트셀러 탭 내용 -->
 </div> <!-- 끝 -->
 </div>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<jsp:include page="/main_foot.jsp"></jsp:include>
 </body>
 </html>

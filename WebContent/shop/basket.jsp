@@ -12,75 +12,10 @@
 <title>장바구니</title>
 </head>
 <body>
-<div class="container"> <!-- 시작 -->
-<div id="topheader" class="container-fluid">
-    <div class="row">
-       <div class="col-sm-6 text-right" style="background-color:#ffd11a;height:70px;">
-         <h2 style="margin-right:7%"><span class="glyphicon">&#xe233;</span> 북앤카페 새학기 맞이 대잔치</h2>
-       </div>
-       <div class="col-sm-6 text-left" style="background-color:#ff99bb;height:70px;">
-         <h2 style="margin-left:7%"><span class="glyphicon">&#xe103;</span> 봄도 독서의 계절, 졸음싹 커피</h2>
-       </div>
-    </div>
-</div>
-<nav id="topheaderwrap" class="headerwrap" data-spy="affix" data-offset-top="97">
-    <div class="row" id="wrap">
-       <div class="col-md-12"> 
-           <div class="row" >
-               <div class="col-md-6">
-                    <ul class="nav nav-tabs">
-                       <li>
-                           <a href="/main.jsp">Home</a>
-                       </li>
-                       <li>
-                           <a href="#">국내도서</a>
-                       </li>
-                       <li>
-                           <a href="#">외국도서</a>
-                       </li>
-                       <li>
-                           <a href="#">eBook</a>
-                       </li>                                                            
-                   </ul>
-               </div>
-               <div class="col-md-6 text-right">
-                   <ul class="breadcrumb" style="height:36px">
-                        <!--  li>
-                           <span class="member_rate"> 회원등급 </span> <a href="main.html"><b>회원아이디</b>님</a> <span class="divider"></span>
-                       </li>
-                       <li>
-                           <a href="main.html">로그아웃</a> <span class="divider"></span>
-                       </li-->
-                       <li>
-                           <a href="/sign/signUpPage.jsp">로그인</a> <span class="divider"></span>
-                       </li>
-                       <li>
-                           <a href="/sign/signIn.jsp">회원가입</a> <span class="divider"></span>
-                       </li>
-                       <li>
-                           <a href="/mypage/MypageMain.jsp">마이페이지</a> <span class="divider"></span>
-                       </li>
-                       <li>
-                           <a href="basket.jsp">장바구니</a>
-                       </li>
-                   </ul>
-               </div>
-           </div>
-       </div>
-    </div>
-</nav>
-<script> 
-$(document).ready(function(){
-    $("#allMenu").click(function(){
-        $("#allMenuPannel").slideToggle("slow");
-    });
-});
-</script>
-<!-- 공통 상단 끝 -->
-</div>
+<jsp:include page="/main_navbar.jsp"></jsp:include>
 
-<div id="basket">
 <div class="container"> 
+<div id="basket">
 <!-- 장바구니 패널 -->
 <div class="panel panel-default"> 
   <div class="panel-heading"><h2>장바구니</h2></div>
@@ -111,15 +46,15 @@ $(document).ready(function(){
     <tbody>
       <tr> 
       	<td><input type="checkbox" name="#"/></td>
-        <td><img src="img/book/buket1.PNG"/>
+        <td><img src="http://lorempixel.com/140/180"/>
         	[국내도서] 책 제목
         </td>
         <td><p><s>정가</s></p> <p>판매가[10%↓]</p> <p>포인트P</p>
         </td>
         <td>
         <form action="#">
-          <input type="number" name="#"/>
-       	  <input type="button" class="btn btn-default btn-block" value="변경"/>
+          <input type="number" name="#" min="1" value="1"/>
+       	  <input type="button" class="btn btn-default btn-sm" size="2" value="변경"/>
        	</form>
         </td>
         <td><strong>합계</strong></td>
@@ -128,19 +63,18 @@ $(document).ready(function(){
     		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
 		</form>
 		<button type="button" class="btn btn-default btn-block">삭제</button></td>
-        </td>
       </tr>
       <tr>
       	<td><input type="checkbox" name="#"/></td>
-        <td><img src="img/book/buket1.PNG"/>
+        <td><img src="http://lorempixel.com/140/180"/>
         	[국내도서] 책 제목
         </td>
         <td><p><s>정가</s></p> <p>판매가[10%↓]</p> <p>포인트P</p>
         </td>
         <td>
         <form action="#">
-          <input type="number" name="#"/>
-       	  <input type="button" class="btn btn-default btn-block" value="변경"/>
+          <input type="number" name="#" min="1" value="1"/>
+       	  <input type="button" class="btn btn-default btn-sm" value="변경"/>
        	</form>
         </td>
         <td><strong>합계</strong></td>
@@ -199,10 +133,6 @@ $(document).ready(function(){
 </div> <!-- 주문 및 되돌아가기 -->
 </div> <!-- 끝 -->
 </div>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<jsp:include page="/main_foot.jsp"></jsp:include>
 </body>
 </html>
