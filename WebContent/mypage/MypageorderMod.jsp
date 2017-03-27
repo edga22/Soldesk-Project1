@@ -30,10 +30,10 @@
 	for(int i = 0; i< temp ; i++){
 %>	
 		<tr>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
+			<td><%="2016-01-18"%></td>
+			<td><%=123457 %></td>
+			<td><%="송성우" %></td>
+			<td><%="Java의 정석" %></td>
 			<td><a href="#">상세조회</a></td>
 		</tr>
 <%

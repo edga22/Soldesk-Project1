@@ -55,8 +55,10 @@
 	<div class="col-md-2" id="cate-side">
 		<div class="inSearch-group">			
 			<p>결과 내 검색</p>
-			<input type="text" style="width : 75%;">
-			<a class="btn btn-default btn-sm"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>			
+			<form action="">
+			<input type="text" style="width : 75%;" name="insearch">
+			<button class="btn btn-default btn-sm" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>	
+			</form>		
 		</div>
 		<div class="cate-group">		
 			<p>카테고리 선택</p>
@@ -80,16 +82,16 @@
 			</select>
 			</div>
 		</div>
-		<form action="/shop/Payment.jsp">
+		
 		<%for(int i=1;i<=5;i++){ %>
 		<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
 			<div class="col-md-1">
 				<p><%=i %></p>
 				<input type="checkbox" name="bookID" value="<%=i %>">
 			</div>
-			<div class="col-md-2"><img src="http://lorempixel.com/140/180"></div>
+			<div class="col-md-2"><a href="/inven/BookDetail.jsp?=bookID=<%=i%>"><img src="http://lorempixel.com/140/180"></a></div>
 			<div class="col-md-7">
-				<h3>책 제목<%=i %></h3>
+				<h3><a href="/inven/BookDetail.jsp?bookID=<%=i%>">책 제목<%=i %></a></h3>
 				<p>저자 : 저자<%=i %>  옮긴이 : 옮긴이 <%=i %>  출판사 : 시공출판사</p>
 				<ul>
 					<li>10000원 -> 9000원</li>
@@ -98,12 +100,12 @@
 				</ul>
 			</div>
 			<div class="col-md-2">
-				<p><button class="btn btn-default">장바구니 추가</button></p>
-				<p><button class="btn btn-default" type="submit" name="bookID" value="<%=i %>">바로 구매</button></p>
+				<p><a class="btn btn-default" href="/shop/basket.jsp?BookID=<%=i%>">장바구니 추가</a></p>
+				<p><a class="btn btn-default" href="/shop/Payment.jsp?BookID=<%=i%>">바로 구매</a></p>
 			</div>
 		</div>
 		<%} %>
-		</form>
+		
 	</div><!-- result -->
 </div>
 

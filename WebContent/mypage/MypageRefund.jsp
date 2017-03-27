@@ -33,11 +33,11 @@
 	for(int i = 0; i< temp ; i++){
 %>	
 		<tr>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
-			<td><%=temp %></td>
+			<td><%="2017-01-12"%></td>
+			<td><%=123 %></td>
+			<td><%="택배" %></td>
+			<td><%="배송중"%></td>
+			<td><%="조회" %></td>
 		</tr>
 <%
 	}
