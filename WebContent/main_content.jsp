@@ -1,17 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC>
-<html>
-<head>
-<meta charset="utf-8">
 
-</head>
-<body>
 <!-- 메인 화면 시작 -->   
 <section id="section">
     <div class="row">
         <div class="col-md-12">
-            <div id="myCarousel" class="panel panel-default">
+            <div id="myCarousel" class="panel panel-default" onmouseout="startSlides()">
                 <div class="slideshow-container panel-body">                                      
                     <div class="mySlides fade slide-4" onmouseover="stopSlides(1)">                     
                         <img alt="slide-MD초이스1" src="./img/main/170228_book01.png" />
@@ -48,9 +42,7 @@
                         <img alt="slide-bar" class="eb1" src="./img/main/ev_line.png" />
                         <img alt="slide-e-Book3" src="./img/main/170307_ebookgoods.jpg" />
                         <div class="text">e-Book</div>
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>               
+                    </div>               
                 </div>
                 <div class="col-md-12 text-center panel-footer" id="slideshow_list">
                    <ul class="slideshow_list">
@@ -368,14 +360,11 @@
 </section>
 <script>
 var slideIndex = 0;
-showSlides(slideIndex);
+var slideStart = true;
+showSlides();
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+if(slideStart != true) { 
+    showSlides(slideIndex);
 }
 
 function showSlides() {
@@ -383,26 +372,33 @@ function showSlides() {
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
     for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
+       slides[i].style.display = "none";
+       dots[i].className = dots[i].className.replace(" active", "");
     }
-    slideIndex++;
-    if (slideIndex> slides.length) {slideIndex = 1}    
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+    if (slideStart == true){
+	    slideIndex++;    
+	    if (slideIndex> slides.length) {slideIndex = 1}
     }
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 3000); // Change image every 2 seconds
+    
+    if (slideStart == true){
+        setTimeout(showSlides, 3000);
+    }
 }
 
 function stopSlides(n) {
+	slideStart = false;
 	clearTimeout(showSlides);
-    showSlides(slideIndex = n-1);
-    slideIndex = n-1;
+	showSlides(slideIndex = n);
 }
+
+function startSlides() {
+    slideStart = true;
+}
+
 </script>
 <!-- 메인 화면 끝 -->
-
 
 </body>
 </html>
