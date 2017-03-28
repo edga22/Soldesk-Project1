@@ -12,6 +12,7 @@
 </head>
 <body>
 
+<div id="BookMod">
 <h2>도서 수정 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
@@ -38,7 +39,7 @@ for(int i=0;i<temp;i++){
 %>	  			
 	 </tbody>
 	</table>	
-
+</div>
 
 
 </body>

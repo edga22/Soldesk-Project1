@@ -11,7 +11,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<div id="BL">
 <h2>도서 검색 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
@@ -46,6 +46,6 @@ if( bookName.equals("책이름")){
 %>
 	 </tbody>
 	</table>
-
+</div>
 </body>
 </html>

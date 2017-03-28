@@ -12,6 +12,7 @@
 </head>
 <body>
 
+<div id="BLA">
 <h2>전체 도서 검색 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
@@ -38,6 +39,6 @@ for(int i=0;i<temp;i++){
 %>
 	 </tbody>
 	</table>
-
+</div>
 </body>
 </html>

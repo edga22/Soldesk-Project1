@@ -7,6 +7,8 @@
 <title>책 삭제하기</title>
 </head>
 <body>
+
+<div id="BDel">
 <%
  String bookName = "책이름";
 
@@ -20,6 +22,6 @@ if( bookName.equals("책이름")){
 <%
 }
 %>
-
+</div>
 </body>
 </html>

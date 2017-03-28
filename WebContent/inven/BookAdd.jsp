@@ -12,7 +12,7 @@
 </head>
 <body>
 
-
+<div id="BAdd">
 <h2>도서 추가 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
@@ -29,17 +29,17 @@ int temp=1;
 for(int i=0;i<temp;i++){	
 %>	 	
 	  <tr>
-		<th><%=1  %></th>
-		<th><%=2  %></th>
-		<th><%=3  %></th>
-		<th><%=4  %></th>
+		<th><%="LOL브금실탈출"  %></th>
+		<th><%="솔북스"  %></th>
+		<th><%="송성우"  %></th>
+		<th><%="1,500"  %></th>
 	  </tr>
 <%
 }
 %>	  			
 	 </tbody>
 	</table>	
-
+</div>
 
 </body>
 </html>
