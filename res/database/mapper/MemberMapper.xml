@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="config.MemberMapper">
+	<resultMap id="MemberMap" type="domain.Member">
+		<id		property="memberId"		column="MEMBER_ID"/>
+		<result	property="email"		column="EMAIL"/>
+		<result property="password"		column="PASSWD"/>
+		<result property="name"			column="NAME"/>
+		<result property="birthday"		column="BIRTH_DAY"/>
+		<result property="postCode"		column="POSTCODE"/>
+		<result property="address"		column="ADDRESS"/>
+		<result property="phone"		column="PHONE"/>
+		<result property="bonusPoint"	column="BONUS_POINT"/>
+	</resultMap>
+	
+	<select id="getMembers" resultMap="MemberMap">
+		select * from members order by member_id
+	</select>
+	
+	<select id="getMember" parameterType="domain.Member" resultMap="MemberMap">
+		select * from members where member_id =#{memberID}
+	</select>
+	
+	<select id="addMember" parameterType="domain.Member">
+		insert into members(member_id, email, passwd, name, birth_day, postcode, address, phone)
+		values(member_id_seq.nextval, #{email,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR}
+				#{name,jdbcType=VARCHAR},#{birthday,jdbcType=date},#{postCode,jdbcType=number}, 
+				#{address,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR})
+	</select>
+	
+	<select id="findIdMember" parameterType="domain.Member">
+		select email from members where name=#{name} and birth_day =# {birthday}
+	</select>
+	
+	<select id="findPwMember" parameterType="domain.Member">
+		select passwd from members where email=#{email} and name=#{name} and birth_day=#{birthday}
+	</select>
+</mapper>
