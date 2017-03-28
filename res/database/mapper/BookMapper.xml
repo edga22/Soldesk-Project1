@@ -13,6 +13,10 @@
 		<result	property="imageID"	column="IMAGE_ID" />
 	</resultMap>
 	
+	<select id="getTitleBook" resultMap="BookMap">
+		SELECT * FROM Books WHERE book_name LIKE '%'||#{title}||'%' ORDER BY publish_date
+	</select>
+	
 	<select id="getBooks" resultMap="BookMap">
 		SELECT * FROM Books ORDER BY book_ID
 	</select>
