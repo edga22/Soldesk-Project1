@@ -29,7 +29,11 @@
 				#{address,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR})
 	</select>
 	
-	<select id="findMember" parameterType="domain.Member">
-		select email from members where name=#{name} and birth_day#{birthday}
+	<select id="findIdMember" parameterType="domain.Member">
+		select email from members where name=#{name} and birth_day =# {birthday}
+	</select>
+	
+	<select id="findPwMember" parameterType="domain.Member">
+		select passwd from members where email=#{email} and name=#{name} and birth_day=#{birthday}
 	</select>
 </mapper>
