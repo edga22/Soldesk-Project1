@@ -20,10 +20,7 @@
 </style>
 </head>
 <body>
-
-<div class="container"> 
 <jsp:include page="/main_navbar.jsp"></jsp:include>
-</div>
 
 <div id="monthBestseller">
 <!-- 시작 -->

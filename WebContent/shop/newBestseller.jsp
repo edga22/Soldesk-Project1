@@ -20,10 +20,7 @@
 </style>
 </head>
 <body>
-
-<div class="container"> 
 <jsp:include page="/main_navbar.jsp"></jsp:include>
-</div>
 
 <!-- 공통 상단 끝 -->
 <div id="newBestseller">
