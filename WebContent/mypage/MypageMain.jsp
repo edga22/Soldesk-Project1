@@ -25,7 +25,7 @@
       <h5><a href="Mypageout.jsp">회원 탈퇴</a></h5>
       <br>
       <br>
-      <h4>고객센터</h4>
+      <h4>고객센터</h4> 
       <h5><a href="MypageQuestion.jsp">자주 묻는 질문</a></h5>
       <h5><a href="MypageUserInquire.jsp">1:1문의</a></h5>
     </div> 
