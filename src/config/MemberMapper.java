@@ -8,6 +8,6 @@ public interface MemberMapper {
 	List<Member> getMembers();
 	Member getMember(int memberID);
 	int addMember(int MemberID);
-	int updateMember(Member Email);
+	int findMember(Member Email);
 	int delMember(int MemberID);
 }

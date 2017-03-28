@@ -6,6 +6,9 @@
 		<id		property="memberId"		column="MEMBER_ID"/>
 		<result	property="email"		column="EMAIL"/>
 		<result property="password"		column="PASSWD"/>
+		<result property="name"			column="NAME"/>
+		<result property="birthday"		column="BIRTH_DAY"/>
+		<result property="postCode"		column="POSTCODE"/>
 		<result property="address"		column="ADDRESS"/>
 		<result property="phone"		column="PHONE"/>
 		<result property="bonusPoint"	column="BONUS_POINT"/>
@@ -20,8 +23,13 @@
 	</select>
 	
 	<select id="addMember" parameterType="domain.Member">
-		insert into members(member_id, email, passwd, address, phone, bonus_point)
+		insert into members(member_id, email, passwd, name, birth_day, postcode, address, phone)
 		values(member_id_seq.nextval, #{email,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR}
-				,#{address,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{bonusPoint,jdbcType=NUMBER})
+				#{name,jdbcType=VARCHAR},#{birthday,jdbcType=date},#{postCode,jdbcType=number}, 
+				#{address,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR})
+	</select>
+	
+	<select id="findMember" parameterType="domain.Member">
+		select email from members where name=#{name} and birth_day#{birthday}
 	</select>
 </mapper>
