@@ -84,6 +84,9 @@ body {
 }
 /* 최상단 메뉴 끝 */
 /* 최상단 로고 검색창 */
+#headerwrap {
+    margin-bottom:10px;	
+}
 #headerwrap .navbar-brand {
     font-size:2.6rem;
     color:#0275d8;
@@ -132,6 +135,7 @@ headerwrap .navbar-form #search {
   position: relative;
   margin: auto;
   background-color:#FFF;
+  border:1px solid #0275d8;
 }
 .allMenu_list {
 	display: inline;
