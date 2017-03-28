@@ -19,10 +19,10 @@
             <div class="footer_header">
                 <ul class="breadcrumb">
                    <li>
-                       <a href="#">회사소개</a>
+                       <a href="/sign/instroCop.jsp">회사소개</a>
                    </li>
                    <li>
-                       <a href="#">이용약관</a>
+                       <a href="/sign/accessTerm.jsp">이용약관</a>
                    </li>
                    <li>
                        <a href="#">개인정보취급방침</a> 
