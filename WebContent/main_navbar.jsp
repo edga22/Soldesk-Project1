@@ -33,13 +33,13 @@
                            <a href="/main.jsp">Home</a>
                        </li>
                        <li>
-                           <a href="#">국내도서</a>
+                           <a href="/mainCategory.jsp">국내도서</a>
                        </li>
                        <li>
-                           <a href="#">외국도서</a>
+                           <a href="/mainCategory.jsp">외국도서</a>
                        </li>
                        <li>
-                           <a href="#">eBook</a>
+                           <a href="/mainCategory.jsp">eBook</a>
                        </li>                                                            
                    </ul>
                </div>
