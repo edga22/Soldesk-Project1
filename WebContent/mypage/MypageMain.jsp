@@ -29,6 +29,6 @@
       <h5><a href="MypageQuestion.jsp">자주 묻는 질문</a></h5>
       <h5><a href="MypageUserInquire.jsp">1:1문의</a></h5>
     </div> 
-
+                                     
 </body>
 </html>

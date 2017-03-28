@@ -14,6 +14,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/main_navbar.jsp"></jsp:include>
+
 	<div id="MypageUserInquire">
 	<h3 style="text-align:center">1:1 문의</h3>
 		<form class="form-horizontal">

@@ -29,7 +29,7 @@
 			<td><%=152%></td>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody>          
 		<tr>
 			<th>아이디</th>
 			<td><%="mosa10"%></td>
