@@ -11,7 +11,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/main_navbar.jsp"></jsp:include>
+
 <div class="container">
+	<div class="row content">
+    	<div class="col-sm-2 sidenav">
+			<jsp:include page="/mypage/MypageMain.jsp"></jsp:include>
+		</div>
+<div class="col-sm-10">
       <h2>개인정보 수정</h2>
       <br>
       <h4>회원정보</h4>
@@ -55,10 +62,12 @@
 			<th>비밀번호</th>
 			<td><input type="button"class="btn btn-default"name="" value="비밀번호변경"></td>
 		</tr>
-		
 	</tbody>
 	</table>
      <input type="submit" name=""class="btn btn-primary" value="수정완료">
   </div>
+  </div>
+  </div>
+  <jsp:include page="/main_foot.jsp"></jsp:include>
 </body>
 </html>

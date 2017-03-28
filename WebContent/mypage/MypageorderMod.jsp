@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,7 +11,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/main_navbar.jsp"></jsp:include>
 
+<div class="container">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+		<jsp:include page="/mypage/MypageMain.jsp"></jsp:include>
+    </div>
+  <div class="col-sm-10">
       <h2>주문조회/변경/취소</h2>
       <h3>-배송문의:CJ대한통운</h3>
       <table class="table table-hover">
@@ -26,12 +33,12 @@
 	</thead>
 	<tbody>
 <%  
-	int temp=1;
+	int temp=2;
 	for(int i = 0; i< temp ; i++){
 %>	
 		<tr>
 			<td><%="2016-01-18"%></td>
-			<td><%=123457 %></td>
+			<td><%="1234-57" %></td>
 			<td><%="송성우" %></td>
 			<td><%="Java의 정석" %></td>
 			<td><a href="#">상세조회</a></td>
@@ -41,6 +48,9 @@
 %>		
 	</tbody>
 	</table>
-
+	</div>
+	</div>
+</div>
+<jsp:include page="/main_foot.jsp"></jsp:include>
 </body>
 </html>

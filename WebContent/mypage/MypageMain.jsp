@@ -10,34 +10,25 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>마이페이지</title>
 </head>
-
 <body>
-<jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container " id="MypageMain">
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
       <h3>My Account</h3>
       <br>
       <h4>주문내역</h4>
-      <h5><a href="MypageorderMod.jsp"		target="content">주문조회/변경/취소</a></h5>
-      <h5><a href="MypageRefund.jsp"		target="content">반품/교환내역</a></h5>
+      <h5><a href="MypageorderMod.jsp">주문조회/변경/취소</a></h5>
+      <h5><a href="MypageRefund.jsp">반품/교환내역</a></h5>
       <br>
       <br>
       <h4>개인정보관리</h4>
-      <h5><a href="Mypagemodify.jsp"		target="content">개인정보 수정</a></h5>
-      <h5><a href="MypagePoint.jsp"			target="content">포인트 조회</a></h5>
-      <h5><a href="Mypageout.jsp"			target="content">회원 탈퇴</a></h5>
+      <h5><a href="Mypagemodify.jsp">개인정보 수정</a></h5>
+      <h5><a href="MypagePoint.jsp">포인트 조회</a></h5>
+      <h5><a href="Mypageout.jsp">회원 탈퇴</a></h5>
       <br>
       <br>
       <h4>고객센터</h4>
-      <h5><a href="MypageQuestion.jsp"		target="content">자주 묻는 질문</a></h5>
-      <h5><a href="MypageUserInquire.jsp"	target="content">1:1문의</a></h5>
+      <h5><a href="MypageQuestion.jsp">자주 묻는 질문</a></h5>
+      <h5><a href="MypageUserInquire.jsp">1:1문의</a></h5>
     </div> 
-    <div class="col-sm-10">
-<iframe name="content"style="border:none;width:100%;height:75rem;"></iframe>
-    </div>
-</div>
-</div>
-<jsp:include page="/main_foot.jsp"></jsp:include>
+
 </body>
 </html>

@@ -10,8 +10,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
-<body>
 
+<body>
+<jsp:include page="/main_navbar.jsp"></jsp:include>
+<div class="container">
+<div class="row content">
+    <div class="col-sm-2 sidenav">
+<jsp:include page="MypageMain.jsp"></jsp:include>
+</div>
+
+	<div class="col-sm-10">
       <h2>반품/교환 내역 조회</h2>
       <h3>-반품환불:</h3>
       <div align="right">
@@ -44,5 +52,9 @@
 %>		
 	</tbody>
 	</table>
+	</div>
+	</div>
+</div>
 </body>
+<jsp:include page="/main_foot.jsp"></jsp:include>
 </html>

@@ -11,9 +11,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="MypagePoint">
-		<div class="row">			
-			<div class="col-sm-12">
+<jsp:include page="/main_navbar.jsp"></jsp:include>
+
+<div class="container">
+	<div class="row content">
+    	<div class="col-sm-2 sidenav">
+			<jsp:include page="MypageMain.jsp"></jsp:include>
+		</div>
+
+	<div id="MypagePoint">		
+			<div class="col-sm-10">
 				<h3>포인트 마일리지 보유 현황</h3>
 				<table class="table table-condensed">
 					<thead>
@@ -40,8 +47,10 @@
 						<%	} %>						
 					</tbody>
 				</table>
+				</div>
 			</div>
 		</div>		
 	</div>
+	<jsp:include page="/main_foot.jsp"></jsp:include>
 </body>
 </html>
