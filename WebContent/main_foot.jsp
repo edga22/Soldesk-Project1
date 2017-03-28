@@ -19,10 +19,10 @@
             <div class="footer_header">
                 <ul class="breadcrumb">
                    <li>
-                       <a href="/sign/instroCop.jsp">회사소개</a>
+                       <a href="/sign/instroCop.jsp">회사소개</a>                   
                    </li>
                    <li>
-                       <a href="/sign/accessTerm.jsp">이용약관</a>
+                       <a href="/sign/accessTerm.jsp">이용약관</a>                   
                    </li>
                    <li>
                        <a href="#">개인정보취급방침</a> 
@@ -31,11 +31,8 @@
                        <a href="#">고객센터</a> 
                    </li>
                    <li>
-                       <a href="#">판매자 매니저</a> 
-                   </li>
-                   <li>
-                       <a href="#">학교/기업/기관 대량구매</a>
-                   </li>             
+                       <a href="/admin/index.jsp">판매자 매니저</a> 
+                   </li>                                
                    <li style="float:right">
                        <a href="#">▲TOP</a>
                    </li>
