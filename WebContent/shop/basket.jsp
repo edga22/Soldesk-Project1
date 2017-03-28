@@ -26,7 +26,7 @@
 <table class="table table-hover">
     <thead>
       <tr>
-      	<th ></th>
+      	<th class="col-sm-1"></th>
         <th class="col-sm-3">상품명</th>
         <th class="col-sm-2">가격</th>
         <th class="col-sm-2">수량</th>
@@ -34,14 +34,14 @@
         <th class="col-sm-2">선택</th>
       </tr>
     </thead>
+    
     <tbody>
       <tr> 
       	<td><input type="checkbox" name="#"/></td>
         <td><img src="http://lorempixel.com/140/180"/>
         	[국내도서] 책 제목
         </td>
-        <td><p><s>정가</s></p> <p>판매가[10%↓]</p> <p>포인트P</p>
-        </td>
+        <td><p><s>정가</s></p> <p>판매가[10%↓]</p> <p>포인트P</p></td>
         <td>
         <form action="#">
           <input type="number" name="#" min="1" value="1"/>
@@ -50,18 +50,19 @@
         </td>
         <td><strong>합계</strong></td>
         <td>
-        <form action="Payment.jsp">
+        <form action="/shop/Payment.jsp">
     		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
 		</form>
-		<button type="button" class="btn btn-default btn-block">삭제</button></td>
+		<button type="button" class="btn btn-default btn-block">삭제</button>
+		</td>
       </tr>
+      
       <tr>
       	<td><input type="checkbox" name="#"/></td>
         <td><img src="http://lorempixel.com/140/180"/>
         	[국내도서] 책 제목
         </td>
-        <td><p><s>정가</s></p> <p>판매가[10%↓]</p> <p>포인트P</p>
-        </td>
+        <td><p><s>정가</s></p> <p>판매가[10%↓]</p> <p>포인트P</p></td>
         <td>
         <form action="#">
           <input type="number" name="#" min="1" value="1"/>
@@ -70,7 +71,7 @@
         </td>
         <td><strong>합계</strong></td>
         <td>
-        <form action="Payment.jsp">
+        <form action="/shop/Payment.jsp">
     		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
 		</form>
         <button type="button" class="btn btn-default btn-block">삭제</button></td>
@@ -116,7 +117,7 @@
     </div>
     </form>
     
-    <form action="Payment.jsp">
+    <form action="/shop/Payment.jsp">
 	<div class="col-sm-2"> 
     	<input type="submit" class="btn btn-default" value="주문하기"/>
 	</div>
@@ -124,5 +125,4 @@
 </div> <!-- 주문 및 되돌아가기 -->
 </div> <!-- 끝 -->
 </div>
-
 <jsp:include page="/main_foot.jsp"></jsp:include>

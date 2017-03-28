@@ -31,9 +31,9 @@
 
 <!-- 탭 제목 -->
 <ul class="nav nav-tabs">
-  <li><a href="monthBestseller.jsp">월간베스트</a></li>
-  <li class="active"><a href="newBestseller.jsp">신간베스트</a></li>
-  <li><a href="ebookBestseller.jsp">E-book</a></li>
+  <li><a href="/shop/monthBestseller.jsp">월간베스트</a></li>
+  <li class="active"><a href="/shop/newBestseller.jsp">신간베스트</a></li>
+  <li><a href="/shop/ebookBestseller.jsp">E-book</a></li>
 </ul>
 </div> <!-- 탭 제목 -->
 
@@ -43,12 +43,12 @@
   	<div class="row">
     	<h3 class="col-sm-8">신간베스트</h3>
     	<div class="col-sm-2">
-       		<form action="basket.jsp">
+       		<form action="/shop/basket.jsp">
     			<input type="submit" class="btn btn-default" value="장바구니에 담기">
     		</form>
     	</div>
     	<div class="col-sm-2">
-    		<form action="Payment.jsp">
+    		<form action="/shop/Payment.jsp">
  	  			<input type="submit" class="btn btn-default" value="바로구매">
  	  		</form>
  	  	</div>
@@ -64,10 +64,10 @@
  	  		<p><a href="/inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
  	  	</div>
  	  	<div class="col-sm-2">
- 	  		<form action="basket.jsp">
+ 	  		<form action="/shop/basket.jsp">
     			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
-    		<form action="Payment.jsp">
+    		<form action="/shop/Payment.jsp">
  	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
  	  		</form>
  	  	</div>
@@ -81,10 +81,10 @@
  	  		<p><a href="/inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
  	  	</div>
  	  	<div class="col-sm-2">
- 	  		<form action="basket.jsp">
+ 	  		<form action="/shop/basket.jsp">
     			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
     		</form>
-    		<form action="Payment.jsp">
+    		<form action="/shop/Payment.jsp">
  	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
  	  		</form>
  	  	</div>
@@ -92,6 +92,7 @@
  	  </li>
 	</ul>
 </div>
+
 <!-- 페이징 -->
 <div class="center">
 	<ul class="pagination">
@@ -101,7 +102,7 @@
   		<li><a href="#">4</a></li>
   		<li><a href="#">5</a></li>
 	</ul>
-</div>
+</div> <!-- 페이징 -->
 </div> <!-- 베스트셀러 탭 내용 -->
 </div> <!-- 끝 -->
 </div>
