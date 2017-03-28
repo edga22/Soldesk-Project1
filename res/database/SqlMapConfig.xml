@@ -39,5 +39,6 @@
  <!--템플릿용  <mapper resource="database/mapper/Mapper.xml" />   -->
     <mappers>        
 			<mapper resource="database/mapper/BookMapper.xml" />
+			<mapper resource="database/mapper/MemberMapper.xml"/>
     </mappers>
 </configuration>

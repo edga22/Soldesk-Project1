@@ -3,6 +3,7 @@ package domain;
 public class Member {
 	private int memberID;
 	private String email;
+	private String password;
 	private String address;
 	private String phone;
 	private int bonusPoint;
@@ -17,6 +18,12 @@ public class Member {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getAddress() {
 		return address;
