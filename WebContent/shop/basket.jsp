@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <title>장바구니</title>
-
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
 <div class="container"> 
@@ -110,18 +109,17 @@
 
 <!-- 주문 및 되돌아가기 -->
 <div class="row">
-	<div class="col-sm-7"></div>
+	<div class="col-sm-2"> 
 	<form action="/main.jsp">
-	<div class="col-sm-2"> 
     	<input type="submit" class="btn btn-default" value="쇼핑 계속하기"/>
-    </div>
     </form>
+    </div>
     
+    <div class="col-sm-2"> 
     <form action="/shop/Payment.jsp">
-	<div class="col-sm-2"> 
     	<input type="submit" class="btn btn-default" value="주문하기"/>
-	</div>
 	</form>
+	</div>
 </div> <!-- 주문 및 되돌아가기 -->
 </div> <!-- 끝 -->
 </div>
