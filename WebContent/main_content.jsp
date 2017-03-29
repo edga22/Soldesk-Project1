@@ -5,37 +5,37 @@
 <section id="section">
     <div class="row">
         <div class="col-md-12">
-            <div id="myCarousel" class="panel panel-default" onmouseout="startSlides()">
+            <div id="myCarousel" class="panel panel-default" onmouseleave="startSlides()">
                 <div class="slideshow-container panel-body">                                      
-                    <div class="mySlides fade slide-4" onmouseover="stopSlides(1)">                     
+                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(1)">                     
                         <img alt="slide-MD초이스1" src="./img/main/170228_book01.png" />
                         <img alt="slide-MD초이스2" src="./img/main/170228_book02.png" />
                         <img alt="slide-MD초이스3" src="./img/main/170228_book03.png" />
                         <img alt="slide-MD초이스4" src="./img/main/170228_book04.png" />
                         <div class="text">MD 초이스</div>
                     </div>
-                    <div class="mySlides fade slide-4" onmouseover="stopSlides(2)">                     
+                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(2)">                     
                         <img alt="slide-신간소개1" src="./img/main/170306_ad05.png" />
                         <img alt="slide-신간소개2" src="./img/main/170306_ad06.png" />
                         <img alt="slide-신간소개3" src="./img/main/170306_ad07.png" />
                         <img alt="slide-신간소개4" src="./img/main/170306_ad08.png" />
                         <div class="text">신간소개</div>
                     </div>
-                    <div class="mySlides fade slide-4" onmouseover="stopSlides(3)">                     
+                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(3)">                     
                         <img alt="slide-이벤트도서1" src="./img/main/170307_book01.png" />
                         <img alt="slide-이벤트도서2" src="./img/main/170307_book02.png" />
                         <img alt="slide-이벤트도서3" src="./img/main/170307_book03.png" />
                         <img alt="slide-이벤트도서4" src="./img/main/170307_book04.png" />
                         <div class="text">이벤트도서</div>
                     </div>
-                    <div class="mySlides fade slide-4" onmouseover="stopSlides(4)">                        
+                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(4)">                        
                         <img alt="slide-화제의 책1" src="./img/main/170310_ad01.png" />
                         <img alt="slide-화제의 책2" src="./img/main/170310_ad02.png" />
                         <img alt="slide-화제의 책3" src="./img/main/170310_ad03.png" />
                         <img alt="slide-화제의 책4" src="./img/main/170310_ad04.png" />
                         <div class="text">화제의 책</div>
                     </div>
-                    <div class="mySlides fade slide-3 " onmouseover="stopSlides(5)">                       
+                    <div class="mySlides fade slide-3 " onmouseenter="stopSlides(5)">                       
                         <img alt="slide-e-Book1" src="./img/main/161207_payback2.jpg" />
                         <img alt="slide-bar" class="eb1" src="./img/main/ev_line.png" />
                         <img alt="slide-e-Book2" src="./img/main/170302b_10yrent.jpg" />
@@ -47,19 +47,19 @@
                 <div class="col-md-12 text-center panel-footer" id="slideshow_list">
                    <ul class="slideshow_list">
                        <li>
-                           <span class="dot" onmouseover="stopSlides(1)">MD 초이스</span><span class="divider"></span>
+                           <span class="dot" onmouseenter="stopSlides(1)">MD 초이스</span><span class="divider"></span>
                        </li>
                        <li>
-                           <span class="dot" onmouseover="stopSlides(2)">신간소개</span><span class="divider"></span>
+                           <span class="dot" onmouseenter="stopSlides(2)">신간소개</span><span class="divider"></span>
                        </li>
                        <li>
-                           <span class="dot" onmouseover="stopSlides(3)">이벤트도서</span><span class="divider"></span>
+                           <span class="dot" onmouseenter="stopSlides(3)">이벤트도서</span><span class="divider"></span>
                        </li>
                        <li>
-                           <span class="dot" onmouseover="stopSlides(4)">화제의 책</span><span class="divider"></span>
+                           <span class="dot" onmouseenter="stopSlides(4)">화제의 책</span><span class="divider"></span>
                        </li>
                        <li>
-                           <span class="dot" onmouseover="stopSlides(5)">e-Book</span><span class="divider"></span>
+                           <span class="dot" onmouseenter="stopSlides(5)">e-Book</span><span class="divider"></span>
                        </li>
                    </ul>
                </div>              
@@ -363,6 +363,7 @@ var slideIndex = 0;
 var slideStart = true;
 showSlides();
 
+
 if(slideStart != true) { 
     showSlides(slideIndex);
 }
@@ -383,8 +384,8 @@ function showSlides() {
     dots[slideIndex-1].className += " active";
     
     if (slideStart == true){
-        setTimeout(showSlides, 3000);
-    }
+        setTimeout(showSlides, 2000);
+    }else{clearTimeout(showSlides);}
 }
 
 function stopSlides(n) {
@@ -394,11 +395,9 @@ function stopSlides(n) {
 }
 
 function startSlides() {
-    slideStart = true;
+	slideStart = true;
+	//showSlides(slideIndex = n);
+	setTimeout(showSlides, 2000);
 }
-
 </script>
 <!-- 메인 화면 끝 -->
-
-</body>
-</html>
