@@ -36,6 +36,8 @@
 	<select id="cntBook" parameterType="int" resultType="int">
 		SELECT count(*) FROM Books WHERE book_ID = #{bookID}
 	</select>
+	
+	
 <!--  
     <resultMap id="MemberMap" type="">
         <id     property="user_no"  column="user_no"/>

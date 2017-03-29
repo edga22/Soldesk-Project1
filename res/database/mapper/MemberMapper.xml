@@ -3,7 +3,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="config.MemberMapper">
 	<resultMap id="MemberMap" type="domain.Member">
-		<id		property="memberId"		column="MEMBER_ID"/>
+		<id		property="memberID"		column="MEMBER_ID"/>
 		<result	property="email"		column="EMAIL"/>
 		<result property="password"		column="PASSWD"/>
 		<result property="name"			column="NAME"/>

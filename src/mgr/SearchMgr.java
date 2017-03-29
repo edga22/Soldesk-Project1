@@ -25,4 +25,8 @@ public class SearchMgr {
 	public int addBook(Book book){
 		return mapper.addBook(book);
 	}
+	
+	public Book[] getCateBooks(String category){
+		return null;
+	}
 }
