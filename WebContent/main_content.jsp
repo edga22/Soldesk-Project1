@@ -384,7 +384,7 @@ function showSlides() {
     dots[slideIndex-1].className += " active";
     
     if (slideStart == true){
-        setTimeout(showSlides, 2000);
+        setTimeout(showSlides, 3000);
     }else{clearTimeout(showSlides);}
 }
 
@@ -396,8 +396,8 @@ function stopSlides(n) {
 
 function startSlides() {
 	slideStart = true;
-	//showSlides(slideIndex = n);
-	setTimeout(showSlides, 2000);
+	showSlides();
+	//setTimeout(showSlides, 3000);
 }
 </script>
 <!-- 메인 화면 끝 -->
