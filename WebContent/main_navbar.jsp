@@ -94,7 +94,7 @@
             </div>
             <div class="col-md-3">
                <div id="ad1">
-                   <img alt="상단광고" src="./img/main/161111_head_mgt.jpg" />
+                   <img alt="상단광고" src="/img/main/161111_head_mgt.jpg" />
                </div>
             </div>
         </div>

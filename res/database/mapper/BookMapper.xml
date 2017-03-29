@@ -13,6 +13,10 @@
 		<result	property="imageID"	column="IMAGE_ID" />
 	</resultMap>
 	
+	<select id="getTitleBook" resultMap="BookMap">
+		SELECT * FROM Books WHERE book_name LIKE '%'||#{title}||'%' ORDER BY publish_date
+	</select>
+	
 	<select id="getBooks" resultMap="BookMap">
 		SELECT * FROM Books ORDER BY book_ID
 	</select>
@@ -32,6 +36,8 @@
 	<select id="cntBook" parameterType="int" resultType="int">
 		SELECT count(*) FROM Books WHERE book_ID = #{bookID}
 	</select>
+	
+	
 <!--  
     <resultMap id="MemberMap" type="">
         <id     property="user_no"  column="user_no"/>
