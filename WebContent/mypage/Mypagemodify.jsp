@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -40,8 +40,30 @@
 		</tr>
 		<tr>
 			<th>닉네임</th>
-			<td><%= "송싱우"%><input type="button"class="btn btn-default" name="" value="닉네임변경"></td>
-		</tr>
+			<td><%= "송싱우"%><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#mySmallModal">닉네임변경</button>
+				<div class="modal fade" id="mySmallModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">아래에 변경할 새 닉네임을 입력하세요.</h4>
+							</div>
+							
+					<div class="modal-body">
+					<table style="padding:1rem;margin:1rem;">
+					<tr>
+						<th>변경하실 닉네임 명:</th><td><input type="text" style="margin:0.5rem;"></td>
+					</tr>
+					</table>
+					</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default">변경완료</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</td>
+</tr>
 		<tr>
 			<th>성별</th>
 			<td><input type="radio" name="radio"checked="checked">남 
@@ -60,8 +82,44 @@
 		</tr>
 		<tr>
 			<th>비밀번호</th>
-			<td><input type="button"class="btn btn-default"name="" value="비밀번호변경"></td>
-		</tr>
+			<td>
+			<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#mySmallModal1">비밀번호변경</button>
+	
+			<div class="modal fade" id="mySmallModal1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+					<h4 class="modal-title">현재 사용하고 계신 비밀번호를 먼저 입력하신후,아래에 변경할 새 비밀번호를 입력하세요.</h4>
+						</div>
+					<div class="modal-body">
+					
+					<table style="padding:1rem;margin:1rem;">
+					<tr>
+						<th>기존 비밀번호:</th><td><input type="password" style="margin:0.5rem;"></td>
+					</tr>
+					<tr>
+						<td><br></td><td><br></td>
+				    </tr>
+					<tr>
+						<td><br></td><td><br></td>
+				    </tr>
+					<tr>
+						<th>새 비밀번호:</th><td><input type="password" style="margin:0.5rem;"></td>
+					</tr>
+					<tr>
+						<th>새 비밀번호 확인:</th><td><input type="password" style="margin:0.5rem;"></td>
+					</tr>
+				</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default">변경완료</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</td>
+</tr>
 	</tbody>
 	</table>
      <input type="submit" name=""class="btn btn-primary" value="수정완료">
