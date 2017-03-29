@@ -109,6 +109,7 @@
 
 <!-- 주문 및 되돌아가기 -->
 <div class="row">
+	<div class="col-sm-8"></div>
 	<div class="col-sm-2"> 
 	<form action="/main.jsp">
     	<input type="submit" class="btn btn-default" value="쇼핑 계속하기"/>
