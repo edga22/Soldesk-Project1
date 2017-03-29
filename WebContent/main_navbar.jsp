@@ -117,7 +117,7 @@
                     <button class="btn btn-default" type="button" style="display:none;">
                         <em class="glyphicon glyphicon-align-right"></em> 이벤트
                     </button> 
-                    <button class="btn btn-default" type="button">
+                    <button class="btn btn-default" type="button" style="display:none;">
                         <em class="glyphicon glyphicon-align-justify"></em> 추천도서
                     </button>
                 </div>
