@@ -71,7 +71,7 @@
 </p>
 <input type="radio" name="product" checked>현금
 <input type="radio" name="product">신용카드<br>
-<input type="submit" class="btn btn-primary"value="신청완료"/>
+<a href="/mypage/MypageorderMod.jsp"><input type="submit" class="btn btn-primary"value="신청완료"/></a>
 </div>
 </body>
 </html>
