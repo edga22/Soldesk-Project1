@@ -19,7 +19,11 @@
 <div class="container" id="pws3">
 <jsp:include page="../logo.jsp"/>
 
-당신의 비밀번호는 이메일로 전송되었습니다.
+	<div class="row" id="wrap">
+	    <div class="col-md-12">
+			당신의 비밀번호는 이메일로 전송되었습니다.
+		</div>
+	</div>
 
 <a href="signUpPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
 </div>
