@@ -1,5 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+String cataPage = request.getParameter("cata");
+String catat1 = "";
+String catat2 = "";
+String catat3 = "";
+String catat4 = "";
+%>
+<%
+if(cataPage != null && !cataPage.equals("")){
+	if(cataPage.equals("domestic")){
+	    catat1 = "active";
+	}else if(cataPage.equals("oversea")){   
+	    catat2 = "active";
+	}else if(cataPage.equals("ebook")){
+	    catat3 = "active";
+	}
+}else{
+    catat4 = "active";
+}
+%>    
+
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -31,17 +52,17 @@
            <div class="row" >
                <div class="col-md-6">
                     <ul class="nav nav-tabs">
-                       <li class="active">
+                       <li class="<%= catat4 %>">
                            <a href="/main.jsp">Home</a>
                        </li>
-                       <li>
-                           <a href="/mainCategory.jsp">국내도서</a>
+                       <li class="<%= catat1 %>">
+                           <a href="/mainCategory.jsp?cata=domestic">국내도서</a>
                        </li>
-                       <li>
-                           <a href="/mainCategory.jsp">외국도서</a>
+                       <li class="<%= catat2 %>">
+                           <a href="/mainCategory.jsp?cata=oversea">외국도서</a>
                        </li>
-                       <li>
-                           <a href="/mainCategory.jsp">eBook</a>
+                       <li class="<%= catat3 %>">
+                           <a href="/mainCategory.jsp?cata=ebook">eBook</a>
                        </li>                                                            
                    </ul>
                </div>

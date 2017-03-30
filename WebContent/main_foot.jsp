@@ -52,7 +52,7 @@
             <address>
                 <strong></strong><br />
                 <ul>
-                    <li>1:1고객상담 : 메일로 빠르게 답신드립니다.  <a href="#" target="blank">문의하기</a></li>
+                    <li>1:1고객상담 : 메일로 빠르게 답신드립니다.  <a href="/mypage/MypageUserInquire.jsp" target="blank">문의하기</a></li>
                     <li>구매안전 에스크로 서비스 : <br />
                     안전거래를 위해 현금 결제시 이용가능  <a href="#" target="blank">서비스가입확인</a></li>                
                 </ul>

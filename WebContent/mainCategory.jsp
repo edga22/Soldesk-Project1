@@ -1,17 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>상품 판매 페이지</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<%
+String cataPage = request.getParameter("cata");
+String cata1 = "";
+String cata2 = "";
+String cata3 = "";
+String cata4 = "";
+%>
+<%
+if(cataPage.equals("domestic")){
+	cata1 = "in";
+}else if(cataPage.equals("oversea")){   
+	cata2 = "in";
+}else if(cataPage.equals("ebook")){
+	cata3 = "in";
+}else{
+	
+}
+%>
 <style>
 li {
 	list-style: none;
@@ -21,8 +27,8 @@ a {
 	padding: 0.3rem;
 }
 
-#cate-top {
-	
+#categori {
+	margin-top: 5rem;
 }
 
 #cate-side {
@@ -53,63 +59,59 @@ a {
 	padding-top: 1rem;
 }
 </style>
-</head>
-<body>
-<jsp:include page="/main_navbar.jsp"></jsp:include>
+
+<jsp:include page="/main_navbar.jsp"/>
+
 	<!-- 상품 진열 1줄에 4개씩  -->
-	<div class="container">		
-		<!-- 좌측 카테고리 메뉴바 -->
-		
-		<div class="row"
-			style="float: left; margin: 0.5rem; padding: 0.2rem; border: 0.1rem solid; height: 55rem;">
-			<div class="container col-sm-12">
-				<br>
-				<br>
-				<p align="center">카테고리(구분)</p>
-				<div class="panel-group" id="categori">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h5 class="panel-title">
-								<a data-toggle="collapse" data-parent="#categori" href="#menu1">국내도서</a>
-							</h5>
-						</div>
-						<div id="menu1" class="panel-collapse collapse">
-							<div class="panel-body">
-								<a href="#">교양</a><br> <a href="#">소설</a><br> <a
-									href="#">전공서적</a><br>
-							</div>
-						</div>
+<div class="container">		
+	<!-- 좌측 카테고리 메뉴바 -->
+	
+	<div class="row">
+        <div class="col-md-2">
+			<div class="panel-group" id="categori">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h5 class="panel-title">
+							<a data-toggle="collapse" data-parent="#categori" href="#menu1">국내도서</a>
+						</h5>
 					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h5 class="panel-title">
-								<a data-toggle="collapse" data-parent="#categori" href="#c2">외국도서</a>
-							</h5>
-						</div>
-						<div id="c2" class="panel-collapse collapse">
-							<div class="panel-body">
-								<a href="#">교양</a><br> <a href="#">소설</a><br> <a
-									href="#">전공서적</a><br>
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h5 class="panel-title">
-								<a data-toggle="collapse" data-parent="#categori" href="#c3">eBook</a>
-							</h5>
-						</div>
-						<div id="c3" class="panel-collapse collapse">
-							<div class="panel-body">
-								<a href="#">교양</a><br> <a href="#">소설</a><br> <a
-									href="#">전공서적</a><br>
-							</div>
+					<div id="menu1" class="panel-collapse collapse <%= cata1 %>">
+						<div class="panel-body">
+							<a href="#">교양</a><br> <a href="#">소설</a><br> <a
+								href="#">전공서적</a><br>
 						</div>
 					</div>
 				</div>
-				<!-- 카테고리 종료 -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h5 class="panel-title">
+							<a data-toggle="collapse" data-parent="#categori" href="#c2">외국도서</a>
+						</h5>
+					</div>
+					<div id="c2" class="panel-collapse collapse <%= cata2 %>">
+						<div class="panel-body">
+							<a href="#">교양</a><br> <a href="#">소설</a><br> <a
+								href="#">전공서적</a><br>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h5 class="panel-title">
+							<a data-toggle="collapse" data-parent="#categori" href="#c3">eBook</a>
+						</h5>
+					</div>
+					<div id="c3" class="panel-collapse collapse <%= cata3 %>">
+						<div class="panel-body">
+							<a href="#">교양</a><br> <a href="#">소설</a><br> <a
+								href="#">전공서적</a><br>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+		<!--// 카테고리 -->		
+
 		<div class="col-md-10" id="result">
 			<!-- result -->
 			<div class="row" id="align-bar">
@@ -176,22 +178,21 @@ a {
 					}
 				%>
 			</form>
-		</div>
-		<!-- result -->
-		<!-- 하단 페이지 바 -->
-		<div align="center">
-			<ul class="pagination">
-				<li><a href="#">◁</a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#">▷</a></li>
-			</ul>
-		</div>
-
+	
+	       <!-- result -->
+		   <!-- 하단 페이지 바 -->
+			<div align="center">
+				<ul class="pagination">
+					<li><a href="#">◁</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">▷</a></li>
+				</ul>
+			</div>
+        </div>
 	</div>
+</div>	
 <jsp:include page="/main_foot.jsp"></jsp:include>
-</body>
-</html>
