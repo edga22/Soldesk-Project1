@@ -129,37 +129,27 @@
 		            <div class="allMenu_list">
 		                <ul>
 		                    <li class="title">국내도서</li>
-		                    <li><a href="#" class="list-group">국내도서1</a></li>
-		                    <li><a href="#" class="list-group">국내도서2</a></li>
-		                    <li><a href="#" class="list-group">국내도서3</a></li>
-		                    <li><a href="#" class="list-group">국내도서4</a></li>
-		                    <li><a href="#" class="list-group">국내도서5</a></li>
-		                    <li><a href="#" class="list-group">국내도서6</a></li>
-		                    <li><a href="#" class="list-group">국내도서7</a></li>
-		                    <li><a href="#" class="list-group">국내도서8</a></li>
-		                    <li><a href="#" class="list-group">국내도서9</a></li>
-		                    <li><a href="#" class="list-group">국내도서10</a></li>
+		                    <li><a href="#" class="list-group">교양</a></li>
+		                    <li><a href="#" class="list-group">소설</a></li>
+		                    <li><a href="#" class="list-group">전공도서</a></li>		                    
 		                </ul>
 		            </div>
 		            <div class="allMenuLine"></div>
 		            <div class="allMenu_list">
 		                <ul>
 		                    <li class="title">외국도서</li>
-		                    <li><a href="#" class="list-group">외국도서1</a></li>
-		                    <li><a href="#" class="list-group">외국도서2</a></li>
-		                    <li><a href="#" class="list-group">외국도서3</a></li>
-		                    <li><a href="#" class="list-group">외국도서4</a></li>
-		                    <li><a href="#" class="list-group">외국도서5</a></li>
-		                    <li><a href="#" class="list-group">외국도서6</a></li>
+		                    <li><a href="#" class="list-group">교양</a></li>
+		                    <li><a href="#" class="list-group">소설</a></li>
+		                    <li><a href="#" class="list-group">전공도서</a></li>		                    
 		                </ul>
 		            </div>
 		            <div class="allMenuLine"></div>
 		            <div class="allMenu_list">
 		                <ul>
 		                    <li class="title">전자책</li>
-		                    <li><a href="#" class="list-group">전자책1</a></li>
-		                    <li><a href="#" class="list-group">전자책2</a></li>
-		                    <li><a href="#" class="list-group">전자책3</a></li>
+		                    <li><a href="#" class="list-group">교양</a></li>
+		                    <li><a href="#" class="list-group">소설</a></li>
+		                    <li><a href="#" class="list-group">전공도서</a></li>
 		                </ul>
 		            </div>       
                 </div>

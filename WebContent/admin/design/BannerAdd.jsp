@@ -11,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>베너 관리</title>
+<title>베너 추가</title>
 <style>
 body {
     border-radius: 0px;
@@ -41,13 +41,13 @@ td, th {
     <div class="row">
         <div class="col-sm-12">
 	        <div class="event event-header">
-	            <h3>베너 관리</h3>
+	            <h3>베너 추가</h3>
 	        </div>
 	    </div>
     </div>
     
     <div class="well well-sm">	  
-	  <h4>전체목록 | 생성된 베너수: 5개</h4>
+	  <h4>베너 추가 | 베너번호: 6 (스와이프뷰)</h4>
 	</div>    
     
 	<div class="table-responsive">	                  
@@ -130,19 +130,19 @@ td, th {
 	<div class="row">
         <div class="col-sm-12">
             <div class="pull-right">	  
-			  <input type="submit" class="btn btn-primary" value="일괄적용" data-toggle="tooltip" title="베너사용 체크한것을 전부 저장">
-			  <a href="/admin/design/BannerAdd.jsp" class="btn btn-primary" role="button" data-toggle="tooltip" title="베너 추가페이지로 이동">베너추가</a>
+			  <input type="submit" class="btn btn-primary" value="적용" data-toggle="tooltip" title="베너 수정내용 저장">
+			  <a href="/admin/design/Bannermgr.jsp" class="btn btn-primary" role="button" data-toggle="tooltip" title="베너목록으로 이동">목록</a>
 		    </div>
 		</div>
 	</div>
  </div>
- <!-- main container -->
-
-<script>
+ <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 </script>
+ <!-- main container -->
+
 
 </body>
 </html>
