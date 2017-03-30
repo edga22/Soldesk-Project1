@@ -111,7 +111,60 @@ a {
 			</div>
 		</div>
 		<!--// 카테고리 -->		
+		
+		
+		
+		<div class="col-md-10" id="result"> <!-- result -->
+		<div class="row" id="align-bar">
+				<div class="col-md-2 col-md-offset-1">
+					<a href="#">제목순</a>
+				</div>
+				<div class="col-md-2 col-md-offset-1">
+					<a href="#">저자순</a>
+				</div>
+				<div class="col-md-2 col-md-offset-1">
+					<a href="#">가격순</a>
+				</div>
+				<div class="col-md-2 col-md-offset-1">
+					<a href="#">출간일순</a>
+				</div>
+				<div class="col-md-2 col-md-offset-1">
+					<select name="display_number" class="">
+						<option value="25">25개</option>
+						<option value="50">50개</option>
+						<option value="100">100개</option>
+					</select>
+				</div>
+			</div>
+		
+		<%for(int i=1;i<=5;i++){ %>
+		<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
+			<div class="col-md-1">
+				<p><%=i %></p>
+				<input type="checkbox" name="bookID" value="<%=i %>">
+			</div>
+			<div class="col-md-2"><a href="/inven/BookDetail.jsp?=bookID=<%=i%>"><img src="http://lorempixel.com/140/180"></a></div>
+			<div class="col-md-7">
+				<h3><a href="/inven/BookDetail.jsp?bookID=<%=i%>">책 제목<%=i %></a></h3>
+				<p>저자 : 저자<%=i %>  옮긴이 : 옮긴이 <%=i %>  출판사 : 시공출판사</p>
+				<ul>
+					<li>10000원 -> 9000원</li>
+					<li>적립포인트 : <%=i %>%</li>
+					<li>사은품 : </li>
+				</ul>
+			</div>
+			<div class="col-md-2">
+				<p><a class="btn btn-default" href="/shop/basket.jsp?BookID=<%=i%>">장바구니 추가</a></p>
+				<p><a class="btn btn-default" href="/shop/Payment.jsp?BookID=<%=i%>">바로 구매</a></p>
+			</div>
+		</div>
+		<%} %>
+		
+	</div><!-- result -->
+		
+		
 
+		<%-- 디자인발표 전 수정 파일 
 		<div class="col-md-10" id="result">
 			<!-- result -->
 			<div class="row" id="align-bar">
@@ -177,7 +230,7 @@ a {
 				<%
 					}
 				%>
-			</form>
+			</form> --%>
 	
 	       <!-- result -->
 		   <!-- 하단 페이지 바 -->
@@ -193,6 +246,6 @@ a {
 				</ul>
 			</div>
         </div>
-	</div>
+	
 </div>	
 <jsp:include page="/main_foot.jsp"></jsp:include>
