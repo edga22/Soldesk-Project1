@@ -52,17 +52,13 @@ td, th {
     
 	<div class="table-responsive">	                  
 	  <table class="table table-striped table-hover">
-	    <thead>
-	      <tr class="info">
-	        <th>번호</th>
-	        <th>베너명</th>
+	      <tr>
+	        <th class="info">베너명</th>
 	        <th>베너설명</th>
 	        <th>베너타입</th>
 	        <th>베너사용</th>
 	        <th>베너관리</th>
 	      </tr>
-	    </thead>
-	    <tbody>
 	      <tr>
 	        <td>1</td>
 	        <td>main_swiperview</td>
@@ -123,7 +119,6 @@ td, th {
                <input type="button" class="btn btn-info btn-xs" value="적용">             
             </td>
           </tr>
-	    </tbody>
 	  </table>
 	</div>
 	

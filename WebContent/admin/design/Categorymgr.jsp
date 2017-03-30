@@ -49,7 +49,7 @@ td, th {
     </div>
     
     <div class="well well-sm">    
-      <h4>전체분류 | 생성된 분류수: 5개</h4>
+      <h4>전체분류 | 생성된 분류수: 9개</h4>
     </div>    
     
     <div class="table-responsive">                    
@@ -66,8 +66,8 @@ td, th {
         <tbody>
           <tr name="trBanner">
             <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="10"></td>
-            <td><input class="form-control input-sm" id="inputsm" type="text"></td>
-            <td><input class="form-control input-sm" id="inputsm" type="text"></td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="국내도서"></td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="국내에서 출판된 서적"></td>
             <td><label><input type="checkbox" value="1">사용</label></td>
             <td>               
                <input name="addBanner" type="button" class="btn btn-info btn-sm" value="추가">
@@ -81,10 +81,44 @@ td, th {
             <td>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>
-                    <input class="form-control input-sm" id="inputsm" type="text">
+                    <input class="form-control input-sm" id="inputsm" type="text" value="교양">
                 </div>
             </td>
-            <td><input class="form-control input-sm" id="inputsm" type="text"></td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="국내 교양서적"></td>
+            <td><label><input type="checkbox" value="1">사용</label></td>
+            <td>               
+               <input name="addBanner2" type="button" class="btn btn-info btn-sm" value="추가">
+               <input type="button" class="btn btn-info btn-sm disabled" value="하위추가">
+               <input name="delBanner2" type="button" class="btn btn-info btn-sm" value="삭제">
+               <input type="button" class="btn btn-info btn-sm" value="적용">             
+            </td>
+          </tr>
+          <tr name="trBanner2">
+            <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="1020"></td>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>
+                    <input class="form-control input-sm" id="inputsm" type="text" value="소설">
+                </div>
+            </td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="국내 소설"></td>
+            <td><label><input type="checkbox" value="1">사용</label></td>
+            <td>               
+               <input name="addBanner2" type="button" class="btn btn-info btn-sm" value="추가">
+               <input type="button" class="btn btn-info btn-sm disabled" value="하위추가">
+               <input name="delBanner2" type="button" class="btn btn-info btn-sm" value="삭제">
+               <input type="button" class="btn btn-info btn-sm" value="적용">             
+            </td>
+          </tr>
+          <tr name="trBanner2">
+            <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="1030"></td>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>
+                    <input class="form-control input-sm" id="inputsm" type="text" value="전공서적">
+                </div>
+            </td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="국내 전공서적"></td>
             <td><label><input type="checkbox" value="1">사용</label></td>
             <td>               
                <input name="addBanner2" type="button" class="btn btn-info btn-sm" value="추가">
@@ -95,8 +129,8 @@ td, th {
           </tr>
           <tr name="trBanner">
             <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="20"></td>
-            <td><input class="form-control input-sm" id="inputsm" type="text"></td>
-            <td><input class="form-control input-sm" id="inputsm" type="text"></td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="외국도서"></td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="외국에서 수입된 서적"></td>
             <td><label><input type="checkbox" value="1">사용</label></td>
             <td>               
                <input type="button" class="btn btn-info btn-sm" value="추가">
@@ -110,10 +144,10 @@ td, th {
             <td>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>
-                    <input class="form-control input-sm" id="inputsm" type="text">
+                    <input class="form-control input-sm" id="inputsm" type="text" value="교양">
                 </div>
             </td>
-            <td><input class="form-control input-sm" id="inputsm" type="text"></td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="외국 교양서적"></td>
             <td><label><input type="checkbox" value="1">사용</label></td>
             <td>               
                <input type="button" class="btn btn-info btn-sm" value="추가">
@@ -122,15 +156,100 @@ td, th {
                <input type="button" class="btn btn-info btn-sm" value="적용">             
             </td>
           </tr>
+          <tr name="trBanner2">
+            <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="2020"></td>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>
+                    <input class="form-control input-sm" id="inputsm" type="text" value="소설">
+                </div>
+            </td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="국외 소설"></td>
+            <td><label><input type="checkbox" value="1">사용</label></td>
+            <td>               
+               <input name="addBanner2" type="button" class="btn btn-info btn-sm" value="추가">
+               <input type="button" class="btn btn-info btn-sm disabled" value="하위추가">
+               <input name="delBanner2" type="button" class="btn btn-info btn-sm" value="삭제">
+               <input type="button" class="btn btn-info btn-sm" value="적용">             
+            </td>
+          </tr>
+          <tr name="trBanner2">
+            <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="2030"></td>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>
+                    <input class="form-control input-sm" id="inputsm" type="text" value="전공서적">
+                </div>
+            </td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="외국 전공서적"></td>
+            <td><label><input type="checkbox" value="1">사용</label></td>
+            <td>               
+               <input name="addBanner2" type="button" class="btn btn-info btn-sm" value="추가">
+               <input type="button" class="btn btn-info btn-sm disabled" value="하위추가">
+               <input name="delBanner2" type="button" class="btn btn-info btn-sm" value="삭제">
+               <input type="button" class="btn btn-info btn-sm" value="적용">             
+            </td>
+          </tr>
           <tr name="trBanner">
             <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="30"></td>
-            <td><input class="form-control input-sm" id="inputsm" type="text"></td>
-            <td><input class="form-control input-sm" id="inputsm" type="text"></td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="전자책"></td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="전자책 뷰어로 보는 책"></td>
             <td><label><input type="checkbox" value="1">사용</label></td>
             <td>               
                <input type="button" class="btn btn-info btn-sm" value="추가">
                <input type="button" class="btn btn-info btn-sm" value="하위추가">
                <input type="button" class="btn btn-info btn-sm" value="삭제">
+               <input type="button" class="btn btn-info btn-sm" value="적용">             
+            </td>
+          </tr>
+          <tr name="trBanner2">
+            <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="3010"></td>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>
+                    <input class="form-control input-sm" id="inputsm" type="text" value="교양">
+                </div>
+            </td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="전자책 교양서적"></td>
+            <td><label><input type="checkbox" value="1">사용</label></td>
+            <td>               
+               <input name="addBanner2" type="button" class="btn btn-info btn-sm" value="추가">
+               <input type="button" class="btn btn-info btn-sm disabled" value="하위추가">
+               <input name="delBanner2" type="button" class="btn btn-info btn-sm" value="삭제">
+               <input type="button" class="btn btn-info btn-sm" value="적용">             
+            </td>
+          </tr>
+          <tr name="trBanner2">
+            <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="3020"></td>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>
+                    <input class="form-control input-sm" id="inputsm" type="text" value="소설">
+                </div>
+            </td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="전자책 소설"></td>
+            <td><label><input type="checkbox" value="1">사용</label></td>
+            <td>               
+               <input name="addBanner2" type="button" class="btn btn-info btn-sm" value="추가">
+               <input type="button" class="btn btn-info btn-sm disabled" value="하위추가">
+               <input name="delBanner2" type="button" class="btn btn-info btn-sm" value="삭제">
+               <input type="button" class="btn btn-info btn-sm" value="적용">             
+            </td>
+          </tr>
+          <tr name="trBanner2">
+            <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="3030"></td>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>
+                    <input class="form-control input-sm" id="inputsm" type="text" value="전공서적">
+                </div>
+            </td>
+            <td><input class="form-control input-sm" id="inputsm" type="text" value="전자책 전공서적"></td>
+            <td><label><input type="checkbox" value="1">사용</label></td>
+            <td>               
+               <input name="addBanner2" type="button" class="btn btn-info btn-sm" value="추가">
+               <input type="button" class="btn btn-info btn-sm disabled" value="하위추가">
+               <input name="delBanner2" type="button" class="btn btn-info btn-sm" value="삭제">
                <input type="button" class="btn btn-info btn-sm" value="적용">             
             </td>
           </tr>
