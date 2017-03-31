@@ -12,7 +12,7 @@ public class Factory {
  
     static {        
         try {
-            Reader reader = Resources.getResourceAsReader("database/SqlMapConfig.xml");
+            Reader reader = Resources.getResourceAsReader("database/config/SqlMapConfig.xml");
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             sqlSession = sqlSessionFactory.openSession(true); // true : 오토커밋
             reader.close();

@@ -25,7 +25,7 @@
 	<select id="addMember" parameterType="domain.Member">
 		insert into members(member_id, email, passwd, name, birth_day, postcode, address, phone)
 		values(member_id_seq.nextval, #{email,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR}
-				#{name,jdbcType=VARCHAR},#{birthday,jdbcType=date},#{postCode,jdbcType=number}, 
+				#{name,jdbcType=VARCHAR},#{birthday},#{postCode}, 
 				#{address,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR})
 	</select>
 	
