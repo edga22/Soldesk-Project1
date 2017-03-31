@@ -77,8 +77,9 @@ a {
 					</div>
 					<div id="menu1" class="panel-collapse collapse <%= cata1 %>">
 						<div class="panel-body">
-							<a href="#">교양</a><br> <a href="#">소설</a><br> <a
-								href="#">전공서적</a><br>
+							<a href="/mainCategory.jsp?cata=domestic">교양</a><br> 
+							<a href="/mainCategory.jsp?cata=domestic">소설</a><br> 
+							<a href="/mainCategory.jsp?cata=domestic">전공서적</a><br>
 						</div>
 					</div>
 				</div>
@@ -90,8 +91,9 @@ a {
 					</div>
 					<div id="c2" class="panel-collapse collapse <%= cata2 %>">
 						<div class="panel-body">
-							<a href="#">교양</a><br> <a href="#">소설</a><br> <a
-								href="#">전공서적</a><br>
+							<a href="/mainCategory.jsp?cata=oversea">교양</a><br> 
+							<a href="/mainCategory.jsp?cata=oversea">소설</a><br> 
+							<a href="/mainCategory.jsp?cata=oversea">전공서적</a><br>
 						</div>
 					</div>
 				</div>
@@ -103,8 +105,9 @@ a {
 					</div>
 					<div id="c3" class="panel-collapse collapse <%= cata3 %>">
 						<div class="panel-body">
-							<a href="#">교양</a><br> <a href="#">소설</a><br> <a
-								href="#">전공서적</a><br>
+							<a href="/mainCategory.jsp?cata=ebook">교양</a><br> 
+							<a href="/mainCategory.jsp?cata=ebook">소설</a><br> 
+							<a href="/mainCategory.jsp?cata=ebook">전공서적</a><br>
 						</div>
 					</div>
 				</div>

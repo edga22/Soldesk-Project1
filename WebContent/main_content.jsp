@@ -73,25 +73,25 @@
             <div class="list-group-item">
                 <ul class="main_lmenu">
                     <li class="title">국내도서</li>
-                    <li><a href="#" class="list-group">교양</a></li>
-                    <li><a href="#" class="list-group">소설</a></li>
-                    <li><a href="#" class="list-group">전공도서</a></li>                    
+                    <li><a href="/mainCategory.jsp?cata=domestic" class="list-group">교양</a></li>
+                    <li><a href="/mainCategory.jsp?cata=domestic" class="list-group">소설</a></li>
+                    <li><a href="/mainCategory.jsp?cata=domestic" class="list-group">전공도서</a></li>                    
                 </ul>
             </div>
             <div class="list-group-item">
                 <ul class="main_lmenu">
                     <li class="title">외국도서</li>
-                    <li><a href="#" class="list-group">교양</a></li>
-                    <li><a href="#" class="list-group">소설</a></li>
-                    <li><a href="#" class="list-group">전공도서</a></li>                    
+                    <li><a href="/mainCategory.jsp?cata=oversea" class="list-group">교양</a></li>
+                    <li><a href="/mainCategory.jsp?cata=oversea" class="list-group">소설</a></li>
+                    <li><a href="/mainCategory.jsp?cata=oversea" class="list-group">전공도서</a></li>                    
                 </ul>
             </div>
             <div class="list-group-item">
                 <ul class="main_lmenu">
                     <li class="title">전자책</li>
-                    <li><a href="#" class="list-group">교양</a></li>
-                    <li><a href="#" class="list-group">소설</a></li>
-                    <li><a href="#" class="list-group">전공도서</a></li>
+                    <li><a href="/mainCategory.jsp?cata=ebook" class="list-group">교양</a></li>
+                    <li><a href="/mainCategory.jsp?cata=ebook" class="list-group">소설</a></li>
+                    <li><a href="/mainCategory.jsp?cata=ebook" class="list-group">전공도서</a></li>
                 </ul>
             </div>            
         </div>
