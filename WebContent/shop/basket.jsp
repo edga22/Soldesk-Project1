@@ -29,7 +29,6 @@
         <th class="col-sm-3">상품명</th>
         <th class="col-sm-2">가격</th>
         <th class="col-sm-2">수량</th>
-        <th class="col-sm-2">합계</th>
         <th class="col-sm-2">선택</th>
       </tr>
     </thead>
@@ -40,14 +39,13 @@
         <td><img src="http://lorempixel.com/140/180"/>
         	[국내도서] 책 제목
         </td>
-        <td><p><s>정가</s></p> <p>판매가[10%↓]</p> <p>포인트P</p></td>
+        <td><p><s>정가</s></p> <p>포인트P</p></td>
         <td>
         <form action="#">
           <input type="number" name="#" min="1" value="1"/>
        	  <input type="button" class="btn btn-default btn-sm" size="2" value="변경"/>
        	</form>
         </td>
-        <td><strong>합계</strong></td>
         <td>
         <form action="/shop/Payment.jsp">
     		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
@@ -61,14 +59,13 @@
         <td><img src="http://lorempixel.com/140/180"/>
         	[국내도서] 책 제목
         </td>
-        <td><p><s>정가</s></p> <p>판매가[10%↓]</p> <p>포인트P</p></td>
+        <td><p><s>정가</s></p> <p>포인트P</p></td>
         <td>
         <form action="#">
           <input type="number" name="#" min="1" value="1"/>
        	  <input type="button" class="btn btn-default btn-sm" value="변경"/>
        	</form>
         </td>
-        <td><strong>합계</strong></td>
         <td>
         <form action="/shop/Payment.jsp">
     		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
