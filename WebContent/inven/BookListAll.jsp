@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="domain.Book"
+		 import="mgr.SearchMgr"%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -11,32 +13,45 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<%
+SearchMgr mymgr = new SearchMgr();
+%>
 <div id="BLA">
 <h2>전체 도서 검색 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
 	  <tr>
-		<th>책 제목</th>
+		<th>도서명</th>
+		<th>작가</th>
 		<th>출판사</th>
-		<th>저 자</th>
+		<th>출판일</th>
 		<th>금 액(원)</th>
+		<th>책표지 주소</th>
 	  </tr>
 	 </thead>
 	 <tbody>
-<% 
-int temp=4;
-for(int i=0;i<temp;i++){	
+<%
+Book[] books = mymgr.getBooks();
+if( books != null){
+	for(Book book: books){	
 %>	 	
-	  <tr>
-		<th><%=i  %></th>
-		<th><%=i  %></th>
-		<th><%=i  %></th>
-		<th><%=i  %></th>
-	  </tr>
+			  <tr>
+				<th><input type="radio" value="book.getBookID()" name="check"><%=book.getBookName()%></th>
+				<th><%=book.getAuthor() %></th>
+				<th><%=book.getPublisher() %></th>
+				<th><%=book.getPublishDate() %></th>
+				<th><%=book.getPrice() %></th>
+				<th><%=book.getImageID() %></th>
+			  </tr>
+<%
+	}
+}else{
+%>
+			  <tr><th> 재고관리 목록에 책이 없습니다. </th></tr>
 <%
 }
 %>
+
 	 </tbody>
 	</table>
 </div>

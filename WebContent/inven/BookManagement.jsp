@@ -41,7 +41,7 @@
 		   <li> 출 판 사:<input type="text" name="publisher" placeholder="출판사" required></li>		  
 		   <li> 출 판 일:<input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)" required></li>		  
 		   <li> 책 금 액:<input type="number" name="price" placeholder="금액" required></li>		  
-		   <li> 이 미 지:<input type="number" name="imageID" placeholder="책표지 주소(.jpg)" required></li>		  
+		   <li> 이 미 지:<input type="text" name="imageID" placeholder="책표지 주소(.jpg)" required></li>		  
 		  </ul>		
          </div>
          <div class="modal-footer">
@@ -101,7 +101,7 @@
     </div><!-- 삭제 모달 종료 -->    
 <hr style="border: solid 0.1rem;">
 <!-- 결과값 보여주는창 contents -->
-	<iframe name="content" style="width:100%; border:none;"></iframe>      
+	<iframe name="content" style="width:100%; height:100rem; border:none;"></iframe>      
 </div>
 
 </body>

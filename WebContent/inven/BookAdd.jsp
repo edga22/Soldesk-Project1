@@ -27,7 +27,7 @@ newbook.setAuthor(request.getParameter("author"));
 newbook.setPublisher(request.getParameter("publisher"));
 newbook.setPublishDate(pubDate);
 newbook.setPrice(Integer.parseInt(request.getParameter("price")));
-newbook.setImageID(Integer.parseInt(request.getParameter("imageID")));
+newbook.setImageID(request.getParameter("imageID"));
 mymgr.addBook(newbook);
 %>
 
