@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="domain.Book"
+	import="mgr.SearchMgr" %>
+<%
+SearchMgr mymgr = new SearchMgr();
+Book newbook = new Book();
+%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -11,32 +17,38 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
+<%
+newbook.setBookName(request.getParameter("bookName"));
+newbook.setBookName(request.getParameter("author"));
+newbook.setBookName(request.getParameter("publisher"));
+newbook.setBookName(request.getParameter("publishDate"));
+newbook.setBookName(request.getParameter("price"));
+newbook.setBookName(request.getParameter("imageID"));
+mymgr.addBook(newbook);
+
+%>
 
 <div id="BAdd">
 <h2>도서 추가 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
 	  <tr>
-		<th>책 제목</th>
+		<th>도서명</th>
+		<th>작가</th>
 		<th>출판사</th>
-		<th>저 자</th>
+		<th>출판일</th>
 		<th>금 액(원)</th>
+		<th>책표지 주소</th>
 	  </tr>
 	 </thead>
-	 <tbody>
-<% 
-int temp=1;
-for(int i=0;i<temp;i++){	
-%>	 	
+	 <tbody>	 	
 	  <tr>
-		<th><%="LOL브금실탈출"  %></th>
-		<th><%="솔북스"  %></th>
-		<th><%="송성우"  %></th>
-		<th><%="1,500"  %></th>
-	  </tr>
-<%
-}
-%>	  			
+		<th><%=newbook.getBookName()%></th>
+		<th><%= %></th>
+		<th><%= %></th>
+		<th><%= %></th>
+		<th><%= %></th>
+	  </tr>	  			
 	 </tbody>
 	</table>	
 </div>
