@@ -27,12 +27,15 @@ h4 {
     margin-bottom : 1.5em;
 }
 th {
-    height:3.2em; 
-}
-td, th {
+    height:3.2em;
     text-align:center;
     font-size:1.4rem;
 }
+td {
+    height:3.2em;  
+    font-size:1.4rem;
+}
+
 </style>
 </head>
 <body>
@@ -49,54 +52,176 @@ td, th {
     <div class="well well-sm">	  
 	  <h4>베너 추가 | 베너번호: 6 (스와이프뷰)</h4>
 	</div>    
-    
+
 	<div class="table-responsive">	                  
 	  <table class="table table-striped table-hover">
 	      <tr>
 	        <th class="info">베너명</th>
-	        <th>베너설명</th>
-	        <th>베너타입</th>
-	        <th>베너사용</th>
-	        <th>베너관리</th>
+	        <td colspan="4"><p class="act"><b>Active Tab</b>: <span></span></p></td>
 	      </tr>
 	      <tr>
-	        <td>1</td>
-	        <td>main_swiperview</td>
-	        <td>메인 슬라이드입니다.</td>
-	        <td>스와이프 뷰</td>
-	        <td><label><input type="checkbox" value="1">사용</label></td>
-	        <td>	           
-               <input type="button" class="btn btn-info btn-xs" value="추가">
-               <input type="button" class="btn btn-info btn-xs" value="삭제">
-               <input type="button" class="btn btn-info btn-xs" value="적용">	           
-	        </td>	           
+	        <th class="info">베너설명</th>
+            <td colspan="4">메인 슬라이드입니다.</td>            
 	      </tr>
-	      <tr>
-	        <td>2</td>
-	        <td>main_top_ad</td>
-	        <td>메인 상단 광고 입니다.</td>
-	        <td>롤링이미지</td>
-	        <td><label><input type="checkbox" value="1">사용</label></td>
-	        <td>              
-               <input type="button" class="btn btn-info btn-xs" value="추가">
-               <input type="button" class="btn btn-info btn-xs" value="삭제">
-               <input type="button" class="btn btn-info btn-xs" value="적용">             
-            </td>
+	      <tr>	        
+	        <th class="info">베너타입</th>
+	        <td colspan="4">
+	           <div class="radio tabs">
+                <label><input type="radio" name="optradio">스와이프뷰</label>
+                <label><input type="radio" name="optradio">롤링이미지</label>
+                <label><input type="radio" name="optradio">일반이미지</label>
+                <label><input type="radio" name="optradio">텍스트</label>
+               </div>
+            </td>	        
 	      </tr>
-	      <tr>
-	        <td>3</td>
-	        <td>main_side_ad</td>
-	        <td>메인 사이드 광고 입니다.</td>
-	        <td>이미지</td>
-	        <td><label><input type="checkbox" value="1">사용</label></td>
-	        <td>              
-               <input type="button" class="btn btn-info btn-xs" value="추가">
-               <input type="button" class="btn btn-info btn-xs" value="삭제">
-               <input type="button" class="btn btn-info btn-xs" value="적용">             
-            </td>
+	      <tr>	        
+	        <th class="info">베너타입상세</th>
+	        <td colspan="4">
+	           <table class="table table-hover">
+		          <tr class="Active">
+		            <td>
+		               <div class="form-group form-group-sm">
+					      <label class="col-sm-5 control-label text-right" for="sm">1번 슬라이드명:</label>
+					      <div class="col-sm-7">
+					        <input class="form-control" type="text" id="sm">
+					      </div>
+				       </div>
+                    </td>
+		            <td>
+                       <div class="form-group form-group-sm">
+                          <label class="col-sm-8 control-label text-right" for="sm">슬라이드이미지 갯수:</label>
+                          <div class="col-sm-4">
+                            <select class="form-control" id="sel1">
+						      <option>1</option>
+						      <option>2</option>
+						      <option>3</option>
+						      <option>4</option>
+						    </select>
+                          </div>
+                       </div>
+                    </td>
+		            <td>
+		                <input type="button" class="btn btn-info btn-xs" value="추가">
+		                <input type="button" class="btn btn-info btn-xs" value="삭제">
+                        <input type="button" class="btn btn-info btn-xs" value="적용">
+                    </td>		            
+		          </tr>
+		          <tr class="Active">
+                    <td>
+                       <div class="form-group form-group-sm">
+                          <label class="col-sm-5 control-label text-right" for="sm">2번 슬라이드명:</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" id="sm">
+                          </div>
+                       </div>
+                    </td>
+                    <td>
+                       <div class="form-group form-group-sm">
+                          <label class="col-sm-8 control-label text-right" for="sm">슬라이드이미지 갯수:</label>
+                          <div class="col-sm-4">
+                            <select class="form-control" id="sel1">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                            </select>
+                          </div>
+                       </div>
+                    </td>
+                    <td>
+                        <input type="button" class="btn btn-info btn-xs" value="추가">
+                        <input type="button" class="btn btn-info btn-xs" value="삭제">
+                        <input type="button" class="btn btn-info btn-xs" value="적용">
+                    </td>                   
+                  </tr>
+                  <tr class="Active">
+                    <td>
+                       <div class="form-group form-group-sm">
+                          <label class="col-sm-5 control-label text-right" for="sm">3번 슬라이드명:</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" id="sm">
+                          </div>
+                       </div>
+                    </td>
+                    <td>
+                       <div class="form-group form-group-sm">
+                          <label class="col-sm-8 control-label text-right" for="sm">슬라이드이미지 갯수:</label>
+                          <div class="col-sm-4">
+                            <select class="form-control" id="sel1">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                            </select>
+                          </div>
+                       </div>
+                    </td>
+                    <td>
+                        <input type="button" class="btn btn-info btn-xs" value="추가">
+                        <input type="button" class="btn btn-info btn-xs" value="삭제">
+                        <input type="button" class="btn btn-info btn-xs" value="적용">
+                    </td>                   
+                  </tr>
+                  <tr class="Active">
+                    <td>
+                       <div class="form-group form-group-sm">
+                          <label class="col-sm-5 control-label text-right" for="sm">4번 슬라이드명:</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" id="sm">
+                          </div>
+                       </div>
+                    </td>
+                    <td>
+                       <div class="form-group form-group-sm">
+                          <label class="col-sm-8 control-label text-right" for="sm">슬라이드이미지 갯수:</label>
+                          <div class="col-sm-4">
+                            <select class="form-control" id="sel1">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                            </select>
+                          </div>
+                       </div>
+                    </td>
+                    <td>
+                        <input type="button" class="btn btn-info btn-xs" value="추가">
+                        <input type="button" class="btn btn-info btn-xs" value="삭제">
+                        <input type="button" class="btn btn-info btn-xs" value="적용">
+                    </td>                   
+                  </tr>
+                  <tr class="Active">
+                    <td>
+                       <div class="form-group form-group-sm">
+                          <label class="col-sm-5 control-label text-right" for="sm">5번 슬라이드명:</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" id="sm">
+                          </div>
+                       </div>
+                    </td>
+                    <td>
+                       <div class="form-group form-group-sm">
+                          <label class="col-sm-8 control-label text-right" for="sm">슬라이드이미지 갯수:</label>
+                          <div class="col-sm-4">
+                            <select class="form-control" id="sel1">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                            </select>
+                          </div>
+                       </div>
+                    </td>
+                    <td>
+                        <input type="button" class="btn btn-info btn-xs" value="추가">
+                        <input type="button" class="btn btn-info btn-xs" value="삭제">
+                        <input type="button" class="btn btn-info btn-xs" value="적용">
+                    </td>                   
+                  </tr>
+		       </table>
+            </td>	        
 	      </tr>
-	      <tr>
-            <td>4</td>
+	      <tr>            
             <td>cate_1</td>
             <td>분류1번 메인 이미지 입니다.</td>
             <td>이미지</td>
@@ -107,8 +232,7 @@ td, th {
                <input type="button" class="btn btn-info btn-xs" value="적용">             
             </td>
           </tr>
-          <tr>
-            <td>5</td>
+          <tr>            
             <td>new_1</td>
             <td>신간 메인 이미지 입니다.</td>
             <td>이미지</td>
@@ -133,7 +257,16 @@ td, th {
  </div>
  <script>
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip();
+    $(".tabs a").click(function(){
+        $(this).tab('show');
+    });
+    $('.tabs a').on('shown.bs.tab', function(event){
+        var x = $(event.target).text();         // active tab
+        var y = $(event.relatedTarget).text();  // previous tab
+        $(".act span").text(x);
+        $(".prev span").text(y);
+    });
 });
 </script>
  <!-- main container -->
