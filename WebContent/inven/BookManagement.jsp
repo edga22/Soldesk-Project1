@@ -92,7 +92,7 @@
          <form action="BookDel.jsp" target="content">
           <div class="modal-body" align="right">         
 		  <ul style=" list-style:none" >		 
-		   <li> 제  목:<input type="text" name="bookName" placeholder="도서 제목"></li>		  
+		   <li> 제  목:<input type="number" name="bookID" placeholder="도서 번호" required></li>		  
 		  </ul>		
          </div>
          <div class="modal-footer">

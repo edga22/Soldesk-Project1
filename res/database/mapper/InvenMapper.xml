@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
-<mapper namespace="config.BookMapper">
+<mapper namespace="config.InvenMapper">
 	<resultMap id="BookMap" type="domain.Book">
 		<id		property="bookID"		column="BOOK_ID" />
 		<result	property="categoryID"	column="CATEGORY_ID" />
@@ -31,5 +31,10 @@
 		update Books 
 		set book_name=#{bookName}, author=#{author}, publisher=#{publisher}, publish_Date=#{publishDate}, image_id=#{imageID}, price=#{price}
 		where book_ID = #{bookID}
-	</update> 	
+	</update>
+	
+	<delete id="delBook" parameterType="int">
+		delete Books 
+		where book_ID=#{bookID}
+	</delete> 	
 </mapper>
