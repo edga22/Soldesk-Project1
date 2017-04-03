@@ -1,6 +1,33 @@
+<%@page import="dao.DbBasedBookDao"%>
+<%@page import="domain.Book"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="mgr.SearchMgr"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	//request.setCharacterEncoding("utf-8");
+	//로그인이 되어있지 않았다면?
+	String memberID=(String)session.getAttribute("memberID");
+	if(memberID == null && memberID.equals("")){
+		response.sendRedirect("/sign/signIn.jsp");
+	}
+	
+	DbBasedBookDao bookDao=new DbBasedBookDao();
+	Book book=new Book();
+	// Book 객체를 리스트에 저장할 객체 생성
+	ArrayList<Book> bookList=new ArrayList<Book>();
 
+	try{
+		//책 ID (session)
+		int bookID=(int)session.getAttribute("bookID");
+		//bookID를 통해 책 한권을 가져온다.
+		book=bookDao.getBook(bookID);
+		//책 한권을 장바구니 목록에 넣는다.
+		bookList.add(book);
+	}catch(NullPointerException e){
+		e.printStackTrace();
+	}
+%>
 <title>장바구니</title>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
@@ -34,12 +61,17 @@
     </thead>
     
     <tbody>
+    <% if(bookList==null){%>
+    	<h3>장바구니에 상품이 없습니다 :)</h3>
+    <% }else{
+    		for(int i=0;i<bookList.size();i++){
+    		Book books=bookList.get(i);%>
       <tr> 
       	<td><input type="checkbox" name="#"/></td>
-        <td><img src="http://lorempixel.com/140/180"/>
-        	[국내도서] 책 제목
+        <td><%=books.getImageID() %>
+        	<%=books.getBookName() %>
         </td>
-        <td><p><s>정가</s></p> <p>포인트P</p></td>
+        <td><%=books.getPrice() %></td>
         <td>
         <form action="#">
           <input type="number" name="#" min="1" value="1"/>
@@ -53,26 +85,8 @@
 		<button type="button" class="btn btn-default btn-block">삭제</button>
 		</td>
       </tr>
-      
-      <tr>
-      	<td><input type="checkbox" name="#"/></td>
-        <td><img src="http://lorempixel.com/140/180"/>
-        	[국내도서] 책 제목
-        </td>
-        <td><p><s>정가</s></p> <p>포인트P</p></td>
-        <td>
-        <form action="#">
-          <input type="number" name="#" min="1" value="1"/>
-       	  <input type="button" class="btn btn-default btn-sm" value="변경"/>
-       	</form>
-        </td>
-        <td>
-        <form action="/shop/Payment.jsp">
-    		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
-		</form>
-        <button type="button" class="btn btn-default btn-block">삭제</button></td>
-     </tr>
-    </tbody>
+    <% }
+    }%>
 </table> <!-- 테이블 -->
 
 <div class="row">
@@ -88,7 +102,7 @@
 <table class="table">
     <thead>
       <tr>
-        <th>상품금액 / 0종(0개)</th>
+        <th>상품금액</th>
         <th>배송비</th>
         <th>결제 예정금액</th>
         <th>적립예정</th>
