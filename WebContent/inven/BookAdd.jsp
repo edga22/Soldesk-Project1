@@ -2,10 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
 	import="mgr.SearchMgr" %>
-<%
-SearchMgr mymgr = new SearchMgr();
-Book newbook = new Book();
-%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -18,6 +14,9 @@ Book newbook = new Book();
 </head>
 <body>
 <%
+SearchMgr mymgr = new SearchMgr();
+Book newbook = new Book();
+
 newbook.setBookName(request.getParameter("bookName"));
 newbook.setBookName(request.getParameter("author"));
 newbook.setBookName(request.getParameter("publisher"));
@@ -25,7 +24,6 @@ newbook.setBookName(request.getParameter("publishDate"));
 newbook.setBookName(request.getParameter("price"));
 newbook.setBookName(request.getParameter("imageID"));
 mymgr.addBook(newbook);
-
 %>
 
 <div id="BAdd">
@@ -44,10 +42,11 @@ mymgr.addBook(newbook);
 	 <tbody>	 	
 	  <tr>
 		<th><%=newbook.getBookName()%></th>
-		<th><%= %></th>
-		<th><%= %></th>
-		<th><%= %></th>
-		<th><%= %></th>
+		<th><%=newbook.getAuthor() %></th>
+		<th><%=newbook.getPublisher() %></th>
+		<th><%=newbook.getPublishDate() %></th>
+		<th><%=newbook.getPrice() %></th>
+		<th><%=newbook.getImageID() %></th>
 	  </tr>	  			
 	 </tbody>
 	</table>	
