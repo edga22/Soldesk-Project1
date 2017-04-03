@@ -8,6 +8,7 @@ public interface MemberMapper {
 	List<Member> getMembers();
 	Member getMember(int memberID);
 	int addMember(int MemberID);
+	int loginCheck(Member email, Member pw);
 	int findIdMember(Member Email);
 	int findPwMember(Member psw);
 	int delMember(int MemberID);

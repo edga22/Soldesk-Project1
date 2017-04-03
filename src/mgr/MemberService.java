@@ -19,6 +19,10 @@ public class MemberService{
 		return member.getMember(memberID);
 	}
 	
+	public int loginCheck(Member email, Member pw){
+		return member.loginCheck(email, pw);
+	}
+	
 	public int addMember(int MemberID){
 		return member.addMember(MemberID);
 	}
