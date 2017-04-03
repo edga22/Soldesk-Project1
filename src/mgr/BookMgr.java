@@ -1,14 +1,14 @@
 package mgr;
 
-import config.BookMapper;
+import config.InvenMapper;
 import config.Factory;
 import domain.Book;
 
 public class BookMgr {
-	BookMapper mapper ;
+	InvenMapper mapper ;
 
 	public BookMgr() {
-		mapper = Factory.getMapper(BookMapper.class);
+		mapper = Factory.getMapper(InvenMapper.class);
 	}
 	
 	public Book[] getBooks(){
@@ -25,5 +25,9 @@ public class BookMgr {
 		
 	public int addBook(Book book){
 		return mapper.addBook(book);
+	}
+	
+	public Book delBook(int bookID){
+		return mapper.delBook(bookID);
 	}
 }

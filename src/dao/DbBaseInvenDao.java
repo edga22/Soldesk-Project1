@@ -17,6 +17,10 @@ public class DbBaseInvenDao implements InvenDao {
 	public Book getBook(int bookID){
 		return mapper.getBook(bookID);
 	}
+	
+	public Book delBook(int bookID){
+		return mapper.delBook(bookID);
+	}
 		
 	public int addBook(Book book){
 		return mapper.addBook(book);
