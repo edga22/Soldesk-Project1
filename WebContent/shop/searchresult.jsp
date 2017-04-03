@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
+<%
+
+%>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -37,6 +40,8 @@
 	padding-top : 1rem;
 }
 </style>
+
+<title>Book&Cafe - 검색 결과</title>
 </head>
 <body>
 
