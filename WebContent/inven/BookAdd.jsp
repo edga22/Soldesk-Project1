@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-	import="mgr.SearchMgr" 
+	import="mgr.BookMgr" 
 	import="java.util.Date" 
 	import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html PUBLIC>
@@ -16,7 +16,7 @@
 </head>
 <body>
 <%
-SearchMgr mymgr = new SearchMgr();
+BookMgr mymgr = new BookMgr();
 Book newbook = new Book();
 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 Date tmp = format.parse(request.getParameter("publishDate"));
@@ -30,8 +30,8 @@ newbook.setPrice(Integer.parseInt(request.getParameter("price")));
 newbook.setImageID(request.getParameter("imageID"));
 mymgr.addBook(newbook);
 %>
-<jsp:include page="/inven/BookManagement.jsp"></jsp:include>
-<div id="BAdd" class="container">
+
+<div id="BAdd">
 <h2>도서 추가 결과</h2>
 	<table class="table table-condensed">
 	 <thead>

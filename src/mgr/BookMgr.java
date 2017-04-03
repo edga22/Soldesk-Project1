@@ -1,12 +1,13 @@
-package dao;
+package mgr;
 
 import config.BookMapper;
 import config.Factory;
-import domain.Book; 
+import domain.Book;
 
-public class DbBasedBookDao implements BookDao {
+public class BookMgr {
 	BookMapper mapper ;
-	public DbBasedBookDao (){
+
+	public BookMgr() {
 		mapper = Factory.getMapper(BookMapper.class);
 	}
 	
@@ -18,19 +19,11 @@ public class DbBasedBookDao implements BookDao {
 		return mapper.getBook(bookID);
 	}
 	
-	public int cntBooks(){
-		return mapper.cntBooks();
+	public int updateBook(Book book){
+		return mapper.updateBook(book);
 	}
 		
 	public int addBook(Book book){
 		return mapper.addBook(book);
-	}
-	
-	public int updateBook(Book book){
-		return mapper.updateBook(book);
-	}
-	
-	public Book[] getCateBooks(String category){
-		return null;
 	}
 }

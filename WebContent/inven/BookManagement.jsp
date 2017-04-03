@@ -17,11 +17,11 @@
 <div class="container" id="manager">
 
 	<h3> 재고관리 페이지 입니다.</h3>
-	<form action="BookList.jsp">	
+	<form action="BookList.jsp" target="content">	
 	 <input type="text" placeholder="도서 제목">
 	 <input type="submit" class="btn btn-default" value="검색">
 	</form>	
-	<a href="BookListAll.jsp" class="btn btn-default">전체검색</a>
+	<a href="BookListAll.jsp" class="btn btn-default" target="content">전체검색</a>
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#listAdd">추가</button>
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#listMod">수정</button>
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#listDel">삭제</button> 
@@ -33,7 +33,7 @@
             <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">도서 추가</h4>
           </div>
-         <form action="BookAdd.jsp">
+         <form action="BookAdd.jsp" target="content">
           <div class="modal-body" align="right">         
 		  <ul style=" list-style:none">		 
 		   <li> 도 서 명:<input type="text" name="bookName" placeholder="책이름" required></li>		  
@@ -60,17 +60,13 @@
             <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">도서 수정</h4>
           </div>
-         <form action="BookMod.jsp">
+         <form action="BookMod.jsp" target="content">
           <div class="modal-body" align="right">         
-		   <ul style=" list-style:none">		 
-		   <li> index:<input type="number" name="bookID" placeholder="변경할 도서 번호" required></li>
-		   <li><hr style="border: solid 0.1rem;"></li> 		  
-		   <li> 도 서 명:<input type="text" name="bookName" placeholder="책이름"></li>		  
-		   <li> 작 가 명:<input type="text" name="author" placeholder="작가"></li>		  
-		   <li> 출 판 사:<input type="text" name="publisher" placeholder="출판사"></li>		  
-		   <li> 출 판 일:<input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)"></li>		  
-		   <li> 책 금 액:<input type="number" name="price" placeholder="금액"></li>		  
-		   <li> 이 미 지:<input type="text" name="imageID" placeholder="책표지 주소(.jpg)"></li>		  
+		  <ul style=" list-style:none" >		 
+		   <li> 제  목:<input type="text" name="bookName" placeholder="도서 제목"></li>
+		   <li> 출판사:<input type="text" name="publish" placeholder="출판사"></li>
+		   <li> 저  자:<input type="text" name="author" placeholder="저 자"></li>
+		   <li> 금  액:<input type="text" name="bookPrice" placeholder="금액(숫자만 입력)"></li>		  
 		  </ul>		
          </div>
          <div class="modal-footer">
@@ -89,7 +85,7 @@
             <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">도서 삭제</h4>
           </div>
-         <form action="BookDel.jsp">
+         <form action="BookDel.jsp" target="content">
           <div class="modal-body" align="right">         
 		  <ul style=" list-style:none" >		 
 		   <li> 제  목:<input type="text" name="bookName" placeholder="도서 제목"></li>		  
@@ -103,7 +99,9 @@
       </div>      
     </div>
     </div><!-- 삭제 모달 종료 -->    
-<hr style="border: solid 0.1rem;">   
+<hr style="border: solid 0.1rem;">
+<!-- 결과값 보여주는창 contents -->
+	<iframe name="content" style="width:100%; height:100rem; border:none;"></iframe>      
 </div>
 
 </body>

@@ -7,8 +7,8 @@
 <title>책 삭제하기</title>
 </head>
 <body>
-<jsp:include page="/inven/BookManagement.jsp"></jsp:include>
-<div id="BDel" class="container">
+
+<div id="BDel">
 <%
  String bookName = "책이름";
 

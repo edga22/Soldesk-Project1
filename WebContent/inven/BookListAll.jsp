@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-		 import="mgr.SearchMgr"%>
+		 import="mgr.BookMgr"%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -14,15 +14,13 @@
 </head>
 <body>
 <%
-SearchMgr mymgr = new SearchMgr();
+BookMgr mymgr = new BookMgr();
 %>
-<jsp:include page="/inven/BookManagement.jsp"></jsp:include>
-<div id="BLA" class="container">
+<div id="BLA">
 <h2>전체 도서 검색 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
 	  <tr>
-		<th>도서번호</th>
 		<th>도서명</th>
 		<th>작가</th>
 		<th>출판사</th>
@@ -38,8 +36,7 @@ if( books != null){
 	for(Book book: books){	
 %>	 	
 			  <tr>
-				<th><%=book.getBookID()%></th>
-				<th><%=book.getBookName()%></th>
+				<th><input type="radio" value="book.getBookID()" name="check"><%=book.getBookName()%></th>
 				<th><%=book.getAuthor() %></th>
 				<th><%=book.getPublisher() %></th>
 				<th><%=book.getPublishDate() %></th>
