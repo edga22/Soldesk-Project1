@@ -7,4 +7,5 @@ public interface InvenDao {
 	public Book getBook(int bookID);
 	public int addBook(Book book);	
 	public int updateBook(Book book);
+	public Book delBook(int bookID);
 }
