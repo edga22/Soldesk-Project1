@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-	import="mgr.SearchMgr" %>
+	import="mgr.SearchMgr" 
+	import="java.util.Date" 
+	import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -16,13 +18,16 @@
 <%
 SearchMgr mymgr = new SearchMgr();
 Book newbook = new Book();
+SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+Date tmp = format.parse(request.getParameter("publishDate"));
+java.sql.Date pubDate = new java.sql.Date(tmp.getTime());
 
 newbook.setBookName(request.getParameter("bookName"));
-newbook.setBookName(request.getParameter("author"));
-newbook.setBookName(request.getParameter("publisher"));
-newbook.setBookName(request.getParameter("publishDate"));
-newbook.setBookName(request.getParameter("price"));
-newbook.setBookName(request.getParameter("imageID"));
+newbook.setAuthor(request.getParameter("author"));
+newbook.setPublisher(request.getParameter("publisher"));
+newbook.setPublishDate(pubDate);
+newbook.setPrice(Integer.parseInt(request.getParameter("price")));
+newbook.setImageID(Integer.parseInt(request.getParameter("imageID")));
 mymgr.addBook(newbook);
 %>
 
