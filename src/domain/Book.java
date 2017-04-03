@@ -11,10 +11,17 @@ public class Book {
 	private String publisher;
 	private Date publishDate;
 	private int imageID;
+	private int price;
 	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	public Book() {}
 	public Book(int bookID, int categoryID, int eventID, String bookName,
-			String author, String publisher, Date publishDate, int imageID) {
+			String author, String publisher, Date publishDate, int imageID, int price) {
 		super();
 		this.bookID = bookID;
 		this.categoryID = categoryID;
@@ -24,6 +31,7 @@ public class Book {
 		this.publisher = publisher;
 		this.publishDate = publishDate;
 		this.imageID = imageID;
+		this.price = price;
 	}
 
 	public int getBookID() {

@@ -11,6 +11,7 @@
 		<result	property="publisher"	column="PUBLISHER" />
 		<result	property="publishDate"	column="PUBLISH_DATE" />
 		<result	property="imageID"	column="IMAGE_ID" />
+		<result property="price"	column="PRICE" />
 	</resultMap>
 	
 	<select id="getTitleBook" resultMap="BookMap">
@@ -26,8 +27,8 @@
 	</select>
 	
 	<insert id="addBook" parameterType="domain.Book">
-		INSERT INTO Books (book_id, category_id, event_id, book_Name, author, publisher, publish_Date, image_id)
-		values (BOOK_ID_SEQ.NEXTVAL, #{categoryID}, #{eventID}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{publishDate,jdbcType=DATE}, #{imageID,jdbcType=VARCHAR})
+		INSERT INTO Books (book_id, category_id, event_id, book_Name, author, publisher, publish_Date, image_id, price)
+		values (BOOK_ID_SEQ.NEXTVAL, #{categoryID}, #{eventID}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{publishDate,jdbcType=DATE}, #{imageID,jdbcType=VARCHAR}, #{price})
 	</insert>
 	
 	<select id="cntBooks" resultType="int">
