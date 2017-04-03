@@ -30,8 +30,8 @@ newbook.setPrice(Integer.parseInt(request.getParameter("price")));
 newbook.setImageID(request.getParameter("imageID"));
 mymgr.addBook(newbook);
 %>
-
-<div id="BAdd">
+<jsp:include page="/inven/BookManagement.jsp"></jsp:include>
+<div id="BAdd" class="container">
 <h2>도서 추가 결과</h2>
 	<table class="table table-condensed">
 	 <thead>

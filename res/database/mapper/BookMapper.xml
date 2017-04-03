@@ -31,6 +31,12 @@
 		values (BOOK_ID_SEQ.NEXTVAL, #{categoryID}, #{eventID}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{publishDate,jdbcType=DATE}, #{imageID,jdbcType=VARCHAR}, #{price})
 	</insert>
 	
+	<update id="updateBook" parameterType="domain.Book">
+		update Books 
+		set book_name=#{bookName}, author=#{author}, publisher=#{publisher}, publish_Date=#{publishDate}, image_id=#{imageID}, price=#{price}
+		where book_id=#{bookId}
+	</update> 
+	
 	<select id="cntBooks" resultType="int">
 		SELECT count(*) FROM Books
 	</select>

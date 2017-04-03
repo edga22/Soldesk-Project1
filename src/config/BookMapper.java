@@ -10,5 +10,6 @@ public interface BookMapper {
 	
 	int cntBooks();
 	int cntBook(int bookID);
-	int addBook(Book book);	
+	int addBook(Book book);
+	int updateBook(Book book);	
 }

@@ -1,31 +1,35 @@
 package mgr;
 
+import config.BookMapper;
+import config.Factory;
 import domain.Book;
-import dao.BookDao;
-import dao.DbBasedBookDao;
 
 public class SearchMgr {
-	BookDao bookdao ;
+	BookMapper mapper ;
 	public SearchMgr (){
-		bookdao = new DbBasedBookDao();
+		mapper = Factory.getMapper(BookMapper.class);
 	}
 	
 	public Book[] getBooks(){
-		return bookdao.getBooks();
+		return mapper.getBooks().toArray(new Book[mapper.getBooks().size()]);
 	}
 	
 	public Book getBook(int bookID){
-		return bookdao.getBook(bookID);
+		return mapper.getBook(bookID);
 	}
 	
-		
-	public int addBook(Book book){
-		return bookdao.addBook(book);
+	public int updateBook(Book book){
+		return mapper.updateBook(book);
 	}
 	
 	public int cntBooks(){
-		return bookdao.cntBooks();
+		return mapper.cntBooks();
 	}
+		
+	public int addBook(Book book){
+		return mapper.addBook(book);
+	}
+	
 	public Book[] getCateBooks(String category){
 		return null;
 	}
