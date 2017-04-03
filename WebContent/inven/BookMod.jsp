@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-	import="mgr.SearchMgr" 
+	import="mgr.BookMgr" 
 	import="java.util.Date" 
 	import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html PUBLIC>
@@ -17,7 +17,7 @@
 <body>
 <%
 // import한 객체 생성
-SearchMgr mymgr = new SearchMgr();
+BookMgr mymgr = new BookMgr();
 // 이전 페이지에서 넘어온 값들 저장
 int bookID = Integer.parseInt(request.getParameter("bookID"));
 String bookName = request.getParameter("bookName");
@@ -55,7 +55,7 @@ for(Book book: books){
 			modbook.setPrice(book.getPrice());	
 		}else modbook.setPrice(Integer.parseInt(price));
 		
-		if(imageID == null || bookName.equals("")) modbook.setImageID(book.getImageID());
+		if(imageID == null || imageID.equals("")) modbook.setImageID(book.getImageID());
 			else modbook.setImageID(imageID);
 		
 		mymgr.updateBook(modbook);

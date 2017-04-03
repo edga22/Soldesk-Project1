@@ -62,12 +62,16 @@
           </div>
          <form action="BookMod.jsp" target="content">
           <div class="modal-body" align="right">         
-		  <ul style=" list-style:none" >		 
-		   <li> 제  목:<input type="text" name="bookName" placeholder="도서 제목"></li>
-		   <li> 출판사:<input type="text" name="publish" placeholder="출판사"></li>
-		   <li> 저  자:<input type="text" name="author" placeholder="저 자"></li>
-		   <li> 금  액:<input type="text" name="bookPrice" placeholder="금액(숫자만 입력)"></li>		  
-		  </ul>		
+		  <ul style=" list-style:none">		 
+		   <li> 도 서 명:<input type="number" name="bookID" placeholder="도서번호" required></li>		  
+		   <li> <hr style="border: solid 0.1rem;"> </li>		  
+		   <li> 도 서 명:<input type="text" name="bookName" placeholder="책이름" ></li>		  
+		   <li> 작 가 명:<input type="text" name="author" placeholder="작가" ></li>		  
+		   <li> 출 판 사:<input type="text" name="publisher" placeholder="출판사" ></li>		  
+		   <li> 출 판 일:<input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)" ></li>		  
+		   <li> 책 금 액:<input type="number" name="price" placeholder="금액" ></li>		  
+		   <li> 이 미 지:<input type="text" name="imageID" placeholder="책표지 주소(.jpg)" ></li>		  
+		  </ul>	
          </div>
          <div class="modal-footer">
 		  <button type="submit" class="btn btn-primary">수정</button>         
@@ -99,10 +103,7 @@
       </div>      
     </div>
     </div><!-- 삭제 모달 종료 -->    
-<hr style="border: solid 0.1rem;">
-<!-- 결과값 보여주는창 contents -->
-	<iframe name="content" style="width:100%; height:100rem; border:none;"></iframe>      
+    
 </div>
-
 </body>
 </html>

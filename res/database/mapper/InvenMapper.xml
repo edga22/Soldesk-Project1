@@ -14,10 +14,6 @@
 		<result property="price"	column="PRICE" />
 	</resultMap>
 	
-	<select id="getTitleBook" resultMap="BookMap">
-		SELECT * FROM Books WHERE book_name LIKE '%'||#{title}||'%' ORDER BY publish_date
-	</select>
-	
 	<select id="getBooks" resultMap="BookMap">
 		SELECT * FROM Books ORDER BY book_ID
 	</select>
@@ -35,47 +31,5 @@
 		update Books 
 		set book_name=#{bookName}, author=#{author}, publisher=#{publisher}, publish_Date=#{publishDate}, image_id=#{imageID}, price=#{price}
 		where book_ID = #{bookID}
-	</update> 
-	
-	<select id="cntBooks" resultType="int">
-		SELECT count(*) FROM Books
-	</select>
-	<select id="cntBook" parameterType="int" resultType="int">
-		SELECT count(*) FROM Books WHERE book_ID = #{bookID}
-	</select>
-	
-	
-<!--  
-    <resultMap id="MemberMap" type="">
-        <id     property="user_no"  column="user_no"/>
-        <result property="name"     column="name"/>
-        <result property="regDate"  column="reg_date"/>
-    </resultMap>
-         
-    <select id="getMembers" resultType="">
-        select user_no, name, reg_date from users
-    </select>
-    
-    <select id="getMember" parameterType="int" resultMap="MemberMap">
-        select user_no, name, reg_date from users where user_no=#{user_no}
-    </select>
-   
-    <insert id="addMember" parameterType="">
-    	insert into users (user_no, name)
-    	values (userno_seq.NEXTVAL, #{name})
-    </insert>
-    
-    <update id="updateMember" parameterType="">
-    	update users
-    	<set>
-    		<if test="name != null">name = #{name}</if>
-    	</set>
-    	where user_no = #{user_no}
-    </update>
-    
-    <delete id="delMember" parameterType="int">
-    	delete from users
-    	where user_no = #{user_no}
-    </delete>
--->
+	</update> 	
 </mapper>

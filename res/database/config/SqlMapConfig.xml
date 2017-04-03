@@ -38,5 +38,6 @@
     <mappers>        
 			<mapper resource="database/mapper/BookMapper.xml" />
 			<mapper resource="database/mapper/MemberMapper.xml"/>
+			<mapper resource="database/mapper/InvenMapper.xml"/>
     </mappers>
 </configuration>
