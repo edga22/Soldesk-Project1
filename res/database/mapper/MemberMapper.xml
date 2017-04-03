@@ -26,7 +26,8 @@
 		select email, passwd 
 		from members email=#{email} and passwd=#{password};
 		where 
-		</select>
+	</select>
+	
 	<select id="addMember" parameterType="domain.Member">
 		insert into members(member_id, email, passwd, name, birth_day, postcode, address, phone)
 		values(member_id_seq.nextval, #{email,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR}
