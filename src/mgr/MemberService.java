@@ -23,8 +23,8 @@ public class MemberService{
 		return mapper.loginCheck(member);
 	}
 	
-	public int addMember(int MemberID){
-		return mapper.addMember(MemberID);
+	public int addMember(Member Member){
+		return mapper.addMember(Member);
 	}
 	
 	public int findIdMember(Member Email){

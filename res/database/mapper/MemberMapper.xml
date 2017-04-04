@@ -7,7 +7,6 @@
 		<result	property="email"		column="EMAIL"/>
 		<result property="password"		column="PASSWD"/>
 		<result property="name"			column="NAME"/>
-		<result property="birthday"		column="BIRTH_DAY"/>
 		<result property="postCode"		column="POSTCODE"/>
 		<result property="address"		column="ADDRESS"/>
 		<result property="phone"		column="PHONE"/>
@@ -27,23 +26,23 @@
 	<select id="loginCheck" parameterType="domain.Member" resultType="int">
 		select count(*)
 		from members
-		where (email=#{email} and passwd=#{password})
+		where (email=#{email} and PASSWD=#{password})
 	</select>
 	
-	<select id="addMember" parameterType="domain.Member">
-		insert into members(member_id, email, passwd, name, birth_day, postcode, address, phone)
-		values(member_id_seq.nextval, #{email,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR}
-				#{name,jdbcType=VARCHAR},#{birthday},#{postCode}, 
-				#{address,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR})
-	</select>
+	<insert id="addMember" parameterType="domain.Member">
+		insert into members(member_id, email, PASSWD, name, POSTCODE, address, phone)
+		values(member_id_seq.nextval, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+									  #{name,jdbcType=VARCHAR}, #{postCode,jdbcType=NUMERIC}, 
+									  #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
+	</insert>
 	
 	<select id="findIdMember" parameterType="domain.Member">
 		select email from members 
-		where (name=#{name} and birth_day =# {birthday})
+		where (name=#{name} and phone=#{phone})
 	</select>
 	
 	<select id="findPwMember" parameterType="domain.Member">
 		select passwd from members 
-		where (email=#{email} and name=#{name} and birth_day=#{birthday})
+		where (email=#{email} and name=#{name} and phone=#{phone})
 	</select>
 </mapper>

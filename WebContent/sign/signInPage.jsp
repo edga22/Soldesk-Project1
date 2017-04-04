@@ -64,9 +64,9 @@
 				<div class="col-sm-9">
 					<input type="text" class="form-control" id="name" name="name" placeholder="name" required>
 				</div>
-				<label class="control-label col-sm-3" for="name" style="margin-top:10px">생년월일 :</label>
+				<label class="control-label col-sm-3" for="name" style="margin-top:10px">전화번호 :</label>
 				<div class="col-sm-9">
-					<input type="number" class="form-control" id="birth" name="birth" placeholder="ex)19890914" style="margin-top:10px" required>
+					<input type="number" class="form-control" id="phone" name="phone" placeholder="-없이입력" style="margin-top:10px" required>
 				</div>
 			</div>
 			<div class="btn-default">
@@ -91,9 +91,9 @@
 				<div class="col-sm-9">
 					<input type="text" class="form-control" id="name" placeholder="name" style="margin-top:10px" required>
 				</div>
-				<label class="control-label col-sm-3" for="name" style="margin-top:10px">생년월일 :</label>
+				<label class="control-label col-sm-3" for="name" style="margin-top:10px">전화번호 :</label>
 				<div class="col-sm-9">
-					<input type="number" class="form-control" id="" placeholder="ex)19890914" style="margin-top:10px" required>
+					<input type="number" class="form-control" id="phone" name="phone" placeholder="-없이 입력" style="margin-top:10px" required>
 				</div>
 			</div>
 `			<div class="bnt-default">

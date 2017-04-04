@@ -20,7 +20,7 @@
 <jsp:include page="../logo.jsp"/>
 <div class="container" id="pws2" style="width:650px">
 	<h2>회원가입</h2>
-<form action="../admin/UserMrg.jsp">
+<form action="/sign/signUpProc.jsp">
 	<div class="form-group">
 	<label class="control-label col-xs-2" for="email">아이디:</label>
 	<div class="col-xs-3">
@@ -69,10 +69,6 @@ $('#selectEmail').change(function(){
 		<input class="form-control" id="name" name="name" type="text" required>
 	</div>
 	<div class="form-group">
-		<label for="inputdefault">생년월일</label>
-		<input class="form-control" id="birthday" name="birthday" type="number" maxlength="8"placeholder="ex)19890914" required>
-	</div>
-	<div class="form-group">
 		<label for="inputdefault">우편번호</label>
 		<button id="postcodify_search_button" class="btn btn-default">우편번호찾기</button>
 		<!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 class를 부여한다 -->
@@ -90,7 +86,7 @@ $('#selectEmail').change(function(){
 	</div>
 	<div class="form-group">
 		<label for="inputdefault">전화번호</label>
-		<input class="form-control" id="phone" name="phoneNumber" type="text" placeholder=" - 없이 입력" required>
+		<input class="form-control" id="phone" name="phone" type="text" placeholder=" - 없이 입력" required>
 	</div>
 	<div class="form-group">
 		<input type="submit" class="btn btn-default" style="margin-top:30px" value="회원가입"/>
