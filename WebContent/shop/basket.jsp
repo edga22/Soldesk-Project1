@@ -1,3 +1,4 @@
+<%@page import="java.util.HashSet"%>
 <%@page import="mgr.BookMgr"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="config.Factory" %>
@@ -9,16 +10,15 @@
 	BookMgr mgr=new BookMgr();
 	ArrayList<Book> bookList=new ArrayList<Book>();
 	
+	//만약 장바구니에 목록이 있다면?
 	if(session.getAttribute("bookList") != null)
 		bookList=(ArrayList<Book>)session.getAttribute("bookList");
-	else{	
-		session.setAttribute("bookList", bookList);
-	}
+	else session.setAttribute("bookList", bookList);
+	
 	String bID=(String)session.getAttribute("bookID");
 	int bookID=Integer.parseInt(bID);
 	Book book=mgr.getBook(bookID);
 	
 	bookList.add(book);
-	
-	response.sendRedirect("basketlist.jsp");
 %>
+<jsp:forward page="basketlist.jsp"/>

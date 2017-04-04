@@ -22,12 +22,10 @@
   <div class="panel-heading"><h2>장바구니</h2></div>
   <div class="panel-body">회원가입을 하시면 통합포인트 적립, 쿠폰사용을 통한 추가할인, 추가적립 등 다양한 혜택이 가득합니다.</div>
 </div> <!-- 장바구니 패널 -->
-
+<form>
 <div class="row">
 <div> <!-- 전체선택과 버튼들 -->
-	<form class="form-horizontal">
-     	<input type="button" class="btn btn-default" value="선택한 상품 삭제"/>
-	</form>
+     <input type="button" class="btn btn-default" value="선택한 상품 삭제"/>
 </div> <!-- 전체선택과 버튼들 -->
 </div>
 
@@ -44,7 +42,7 @@
       </tr>
     </thead>
     
-    <form>
+
     <tbody>
     <% if(bookList.size()==0){%>
     	<h2>장바구니가 비었습니다 :( </h2>
@@ -57,24 +55,21 @@
         <%=books.getBookName() %></td>
         <td><%=books.getPrice() %></td>
         <td>
-          <input formaction="#" type="number" name="#" min="1" value="1"/>
+          <input formaction="#" type="number" name="cnt" min="1" value="1"/>
        	  <input formaction="#" type="button" class="btn btn-default btn-sm" size="2" value="변경"/>
         </td>
         <td>
-    	<input formaction="/shop/Payment.jsp" type="submit" class="btn btn-default btn-block" value="바로주문"/>
-		<button formaction="#" type="button" class="btn btn-default btn-block">삭제</button>
+    	<p><a class="btn btn-default btn-block" href="/shop/Payment.jsp?BookID=<%=books.getBookID()%>">바로 구매</a></p>
+		<input formaction="/shop/basketDelete.jsp" type="submit" class="btn btn-default btn-block" value="삭제"/>
 		</td>
       </tr>
       <%} %>
       </tbody>
-      </form>
 </table> <!-- 테이블 -->
 
 <div class="row">
 <div> <!-- 전체선택과 버튼들 -->
-	<form class="form-horizontal">
-     	<input type="button" class="btn btn-default" value="선택한 상품 삭제"/>
-	</form>
+     <input type="button" class="btn btn-default" value="선택한 상품 삭제"/>
 </div> <!-- 전체선택과 버튼들 -->
 </div>
 
@@ -114,17 +109,14 @@
 <div class="row">
 	<div class="col-sm-8"></div>
 	<div class="col-sm-2"> 
-	<form action="/main.jsp">
     	<input type="submit" class="btn btn-default" value="쇼핑 계속하기"/>
-    </form>
     </div>
     
     <div class="col-sm-2"> 
-    <form action="/shop/Payment.jsp">
     	<input type="submit" class="btn btn-default" value="주문하기"/>
-	</form>
 	</div>
 </div> <!-- 주문 및 되돌아가기 -->
+</form>
 </div> <!-- 끝 -->
 </div>
 <jsp:include page="/main_foot.jsp"></jsp:include>
