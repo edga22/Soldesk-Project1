@@ -13,17 +13,24 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%
-BookMgr mymgr = new BookMgr();
-int bookCnt = Integer.parseInt(request.getParameter("cnt"));
-int bookID = Integer.parseInt((String)session.getAttribute("bookID"));
-Book book = mymgr.getBook(bookID);
-int overPrice = (int)(book.getPrice()*1.1)/100*100;
-%>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container" id="Payment">
-<!-- 주문정보 확인창 -->
-	<h3>주문 상품 확인</h3>
+<h3>주문 상품 확인</h3>
+<%
+BookMgr mymgr = new BookMgr();
+int bookCnt = 1;
+int bookID = 0;
+int overPrice = 0;
+//즉시구매 창에서 수량을 받아왔을경우 실행되는 부분.
+String tmpCnt = request.getParameter("cnt");
+String tmpID = (String)session.getAttribute("bookID");
+if(tmpCnt == null || tmpCnt.equals("")){	
+}else{
+	bookCnt = Integer.parseInt(tmpCnt);
+	bookID = Integer.parseInt(tmpID);
+	Book book = mymgr.getBook(bookID);
+	overPrice = (int)(book.getPrice()*1.1)/100*100;
+%>	
 	<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">
 	<table class="table table-condensed">
 	 <thead>
@@ -49,12 +56,51 @@ int overPrice = (int)(book.getPrice()*1.1)/100*100;
 	  </tr>  			
 	 </tbody>
 	</table>	
-	</div><br><br><br><br>
+	</div>	
+<%
+}
+//장바구니에서 bookID 값들을 받을경우
+String[] bookIDs = request.getParameterValues("bookID");
+if(bookIDs == null || bookIDs.equals("")){
+}else{
+	for(String bID : bookIDs){
+		Book book = mymgr.getBook(Integer.parseInt(bID));
+%>	
+	<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">
+	<table class="table table-condensed">
+	 <thead>
+	  <tr>
+		<th>상 품</th>
+		<th>정 가(원)</th>
+		<th>판 매 가(원)</th>
+		<th>수 량</th>
+		<th>합 계</th>
+		<th>적 립 금(p)</th>
+		<th>사 은 품</th>
+	  </tr>
+	 </thead>
+	 <tbody>	 	
+	  <tr>
+		<td><%=book.getBookName()%></td>
+		<td><%=overPrice%></td>
+		<td><%=book.getPrice()%></td>
+		<td><%=bookCnt %></td>
+		<td><%=book.getPrice()*bookCnt  %></td>
+		<td><%=book.getPrice()*0.1  %></td>
+		<td><%= "usb 충전기"  %></td>
+	  </tr>  			
+	 </tbody>
+	</table>	
+	</div>
+<%		
+	}
+}
+%>	
+	<br><br><br><br>
 <!-- 구매자 정보 -->	
 	<h3>구매자 및 배송 정보</h3>
 	<form action="#">
-	<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">
-	
+	<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">	
 	<table class="table table-condensed">
 	 <tbody>	 	
 	  <tr>
