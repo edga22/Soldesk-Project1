@@ -26,15 +26,15 @@
     </ul>
 	<div class="tab-content">
 		<div id="logIn" class="tab-pane fade in active">
-			<form action="/main.jsp" method="post">
+			<form action="/admin/userMgr.jsp" method="post">
 			<div class="form-group">
 				<div class="col-sm-12" style="margin:30px 0 15px 0">
-					<input type="text" class="form-control" id="id" placeholder="ID를 입력하세요." required />
+					<input type="text" class="form-control" id="id" name="ID" placeholder="ID를 입력하세요." required />
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-12">
-					<input type="password" class="form-control" id="psw" placeholder="패스워드를 입력하세요." required />
+					<input type="password" class="form-control" id="psw" name="psw" placeholder="패스워드를 입력하세요." required />
 				</div>
 			</div>
 			<div class="form-group">
@@ -49,7 +49,7 @@
 		 		   <input type="submit" class="btn btn-primary btn-block" value="로그인" />
 		 		</div>
 				<div class="col-sm-6 center">
-				     <a href="signIn.jsp"><button type="button" class="btn btn-primary btn-block">회원가입</button></a>
+				     <a href="signUp.jsp"><button type="button" class="btn btn-primary btn-block">회원가입</button></a>
 				</div>
 			</div>
 			</form>	
@@ -62,11 +62,11 @@
 			<div class="form-group" style="margin-top:10px">
 				<label class="control-label col-sm-3" for="name">성명 :</label>
 				<div class="col-sm-9">
-					<input type="text" class="form-control" id="name" placeholder="name" required>
+					<input type="text" class="form-control" id="name" name="name" placeholder="name" required>
 				</div>
 				<label class="control-label col-sm-3" for="name" style="margin-top:10px">생년월일 :</label>
 				<div class="col-sm-9">
-					<input type="number" class="form-control" id="" placeholder="ex)19890914" style="margin-top:10px" required>
+					<input type="number" class="form-control" id="birth" name="birth" placeholder="ex)19890914" style="margin-top:10px" required>
 				</div>
 			</div>
 			<div class="btn-default">
