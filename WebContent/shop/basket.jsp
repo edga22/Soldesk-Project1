@@ -13,9 +13,10 @@
 	//만약 장바구니에 목록이 있다면?
 	if(session.getAttribute("bookList") != null)
 		bookList=(ArrayList<Book>)session.getAttribute("bookList");
+	//만약 장바구니에 목록이 없으면
 	else session.setAttribute("bookList", bookList);
 	
-	String bID=(String)session.getAttribute("bookID");
+	String bID=request.getParameter("bookID");
 	int bookID=Integer.parseInt(bID);
 	Book book=mgr.getBook(bookID);
 	

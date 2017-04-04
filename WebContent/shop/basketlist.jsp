@@ -42,7 +42,7 @@
     	<tr>
     		<td></td>
     		<td></td>
-    		<td colspan="2"><h2>장바구니가 비었습니다 :( </h2></td>
+    		<td colspan="3"><h2>장바구니가 비었습니다 :( </h2></td>
     		<td></td>
     		<td></td>
     	</tr>
@@ -114,7 +114,7 @@
 <div class="row">
 	<div class="col-sm-8"></div>
 	<div class="col-sm-2"> 
-    	<input type="submit" class="btn btn-default" value="쇼핑 계속하기"/>
+    	<input formaction="/main.jsp" type="submit" class="btn btn-default" value="쇼핑 계속하기"/>
     </div>
     
     <div class="col-sm-2"> 
