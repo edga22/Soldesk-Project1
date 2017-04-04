@@ -15,17 +15,19 @@
 	</resultMap>
 	
 	<select id="getMembers" resultMap="MemberMap">
-		select * from members order by member_id
+		select * from members 
+		order by member_id
 	</select>
 	
 	<select id="getMember" parameterType="domain.Member" resultMap="MemberMap">
-		select * from members where member_id =#{memberID}
+		select * from members 
+		where member_id =#{memberID}
 	</select>
 	
-	<select id="loginCheck" parameterType="domain.Member">
+	<select id="loginCheck" parameterType="domain.Member" resultType="int">
 		select count(*)
 		from members
-		where (email=#{email} and passwd=#{password}) 
+		where (email=#{email} and passwd=#{password})
 	</select>
 	
 	<select id="addMember" parameterType="domain.Member">
@@ -36,10 +38,12 @@
 	</select>
 	
 	<select id="findIdMember" parameterType="domain.Member">
-		select email from members where name=#{name} and birth_day =# {birthday}
+		select email from members 
+		where (name=#{name} and birth_day =# {birthday})
 	</select>
 	
 	<select id="findPwMember" parameterType="domain.Member">
-		select passwd from members where email=#{email} and name=#{name} and birth_day=#{birthday}
+		select passwd from members 
+		where (email=#{email} and name=#{name} and birth_day=#{birthday})
 	</select>
 </mapper>

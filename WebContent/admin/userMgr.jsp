@@ -6,24 +6,24 @@
 <%@ page import="dao.DbBasedMemberDao" %>
 <%
 	String ID = request.getParameter("ID");
-	String password = request.getParameter("psw");
+	String pw = request.getParameter("pw");
 
-	MemberDao MemberCheck = new DbBasedMemberDao();
+	
 	MemberService memberService = new MemberService();
 	
-	if((ID != null && ID.equals(""))
-			&& (password != null && password.equals(""))){
-		memberService.loginCheck(new Member(ID), new Member(password));
+	if((ID != null && !ID.equals(""))
+			&& (pw != null && !pw.equals(""))){
+		Member temp = new Member();
+		temp.setEmail(ID);
+		temp.setPassword(pw);
+		memberService.loginCheck(temp);
 		session.setAttribute("ID",ID);
-		session.setAttribute("psw",password);
+		response.sendRedirect("/main.jsp");
 %>		
-		<h4>로그인 성공</h4>
-		<%=ID %>
-		<%=password %>
+
 <%	}else{
 %>		<h4>아이디 혹은 비밀번호가 틀렸습니다.</h4>
-		<%=ID %>
-		<%=password %>
+
 <%
 		}
 %>

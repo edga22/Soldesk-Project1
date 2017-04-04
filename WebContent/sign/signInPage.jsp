@@ -34,7 +34,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-12">
-					<input type="password" class="form-control" id="psw" name="psw" placeholder="패스워드를 입력하세요." required />
+					<input type="password" class="form-control" id="psw" name="pw" placeholder="패스워드를 입력하세요." required />
 				</div>
 			</div>
 			<div class="form-group">

@@ -73,4 +73,5 @@ public class Member {
 	public void setBonusPoint(int bonusPoint) {
 		this.bonusPoint = bonusPoint;
 	}
+
 }

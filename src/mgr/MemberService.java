@@ -5,37 +5,37 @@ import config.MemberMapper;
 import domain.Member;
 
 public class MemberService{
-	MemberMapper member;
+	MemberMapper mapper;
 	
 	public MemberService(){
-		member = Factory.getMapper(MemberMapper.class);
+		mapper = Factory.getMapper(MemberMapper.class);
 	}
 	
 	public Member[] getMembers(){
-		return member.getMembers().toArray(new Member[member.getMembers().size()]);
+		return mapper.getMembers().toArray(new Member[mapper.getMembers().size()]);
 	}
 	
 	public Member getMember(int memberID){
-		return member.getMember(memberID);
+		return mapper.getMember(memberID);
 	}
 	
-	public int loginCheck(Member email, Member pw){
-		return member.loginCheck(email, pw);
+	public int loginCheck(Member member){
+		return mapper.loginCheck(member);
 	}
 	
 	public int addMember(int MemberID){
-		return member.addMember(MemberID);
+		return mapper.addMember(MemberID);
 	}
 	
 	public int findIdMember(Member Email){
-		return member.findIdMember(Email);
+		return mapper.findIdMember(Email);
 	}
 	
 	public int findPwMember(Member psw){
-		return member.findPwMember(psw);
+		return mapper.findPwMember(psw);
 	}
 	
 	public int delMember(int MemberID){
-		return member.delMember(MemberID);
+		return mapper.delMember(MemberID);
 	}
 }

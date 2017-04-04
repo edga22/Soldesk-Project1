@@ -11,8 +11,8 @@ public class DbBasedMemberDao implements MemberDao {
 		mapper = Factory.getMapper(MemberMapper.class);
 	}
 	
-	public int loginCheck(Member email, Member pw){
-		return mapper.loginCheck(email, pw);
+	public int loginCheck(Member member){
+		return mapper.loginCheck(member);
 	}
 	
 	public int findIdMember(Member email){
