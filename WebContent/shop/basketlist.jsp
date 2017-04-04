@@ -4,6 +4,13 @@
     pageEncoding="UTF-8"%>
 <%
 	ArrayList<Book> bookList=(ArrayList<Book>)session.getAttribute("bookList");
+	
+	//상품금액
+	int productPrice=0;
+	//배송비
+	int delivery=0;
+	//결제 예정 금액
+	int totalPrice=0;
 %>
 <title>장바구니</title>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
@@ -37,27 +44,30 @@
       </tr>
     </thead>
     
+    <form>
     <tbody>
+    <% if(bookList.size()==0){%>
+    	<h2>장바구니가 비었습니다 :( </h2>
+    <%} %>
     <% for(int i=0;i<bookList.size();i++){
     	Book books=bookList.get(i);%>
       <tr> 
-      	<td><input type="checkbox" name="#" value=""/></td>
-        <td><%=books.getBookName() %></td>
+      	<td><input type="checkbox" name="bookID" value="<%=books.getBookID()%>"/></td>
+        <td><%=books.getImageID() %>
+        <%=books.getBookName() %></td>
         <td><%=books.getPrice() %></td>
         <td>
-        <form action="#">
-          <input type="number" name="#" min="1" value="1"/>
-       	  <input type="button" class="btn btn-default btn-sm" size="2" value="변경"/>
-       	</form>
+          <input formaction="#" type="number" name="#" min="1" value="1"/>
+       	  <input formaction="#" type="button" class="btn btn-default btn-sm" size="2" value="변경"/>
         </td>
         <td>
-        <form action="/shop/Payment.jsp">
-    		<input type="submit" class="btn btn-default btn-block" value="바로주문"/>
-		</form>
-		<button type="button" class="btn btn-default btn-block">삭제</button>
+    	<input formaction="/shop/Payment.jsp" type="submit" class="btn btn-default btn-block" value="바로주문"/>
+		<button formaction="#" type="button" class="btn btn-default btn-block">삭제</button>
 		</td>
       </tr>
       <%} %>
+      </tbody>
+      </form>
 </table> <!-- 테이블 -->
 
 <div class="row">
@@ -81,10 +91,20 @@
     </thead>
     <tbody>
       <tr>
-       	<td></td>
-       	<td></td>
-        <td></td>
-        <td></td>
+      <% for(int i=0;i<bookList.size();i++){
+    		Book books=bookList.get(i);
+    		productPrice+=books.getPrice();
+    	}
+    	if(productPrice<=9800){
+    		delivery=2500;
+    		totalPrice=productPrice+delivery;
+    	}else{
+    		totalPrice=productPrice;
+    	}
+    	%>
+       	<td><%=productPrice%> ￦</td>
+       	<td><%=delivery %> ￦</td>
+        <td><%=totalPrice %> ￦</td>
         <td>10p</td>
       </tr>
     </tbody>
