@@ -54,7 +54,6 @@ if( books != null){
 <%
 }
 %>
-
 	 </tbody>
 	</table>
 </div>
