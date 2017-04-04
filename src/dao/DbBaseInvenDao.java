@@ -1,13 +1,13 @@
 package dao;
 
-import config.BookMapper;
+import config.InvenMapper;
 import config.Factory;
 import domain.Book;
 
 public class DbBaseInvenDao implements InvenDao {
-	BookMapper mapper ;
+	InvenMapper mapper ;
 	public DbBaseInvenDao (){
-		mapper = Factory.getMapper(BookMapper.class);
+		mapper = Factory.getMapper(InvenMapper.class);
 	}
 	
 	public Book[] getBooks(){
@@ -18,7 +18,7 @@ public class DbBaseInvenDao implements InvenDao {
 		return mapper.getBook(bookID);
 	}
 	
-	public Book delBook(int bookID){
+	public int delBook(int bookID){
 		return mapper.delBook(bookID);
 	}
 		
@@ -28,10 +28,6 @@ public class DbBaseInvenDao implements InvenDao {
 	
 	public int updateBook(Book book){
 		return mapper.updateBook(book);
-	}
-	
-	public Book[] getCateBooks(String category){
-		return null;
 	}
 
 }

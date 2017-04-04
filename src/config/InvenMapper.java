@@ -9,5 +9,5 @@ public interface InvenMapper {
 
 	int addBook(Book book);
 	int updateBook(Book book);
-	Book delBook(int bookID);	
+	int delBook(int bookID);	
 }

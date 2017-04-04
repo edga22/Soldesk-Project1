@@ -27,7 +27,7 @@ public class BookMgr {
 		return mapper.addBook(book);
 	}
 	
-	public Book delBook(int bookID){
+	public int delBook(int bookID){
 		return mapper.delBook(bookID);
 	}
 }

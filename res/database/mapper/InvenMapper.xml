@@ -33,7 +33,7 @@
 		where book_ID = #{bookID}
 	</update>
 	
-	<delete id="delBook" parameterType="int">
+	<delete id="delBook" parameterType="domain.Book">
 		delete Books 
 		where book_ID=#{bookID}
 	</delete> 	
