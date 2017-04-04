@@ -13,6 +13,12 @@ public class Member {
 	private String phone;
 	private int bonusPoint;
 	
+	public Member(){}
+	
+	public Member(String email){
+		this.email = email;
+	}
+	
 	public int getMemberID() {
 		return memberID;
 	}

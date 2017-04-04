@@ -25,7 +25,7 @@
 		</div>
 	</div>
 
-<a href="signUpPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
+<a href="signInPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
 </div>
 </body>
 </html>

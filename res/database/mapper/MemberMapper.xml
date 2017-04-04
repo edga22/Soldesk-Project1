@@ -23,9 +23,9 @@
 	</select>
 	
 	<select id="loginCheck" parameterType="domain.Member">
-		select email, passwd 
-		from members email=#{email} and passwd=#{password};
-		where 
+		select count(*)
+		from members
+		where (email=#{email} and passwd=#{password}) 
 	</select>
 	
 	<select id="addMember" parameterType="domain.Member">
