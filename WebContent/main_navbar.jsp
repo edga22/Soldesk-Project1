@@ -79,7 +79,7 @@ if(session.getAttribute("ID") != null)memberID = (String)session.getAttribute("I
                            <a href="/mypage/MypageorderMod.jsp">마이페이지</a> <span class="divider"></span>
                        </li>
                        <li>
-                           <a href="main.html">로그아웃</a> <span class="divider"></span>
+                           <a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>
                        </li>
                        <%}else{ %>
                        <li>
