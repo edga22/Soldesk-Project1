@@ -24,10 +24,15 @@ int overPrice = 0;
 //즉시구매 창에서 수량을 받아왔을경우 실행되는 부분.
 String tmpCnt = request.getParameter("cnt");
 String tmpID = (String)session.getAttribute("bookID");
+String basketItem = request.getParameter("bookID");
 if(tmpCnt == null || tmpCnt.equals("")){	
 }else{
 	bookCnt = Integer.parseInt(tmpCnt);
-	bookID = Integer.parseInt(tmpID);
+	if(tmpID == null || tmpID.equals("")){
+		bookID = Integer.parseInt(basketItem);
+	}else{
+		bookID = Integer.parseInt(tmpID);
+	}
 	Book book = mymgr.getBook(bookID);
 	overPrice = (int)(book.getPrice()*1.1)/100*100;
 %>	
