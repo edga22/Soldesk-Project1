@@ -7,7 +7,7 @@
 		<result	property="code1"		column="CODE1"/>
 		<result	property="code2"		column="CODE2"/>
 		<result	property="code3"		column="CODE3"/>
-		<result	property="categoryName"		column="NAME"/>
+		<result	property="categoryName"		column="CATEGORY_NAME"/>
 	</resultMap>
 	
 	<select id="getCategories" resultMap="CategoryMap">
