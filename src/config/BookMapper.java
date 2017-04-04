@@ -6,7 +6,7 @@ import domain.Book;
 public interface BookMapper {
 	List<Book> getBooks();
 	Book getBook(int bookID);
-	Book getTitleBook(String title);	
+	List<Book> getTitleBooks(String title);	
 	
 	int cntBooks();
 	int cntBook(int bookID);

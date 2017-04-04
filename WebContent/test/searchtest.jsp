@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-	import="mgr.BookMgr" %>
+	import="mgr.BookMgr"
+	import="mgr.SearchMgr" %>
 <%
 BookMgr mymgr = new BookMgr();
+SearchMgr searcheng = new SearchMgr();
 
 String flag = "시험용 페이지";
 if(mymgr.getBook(1) == null) {

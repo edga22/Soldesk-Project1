@@ -25,7 +25,7 @@
 	<select id="getBook" parameterType="int" resultMap="BookMap">
 		SELECT * FROM Books WHERE book_ID = #{bookID}
 	</select>
-	
+		
 	<insert id="addBook" parameterType="domain.Book">
 		INSERT INTO Books (book_id, category_id, event_id, book_Name, author, publisher, publish_Date, image_id, price)
 		values (BOOK_ID_SEQ.NEXTVAL, #{categoryID}, #{eventID}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{publishDate,jdbcType=DATE}, #{imageID,jdbcType=VARCHAR}, #{price})
@@ -37,12 +37,7 @@
 		where book_ID = #{bookID}
 	</update> 
 	
-	<select id="cntBooks" resultType="int">
-		SELECT count(*) FROM Books
-	</select>
-	<select id="cntBook" parameterType="int" resultType="int">
-		SELECT count(*) FROM Books WHERE book_ID = #{bookID}
-	</select>
+	
 	
 	
 <!--  

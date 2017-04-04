@@ -17,7 +17,9 @@ public class DbBasedBookDao implements BookDao {
 	public Book getBook(int bookID){
 		return mapper.getBook(bookID);
 	}
-	
+	public Book[] getTitleBooks(String title){
+		return mapper.getTitleBooks(title).toArray(new Book[mapper.getTitleBooks(title).size()]);
+	}
 	public int cntBooks(){
 		return mapper.cntBooks();
 	}
@@ -28,9 +30,5 @@ public class DbBasedBookDao implements BookDao {
 	
 	public int updateBook(Book book){
 		return mapper.updateBook(book);
-	}
-	
-	public Book[] getCateBooks(String category){
-		return null;
-	}
+	}	
 }
