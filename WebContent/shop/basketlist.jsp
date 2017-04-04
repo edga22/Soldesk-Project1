@@ -1,4 +1,3 @@
-<%@page import="domain.Basket"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="domain.Book"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

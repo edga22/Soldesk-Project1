@@ -11,7 +11,7 @@
 	
 	if(session.getAttribute("bookList") != null)
 		bookList=(ArrayList<Book>)session.getAttribute("bookList");
-	String bID=request.getParameter("bookID");
+	String bID=(String)session.getAttribute("bookID");
 	
 	if(bID==null || bID.equals("")){
 		//장바구니에 그냥 들어갔을 때
