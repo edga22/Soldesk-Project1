@@ -15,9 +15,9 @@
 <body>
 <%
 BookMgr mymgr = new BookMgr();
-//int bookID = Integer.parseInt(request.getParameter("bookID"));
-session.setAttribute("bookID","22");
-Book book = mymgr.getBook(22);
+String tmp = request.getParameter("bookID");
+int bookID = 22;// if(tmp != null || tmp.equals("") Integer.parseInt(tmp);
+Book book = mymgr.getBook(bookID);
 %>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container" id="BD"><br><br>
@@ -43,13 +43,13 @@ Book book = mymgr.getBook(22);
 				</div>
 			</div>
 			<form>
+			<input type="hidden" name="bookID" value="<%=bookID%>"><br><br>
 			수량 : <input type="number" name="cnt" style="width:10rem;" value="1"><br><br>
 			<div align="left">			
 			<button type="submit" formaction="/shop/Payment.jsp" class="btn btn-default">즉시 구매</button>
 			<button type="submit" formaction="/shop/basket.jsp" class="btn btn-default">찜하기</button>
 			</div>
-			</form>
-						
+			</form>					
 		</div>	
 	</div>
 </div>
