@@ -21,6 +21,7 @@ BookMgr mymgr = new BookMgr();
 int bookCnt = 1;
 int bookID = 0;
 int overPrice = 0;
+int point = 0;
 //즉시구매 창에서 수량을 받아왔을경우 실행되는 부분.
 String tmpCnt = request.getParameter("cnt");
 String tmpID = (String)session.getAttribute("bookID");
@@ -35,6 +36,7 @@ if(tmpCnt == null || tmpCnt.equals("")){
 	}
 	Book book = mymgr.getBook(bookID);
 	overPrice = (int)(book.getPrice()*1.1)/100*100;
+	point = (int)(book.getPrice()*0.1)/100*100;
 %>	
 	<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">
 	<table class="table table-condensed">
