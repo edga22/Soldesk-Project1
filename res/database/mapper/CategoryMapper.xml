@@ -7,10 +7,10 @@
 		<result	property="code1"		column="CODE1"/>
 		<result	property="code2"		column="CODE2"/>
 		<result	property="code3"		column="CODE3"/>
-		<result	property="categoryName"		column="NAME"/>
+		<result	property="categoryName"		column="CATEGORY_NAME"/>
 	</resultMap>
 	
-	<select id="getCategorys" resultMap="CategoryMap">
+	<select id="getCategories" resultMap="CategoryMap">
 		SELECT * FROM Category ORDER BY category_id
 	</select>
 	
@@ -18,4 +18,7 @@
 		SELECT * FROM Category WHERE category_id = #{categoryid}
 	</select>
 	
+	<select id="getRegionCategories" resultMap="CategoryMap" parameterType="int">
+		SELECT * FROM Category WHERE code1 = #{code1}
+	</select>
 </mapper>
