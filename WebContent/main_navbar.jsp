@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%
 String cataPage = request.getParameter("cata");
 String catat1 = "";
 String catat2 = "";
 String catat3 = "";
 String catat4 = "";
-%>
-<%
+
 if(cataPage != null && !cataPage.equals("")){
 	if(cataPage.equals("domestic")){
 	    catat1 = "active";
@@ -19,8 +19,11 @@ if(cataPage != null && !cataPage.equals("")){
 }else{
     catat4 = "active";
 }
-%>    
 
+String memberID = "";
+if(session.getAttribute("ID") != null)memberID = (String)session.getAttribute("ID");
+
+%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -68,21 +71,24 @@ if(cataPage != null && !cataPage.equals("")){
                </div>
                <div class="col-md-6 text-right">
                    <ul class="breadcrumb" style="height:36px">
-                        <!--  li>
-                           <span class="member_rate"> 회원등급 </span> <a href="main.html"><b>회원아이디</b>님</a> <span class="divider"></span>
+                       <%if(!memberID.equals("")){%>
+                       <li>
+                           <span class="member_rate"> 회원등급 </span> <a href="main.html"><b><%=memberID %></b>님</a> <span class="divider"></span>
+                       </li>
+                       <li>
+                           <a href="/mypage/MypageorderMod.jsp">마이페이지</a> <span class="divider"></span>
                        </li>
                        <li>
                            <a href="main.html">로그아웃</a> <span class="divider"></span>
-                       </li-->
+                       </li>
+                       <%}else{ %>
                        <li>
                            <a href="/sign/signInPage.jsp">로그인</a> <span class="divider"></span>
                        </li>
                        <li>
                            <a href="/sign/signUp.jsp">회원가입</a> <span class="divider"></span>
                        </li>
-                       <li>
-                           <a href="/mypage/MypageorderMod.jsp">마이페이지</a> <span class="divider"></span>
-                       </li>
+                       <%} %>
                        <li>
                            <a href="/shop/basket.jsp">장바구니</a>
                        </li>
