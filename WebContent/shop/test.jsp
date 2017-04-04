@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="basketProc.jsp">
-	<label>bookID <input type="text" name="bookID"/></label><br>
-	<label>memberID <input type="text" name="memberID"/></label><br>
+<form action="basket.jsp">
+	<input type="text" name="bookID"/>
 	<button type="submit">제출</button>
 </form>
 </body>
