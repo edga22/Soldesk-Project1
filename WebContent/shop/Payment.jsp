@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="domain.Book"
+		 import="mgr.BookMgr"%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -11,6 +13,13 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
+<%
+BookMgr mymgr = new BookMgr();
+int bookCnt = Integer.parseInt(request.getParameter("cnt"));
+int bookID = Integer.parseInt((String)session.getAttribute("bookID"));
+Book book = mymgr.getBook(bookID);
+int overPrice = (int)(book.getPrice()*1.1)/100*100;
+%>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container" id="Payment">
 <!-- 주문정보 확인창 -->
@@ -30,13 +39,13 @@
 	 </thead>
 	 <tbody>	 	
 	  <tr>
-		<td><%="세계사"  %></td>
-		<td><%="14,000"  %></td>
-		<td><%="12,000"  %></td>
-		<td><%="1"  %></td>
-		<td><%="12,000"  %></td>
-		<td><%="120"  %></td>
-		<td><%="usb 충전기"  %></td>
+		<td><%=book.getBookName()%></td>
+		<td><%=overPrice%></td>
+		<td><%=book.getPrice()%></td>
+		<td><%=bookCnt %></td>
+		<td><%=book.getPrice()*bookCnt  %></td>
+		<td><%=book.getPrice()*0.1  %></td>
+		<td><%= "usb 충전기"  %></td>
 	  </tr>  			
 	 </tbody>
 	</table>	

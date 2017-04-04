@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="domain.Book"
+		 import="mgr.BookMgr"%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -11,9 +13,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<%
+BookMgr mymgr = new BookMgr();
+//int bookID = Integer.parseInt(request.getParameter("bookID"));
+session.setAttribute("bookID","22");
+Book book = mymgr.getBook(22);
+%>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
-
 <div class="container" id="BD"><br><br>
 <div class="row">
 	<div class="col-lg-2"></div>
@@ -22,14 +28,14 @@
 			<!--닫힘버튼 <button type="button" class="close" align="rignt" onClick="window.close()">X</button> -->
 			<h3>자존감 수업(2017년 최신개정판)</h3>	
 			<div style="bor\der: black solid 0.1rem; margin:2rem; padding:2rem;">
-				<img src="img/book1.jpg" style="width:150px;height:200px; float:left; margin:3rem;">
+				<img src="<%=book.getImageID()%>" style="width:150px;height:200px; float:left; margin:3rem;">
 				<br>
 				<div>
-				책제목 : 자존감수업<br>
-				출판사 : 미디어북스<br>
-				출판일 : 2017-01-02<br>
-				저  자 : 윤홍균<br>	
-				금  액 : 12500원
+				책제목 : <%=book.getBookName()%><br>
+				출판사 : <%=book.getPublisher() %><br>
+				출판일 : <%=book.getPublishDate() %><br>
+				저  자 : <%=book.getAuthor() %><br>	
+				금  액 : <%=book.getPrice() %>
 				<hr style="border: solid 0.1rem;">
 				배송료 : 2500원(1만원 이상시 무료)<br>
 				수령 예상일 : 온라인 주문시 2일 소요<br>
@@ -37,12 +43,13 @@
 				<hr style="border: solid 0.1rem;">			
 				</div>
 			</div>
-			수량 : <input type="number" style="width:10rem;"><br><br>
+			<form>
+			수량 : <input type="number" name="cnt" style="width:10rem;" value="1"><br><br>
 			<div align="left">			
-			<a href="#" class="btn btn-default">즉시 구매</a>
-			<a href="#" class="btn btn-default">찜하기</a>
-			<!--닫힘버튼 <button type="button" class="close" align="rignt" onClick="window.close()">닫기</button> -->
+			<button type="submit" formaction="/shop/Payment.jsp" class="btn btn-default">즉시 구매</button>
+			<button type="submit" formaction="/shop/basket.jsp" class="btn btn-default">찜하기</button>
 			</div>
+			</form>
 						
 		</div>	
 	</div>
