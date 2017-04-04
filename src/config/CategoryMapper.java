@@ -3,13 +3,13 @@ package config;
 import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Update;
 
 import domain.Category;
 
 public interface CategoryMapper {	
-	List<Category> getCategorys();
+	List<Category> getCategories();
 	Category getCategory(int categoryid);
+	List<Category> getRegionCategories(int code1);
 	
 	@Insert("INSERT INTO Category (category_id, code1, code2, code3, name)"
 			+ "VALUES (CATEGORY_ID_SEQ.NEXTVAL, #{code1}, #{code2}, #{code3}, #{name,jdbcType=VARCHAR})")

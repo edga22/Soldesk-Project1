@@ -10,7 +10,7 @@
 		<result	property="categoryName"		column="NAME"/>
 	</resultMap>
 	
-	<select id="getCategorys" resultMap="CategoryMap">
+	<select id="getCategories" resultMap="CategoryMap">
 		SELECT * FROM Category ORDER BY category_id
 	</select>
 	
@@ -18,4 +18,7 @@
 		SELECT * FROM Category WHERE category_id = #{categoryid}
 	</select>
 	
+	<select id="getRegionCategories" resultMap="CategoryMap" parameterType="int">
+		SELECT * FROM Category WHERE code1 = #{code1}
+	</select>
 </mapper>

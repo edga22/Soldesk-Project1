@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-	import="mgr.SearchMgr" %>
+	import="mgr.BookMgr" %>
 <%
-SearchMgr mymgr = new SearchMgr();
+BookMgr mymgr = new BookMgr();
 
 String flag = "시험용 페이지";
 if(mymgr.getBook(1) == null) {
@@ -25,7 +25,7 @@ if(mymgr.getBook(1) == null) {
 </head>
 <body>
 <h2><%=flag %></h2>
-<h2>총 추가된 책의 갯수 : <%=mymgr.cntBooks() %></h2>
+<h2>총 추가된 책의 갯수 : <%=mymgr.getBooks().length %></h2>
 <%
 	for(Book output:mymgr.getBooks()){
 %>
