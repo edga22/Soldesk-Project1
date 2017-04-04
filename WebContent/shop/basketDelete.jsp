@@ -1,13 +1,16 @@
+<%@page import="mgr.BookMgr"%>
 <%@page import="domain.Book"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% 
 	ArrayList<Book> bookList=(ArrayList<Book>)session.getAttribute("bookList");
-	//장바구니에서 삭제한 상품들
-	String[] delBook=request.getParameterValues("bookID");
+	Book book=new Book();
+	BookMgr mgr=new BookMgr();
 	
-	if(delBook != null)
-		for(String books:delBook) bookList.remove(books);
+	//장바구니에서 삭제한 상품들
+	int bookID=(int)session.getAttribute("bookID");
+	book=mgr.getBook(bookID);
+	bookList.remove(book);
 %>
 <jsp:forward page="basketlist.jsp"/>

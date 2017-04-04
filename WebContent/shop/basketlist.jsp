@@ -14,9 +14,9 @@
 %>
 <title>장바구니</title>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
-
 <div class="container"> 
 <div id="basket">
+
 <!-- 장바구니 패널 -->
 <div class="panel panel-default"> 
   <div class="panel-heading"><h2>장바구니</h2></div>
@@ -24,11 +24,6 @@
 </div> <!-- 장바구니 패널 -->
 <form>
 <div class="row">
-<div> <!-- 전체선택과 버튼들 -->
-     <input type="button" class="btn btn-default" value="선택한 상품 삭제"/>
-</div> <!-- 전체선택과 버튼들 -->
-</div>
-
 <!-- table -->
 <h2>목록</h2>
 <table class="table table-hover">
@@ -41,17 +36,22 @@
         <th class="col-sm-2">선택</th>
       </tr>
     </thead>
-    
 
     <tbody>
-    <% if(bookList.size()==0){%>
-    	<h2>장바구니가 비었습니다 :( </h2>
-    <%} %>
+    <% if(bookList==null){%>
+    	<tr>
+    		<td></td>
+    		<td></td>
+    		<td colspan="2"><h2>장바구니가 비었습니다 :( </h2></td>
+    		<td></td>
+    		<td></td>
+    	</tr>
+    <%}else{ %>
     <% for(int i=0;i<bookList.size();i++){
     	Book books=bookList.get(i);%>
       <tr> 
       	<td><input type="checkbox" name="bookID" value="<%=books.getBookID()%>"/></td>
-        <td><%=books.getImageID() %>
+        <td><img src="<%=books.getImageID() %>"> 
         <%=books.getBookName() %></td>
         <td><%=books.getPrice() %></td>
         <td>
@@ -59,11 +59,12 @@
        	  <input formaction="#" type="button" class="btn btn-default btn-sm" size="2" value="변경"/>
         </td>
         <td>
-    	<p><a class="btn btn-default btn-block" href="/shop/Payment.jsp?BookID=<%=books.getBookID()%>">바로 구매</a></p>
-		<input formaction="/shop/basketDelete.jsp" type="submit" class="btn btn-default btn-block" value="삭제"/>
+    	<p><a class="btn btn-default btn-block" href="/shop/Payment.jsp?bookID=<%=books.getBookID()%>">바로 구매</a></p>
+		<p><a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=<%=books.getBookID()%>">삭제</a></p>
 		</td>
       </tr>
-      <%} %>
+      <%} 
+      }%>
       </tbody>
 </table> <!-- 테이블 -->
 
@@ -86,21 +87,25 @@
     </thead>
     <tbody>
       <tr>
-      <% for(int i=0;i<bookList.size();i++){
+      <% if(bookList==null){%>
+    	<td>0 ￦</td>
+    	<td>0 ￦</td>
+    	<td>0 ￦</td>
+    	<td>0 ￦</td>
+      <%}else{for(int i=0;i<bookList.size();i++){
     		Book books=bookList.get(i);
     		productPrice+=books.getPrice();
-    	}
-    	if(productPrice<=9800){
+    	}if(productPrice<=9800){
     		delivery=2500;
-    		totalPrice=productPrice+delivery;
-    	}else{
+    		totalPrice=productPrice+delivery;}else{
     		totalPrice=productPrice;
     	}
     	%>
        	<td><%=productPrice%> ￦</td>
        	<td><%=delivery %> ￦</td>
         <td><%=totalPrice %> ￦</td>
-        <td>10p</td>
+        <td><%=totalPrice/10 %> P</td>
+      <%} %>
       </tr>
     </tbody>
 </table> <!-- 가격 테이블 -->
