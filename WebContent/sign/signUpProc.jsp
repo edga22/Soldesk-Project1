@@ -18,27 +18,33 @@
 	String address = request.getParameter("address1")+" "+request.getParameter("address2");
 	String phone = request.getParameter("phone");
 
-	Member member = new Member();
-	
-	member.setEmail(ID);
-	member.setPassword(pw);
-	member.setName(name);
-	member.setPostCode(postCode);
-	member.setAddress(address);
-	member.setPhone(phone);
-	
-	MemberService newMember = new MemberService();
-	
-	newMember.addMember(member);
 	if(pw.equals(pw2)){
-	response.sendRedirect("/sign/signInPage.jsp");
+		Member member = new Member();
+		
+		member.setEmail(ID);
+		member.setPassword(pw);
+		member.setName(name);
+		member.setPostCode(postCode);
+		member.setAddress(address);
+		member.setPhone(phone);
+		
+		MemberService newMember = new MemberService();
+		
+		newMember.addMember(member);
+%>	
+		<script>
+			alert("로그인 성공");
+			window.location.replace("/sign/signInPage.jsp");
+		</script>
+<%
 	}else{
 %>
 		<script>
 			alert("두 비밀번호의 값이 다릅니다.")
 			history.go(-1);
-			window.location.replace("/signUpProc.jsp");
 		</script>
-<%	}%>
+<%	
+	}
+%>
 </body>
 </html>
