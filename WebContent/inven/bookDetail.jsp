@@ -19,7 +19,7 @@ int bookID = 1;
 String tmp = request.getParameter("bookID");
 if(tmp == null || tmp.equals("")){
 }else{
-	Integer.parseInt(tmp);
+	bookID = Integer.parseInt(tmp);
 	}
 Book book = mymgr.getBook(bookID);
 %>
