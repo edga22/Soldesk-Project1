@@ -49,14 +49,34 @@ h3 {
 			</tr>
 		</thead>
 <%
+	request.setCharacterEncoding("utf-8");
+	int userNo = 0;
+	String modify = "";
+	String ID = request.getParameter("ID");
+	int result = 0;
+	
 	MemberService userList = new MemberService(	); 
+	
+	if(request.getParameter("userNo") != null && !request.getParameter("userNo").equals(""))
+		userNo = Integer.parseInt(request.getParameter("userNo"));
+	if(request.getParameter("mod") != null && !request.getParameter("mod").equals(""))
+		modify = request.getParameter("mod");
+	
+	if(modify.equals("update")){
+		if(!ID.equals("")) result = userList.updateMember(ID);
+	}else if(modify.equals("delete")){
+		if(userNo !=0 ){
+			result = userList.delMember(userNo);
+		}
+	}
+	
 	Member[] member = userList.getMembers();
 	if(member.length>0){
 		for(int i=0;i<member.length;i++){
 %>
 		<tbody>
 			<tr>
-				<td><input type="radio" name="userNo"/><%=member[i].getMemberID() %></td>
+				<td><input type="radio" name="userNo" value=<%=member[i].getMemberID()%>/><%=member[i].getMemberID() %></td>
 				<td><%=member[i].getEmail() %>
 				<td><%=member[i].getName() %></td>
 				<td><%=member[i].getPostCode() %></td>
@@ -69,7 +89,7 @@ h3 {
 	}
 %>
 		<div class="col-sm-4">
-			<input type="text" class="form-control" name="name" placeholder="name">
+			<input type="text" class="form-control" name="ID" placeholder="아이디 입력">
 			<button type="submit" class="btn btn-default" name="mod" value="update"><span>회원 수정</span></button>
 			<button type="submit" class="btn btn-default" name="mod" value="delete"><span>회원 삭제</span></button>
 		</div>

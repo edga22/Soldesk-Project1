@@ -47,4 +47,15 @@
 		select passwd from members 
 		where (email=#{email} and name=#{name} and phone=#{phone})
 	</select>
+	
+	<update id="updateMember" parameterType="domain.Member">
+		update members 
+		set email=#{email} 
+		where member_id=#{memberID}
+	</update>
+	
+	<delete id="delMember" parameterType="domain.Member">
+		delete members 
+		where member_id=#{memberID}
+	</delete>
 </mapper>
