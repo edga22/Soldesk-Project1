@@ -20,7 +20,7 @@
 <jsp:include page="../logo.jsp"/>
 <div class="container" id="pws2" style="width:650px">
 	<h2>회원가입</h2>
-<form action="/sign/signUpProc.jsp">
+<form action="/sign/signUpProc.jsp" method="post">
 	<div class="form-group">
 	<label class="control-label col-xs-2" for="email">아이디:</label>
 	<div class="col-xs-3">

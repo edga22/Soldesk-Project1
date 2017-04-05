@@ -18,8 +18,8 @@
 		order by member_id
 	</select>
 	
-	<select id="getMember" parameterType="domain.Member" resultMap="MemberMap">
-		select * from members 
+	<select id="getMember" parameterType="domain.Member" resultType="int">
+		select * from members
 		where member_id =#{memberID}
 	</select>
 	
@@ -36,9 +36,11 @@
 									  #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
 	</insert>
 	
-	<select id="findIdMember" parameterType="domain.Member">
-		select email from members 
-		where (name=#{name} and phone=#{phone})
+	<select id="findIdMember" parameterType="domain.Member" resultType="int">
+		select email 
+		from members
+		where (name=#{name,jdbcType=VARCHAR} 
+		   and phone=#{phone,jdbcType=VARCHAR})
 	</select>
 	
 	<select id="findPwMember" parameterType="domain.Member">
