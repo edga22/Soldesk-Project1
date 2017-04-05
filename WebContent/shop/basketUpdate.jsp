@@ -2,6 +2,6 @@
     pageEncoding="UTF-8"%>
 <% 
 	String cnt=request.getParameter("cnt");
-	//response.sendRedirect("baksetlist.jsp");
+	session.setAttribute("cnt", cnt);
+	//response.sendRedirect("/shop/baksetlist.jsp");
 %>
-<%=cnt%>

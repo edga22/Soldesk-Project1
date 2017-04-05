@@ -146,7 +146,7 @@ a {
 				<p><%=i %></p>
 				<input type="checkbox" name="bookID" value="<%=i %>">
 			</div>
-			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=i%>"><img src="http://lorempixel.com/140/180"></a></div>
+			<div class="col-md-2"><a href="/inven/bookDetail.jsp?bookID=<%=i%>"><img src="http://lorempixel.com/140/180"></a></div>
 			<div class="col-md-7">
 				<h3><a href="/inven/bookDetail.jsp?bookID=<%=i%>">책 제목<%=i %></a></h3>
 				<p>저자 : 저자<%=i %>  옮긴이 : 옮긴이 <%=i %>  출판사 : 시공출판사</p>
@@ -157,8 +157,8 @@ a {
 				</ul>
 			</div>
 			<div class="col-md-2">
-				<p><a class="btn btn-default" href="/shop/basket.jsp?BookID=<%=i%>">장바구니 추가</a></p>
-				<p><a class="btn btn-default" href="/shop/Payment.jsp?BookID=<%=i%>">바로 구매</a></p>
+				<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=i%>">장바구니 추가</a></p>
+				<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=i%>">바로 구매</a></p>
 			</div>
 		</div>
 		<%} %>

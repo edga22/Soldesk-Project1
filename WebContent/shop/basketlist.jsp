@@ -5,7 +5,7 @@
 <%
 	int cnt=0;
 	ArrayList<Book> bookList=(ArrayList<Book>)session.getAttribute("bookList");
-	if((Integer)session.getAttribute("cnt")==null){
+	if((Integer)session.getAttribute("cnt")==null){ //만약 cnt값이 null값이라면?
 		cnt=0;
 	}
 	else cnt=(Integer)session.getAttribute("cnt");
