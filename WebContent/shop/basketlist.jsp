@@ -5,7 +5,10 @@
 <%
 	int cnt=0;
 	ArrayList<Book> bookList=(ArrayList<Book>)session.getAttribute("bookList");
-	cnt=(Integer)session.getAttribute("cnt");	
+	if((Integer)session.getAttribute("cnt")==null){
+		cnt=0;
+	}
+	else cnt=(Integer)session.getAttribute("cnt");
 
 	//상품금액
 	int productPrice=0;
@@ -61,7 +64,7 @@
        	  <input formaction="basketUpdate.jsp" type="submit" class="btn btn-default btn-sm" size="2" value="변경"/>
         </td>
         <td>
-    	<p><a class="btn btn-default btn-block" href="/shop/Payment.jsp?bookID=<%=books.getBookID()%>">바로 구매</a></p>
+    	<p><a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=books.getBookID()%>&cnt=<%=cnt%>">바로 구매</a></p>
 		<p><a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=<%=books.getBookID()%>">삭제</a></p>
 		</td>
       </tr>
@@ -72,7 +75,7 @@
 
 <div class="row">
 <div> <!-- 전체선택과 버튼들 -->
-     <input type="button" class="btn btn-default" value="선택한 상품 삭제"/>
+     <input formaction="basketDelete.jsp" type="submit" class="btn btn-default" value="선택한 상품 삭제"/>
 </div> <!-- 전체선택과 버튼들 -->
 </div>
 
@@ -120,7 +123,7 @@
     </div>
     
     <div class="col-sm-2"> 
-    	<input formaction="/shop/Payment.jsp" type="submit" class="btn btn-default" value="주문하기"/>
+    	<input formaction="/shop/payment.jsp" type="submit" class="btn btn-default" value="주문하기"/>
 	</div>
 </div> <!-- 주문 및 되돌아가기 -->
 </form>
