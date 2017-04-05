@@ -52,11 +52,13 @@ h3 {
 	request.setCharacterEncoding("utf-8");
 	int userNo = 0;
 	String modify = "";
-	String ID = request.getParameter("ID");
+	String ID = "";
 	int result = 0;
 	
 	MemberService userList = new MemberService(	); 
 	
+	if(request.getParameter("ID") != null && !request.getParameter("ID").equals(""))
+		ID = request.getParameter("ID");
 	if(request.getParameter("userNo") != null && !request.getParameter("userNo").equals(""))
 		userNo = Integer.parseInt(request.getParameter("userNo"));
 	if(request.getParameter("mod") != null && !request.getParameter("mod").equals(""))
