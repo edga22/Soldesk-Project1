@@ -7,6 +7,7 @@
 <%
 	String ID = request.getParameter("ID");
 	String pw = request.getParameter("pw");
+	String remID = request.getParameter("remID");
 
 	MemberService memberService = new MemberService();
 	

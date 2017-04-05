@@ -26,7 +26,7 @@
     </ul>
 	<div class="tab-content">
 		<div id="logIn" class="tab-pane fade in active">
-			<form action="/sign/signProc.jsp" method="post">
+			<form action="/sign/signInProc.jsp" method="post">
 			<div class="form-group">
 				<div class="col-sm-12" style="margin:30px 0 15px 0">
 					<input type="text" class="form-control" id="id" name="ID" placeholder="ID를 입력하세요." required />
@@ -40,7 +40,7 @@
 			<div class="form-group">
 		 		<div class="col-sm-offset-8 col-sm-10">
 		 			<div class="checkbox">
-						<label><input type="checkbox" />로그인 유지</label>
+						<label><input type="checkbox" name="remID"/>아이디 기억</label>
 					</div>
 				</div>
 			</div>
