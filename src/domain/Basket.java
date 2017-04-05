@@ -1,9 +1,6 @@
 package domain;
 
-import java.util.ArrayList;
-
 public class Basket {
-	private ArrayList<Book> bookList;
 	private Book book;
 	private int amount;
 	
@@ -20,11 +17,4 @@ public class Basket {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-	public ArrayList<Book> getBookList() {
-		return bookList;
-	}
-	public void setBookList(ArrayList<Book> bookList) {
-		this.bookList = bookList;
-	}
-
 }
