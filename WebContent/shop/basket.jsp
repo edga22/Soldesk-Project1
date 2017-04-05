@@ -21,5 +21,5 @@
 	Book book=mgr.getBook(bookID);
 	
 	bookList.add(book);
+	response.sendRedirect("/shop/basketlist.jsp");
 %>
-<jsp:forward page="basketlist.jsp"/>

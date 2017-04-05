@@ -38,7 +38,7 @@
     </thead>
 
     <tbody>
-    <% if(bookList==null){%>
+    <% if(bookList==null && bookList.isEmpty()){%>
     	<tr>
     		<td></td>
     		<td></td>
@@ -53,7 +53,7 @@
       	<td><input type="checkbox" name="bookID" value="<%=books.getBookID()%>"/></td>
         <td><img src="<%=books.getImageID() %>"> 
         <%=books.getBookName() %></td>
-        <td><%=books.getPrice() %></td>
+        <td><%=books.getPrice() %> ￦</td>
         <td>
           <input formaction="#" type="number" name="cnt" min="1" value="1"/>
        	  <input formaction="#" type="button" class="btn btn-default btn-sm" size="2" value="변경"/>

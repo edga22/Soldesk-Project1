@@ -9,8 +9,12 @@
 	BookMgr mgr=new BookMgr();
 	
 	//장바구니에서 삭제한 상품들
-	int bookID=(int)session.getAttribute("bookID");
+	String bID=request.getParameter("bookID");
+	int bookID=Integer.parseInt(bID);
 	book=mgr.getBook(bookID);
+	//장바구니에서 삭제
 	bookList.remove(book);
+	
+	session.setAttribute("bookList", bookList);
+	response.sendRedirect("/shop/basketlist.jsp");
 %>
-<jsp:forward page="basketlist.jsp"/>
