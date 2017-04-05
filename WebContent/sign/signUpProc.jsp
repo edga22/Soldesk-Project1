@@ -33,7 +33,7 @@
 		newMember.addMember(member);
 %>	
 		<script>
-			alert("로그인 성공");
+			alert("회원가입 성공");
 			window.location.replace("/sign/signInPage.jsp");
 		</script>
 <%

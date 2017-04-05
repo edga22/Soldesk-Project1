@@ -8,7 +8,6 @@
 	String ID = request.getParameter("ID");
 	String pw = request.getParameter("pw");
 
-	
 	MemberService memberService = new MemberService();
 	
 	if((ID != null && !ID.equals(""))
@@ -18,12 +17,18 @@
 		temp.setPassword(pw);
 		memberService.loginCheck(temp);
 		session.setAttribute("ID",ID);
-		response.sendRedirect("/main.jsp");
 %>		
-
+	<script>
+		alert("로그인 성공");
+		window.location.replace("/main.jsp");
+	</script>
 <%	}else{
-%>		<h4>아이디 혹은 비밀번호가 틀렸습니다.</h4>
-
+%>		
+	<srcipt>
+		alert("아이디 혹은 비밀번호가 틀렸습니다.");
+		history.go(-1);
+	</srcipt>
+			
 <%
 		}
 %>
