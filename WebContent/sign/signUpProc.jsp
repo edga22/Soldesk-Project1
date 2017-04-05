@@ -21,7 +21,14 @@
 	Member member = new Member();
 	
 	member.setEmail(ID);
+	//if(pw == pw2){
 	member.setPassword(pw);
+	//}else{
+%>
+	<!-- script>
+		alert("두 비밀번호의 값이 다릅니다.")
+	</script -->
+<%//}
 	member.setName(name);
 	member.setPostCode(postCode);
 	member.setAddress(address);

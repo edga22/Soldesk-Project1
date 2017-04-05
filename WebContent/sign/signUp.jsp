@@ -56,6 +56,23 @@ $('#selectEmail').change(function(){
 });
 </script>
 	</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function(){
+	  $('#psw').keyup(function(){
+	   $('font[name=check]').text('');
+	  }); 
+	  $('#psw2').keyup(function(){
+	   if($('#psw').val()!=$('#psw2').val()){
+	    $('font[name=check]').text('');
+	    $('font[name=check]').html("두 글자가 다릅니다.");
+	   }else{
+	    $('font[name=check]').text('');
+	    $('font[name=check]').html("암호 확인 되었습니다.");
+	   }
+	  });
+	 });
+</script>
 	<div class="form-group">
 		<label for="inputdefault">비밀번호</label>
 		<input class="form-control" id="psw" name="psw" type="password" required>
@@ -63,6 +80,7 @@ $('#selectEmail').change(function(){
 	<div class="form-group">
 		<label for="inputdefault">비밀번호 확인</label>
 		<input class="form-control" id="psw2" name="psw2" type="password" required>
+		<font name="check"></font>
 	</div>
 	<div class="form-group">
 		<label for="inputdefault">성명</label>
