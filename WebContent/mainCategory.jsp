@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="domain.Book"
+		 import="mgr.BookMgr"%>
 <%
+BookMgr mymgr = new BookMgr();
 String cataPage = request.getParameter("cata");
 String cata1 = "";
 String cata2 = "";
@@ -140,25 +143,28 @@ a {
 				</div>
 			</div>
 		
-		<%for(int i=1;i<=5;i++){ %>
+		<%
+			Book[] books = mymgr.getBooks();
+				for(Book book: books){			
+		%>
 		<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
 			<div class="col-md-1">
-				<p><%=i %></p>
-				<input type="checkbox" name="bookID" value="<%=i %>">
+				<p><%=book.getBookID() %></p>
+				<input type="checkbox" name="bookID" value="<%=book.getBookID() %>">
 			</div>
-			<div class="col-md-2"><a href="/inven/bookDetail.jsp?bookID=<%=i%>"><img src="http://lorempixel.com/140/180"></a></div>
+			<div class="col-md-2"><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>"></a></div>
 			<div class="col-md-7">
-				<h3><a href="/inven/bookDetail.jsp?bookID=<%=i%>">책 제목<%=i %></a></h3>
-				<p>저자 : 저자<%=i %>  옮긴이 : 옮긴이 <%=i %>  출판사 : 시공출판사</p>
+				<h3><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><%=book.getBookName() %></a></h3>
+				<p>저자 :<%=book.getAuthor() %>  옮긴이 :<%=book.getAuthor() %>  출판사 : <%=book.getPublisher() %></p>
 				<ul>
-					<li>10000원 -> 9000원</li>
-					<li>적립포인트 : <%=i %>%</li>
-					<li>사은품 : </li>
+					<li><%=book.getPrice()*1.1 %> -> <%=book.getPrice()%></li>
+					<li>적립포인트 : <%=book.getPrice()*0.1 %>%</li>
+					<li>사은품 : 없음</li>
 				</ul>
 			</div>
 			<div class="col-md-2">
-				<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=i%>">장바구니 추가</a></p>
-				<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=i%>">바로 구매</a></p>
+				<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a></p>
+				<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a></p>
 			</div>
 		</div>
 		<%} %>
