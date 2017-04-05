@@ -106,18 +106,20 @@ if(session.getAttribute("ID") != null)memberID = (String)session.getAttribute("I
               <a class="navbar-brand" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
             </div>        
                           
-            <div class="col-md-7">              
+            <div class="col-md-7">     
+            <!-- 검색 시작 -->         
                 <form class="navbar-form navbar-left" role="search" action="/shop/searchresult.jsp">
-                    <select class="form-control" id="sel1">
-                        <option>통합검색</option>
-                        <option>국내도서</option>
-                        <option>외국도서</option>
-                        <option>eBook</option>
+                    <select class="form-control" id="sel1" name="SearchTarget">
+                        <option value="all">통합검색</option>
+                        <option value="domestic">국내도서</option>
+                        <option value="oversea">외국도서</option>
+                        <option value="ebook">eBook</option>
                     </select>
-                    <input type="text" class="form-control" id="search" />                            
+                    <input type="text" class="form-control" id="search" name="SearchWord"/>                            
                     <button type="submit" class="btn btn-primary">검색</button>
                     <button type="button" class="btn btn-link" style="display:none;"><strong>상세검색</strong></button>
                 </form>
+            <!-- 검색 끝 -->  
             </div>
             <div class="col-md-3">
                <div id="ad1">

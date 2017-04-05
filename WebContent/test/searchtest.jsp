@@ -1,20 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-	import="mgr.BookMgr"
 	import="mgr.SearchMgr" %>
 <%
-BookMgr mymgr = new BookMgr();
 SearchMgr searcheng = new SearchMgr();
 String target = "";
 if(request.getParameter("target")!=null) target = request.getParameter("target");
 String flag = "시험용 페이지";
-if(mymgr.getBook(1) == null) {
-	Book newbook = new Book();
-	newbook.setBookName("시험용1번");
-	newbook.setAuthor("작가1"); 
-	mymgr.addBook(newbook);
-}
 %>
 <!DOCTYPE html PUBLIC>
 <html>

@@ -1,9 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="domain.Book"
+	import="mgr.SearchMgr" %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
 <%
+request.setCharacterEncoding("utf-8");
+String scTarget = "";
+String scWord = "";
+Book[] scResult = null;
+if(request.getParameter("SearchTarget") != null) scTarget = request.getParameter("SearchTarget");
+if(request.getParameter("SearchWord") != null) scWord = request.getParameter("SearchWord");
+
+SearchMgr scmgr = new SearchMgr();
+if(scTarget.equals("") || scTarget.equals("all")){
+	scResult = scmgr.getBooks(scWord);
+}
 
 %>
 <meta charset="utf-8">
@@ -61,7 +74,7 @@
 		<div class="inSearch-group">			
 			<p>결과 내 검색</p>
 			<form action="">
-			<input type="text" style="width : 75%;" name="insearch">
+			<input type="text" style="width : 75%;" name="insearch" value="<%=scWord%>">
 			<button class="btn btn-default btn-sm" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>	
 			</form>		
 		</div>
@@ -76,9 +89,9 @@
 	<div class="col-md-10" id="result"> <!-- result -->
 		<div class="row" id="align-bar">
 			<div class="col-md-2 col-md-offset-1"><a>제목순</a></div>
-			<div class="col-md-2 col-md-offset-1">저자순</div>
-			<div class="col-md-2 col-md-offset-1">가격순</div>
-			<div class="col-md-2 col-md-offset-1">출간일순</div>
+			<div class="col-md-2 col-md-offset-1"><a>저자순</a></div>
+			<div class="col-md-2 col-md-offset-1"><a>가격순</a></div>
+			<div class="col-md-2 col-md-offset-1"><a><b>출간일순</b></a></div>
 			<div class="col-md-2 col-md-offset-1">
 			<select name="display_number" class="">
 				<option value="25">25개</option>
@@ -88,18 +101,19 @@
 			</div>
 		</div>
 		
-		<%for(int i=1;i<=5;i++){ %>
+		<%for(int i=1;i<=scResult.length;i++){
+			int idx = i-1;%>
 		<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
 			<div class="col-md-1">
-				<p><%=i %></p>
-				<input type="checkbox" name="bookID" value="<%=i %>">
+				<p><%=i %>.</p>
+				<input type="checkbox" name="bookID" value="<%=scResult[idx].getBookID() %>">
 			</div>
-			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=i%>"><img src="http://lorempixel.com/140/180"></a></div>
+			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=scResult[idx].getBookID()%>"><img src="<%=scResult[idx].getImageID()%>"></a></div>
 			<div class="col-md-7">
-				<h3><a href="/inven/bookDetail.jsp?bookID=<%=i%>">책 제목<%=i %></a></h3>
-				<p>저자 : 저자<%=i %>  옮긴이 : 옮긴이 <%=i %>  출판사 : 시공출판사</p>
+				<h3><a href="/inven/bookDetail.jsp?bookID=<%=scResult[idx].getBookID()%>"><%=scResult[idx].getBookName() %></a></h3>
+				<p>저자 : 저자<%=scResult[idx].getAuthor() %> 출판사 : <%=scResult[idx].getPublisher() %></p>
 				<ul>
-					<li>10000원 -> 9000원</li>
+					<li><%=scResult[idx].getPrice() %>원</li>
 					<li>적립포인트 : <%=i %>%</li>
 					<li>사은품 : </li>
 				</ul>
