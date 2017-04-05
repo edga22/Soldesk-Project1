@@ -22,56 +22,17 @@ int bookCnt = 1;
 int bookID = 0;
 int overPrice = 0;
 int point = 0;
-//즉시구매 창에서 수량을 받아왔을경우 실행되는 부분.
-String tmpCnt = request.getParameter("cnt");
-String tmpID = (String)session.getAttribute("bookID");
-String basketItem = request.getParameter("bookID");
-if(tmpCnt == null || tmpCnt.equals("")){	
-}else{
-	bookCnt = Integer.parseInt(tmpCnt);
-	if(tmpID == null || tmpID.equals("")){
-		bookID = Integer.parseInt(basketItem);
-	}else{
-		bookID = Integer.parseInt(tmpID);
-	}
-	Book book = mymgr.getBook(bookID);
-	overPrice = (int)(book.getPrice()*1.1)/100*100;
-	point = (int)(book.getPrice()*0.1)/100*100;
-%>	
-	<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">
-	<table class="table table-condensed">
-	 <thead>
-	  <tr>
-		<th>상 품</th>
-		<th>정 가(원)</th>
-		<th>판 매 가(원)</th>
-		<th>수 량</th>
-		<th>합 계</th>
-		<th>적 립 금(p)</th>
-		<th>사 은 품</th>
-	  </tr>
-	 </thead>
-	 <tbody>	 	
-	  <tr>
-		<td><%=book.getBookName()%></td>
-		<td><%=overPrice%></td>
-		<td><%=book.getPrice()%></td>
-		<td><%=bookCnt %></td>
-		<td><%=book.getPrice()*bookCnt  %></td>
-		<td><%=book.getPrice()*0.1  %></td>
-		<td><%= "usb 충전기"  %></td>
-	  </tr>  			
-	 </tbody>
-	</table>	
-	</div>	
-<%
-}
+
 //장바구니에서 bookID 값들을 받을경우
 String[] bookIDs = request.getParameterValues("bookID");
+String tmpCnt = request.getParameter("cnt");
 if(bookIDs == null || bookIDs.equals("")){
 }else{
 	for(String bID : bookIDs){
+		if(tmpCnt == null || tmpCnt.equals("")){}else{bookCnt = Integer.parseInt(tmpCnt);}
 		Book book = mymgr.getBook(Integer.parseInt(bID));
+		overPrice = (int)(book.getPrice()*1.1)/100*100;
+		point = (int)(book.getPrice()*0.1)/1*1;
 %>	
 	<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">
 	<table class="table table-condensed">
@@ -93,7 +54,7 @@ if(bookIDs == null || bookIDs.equals("")){
 		<td><%=book.getPrice()%></td>
 		<td><%=bookCnt %></td>
 		<td><%=book.getPrice()*bookCnt  %></td>
-		<td><%=book.getPrice()*0.1  %></td>
+		<td><%=point  %></td>
 		<td><%= "usb 충전기"  %></td>
 	  </tr>  			
 	 </tbody>

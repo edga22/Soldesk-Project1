@@ -15,9 +15,12 @@
 <body>
 <%
 BookMgr mymgr = new BookMgr();
+int bookID = 1;
 String tmp = request.getParameter("bookID");
-int bookID = 22;
-if(tmp != null || tmp.equals("")) Integer.parseInt(tmp);
+if(tmp == null || tmp.equals("")){
+}else{
+	Integer.parseInt(tmp);
+	}
 Book book = mymgr.getBook(bookID);
 %>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
