@@ -146,9 +146,9 @@ a {
 				<p><%=i %></p>
 				<input type="checkbox" name="bookID" value="<%=i %>">
 			</div>
-			<div class="col-md-2"><a href="/inven/BookDetail.jsp?=bookID=<%=i%>"><img src="http://lorempixel.com/140/180"></a></div>
+			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=i%>"><img src="http://lorempixel.com/140/180"></a></div>
 			<div class="col-md-7">
-				<h3><a href="/inven/BookDetail.jsp?bookID=<%=i%>">책 제목<%=i %></a></h3>
+				<h3><a href="/inven/bookDetail.jsp?bookID=<%=i%>">책 제목<%=i %></a></h3>
 				<p>저자 : 저자<%=i %>  옮긴이 : 옮긴이 <%=i %>  출판사 : 시공출판사</p>
 				<ul>
 					<li>10000원 -> 9000원</li>
@@ -191,7 +191,7 @@ a {
 					</select>
 				</div>
 			</div>
-			<form action="/shop/Payment.jsp">
+			<form action="/shop/payment.jsp">
 				<%
 					for (int i = 1; i <= 5; i++) {
 				%>
