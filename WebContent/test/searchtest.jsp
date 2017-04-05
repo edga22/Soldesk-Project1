@@ -6,7 +6,8 @@
 <%
 BookMgr mymgr = new BookMgr();
 SearchMgr searcheng = new SearchMgr();
-
+String target = "";
+if(request.getParameter("target")!=null) target = request.getParameter("target");
 String flag = "시험용 페이지";
 if(mymgr.getBook(1) == null) {
 	Book newbook = new Book();
@@ -27,9 +28,12 @@ if(mymgr.getBook(1) == null) {
 </head>
 <body>
 <h2><%=flag %></h2>
-<h2>총 추가된 책의 갯수 : <%=mymgr.getBooks().length %></h2>
+<form>
+<p>검색 키워드:<input type="text" name="target"> <button type="submit">검색</button></p>
+</form>
+<h2>검색된 책의 갯수 : <%=searcheng.getBooks(target).length %></h2>
 <%
-	for(Book output:mymgr.getBooks()){
+	for(Book output:searcheng.getBooks(target)){
 %>
 	<h3><%=output.getBookID() %>, <%=output.getBookName() %>, <%=output.getAuthor() %></h3>
 <%} %>

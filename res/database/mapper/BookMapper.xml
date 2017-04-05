@@ -14,12 +14,12 @@
 		<result property="price"	column="PRICE" />
 	</resultMap>
 	
-	<select id="getTitleBook" resultMap="BookMap">
-		SELECT * FROM Books WHERE book_name LIKE '%'||#{title}||'%' ORDER BY publish_date
-	</select>
-	
-	<select id="getBooks" resultMap="BookMap">
-		SELECT * FROM Books ORDER BY book_ID
+	<select id="getBooks" parameterType="String" resultMap="BookMap">
+		SELECT * FROM Books 
+		<if test="value != null">
+		WHERE book_name	LIKE '%' || #{value} || '%' OR author LIKE '%' || #{value} || '%' OR publisher LIKE '%' || #{value} || '%'
+		</if>
+		ORDER BY publish_date
 	</select>
 	
 	<select id="getBook" parameterType="int" resultMap="BookMap">

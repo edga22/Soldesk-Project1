@@ -4,9 +4,11 @@ import java.util.List;
 import domain.Book;
 
 public interface BookMapper {
-	List<Book> getBooks();
+	//제목, 저자, 출판사 통합 검색
+	List<Book> getBooks(String target);
+	
+	//ID 책 찾아오기
 	Book getBook(int bookID);
-	List<Book> getTitleBooks(String title);	
 	
 	int cntBooks();
 	int cntBook(int bookID);

@@ -9,16 +9,12 @@ public class DbBasedBookDao implements BookDao {
 	public DbBasedBookDao (){
 		mapper = Factory.getMapper(BookMapper.class);
 	}
-	
-	public Book[] getBooks(){
-		return mapper.getBooks().toArray(new Book[mapper.getBooks().size()]);
-	}
-	
 	public Book getBook(int bookID){
 		return mapper.getBook(bookID);
 	}
-	public Book[] getTitleBooks(String title){
-		return mapper.getTitleBooks(title).toArray(new Book[mapper.getTitleBooks(title).size()]);
+	public Book[] getBooks(String target){
+		if(target != null && target.equals("")) target = null;
+		return mapper.getBooks(target).toArray(new Book[mapper.getBooks(target).size()]);
 	}
 	public int cntBooks(){
 		return mapper.cntBooks();

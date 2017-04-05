@@ -14,8 +14,8 @@ public class SearchMgr {
 		return bookdao.cntBooks();
 	}
 	
-	public Book[] getTitleBooks(String title){		
-		return bookdao.getTitleBooks(title);
+	public Book[] getBooks(String target){		
+		return bookdao.getBooks(target);
 	}
 	public Book[] getCateBooks(String category){
 		return null;
