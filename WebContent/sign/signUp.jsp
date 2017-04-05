@@ -80,7 +80,7 @@ $(function(){
 	<div class="form-group">
 		<label for="inputdefault">비밀번호 확인</label>
 		<input class="form-control" id="psw2" name="psw2" type="password" required>
-		<font name="check"></font>
+		<font name="check" color="red"></font>
 	</div>
 	<div class="form-group">
 		<label for="inputdefault">성명</label>

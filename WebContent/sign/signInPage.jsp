@@ -57,7 +57,7 @@
 	
 		<div id="findId" class="tab-pane fade">
 			<h3>아이디를 찾으시나요?</h3>
-			가입여부를 확인하시려면 성명과 생년월일를 입력해주세요
+			가입여부를 확인하시려면 성명과 전화번호를 입력해주세요
 			<form action="findIdResult.jsp" method="post">
 			<div class="form-group" style="margin-top:10px">
 				<label class="control-label col-sm-3" for="name">성명 :</label>
