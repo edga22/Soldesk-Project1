@@ -32,12 +32,13 @@
 		for(int i=0;i<bookList.size();i++){
 			Book comBook=bookList.get(i);
 			if(comBook==book){
-				cnt+=1;
-			}else{
-				bookList.add(book);
+				cnt+=1; //수량 변경
+				break;
 			}
-		}	
+		}
 		
+		//만약 새로운 도서라면?
+		if(!bookList.contains(book)){ bookList.add(book); } 
 		//수량 넘겨주기
 		session.setAttribute("cnt", cnt);
 		response.sendRedirect("/shop/basketlist.jsp");
