@@ -26,7 +26,7 @@
     </ul>
 	<div class="tab-content">
 		<div id="logIn" class="tab-pane fade in active">
-			<form action="/admin/userMgr.jsp" method="post">
+			<form action="/sign/signProc.jsp" method="post">
 			<div class="form-group">
 				<div class="col-sm-12" style="margin:30px 0 15px 0">
 					<input type="text" class="form-control" id="id" name="ID" placeholder="ID를 입력하세요." required />
