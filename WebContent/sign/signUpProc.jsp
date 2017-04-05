@@ -11,6 +11,7 @@
 <body>
 <%
 	response.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
 	String ID = request.getParameter("str_email01")+"@"+request.getParameter("str_email02");
 	String pw = request.getParameter("psw");
 	String pw2 = request.getParameter("psw2");
