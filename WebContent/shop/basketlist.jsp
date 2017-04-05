@@ -3,8 +3,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	int cnt=0;
 	ArrayList<Book> bookList=(ArrayList<Book>)session.getAttribute("bookList");
-	
+	cnt=(Integer)session.getAttribute("cnt");	
+
 	//상품금액
 	int productPrice=0;
 	//배송비
@@ -38,7 +40,7 @@
     </thead>
 
     <tbody>
-    <% if(bookList==null && bookList.isEmpty()){%>
+    <% if(bookList==null || bookList.isEmpty() || cnt==0){%>
     	<tr>
     		<td></td>
     		<td></td>
@@ -55,8 +57,8 @@
         <%=books.getBookName() %></td>
         <td><%=books.getPrice() %> ￦</td>
         <td>
-          <input formaction="#" type="number" name="cnt" min="1" value="1"/>
-       	  <input formaction="#" type="button" class="btn btn-default btn-sm" size="2" value="변경"/>
+          <input type="number" name="cnt" min="1" value="<%=cnt%>"/>
+       	  <input formaction="basketUpdate.jsp" type="submit" class="btn btn-default btn-sm" size="2" value="변경"/>
         </td>
         <td>
     	<p><a class="btn btn-default btn-block" href="/shop/Payment.jsp?bookID=<%=books.getBookID()%>">바로 구매</a></p>
@@ -87,7 +89,7 @@
     </thead>
     <tbody>
       <tr>
-      <% if(bookList==null){%>
+      <% if(bookList==null || bookList.isEmpty() || cnt==0){%>
     	<td>0 ￦</td>
     	<td>0 ￦</td>
     	<td>0 ￦</td>
@@ -118,7 +120,7 @@
     </div>
     
     <div class="col-sm-2"> 
-    	<input type="submit" class="btn btn-default" value="주문하기"/>
+    	<input formaction="/shop/Payment.jsp" type="submit" class="btn btn-default" value="주문하기"/>
 	</div>
 </div> <!-- 주문 및 되돌아가기 -->
 </form>
