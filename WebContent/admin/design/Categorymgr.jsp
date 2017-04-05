@@ -72,7 +72,7 @@ td, th {
             <td>               
                <input name="addBanner" type="button" class="btn btn-info btn-sm" value="추가">
                <input name="addBanner2" type="button" class="btn btn-info btn-sm" value="하위추가">
-               <input name="delBanner" type="button" class="btn btn-info btn-sm" value="삭제">
+               <button name="delBanner" class="btn btn-info btn-sm">삭제</button>
                <input type="button" class="btn btn-info btn-sm" value="적용">             
             </td>
           </tr>
@@ -270,30 +270,27 @@ td, th {
 <script>
    //추가 버튼
     $(document).on("click","input[name=addBanner]",function(){
-
-        var addSchoolText =  '<tr name="trSchool" style="height:40px;">'+
-            '   <td><input name="schoolName" type="text" size="12" required></td>'+
-            '   <td><input name="Major" type="text" size="10" required></td>'+
-            '   <td><input name="startDay" type="date" required></td>'+
-            '   <td><input name="endDay" type="date" required></td>'+
-            '   <td><select name="schoolEnd" required>'+
-            '           <option value="졸업">졸업</option>'+    
-            '           <option value="예정">예정</option>'+
-            '           <option value="수료">수료</option>'+
-            '   </select>'+
+        var addBannerText =  '<tr name="trBanner">'+
+            '   <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="10"></td>'+
+            '   <td><input class="form-control input-sm" id="inputsm" type="text" value=""></td>'+
+            '   <td><input class="form-control input-sm" id="inputsm" type="text" value=""></td>'+
+            '   <td><label><input type="checkbox" value="1">사용</label></td>'+
+            '   <td>'+
+            '           <input name="addBanner" type="button" class="btn btn-info btn-sm" value="추가">'+    
+            '           <input name="addBanner2" type="button" class="btn btn-info btn-sm" value="하위추가">'+
+            '           <button name="delBanner" class="btn btn-info btn-sm">삭제</button>'+
+            '           <input type="button" class="btn btn-info btn-sm" value="적용">'+
             '   </td>'+
-            '   <td><input name="schoolState" type="text" size="8" required></td>'+
-            '   <td><button class="btn btn-default" name="delSchool">삭제</button></td>'+
             '</tr>';
              
         var trHtml = $( "tr[name=trBanner]:last" ); //last를 사용하여 trSchool라는 명을 가진 마지막 태그 호출
          
-        trHtml.after(addSchoolText); //마지막 trSchool명 뒤에 붙인다.
+        trHtml.after(addBannerText); //마지막 trSchool명 뒤에 붙인다.
          
     });
      
     //삭제 버튼
-    $(document).on("click","button[name=delSchool]",function(){
+    $(document).on("click","button[name=delBanner]",function(){
          
         var trHtml = $(this).parent().parent();
          
