@@ -131,7 +131,7 @@ td, th {
         <div class="col-sm-12">
             <div class="pull-right">	  
 			  <input type="submit" class="btn btn-primary" value="일괄적용" data-toggle="tooltip" title="베너사용 체크한것을 전부 저장">
-			  <a href="/admin/design/BannerAdd.jsp" class="btn btn-primary" role="button" data-toggle="tooltip" title="베너 추가페이지로 이동">베너추가</a>
+			  <a href="/admin/design/banneradd.jsp" class="btn btn-primary" role="button" data-toggle="tooltip" title="베너 추가페이지로 이동">베너추가</a>
 		    </div>
 		</div>
 	</div>

@@ -285,17 +285,15 @@ td, th {
              
         var trHtml = $( "tr[name=trBanner]:last" ); //last를 사용하여 trSchool라는 명을 가진 마지막 태그 호출
          
-        trHtml.after(addBannerText); //마지막 trSchool명 뒤에 붙인다.
-         
+        trHtml.after(addBannerText); //마지막 trSchool명 뒤에 붙인다.         
     });
      
     //삭제 버튼
     $(document).on("click","button[name=delBanner]",function(){
-         
+    	
         var trHtml = $(this).parent().parent();
-         
-        trHtml.remove(); //tr 테그 삭제
-         
+        
+        trHtml.remove(); //tr 테그 삭제         
     });
 
     //하위추가 버튼

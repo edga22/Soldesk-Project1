@@ -15,11 +15,12 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse"> <!-- nav 내용 시작 -->
 			<ul class="nav navbar-nav">
+                <li><a href="/admin/member/membermgr.jsp">회원 관리</a></li>
 				<li><a href="/admin/event/eventmgr.jsp">이벤트 관리</a></li>
 				<li><a href="/admin/event/giftmgr.jsp">사은품 관리</a></li>
 				<li><a href="/inven/BookManagement.jsp">재고 관리</a></li>
-				<li><a href="/admin/design/Categorymgr.jsp">분류 관리</a></li>
-				<li><a href="/admin/design/Bannermgr.jsp">베너 관리</a></li>
+				<li><a href="/admin/design/categorymgr.jsp">분류 관리</a></li>
+				<li><a href="/admin/design/bannermgr.jsp">베너 관리</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="disabled"><a href="#">Settings</a>
