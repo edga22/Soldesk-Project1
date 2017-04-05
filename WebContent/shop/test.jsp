@@ -9,6 +9,7 @@
 <body>
 <form action="basket.jsp">
 	<input type="text" name="bookID"/>
+	<input type="text" name="cnt"/>
 	<button type="submit">제출</button>
 </form>
 </body>

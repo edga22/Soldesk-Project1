@@ -61,7 +61,7 @@
         <td><%=books.getPrice() %> ￦</td>
         <td>
           <input type="number" name="cnt" min="1" value="<%=cnt%>"/>
-       	  <input formaction="basketUpdate.jsp" type="submit" class="btn btn-default btn-sm" size="2" value="변경"/>
+       	  <input formaction="/shop/basketUpdate.jsp" type="submit" class="btn btn-default btn-sm" size="2" value="변경"/>
         </td>
         <td>
     	<p><a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=books.getBookID()%>&cnt=<%=cnt%>">바로 구매</a></p>
@@ -97,10 +97,13 @@
     	<td>0 ￦</td>
     	<td>0 ￦</td>
     	<td>0 ￦</td>
-      <%}else{for(int i=0;i<bookList.size();i++){
+      <%}else{
+    	 for(int i=0;i<bookList.size();i++){
     		Book books=bookList.get(i);
     		productPrice+=books.getPrice();
-    	}if(productPrice<=9800){
+    	}
+    	 productPrice=productPrice*cnt;
+    	 if(productPrice<=9800){
     		delivery=2500;
     		totalPrice=productPrice+delivery;}else{
     		totalPrice=productPrice;
