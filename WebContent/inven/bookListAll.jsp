@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>도서 조회</title>
+<title>책 전체 조회</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -15,11 +15,10 @@
 <body>
 <%
 BookMgr mymgr = new BookMgr();
-String bookName = request.getParameter("bookName");
 %>
-<jsp:include page="/inven/BookManagement.jsp"></jsp:include>
+<jsp:include page="/inven/bookManagement.jsp"></jsp:include>
 <div id="BLA" class="container">
-<h3>전체 도서 검색 결과</h3>
+<h2>전체 도서 검색 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
 	  <tr>
@@ -35,11 +34,8 @@ String bookName = request.getParameter("bookName");
 	 <tbody>
 <%
 Book[] books = mymgr.getBooks();
-Book check = new Book();
 if( books != null){
-	for(Book book: books){
-		if(book.getBookName().equals(bookName)){
-			check.setBookName(book.getBookName());
+	for(Book book: books){	
 %>	 	
 			  <tr>
 				<th><%=book.getBookID()%></th>
@@ -51,12 +47,6 @@ if( books != null){
 				<th><%=book.getImageID() %></th>
 			  </tr>
 <%
-		}
-	} 
-	if(check.getBookName() == null || check.getBookName().equals("") ){
-%>
-		  <tr><th> 요청하신 도서"<%=bookName%>"가 존재하지 않습니다. </th></tr>
-<%					
 	}
 }else{
 %>

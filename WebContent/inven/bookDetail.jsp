@@ -46,7 +46,7 @@ Book book = mymgr.getBook(bookID);
 			<input type="hidden" name="bookID" value="<%=bookID%>"><br><br>
 			수량 : <input type="number" name="cnt" style="width:10rem;" value="1"><br><br>
 			<div align="left">			
-			<button type="submit" formaction="/shop/Payment.jsp" class="btn btn-default">즉시 구매</button>
+			<button type="submit" formaction="/shop/payment.jsp" class="btn btn-default">즉시 구매</button>
 			<button type="submit" formaction="/shop/basket.jsp" class="btn btn-default">찜하기</button>
 			</div>
 			</form>					

@@ -17,11 +17,11 @@
 <div class="container" id="manager">
 
 	<h3> 재고관리 페이지 입니다.</h3><br>
-	<form action="BookList.jsp">	
+	<form action="bookList.jsp">	
 	 <input type="text" name="bookName" placeholder="도서 제목" required>
 	 <input type="submit" class="btn btn-default" value="검색">
 	</form>	
-	<a href="BookListAll.jsp" class="btn btn-default">전체검색</a>
+	<a href="bookListAll.jsp" class="btn btn-default">전체검색</a>
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#listAdd">추가</button>
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#listMod">수정</button>
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#listDel">삭제</button> 
@@ -33,7 +33,7 @@
             <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">도서 추가</h4>
           </div>
-         <form action="BookAdd.jsp">
+         <form action="bookAdd.jsp">
           <div class="modal-body" align="right">         
 		  <ul style=" list-style:none">		 
 		   <li> 도 서 명:<input type="text" name="bookName" placeholder="책이름" required></li>		  
@@ -60,7 +60,7 @@
             <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">도서 수정</h4>
           </div>
-         <form action="BookMod.jsp">
+         <form action="bookMod.jsp">
           <div class="modal-body" align="right">         
 		  <ul style=" list-style:none">		 
 		   <li> 도 서 명:<input type="number" name="bookID" placeholder="도서번호" required></li>		  
@@ -89,7 +89,7 @@
             <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">도서 삭제</h4>
           </div>
-         <form action="BookDel.jsp">
+         <form action="bookDel.jsp">
           <div class="modal-body" align="right">         
 		  <ul style=" list-style:none" >		 
 		   <li> 도서 번호:<input type="number" name="bookID" placeholder="도서 번호" required></li>		  

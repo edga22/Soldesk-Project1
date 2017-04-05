@@ -62,7 +62,7 @@ for(Book book: books){
 	}
 }
 %>
-<jsp:include page="/inven/BookManagement.jsp"></jsp:include>
+<jsp:include page="/inven/bookManagement.jsp"></jsp:include>
 <div id="BookMod" class="container">
 <h2>도서 수정 결과</h2>
 	<table class="table table-condensed">

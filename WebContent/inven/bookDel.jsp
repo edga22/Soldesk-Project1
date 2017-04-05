@@ -14,7 +14,7 @@ BookMgr mymgr = new BookMgr();
 int bookID = Integer.parseInt(request.getParameter("bookID"));
 Book delbook = new Book();
 %>
-<jsp:include page="/inven/BookManagement.jsp"></jsp:include>
+<jsp:include page="/inven/bookManagement.jsp"></jsp:include>
 <div id="BDel" class="container">
 <%
 	Book[] books = mymgr.getBooks();
