@@ -163,7 +163,7 @@ a {
 				</ul>
 			</div>
 			<div class="col-md-2">
-				<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a></p>
+				<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>&cnt=1">장바구니 추가</a></p>
 				<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a></p>
 			</div>
 		</div>
