@@ -19,11 +19,15 @@
 <div class="container" id="delivery">
 	<h3>배송관리</h3><br>
 	<form>	
-	 유저번호로 조회: <input type="text" name="memberID" placeholder="유저 번호" required>
+	 회원번호로 조회: <input type="number" name="memberID" placeholder="유저 번호" required>
 	 <button type="submit" formaction="/manager/ordersByMemberID.jsp" class="btn btn-default">검색</button>
 	</form>
 	<form>	
-	 주문번호로 조회: <input type="text" name="orderID" placeholder="주문 번호" required>
+	 배송상태로 조회: <input type="number" name="progress" placeholder="1입금확인,2배송준비,3배송시작,4배송완료,5완료" required>
+	 <button type="submit" formaction="/manager/ordersByProgress.jsp" class="btn btn-default">검색</button>
+	</form>	
+	<form>	
+	 주문번호로 조회: <input type="number" name="orderID" placeholder="주문번호" required>
 	 <button type="submit" formaction="/manager/ordersByOrderID.jsp" class="btn btn-default">검색</button>
 	</form>	
 	<a href="/manager/orderAll.jsp" class="btn btn-default">전체검색</a>
@@ -39,7 +43,7 @@
          <form action="/manager/orderStateProc.jsp">
           <div class="modal-body" align="left">         
 		  <ul style=" list-style:none">		 
-		   <li> 주문 번호:<input type="number" name="purchaseOrderID" placeholder="주문번호" required></li>	  
+		   <li> 주문 번호:<input type="number" name="OrderID" placeholder="주문번호" required></li>	  
 		   <li> 처리 상태:<input type="number" name="progress" placeholder="1입금확인,2배송준비,3배송시작,4배송완료,5완료" required id="state"></li>	  	  
 		  </ul>		
          </div>

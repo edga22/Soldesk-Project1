@@ -14,11 +14,16 @@ public class DeliveryMgr {
 		return mapper.getOrders().toArray(new PurchaseOrder[mapper.getOrders().size()]);
 	}
 	
-	public PurchaseOrder[] getOrder(int OrderID){		
-		return mapper.getOrder(OrderID).toArray(new PurchaseOrder[mapper.getOrder(OrderID).size()]);
+	public PurchaseOrder getOrder(int OrderID){		
+		return mapper.getOrder(OrderID);
 	}
+	
+	public PurchaseOrder[] getProgress(int Progress){		
+		return mapper.getProgress(Progress).toArray(new PurchaseOrder[mapper.getProgress(Progress).size()]);
+	}
+	
 	public PurchaseOrder[] getMember(int MemberID){
-		return  mapper.getOrder(MemberID).toArray(new PurchaseOrder[mapper.getOrder(MemberID).size()]);
+		return  mapper.getMember(MemberID).toArray(new PurchaseOrder[mapper.getMember(MemberID).size()]);
 	}
 	
 	public int addOrder(PurchaseOrder purchaseOrder){

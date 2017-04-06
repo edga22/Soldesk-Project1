@@ -18,14 +18,14 @@
 DeliveryMgr mymgr = new DeliveryMgr();
 OrderState state = new OrderState();
 int orderID = Integer.parseInt(request.getParameter("orderID"));
-PurchaseOrder[] PurchaseOrders = mymgr.getOrder(orderID);
+PurchaseOrder po = mymgr.getOrder(orderID);
 %>
 <jsp:include page="/manager/deliveryMain.jsp"></jsp:include>
 <div id="obm" class="container">
-<h3>회원번호 조회 결과</h3>
+<h3>주문번호 조회 결과</h3>
 	<table class="table table-condensed">
 	 <thead>
-	  <tr>
+	  <tr>	
 		<th>주문번호</th>
 		<th>회원번호</th>
 		<th>도서번호</th>
@@ -36,22 +36,20 @@ PurchaseOrder[] PurchaseOrders = mymgr.getOrder(orderID);
 	 </thead>
 	 <tbody>
 <%
-if( PurchaseOrders != null){
-	for(PurchaseOrder po: PurchaseOrders){	
+if( po != null){
 %>	 	
-			  <tr>
-				<th><%=po.getPurchaseOrderID()%></th>
-				<th><%=po.getMemberID()%></th>
-				<th><%=po.getBookID()%></th>
-				<th><%=po.getAmount()%></th>
-				<th><%=po.getPurchaseDate()%></th>
-				<th><%=state.change(po.getProgress())%></th>
-			  </tr>
+	  <tr>  
+		<th><%=po.getPurchaseOrderID()%></th>
+		<th><%=po.getMemberID()%></th>
+		<th><%=po.getBookID()%></th>
+		<th><%=po.getAmount()%></th>
+		<th><%=po.getPurchaseDate()%></th>
+		<th><%=state.change(po.getProgress())%></th>
+	  </tr>
 <%
-	}
 }else{
 %>
-			  <tr><th> 검색하신 회원은 구매내역이 없습니다. </th></tr>
+			  <tr><th> 입력하신 주문번호는 존재하지 않습니다. </th></tr>
 <%
 }
 %>

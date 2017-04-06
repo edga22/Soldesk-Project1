@@ -22,7 +22,6 @@ li{
 
 <form action="orderTestResult.jsp">
 <ul>
-	<li>주문번호: <input type="number" name="purchaseOrderID" required></li>
 	<li>회원번호: <input type="number" name="memberID" required></li>
 	<li>도서번호: <input type="number" name="bookID" required></li>
 	<li>도서수량: <input type="number" name="amount" required></li>

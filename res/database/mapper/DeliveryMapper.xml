@@ -14,19 +14,23 @@
 	
 	<select id="getOrders" resultMap="OrderMap">
 		SELECT * FROM purchase_order ORDER BY MEMBER_ID
-	</select><!-- 전체 배송상태 검색, 멤버별로 정리 -->
+	</select><!-- 전체 주문목록 검색, 멤버별로 정리 -->
 	
 	<select id="getOrder" parameterType="int" resultMap="OrderMap">
-		SELECT * FROM purchase_order WHERE PROGRESS = #{progress}
-	</select><!-- 배송상태로 검색 -->
+		SELECT * FROM purchase_order WHERE PURCHASE_ORDER_ID = #{purchaseOrderID}
+	</select><!-- 주문번호로 검색(단일검색) -->
+	
+	<select id="getProgress" parameterType="int" resultMap="OrderMap">
+		SELECT * FROM purchase_order WHERE PROGRESS = #{progress} ORDER BY MEMBER_ID
+	</select><!-- 배송상태로 검색 , 멤버별 정리-->
 	
 	<select id="getMember" parameterType="int" resultMap="OrderMap">
-		SELECT * FROM purchase_order WHERE MEMBER_ID = #{memberID}
-	</select><!-- 멤버 아이디로 검색 -->
+		SELECT * FROM purchase_order WHERE MEMBER_ID = #{memberID} ORDER BY MEMBER_ID
+	</select><!-- 회원 번호로 검색 -->
 	
 	<insert id="addOrder" parameterType="domain.PurchaseOrder">
-		INSERT INTO purchase_order (PURCHASE_ORDER_ID, MEMBER_ID, BOOK_ID, EVENT_ID, AMOUNT, PURCHASE_DATE, PROGRESS)
-		values (PURCHASE_ORDER_ID_SEQ.NEXTVAL, #{purchaseOrderID}, #{eventID}, #{bookID}, #{amount}, #{purchaseDate,jdbcType=DATE}, #{progress})
+		INSERT INTO purchase_order (PURCHASE_ORDER_ID, MEMBER_ID, BOOK_ID, AMOUNT, PURCHASE_DATE, PROGRESS)
+		values (PURCHASE_ORDER_ID_SEQ.NEXTVAL, #{memberID}, #{bookID}, #{amount}, #{purchaseDate,jdbcType=DATE}, #{progress})
 	</insert>
 	
 	<insert id="updateOrder" parameterType="domain.PurchaseOrder">
