@@ -35,4 +35,9 @@ public class SearchBox {
 		}
 		return isFiltered;
 	}
+	
+	public boolean categoryFilter(int categoryID){
+		
+		return true;
+	}
 }

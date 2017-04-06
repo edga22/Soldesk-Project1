@@ -9,7 +9,7 @@
 </head>
 <body>
 <%
-	session.removeAttribute("ID");	//아이디만 종료 장바구니 남아있음.
+	session.setAttribute("ID", "");
 %>
 <script>
 swal({

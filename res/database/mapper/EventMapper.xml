@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="config.EventMapper">
+	<resultMap id="EventMap" type="domain.Event">
+		<id		property="eventID"		column="EVENT_ID" />
+		<result	property="giftID"	column="GIFT_ID" />
+		<result	property="eventName"	column="EVENT_NAME" />
+		<result	property="discount"	column="DISCOUNT" />
+		<result	property="startDate"	column="START_DATE" />
+		<result	property="endDate"	column="END_DATE" />		
+	</resultMap>
+	
+	<select id="getEvents" resultMap="EventMap">
+		SELECT * FROM Events
+		ORDER BY publish_date
+	</select>
+	
+	<select id="getEvent" parameterType="int" resultMap="EventMap">
+		SELECT * FROM Events WHERE event_id = #{eventID}
+	</select>
+	
+	<insert id="addEvent" parameterType="domain.Event">
+		INSERT INTO Events (EVENT_ID, GIFT_ID, EVENT_NAME, DISCOUNT, START_DATE, END_DATE)
+		values (EVENT_ID_SEQ.NEXTVAL, #{giftID}, #{eventName,jdbcType=VARCHAR}, #{discount}, #{startDate}, #{endDate})
+	</insert>
+	
+	<update id="updateEvent" parameterType="domain.Event">
+		UPDATE Events 
+		SET GIFT_ID=#{giftID}, EVENT_NAME=#{eventName}, DISCOUNT=#{discount}, START_DATE=#{startDate}, END_DATE=#{endDate}
+		WHERE EVENT_ID = #{eventID}
+	</update> 
+    
+    <delete id="delEvent" parameterType="int">
+    	DELETE FROM Events
+    	WHERE EVENT_ID = #{eventID}
+    </delete>
+</mapper>
