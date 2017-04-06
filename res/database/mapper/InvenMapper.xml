@@ -32,9 +32,5 @@
 		set book_name=#{bookName}, author=#{author}, publisher=#{publisher}, publish_Date=#{publishDate}, image_id=#{imageID}, price=#{price}
 		where book_ID = #{bookID}
 	</update>
-	
-	<delete id="modBook" parameterType="domain.Book">
-		delete Books 
-		where book_ID=#{bookID}
-	</delete>  	
+	  	
 </mapper>
