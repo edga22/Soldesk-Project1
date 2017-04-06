@@ -1,37 +1,37 @@
 package mgr;
 
-import config.DeliveryMapper;
-import config.Factory;
-import domain.PurchaseOrder;;
+import dao.DBBaseDeliveryDao;
+import dao.DeliveryDao;
+import domain.PurchaseOrder;
 
 public class DeliveryMgr {
-	DeliveryMapper mapper ;
+	DeliveryDao deliveryDao;
 	public DeliveryMgr (){
-		mapper = Factory.getMapper(DeliveryMapper.class);
+		deliveryDao = new DBBaseDeliveryDao();
 	}
 	
 	public PurchaseOrder[] getOrders(){
-		return mapper.getOrders().toArray(new PurchaseOrder[mapper.getOrders().size()]);
+		return deliveryDao.getOrders();
 	}
 	
 	public PurchaseOrder getOrder(int OrderID){		
-		return mapper.getOrder(OrderID);
+		return deliveryDao.getOrder(OrderID);
 	}
 	
 	public PurchaseOrder[] getProgress(int Progress){		
-		return mapper.getProgress(Progress).toArray(new PurchaseOrder[mapper.getProgress(Progress).size()]);
+		return deliveryDao.getProgress(Progress);
 	}
 	
 	public PurchaseOrder[] getMember(int MemberID){
-		return  mapper.getMember(MemberID).toArray(new PurchaseOrder[mapper.getMember(MemberID).size()]);
+		return  deliveryDao.getMember(MemberID);
 	}
 	
 	public int addOrder(PurchaseOrder purchaseOrder){
-		return mapper.addOrder(purchaseOrder);
+		return deliveryDao.addOrder(purchaseOrder);
 	}
 	
 	public int updateOrder(int OrderID){
-		return mapper.updateOrder(OrderID);
+		return deliveryDao.updateOrder(OrderID);
 	}
 
 }
