@@ -2,14 +2,20 @@ package domain;
 
 public class Basket {
 	private Book book;
-	private int amount;
+	private int cnt;
 	
 	public Basket(){ }
-	public int getAmount() {
-		return amount;
+	
+	public Basket(Book book, int cnt) {
+		this.book = book;
+		this.cnt = cnt;
 	}
-	public void setAmount(int amount) {
-		this.amount = amount;
+
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 	public Book getBook() {
 		return book;

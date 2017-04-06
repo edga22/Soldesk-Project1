@@ -1,27 +1,13 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="domain.Book"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	int cnt=0;
-	ArrayList<Book> bookList=(ArrayList<Book>)session.getAttribute("bookList");
-	if((Integer)session.getAttribute("cnt")==null){ //만약 cnt값이 null값이라면?
-		cnt=0;
-	}
-	else cnt=(Integer)session.getAttribute("cnt");
-
-	//상품금액
-	int productPrice=0;
-	//배송비
-	int delivery=0;
-	//결제 예정 금액
-	int totalPrice=0;
+	
 %>
 <title>장바구니</title>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container"> 
 <div id="basket">
-
 <!-- 장바구니 패널 -->
 <div class="panel panel-default"> 
   <div class="panel-heading"><h2>장바구니</h2></div>
@@ -43,7 +29,6 @@
     </thead>
 
     <tbody>
-    <% if(bookList==null || bookList.isEmpty() || cnt==0){%>
     	<tr>
     		<td></td>
     		<td></td>
@@ -51,9 +36,6 @@
     		<td></td>
     		<td></td>
     	</tr>
-    <%}else{ %>
-    <% for(int i=0;i<bookList.size();i++){
-    	Book books=bookList.get(i);%>
       <tr> 
       	<td><input type="checkbox" name="bookID" value="<%=books.getBookID()%>"/></td>
         <td><img src="<%=books.getImageID() %>"> 
@@ -68,8 +50,6 @@
 		<p><a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=<%=books.getBookID()%>">삭제</a></p>
 		</td>
       </tr>
-      <%} 
-      }%>
       </tbody>
 </table> <!-- 테이블 -->
 
@@ -92,29 +72,11 @@
     </thead>
     <tbody>
       <tr>
-      <% if(bookList==null || bookList.isEmpty() || cnt==0){%>
     	<td>0 ￦</td>
     	<td>0 ￦</td>
     	<td>0 ￦</td>
     	<td>0 ￦</td>
-      <%}else{
-    	 for(int i=0;i<bookList.size();i++){
-    		Book books=bookList.get(i);
-    		productPrice+=books.getPrice();
-    	}
-    	 productPrice=productPrice*cnt;
-    	 if(productPrice<=9800){
-    		delivery=2500;
-    		totalPrice=productPrice+delivery;}else{
-    		totalPrice=productPrice;
-    	}
-    	%>
-       	<td><%=productPrice%> ￦</td>
-       	<td><%=delivery %> ￦</td>
-        <td><%=totalPrice %> ￦</td>
-        <td><%=totalPrice/10 %> P</td>
-      <%} %>
-      </tr>
+       </tr>
     </tbody>
 </table> <!-- 가격 테이블 -->
 
