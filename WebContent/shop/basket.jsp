@@ -1,11 +1,12 @@
 <%@page import="domain.Book"%>
-<%@page import="mgr.BasketMgr"%>
+<%@page import="mgr.BasketMgr"
+		import="domain.Basket"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	BasketMgr mgr=new BasketMgr();
-	Book book=new Book();	
-
+	BasketMgr mgr=new BasketMgr();	
+	Basket[] basketList;
+	
 	String bID=request.getParameter("bookID");
 	String count=request.getParameter("cnt");
 
@@ -13,8 +14,7 @@
 	int cnt=Integer.parseInt(count);
 	
 	mgr.add(bookID, cnt);
-	book=mgr.getlist();
-	//response.sendRedirect("basketlist.jsp");
+	basketList=mgr.getlist();
 %>
 <title>장바구니</title>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
@@ -41,17 +41,18 @@
     </thead>
     <tbody>
     	<tr>
-    		<td><%=book.getBookName() %></td>
+    		<td></td>
     		<td colspan="2"><h2>장바구니가 비었습니다 :( </h2></td>
     		<td></td>
     		<td></td>
     	</tr>
+    <%for(int i=0;i<basketList.length; i++) {%>
    	<tr>
-      	<td><input type="checkbox" name="bookID" value=""/></td>
-        <td><img src=""> </td>
-        <td> ￦</td>
+      	<td><input type="checkbox" name="bookID" value="<%=basketList[i].getBook().getBookID()%>"/></td>
+        <td><img src="<%=basketList[i].getBook().getImageID()%>"> <%=basketList[i].getBook().getBookName() %></td>
+        <td><%=basketList[i].getBook().getPrice() %> ￦</td>
         <td>
-          <input type="number" name="cnt" min="1" value=""/>
+          <input type="number" name="cnt" min="1" value="<%=basketList[i].getCnt()%>"/>
        	  <input formaction="/shop/basketUpdate.jsp" type="submit" class="btn btn-default btn-sm" size="2" value="변경"/>
         </td>
         <td>
@@ -59,7 +60,7 @@
 		<p><a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=">삭제</a></p>
 		</td>
       </tr>
-      
+      <%} %>
       </tbody>
 </table> <!-- 테이블 -->
 
