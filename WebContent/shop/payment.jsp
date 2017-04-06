@@ -67,21 +67,29 @@ if(bookIDs == null || bookIDs.equals("")){
 	<br><br><br><br>
 <!-- 구매자 정보 -->	
 	<h3>구매자 및 배송 정보</h3>
-	<form action="#">
+	<form action="/shop/payResult.jsp">
+<%
+	// 구매할 도서번호들, 배열로 저장.
+	for(String bID : bookIDs){
+%>
+	<input type="hidden" name="bookID" value="<%=bID%>" >						
+<%
+	}
+%>
 	<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">	
 	<table class="table table-condensed">
 	 <tbody>	 	
 	  <tr>
-		<th>이름</th> <td><input type="text" placeholder="주문자 성함"></td>
+		<th>이름</th> <td><input type="text" name="userName" placeholder="주문자 성함" required></td>
 	  </tr>  			
 	  <tr>
-		<th>연락처</th> <td><input type="text" placeholder="연락처"></td>
+		<th>연락처</th> <td><input type="number" name="phone" placeholder="연락처" required></td>
 	  </tr>  			
 	  <tr>
-		<th>e-mail</th> <td><input type="text" placeholder="주문확인용 e-mail"></td>
+		<th>e-mail</th> <td><input type="email" name="email" placeholder="주문확인용 e-mail" required></td>
 	  </tr>  			
 	  <tr>
-		<th>주소</th> <td><input type="text" placeholder="배송 주소"></td>
+		<th>주소</th> <td><input type="text" name="address" placeholder="배송 주소" required></td>
 	  </tr>  			
 	 </tbody>
 	</table>		
@@ -91,12 +99,11 @@ if(bookIDs == null || bookIDs.equals("")){
 	<div style="border:solid black 0.1rem; margin:2rem; padding:1rem;">
 	 <p> 입금 계좌: 농협 123-456-7890 북카페</p>
 	</div>
-	
 <!-- 완료하기 -->		
 	<div align="right">
 	  <button type="submit" class="btn btn-default">주문 하기</button>
+	  <a href="/main.jsp" class="btn btn-default">취소</a>
 	</div>
-	
 	</form>		
 </div>
 <jsp:include page="/main_foot.jsp"></jsp:include>

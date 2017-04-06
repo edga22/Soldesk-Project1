@@ -30,7 +30,7 @@
 	
 	<insert id="addOrder" parameterType="domain.PurchaseOrder">
 		INSERT INTO purchase_order (PURCHASE_ORDER_ID, MEMBER_ID, BOOK_ID, AMOUNT, PURCHASE_DATE, PROGRESS)
-		values (PURCHASE_ORDER_ID_SEQ.NEXTVAL, #{memberID}, #{bookID}, #{amount}, #{purchaseDate,jdbcType=DATE}, #{progress})
+		values (PURCHASE_ORDER_ID_SEQ.NEXTVAL, #{memberID}, #{bookID}, #{amount}, sysdate, #{progress})
 	</insert>
 	
 	<insert id="updateOrder" parameterType="domain.PurchaseOrder">
