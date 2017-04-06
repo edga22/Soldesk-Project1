@@ -90,7 +90,7 @@ if(session.getAttribute("ID") != null)memberID = (String)session.getAttribute("I
                        </li>
                        <%} %>
                        <li>
-                           <a href="/shop/basketlist.jsp">장바구니</a>
+                           <a href="/shop/basket.jsp">장바구니</a>
                        </li>
                    </ul>
                </div>
