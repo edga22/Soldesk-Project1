@@ -17,7 +17,8 @@
 	
 	MemberService findMember = new MemberService();
 	
-	out.print(findMember.findIdMember(member));
+	
 %>
+	<%=findMember.findIdMember(member) %>
 </body>
 </html>

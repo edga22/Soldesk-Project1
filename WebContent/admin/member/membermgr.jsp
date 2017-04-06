@@ -59,12 +59,12 @@ h3 {
         <h2>회원 관리</h2>
     </div>
 </div>
-
 <div class="row">
+	<form action="membermgr.jsp">
 		<div class="col-sm-4">
-			<input type="text" class="form-control" name="ID" placeholder="아이디 입력">
-			<button type="button" class="btn btn-default" name="mod" value="update"><span>회원 수정</span></button>
-			<button type="button" class="btn btn-default" name="mod" value="delete"><span>회원 삭제</span></button>
+				<input type="text" class="form-control" name="ID" placeholder="아이디 입력">
+				<button type="submit" class="btn btn-default" name="mod" value="update"><span>회원 수정</span></button>
+				<button type="submit" class="btn btn-default" name="mod" value="delete"><span>회원 삭제</span></button>
 		</div>
 	<table class="table">
 		<thead>
@@ -84,7 +84,7 @@ h3 {
 %>
 		<tbody>
 			<tr>
-				<td><input type="radio" name="userNo" value=<%=member[i].getMemberID()%>/><%=member[i].getMemberID() %></td>
+				<td><input type="radio" name="userNo" value=<%=member[i].getMemberID()%>><%=member[i].getMemberID()%></td>
 				<td><%=member[i].getEmail() %>
 				<td><%=member[i].getName() %></td>
 				<td><%=member[i].getPostCode() %></td>
@@ -98,6 +98,7 @@ h3 {
 %>
 
 </table>
+</form>
 </div> <!-- main container -->
 
 <!-- jQuery library -->
