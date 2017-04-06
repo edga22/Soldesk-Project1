@@ -22,12 +22,10 @@ public class BasketMgr {
 		bookList.add(basket);
 	}
 	
-	/*public Book getlist(){
+	public Book getlist(){
 		Book book=new Book();
-		for(int i=0;i<bookList.size();i++){
-			Basket basket=bookList.get(i);
-			book=basket.getBook();
-		}
+		Basket basket=bookList.get(0);
+		book=basket.getBook();
 		return book;
-	}*/
+	}
 }
