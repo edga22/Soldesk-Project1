@@ -22,10 +22,7 @@ public class BasketMgr {
 		bookList.add(basket);
 	}
 	
-	public Book getlist(){
-		Book book=new Book();
-		Basket basket=bookList.get(0);
-		book=basket.getBook();
-		return book;
+	public Basket[] getlist(){		
+		return bookList.toArray(new Basket[bookList.size()]);
 	}
 }

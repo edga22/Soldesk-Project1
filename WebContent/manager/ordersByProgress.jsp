@@ -17,8 +17,8 @@
 <%
 DeliveryMgr mymgr = new DeliveryMgr();
 OrderState state = new OrderState();
-int memberID = Integer.parseInt(request.getParameter("memberID"));
-PurchaseOrder[] PurchaseOrders = mymgr.getMember(memberID);
+int progress = Integer.parseInt(request.getParameter("progress"));
+PurchaseOrder[] PurchaseOrders = mymgr.getProgress(progress);
 %>
 <jsp:include page="/manager/deliveryMain.jsp"></jsp:include>
 <div id="obm" class="container">
@@ -26,12 +26,12 @@ PurchaseOrder[] PurchaseOrders = mymgr.getMember(memberID);
 	<table class="table table-condensed">
 	 <thead>
 	  <tr>
-		<th>회원번호</th>
+		<th>상태</th>
 		<th>주문번호</th>
+		<th>회원번호</th>
 		<th>도서번호</th>
 		<th>수량</th>
 		<th>구매날짜</th>
-		<th>상태</th>
 	  </tr>
 	 </thead>
 	 <tbody>
@@ -40,12 +40,12 @@ if( PurchaseOrders != null){
 	for(PurchaseOrder po: PurchaseOrders){	
 %>	 	
 			  <tr>
-				<th><%=po.getMemberID()%></th>
+			    <th><%=state.change(po.getProgress())%></th>
 				<th><%=po.getPurchaseOrderID()%></th>
+				<th><%=po.getMemberID()%></th>
 				<th><%=po.getBookID()%></th>
 				<th><%=po.getAmount()%></th>
 				<th><%=po.getPurchaseDate()%></th>
-				<th><%=state.change(po.getProgress())%></th>
 			  </tr>
 <%
 	}

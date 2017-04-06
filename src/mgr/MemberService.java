@@ -35,7 +35,7 @@ public class MemberService{
 		return mapper.findPwMember(psw);
 	}
 	
-	public int updateMember(String Email){
+	public int updateMember(int userNo, String Email){
 		return mapper.updateMember(Email);
 	}
 	

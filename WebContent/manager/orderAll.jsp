@@ -17,8 +17,7 @@
 <%
 DeliveryMgr mymgr = new DeliveryMgr();
 OrderState state = new OrderState();
-int memberID = Integer.parseInt(request.getParameter("memberID"));
-PurchaseOrder[] PurchaseOrders = mymgr.getMember(memberID);
+PurchaseOrder[] PurchaseOrders = mymgr.getOrders();
 %>
 <jsp:include page="/manager/deliveryMain.jsp"></jsp:include>
 <div id="obm" class="container">
@@ -58,5 +57,6 @@ if( PurchaseOrders != null){
 	 </tbody>
 	</table>
 </div>
+
 </body>
 </html>

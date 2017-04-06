@@ -39,8 +39,7 @@
 	<select id="findIdMember" parameterType="domain.Member" resultType="int">
 		select email 
 		from members
-		where (name=#{name,jdbcType=VARCHAR} 
-		   and phone=#{phone,jdbcType=VARCHAR})
+		where (name=#{name} and phone=#{phone})
 	</select>
 	
 	<select id="findPwMember" parameterType="domain.Member">
@@ -50,12 +49,12 @@
 	
 	<update id="updateMember" parameterType="domain.Member">
 		update members 
-		set email=#{email} 
-		where member_id=#{memberID}
+		set email#={email,jdbcType=VARCHAR}
+		where member_id=#{memberID,jdbcType=NUMERIC}
 	</update>
 	
 	<delete id="delMember" parameterType="domain.Member">
-		delete members 
+		delete from members
 		where member_id=#{memberID}
 	</delete>
 </mapper>

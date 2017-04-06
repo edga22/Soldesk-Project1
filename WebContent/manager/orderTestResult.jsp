@@ -21,8 +21,7 @@ DeliveryMgr mymgr = new DeliveryMgr();
 OrderState state = new OrderState();
 PurchaseOrder resist = new PurchaseOrder();
 
-// 이전 페이지에서 데이터 받아오기
-int purchaseOrderID = Integer.parseInt(request.getParameter("purchaseOrderID"));
+// 이전 페이지에서 데이터 받아오기, 주문번호 자동생성
 int memberID = Integer.parseInt(request.getParameter("memberID"));
 int bookID = Integer.parseInt(request.getParameter("bookID"));
 int amount = Integer.parseInt(request.getParameter("amount"));
@@ -32,7 +31,6 @@ SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 Date tmp = format.parse(request.getParameter("purchaseDate"));
 java.sql.Date pchDate = new java.sql.Date(tmp.getTime());
 // 데이터를 구매객체에 담기
-resist.setPurchaseOrderID(purchaseOrderID);
 resist.setMemberID(memberID);
 resist.setBookID(bookID);
 resist.setAmount(amount);
@@ -42,10 +40,10 @@ resist.setPurchaseDate(pchDate);
 mymgr.addOrder(resist);
 
 // 받은데이터 출력하기 위한 준비
-PurchaseOrder[] PurchaseOrders = mymgr.getOrder(memberID);
+PurchaseOrder[] purchaseOrders = mymgr.getMember(memberID);
 %>
 <div id="obm" class="container">
-<h3>입력한 값 확인</h3>
+<h3>입력한 값 확인(회원 번호로 조회됨)</h3>
 	<table class="table table-condensed">
 	 <thead>
 	  <tr>
@@ -59,8 +57,8 @@ PurchaseOrder[] PurchaseOrders = mymgr.getOrder(memberID);
 	 </thead>
 	 <tbody>
 <%
-if( PurchaseOrders != null){
-	for(PurchaseOrder po: PurchaseOrders){	
+if( purchaseOrders != null){
+	for(PurchaseOrder po: purchaseOrders){
 %>	 	
 			  <tr>
 				<th><%=po.getMemberID()%></th>
@@ -74,7 +72,7 @@ if( PurchaseOrders != null){
 	}
 }else{
 %>
-			  <tr><th> 검색하신 회원은 구매내역이 없습니다.(페이지 오류) </th></tr>
+			  <tr><th> 입력이 잘못되었습니다. </th></tr>
 <%
 }
 %>
