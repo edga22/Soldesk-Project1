@@ -1,33 +1,33 @@
 package mgr;
 
-import config.InvenMapper;
-import config.Factory;
+import dao.DbBaseInvenDao;
+import dao.InvenDao;
 import domain.Book;
 
 public class BookMgr {
-	InvenMapper mapper ;
+	InvenDao invenDao;
 
 	public BookMgr() {
-		mapper = Factory.getMapper(InvenMapper.class);
+		invenDao = new DbBaseInvenDao();
 	}
 	
 	public Book[] getBooks(){
-		return mapper.getBooks().toArray(new Book[mapper.getBooks().size()]);
+		return invenDao.getBooks();
 	}
 	
 	public Book getBook(int bookID){
-		return mapper.getBook(bookID);
+		return invenDao.getBook(bookID);
 	}
 	
 	public int updateBook(Book book){
-		return mapper.updateBook(book);
+		return invenDao.updateBook(book);
 	}
 		
 	public int addBook(Book book){
-		return mapper.addBook(book);
+		return invenDao.addBook(book);
 	}
 	
 	public int delBook(int bookID){
-		return mapper.delBook(bookID);
+		return invenDao.delBook(bookID);
 	}
 }

@@ -19,7 +19,7 @@
                 <li><a href="/manager/deliveryMain.jsp">배송 관리</a></li>
 				<li><a href="/admin/event/eventmgr.jsp">이벤트 관리</a></li>
 				<li><a href="/admin/event/giftmgr.jsp">사은품 관리</a></li>
-				<li><a href="/inven/BookManagement.jsp">재고 관리</a></li>
+				<li><a href="/inven/bookManagement.jsp">재고 관리</a></li>
 				<li><a href="/admin/design/categorymgr.jsp">분류 관리</a></li>
 				<li><a href="/admin/design/bannermgr.jsp">베너 관리</a></li>
 			</ul>
