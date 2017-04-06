@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <title>이벤트 관리</title>
 <style>
 body {
@@ -26,28 +26,6 @@ h3 {
 </style>
 </head>
 <body>
-<jsp:include page="/admin/admin_nav.jsp"></jsp:include>
-<div class="container"> <!-- main container -->
-
-<div class="row">
-    <div class="event event-header">
-        <h2>회원 관리</h2>
-    </div>
-    
-</div>
-
-<div class="row">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>사용자 번호</th>
-				<th>아이디</th>
-				<th>이름</th>
-				<th>우편번호</th>
-				<th>주소</th>
-				<th>전화번호</th>
-			</tr>
-		</thead>
 <%
 	request.setCharacterEncoding("utf-8");
 	int userNo = 0;
@@ -65,13 +43,41 @@ h3 {
 		modify = request.getParameter("mod");
 	
 	if(modify.equals("update")){
-		if(!ID.equals("")) result = userList.updateMember(ID);
+		if(ID != null && !ID.equals("")) 
+			result = userList.updateMember(ID);
 	}else if(modify.equals("delete")){
-		if(userNo !=0 ){
+		if(userNo != 0){
 			result = userList.delMember(userNo);
 		}
 	}
-	
+%>
+<jsp:include page="/admin/admin_nav.jsp"></jsp:include>
+<div class="container"> <!-- main container -->
+
+<div class="row">
+    <div class="event event-header">
+        <h2>회원 관리</h2>
+    </div>
+</div>
+
+<div class="row">
+		<div class="col-sm-4">
+			<input type="text" class="form-control" name="ID" placeholder="아이디 입력">
+			<button type="button" class="btn btn-default" name="mod" value="update"><span>회원 수정</span></button>
+			<button type="button" class="btn btn-default" name="mod" value="delete"><span>회원 삭제</span></button>
+		</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>사용자 번호</th>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>우편번호</th>
+				<th>주소</th>
+				<th>전화번호</th>
+			</tr>
+		</thead>
+<%	
 	Member[] member = userList.getMembers();
 	if(member.length>0){
 		for(int i=0;i<member.length;i++){
@@ -90,11 +96,7 @@ h3 {
 		}
 	}
 %>
-		<div class="col-sm-4">
-			<input type="text" class="form-control" name="ID" placeholder="아이디 입력">
-			<button type="submit" class="btn btn-default" name="mod" value="update"><span>회원 수정</span></button>
-			<button type="submit" class="btn btn-default" name="mod" value="delete"><span>회원 삭제</span></button>
-		</div>
+
 </table>
 </div> <!-- main container -->
 

@@ -19,17 +19,5 @@
 	
 	out.print(findMember.findIdMember(member));
 %>
-	<script>
-		alert("아이디찾기 성공");
-	</script>
-<%
-	//}else{
-%>
-	<script>
-		alert("없는 이름");
-	</script>
-<%	
-	//}
-%>
 </body>
 </html>
