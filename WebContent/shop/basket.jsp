@@ -1,4 +1,3 @@
-<%@page import="domain.Book"%>
 <%@page import="mgr.BasketMgr"
 		import="domain.Basket"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,11 +8,17 @@
 	
 	String bID=request.getParameter("bookID");
 	String count=request.getParameter("cnt");
-
-	int bookID=Integer.parseInt(bID);
-	int cnt=Integer.parseInt(count);
 	
-	mgr.add(bookID, cnt);
+	if(bID != null && count != null){
+		int bookID=Integer.parseInt(bID);
+		int cnt=Integer.parseInt(count);
+		mgr.add(bookID, cnt);
+	}
+	if(bID != null && count == null){
+		int bookID=Integer.parseInt(bID);
+		int cnt=1;
+		mgr.add(bookID, cnt);
+	}
 	basketList=mgr.getlist();
 %>
 <title>장바구니</title>
@@ -38,14 +43,17 @@
         <th class="col-sm-2">수량</th>
         <th class="col-sm-2">선택</th>
       </tr>
+    
     </thead>
     <tbody>
+   	    <%if(basketList.length==0){%>
     	<tr>
     		<td></td>
     		<td colspan="2"><h2>장바구니가 비었습니다 :( </h2></td>
     		<td></td>
     		<td></td>
     	</tr>
+    	<%} %>
     <%for(int i=0;i<basketList.length; i++) {%>
    	<tr>
       	<td><input type="checkbox" name="bookID" value="<%=basketList[i].getBook().getBookID()%>"/></td>
@@ -56,8 +64,8 @@
        	  <input formaction="/shop/basketUpdate.jsp" type="submit" class="btn btn-default btn-sm" size="2" value="변경"/>
         </td>
         <td>
-    	<p><a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=&cnt=">바로 구매</a></p>
-		<p><a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=">삭제</a></p>
+    	<p><a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=basketList[i].getBook().getBookID()%>&cnt=<%=basketList[i].getCnt()%>">바로 구매</a></p>
+		<p><a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=<%=basketList[i].getBook().getBookID()%>">삭제</a></p>
 		</td>
       </tr>
       <%} %>
