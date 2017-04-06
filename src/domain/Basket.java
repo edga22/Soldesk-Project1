@@ -5,7 +5,6 @@ public class Basket {
 	private int cnt;
 	
 	public Basket(){ }
-	
 	public Basket(Book book, int cnt) {
 		this.book = book;
 		this.cnt = cnt;
