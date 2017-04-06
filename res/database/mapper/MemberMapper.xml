@@ -49,16 +49,12 @@
 	
 	<update id="updateMember" parameterType="domain.Member">
 		update members 
-		<set>
-			<if test="email != null">
-				email=#{email}
-			</if>
-		</set>
-		where member_id=#{memberID}
+		set email#={email,jdbcType=VARCHAR}
+		where member_id=#{memberID,jdbcType=NUMERIC}
 	</update>
 	
-	<delete id="delMember" parameterType="int">
-		delete from members 
+	<delete id="delMember" parameterType="domain.Member">
+		delete from members
 		where member_id=#{memberID}
 	</delete>
 </mapper>

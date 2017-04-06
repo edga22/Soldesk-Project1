@@ -42,8 +42,9 @@ h3 {
 		modify = request.getParameter("mod");
 	
 	if(modify.equals("update")){
-		if(ID != null && !ID.equals("")) 
-			result = userList.updateMember(ID);
+		if(ID != null && !ID.equals("")){
+			result = userList.updateMember(userNo, ID);
+		}
 	}else if(modify.equals("delete")){
 		if(userNo != 0){
 			result = userList.delMember(userNo);
@@ -81,7 +82,7 @@ h3 {
 		for(int i=0;i<member.length;i++){
 %>
 			<tr>
-				<td><input type="radio" name="userNo" value=<%=member[i].getMemberID()%>/><%=member[i].getMemberID()%></td>
+				<td><input type="radio" name="userNo" value="<%=member[i].getMemberID()%>"/><%=member[i].getMemberID()%></td>
 				<td><%=member[i].getEmail() %>
 				<td><%=member[i].getName() %></td>
 				<td><%=member[i].getPostCode() %></td>
