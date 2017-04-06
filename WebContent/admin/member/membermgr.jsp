@@ -32,6 +32,7 @@ h3 {
 	String ID = "";
 	int result = 0;
 	
+	Member updMem = new Member();
 	MemberService userList = new MemberService(); 
 	
 	if(request.getParameter("ID") != null && !request.getParameter("ID").equals(""))
@@ -43,7 +44,9 @@ h3 {
 	
 	if(modify.equals("update")){
 		if(ID != null && !ID.equals("")){
-			result = userList.updateMember(userNo, ID);
+			updMem.setEmail(ID);
+			updMem.setMemberID(userNo);
+			result = userList.updateMember(updMem);
 		}
 	}else if(modify.equals("delete")){
 		if(userNo != 0){

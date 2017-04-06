@@ -49,8 +49,8 @@
 	
 	<update id="updateMember" parameterType="domain.Member">
 		update members 
-		set email#={email,jdbcType=VARCHAR}
-		where member_id=#{memberID,jdbcType=NUMERIC}
+		set email = #{email}
+		where member_id = #{memberID}
 	</update>
 	
 	<delete id="delMember" parameterType="domain.Member">
