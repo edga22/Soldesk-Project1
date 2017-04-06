@@ -1,4 +1,4 @@
-package mgr;
+package mgr.search;
 
 import dao.BookDao;
 import dao.DbBasedBookDao;

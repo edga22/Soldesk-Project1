@@ -1,21 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-	import="mgr.SearchMgr" %>
+	import="mgr.search.SearchMgr"
+	import="mgr.search.SearchBox" %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
 <%
-request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8"); // 항상 UTF8로 처리한다
+Book[] scResult = null;	// 검색 결과를 저장할 배열
+
 String scTarget = "";
 String scWord = "";
-Book[] scResult = null;
 if(request.getParameter("SearchTarget") != null) scTarget = request.getParameter("SearchTarget");
 if(request.getParameter("SearchWord") != null) scWord = request.getParameter("SearchWord");
 
-SearchMgr scmgr = new SearchMgr();
-if(scTarget.equals("") || scTarget.equals("all")){
-	scResult = scmgr.getBooks(scWord);
+// 결과 내 검색일때
+if(request.getParameter("inSc") != null && request.getParameter("inSc").equals("1")){
+	SearchBox scbox = null;
+	if(session.getAttribute("scbox") != null){
+		scbox = (SearchBox)session.getAttribute("scbox");
+		if(!scWord.equals(""))scbox.wordFilter(scWord);
+		scResult = scbox.getBooks();
+	}	
+}
+else{ // 최초 검색일때
+	SearchMgr scmgr = new SearchMgr();
+	if(scTarget.equals("") || scTarget.equals("all")){
+		scResult = scmgr.getBooks(scWord);
+	}
+	
+	// 검색결과를 세션에 저장
+	SearchBox scbox = new SearchBox(scResult);
+	session.setAttribute("scbox", scbox);	
 }
 
 %>
@@ -44,6 +61,10 @@ if(scTarget.equals("") || scTarget.equals("all")){
 }
 #align-bar > .col-md-offset-1 {
 	margin-left : 5%;
+}
+#booktitle {
+	font-size : 2rem;
+	margin-top : -0.5rem;
 }
 
 .inSearch-group{
@@ -74,8 +95,8 @@ if(scTarget.equals("") || scTarget.equals("all")){
 		<div class="inSearch-group">			
 			<p>결과 내 검색</p>
 			<form action="">
-			<input type="text" style="width : 75%;" name="insearch" value="<%=scWord%>">
-			<button class="btn btn-default btn-sm" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>	
+			<input type="text" style="width : 75%;" name="SearchWord" value="<%=scWord%>">
+			<button class="btn btn-default btn-sm" type="submit" name="inSc" value="1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>	
 			</form>		
 		</div>
 		<div class="cate-group">		
@@ -110,8 +131,8 @@ if(scTarget.equals("") || scTarget.equals("all")){
 			</div>
 			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=scResult[idx].getBookID()%>"><img src="<%=scResult[idx].getImageID()%>"></a></div>
 			<div class="col-md-7">
-				<h3><a href="/inven/bookDetail.jsp?bookID=<%=scResult[idx].getBookID()%>"><%=scResult[idx].getBookName() %></a></h3>
-				<p>저자 : 저자<%=scResult[idx].getAuthor() %> 출판사 : <%=scResult[idx].getPublisher() %></p>
+				<p id="booktitle"><a href="/inven/bookDetail.jsp?bookID=<%=scResult[idx].getBookID()%>"><%=scResult[idx].getBookName() %></a></p>
+				<p>저자 : <%=scResult[idx].getAuthor() %> 출판사 : <%=scResult[idx].getPublisher() %></p>
 				<ul>
 					<li><%=scResult[idx].getPrice() %>원</li>
 					<li>적립포인트 : <%=i %>%</li>
