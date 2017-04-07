@@ -21,7 +21,7 @@ if(tmp == null || tmp.equals("")){
 }else{
 	userID =  Integer.parseInt(tmp);
 }
-
+PurchaseOrder[] purchaseOrders = dm.getMember(userID);
 %>          
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
@@ -36,22 +36,27 @@ if(tmp == null || tmp.equals("")){
       <table class="table table-hover">
 	<thead>
 		<tr>
-			<th>주문번호</th>
+			<th>회원번호</th>
 			<th>수령인</th>
 			<th>주문상품</th>
-			<th>가격</th>
+			<th>수량</th>
 			<th>배송조회</th>
 		</tr>
 	</thead>
 	<tbody>
-
+<%
+for(PurchaseOrder po:purchaseOrders){
+%>	
 		<tr>
-			<td><%="2016-01-18"%></td>
-			<td><%="1234-57" %></td>
-			<td><%="송성우" %></td>
-			<td><%="Java의 정석" %></td>
-			<td><a href="#">상세조회</a></td>
+			<td><%=po.getMemberID() %></td>
+			<td><%=po.getPurchaseOrderID() %></td>
+			<td><%=po.getBookID() %></td>
+			<td><%=po.getAmount()%></td>
+			<td><%=po.getProgress() %></td>
 		</tr>
+<%
+} 
+%>
 	
 	</tbody>
 	</table>
