@@ -27,13 +27,13 @@
 		alert("로그인 성공");
 		window.location.replace("/main.jsp");
 	</script>
-<%	}else{
+<%	
+	}else{
 %>		
 	<script>
 		alert("아이디 혹은 비밀번호가 틀렸습니다.");
 		window.location.replace("/sign/signInPage.jsp");
-	</script>
-			
+	</script>			
 <%
-		}
+	}
 %>
