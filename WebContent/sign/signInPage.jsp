@@ -38,18 +38,11 @@
 				</div>
 			</div>
 			<div class="form-group">
-		 		<div class="col-sm-offset-8 col-sm-10">
-		 			<div class="checkbox">
-						<label><input type="checkbox" name="remID"/>아이디 기억</label>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
 		 		<div class="col-sm-6 center">
-		 		   <input type="submit" class="btn btn-primary btn-block" value="로그인" />
+		 		   <input type="submit" class="btn btn-primary btn-block" style="margin-top:10px"value="로그인" />
 		 		</div>
 				<div class="col-sm-6 center">
-				     <a href="signUp.jsp"><button type="button" class="btn btn-primary btn-block">회원가입</button></a>
+				     <a href="signUp.jsp"><button type="button" class="btn btn-primary btn-block" style="margin-top:10px">회원가입</button></a>
 				</div>
 			</div>
 			</form>	
