@@ -58,7 +58,7 @@
 		<div id="findId" class="tab-pane fade">
 			<h3>아이디를 찾으시나요?</h3>
 			가입여부를 확인하시려면 성명과 전화번호를 입력해주세요
-			<form action="findIdResult.jsp" method="post">
+			<form action="findIdResult.jsp">
 			<div class="form-group" style="margin-top:10px">
 				<label class="control-label col-sm-3" for="name">성명 :</label>
 				<div class="col-sm-9">
@@ -66,7 +66,7 @@
 				</div>
 				<label class="control-label col-sm-3" for="name" style="margin-top:10px">전화번호 :</label>
 				<div class="col-sm-9">
-					<input type="number" class="form-control" id="phone" name="phone" placeholder="-없이입력" style="margin-top:10px" required>
+					<input type="text" class="form-control" id="phone" name="phone" placeholder="전화번호" style="margin-top:10px" required>
 				</div>
 			</div>
 			<div class="btn-default">
@@ -83,17 +83,17 @@
 			<div class="form-group">
 				<label class="control-label col-sm-3" for="I" style="margin-top:10px">아이디 :</label>
 				<div class="col-sm-9">
-					<input type="text" class="form-control" id="ID" placeholder="ID" style="margin-top:10px" required>
+					<input type="text" class="form-control" id="ID" name="ID" placeholder="ID" style="margin-top:10px" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-3" for="name" style="margin-top:10px">성명 :</label>
 				<div class="col-sm-9">
-					<input type="text" class="form-control" id="name" placeholder="name" style="margin-top:10px" required>
+					<input type="text" class="form-control" id="name" name="name" placeholder="name" style="margin-top:10px" required>
 				</div>
 				<label class="control-label col-sm-3" for="name" style="margin-top:10px">전화번호 :</label>
 				<div class="col-sm-9">
-					<input type="number" class="form-control" id="phone" name="phone" placeholder="-없이 입력" style="margin-top:10px" required>
+					<input type="text" class="form-control" id="phone" name="phone" placeholder="전화번호" style="margin-top:10px" required>
 				</div>
 			</div>
 `			<div class="bnt-default">

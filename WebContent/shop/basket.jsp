@@ -9,20 +9,24 @@
 	String bID=request.getParameter("bookID");
 	String count=request.getParameter("cnt");
 	
+	basketList=mgr.getlist();
+	
 	if(bID != null && count != null){
 		int bookID=Integer.parseInt(bID);
 		int cnt=Integer.parseInt(count);
 		mgr.add(bookID, cnt);
-		out.println("<script>alert('장바구니에 추가'); location.href='basket.jsp';</script>");
+		out.println("<script>alert('장바구니에 추가했습니다.'); location.href='basket.jsp';</script>");
 	}
 	if(bID != null && count == null){
 		int bookID=Integer.parseInt(bID);
 		int cnt=1;
 		mgr.add(bookID, cnt);
-		out.println("<script>alert('장바구니에 추가'); location.href='basket.jsp';</script>");
+		out.println("<script>alert('장바구니에 추가했습니다.'); location.href='basket.jsp';</script>");
 	}
-	basketList=mgr.getlist();
+	session.setAttribute("mgr", mgr);
 %>
+<script>
+</script>
 <title>장바구니</title>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container"> 

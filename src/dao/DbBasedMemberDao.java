@@ -15,11 +15,11 @@ public class DbBasedMemberDao implements MemberDao {
 		return mapper.loginCheck(member);
 	}
 	
-	public int findIdMember(Member email){
+	public Member findIdMember(Member email){
 		return mapper.findIdMember(email);
 	}
 	
-	public int findPwMember(Member psw){
+	public Member findPwMember(Member psw){
 		return mapper.findPwMember(psw);
 	}
 }

@@ -11,7 +11,7 @@
 <title>마이페이지</title>
 </head>                 
 <body>  
-<div class="container " id="MypageMain">
+<div class="container">
       <h3>My Account</h3>
       <br>
       <h4>주문내역</h4>

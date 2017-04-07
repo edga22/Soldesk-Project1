@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="domain.Member"%>
+<%@ page import="mgr.MemberService" %>
+<%@ page import="dao.MemberDao" %>
+<%@ page import="dao.DbBasedMemberDao" %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -20,10 +24,38 @@
 <jsp:include page="../logo.jsp"/>
 
 	<div class="row" id="wrap">
+<%
+	String ID = request.getParameter("ID");
+	String name = request.getParameter("name");
+	String phone = request.getParameter("phone");
+	
+	Member member = new Member();
+	
+	if((ID != null && !ID.equals(""))
+			&& (name != null && !name.equals("")
+			&& (phone != null && !phone.equals("")))){
+		member.setEmail(ID);
+		member.setName(name);
+		member.setPhone(phone);
+		
+		MemberDao mapper = new DbBasedMemberDao();
+		
+		member = mapper.findPwMember(member);
+%>
 	    <div class="col-md-12">
-			당신의 비밀번호는 이메일로 전송되었습니다.
+			<%=ID %>님의 비밀번호는<%=member.getPassword() %> 입니다
 		</div>
 	</div>
+<%
+	}else{
+%>
+	<script>
+		alert("등록되지 않은 회원 입니다.");
+		window.location.replace("signInPage.jsp");
+	</script>
+<%	
+	}
+%>
 
 <a href="signInPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
 </div>
