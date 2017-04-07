@@ -3,8 +3,11 @@ package dao;
 import java.util.List;
 import domain.Category;
 
-public interface CategoryDao {
+public interface CategoryMgrDao {
 	List<Category> getCategories();
+	List<Category> getCategoriesUse();
+	List<Category> getCategoriesUseCode1();
+	List<Category> getCategoriesUseCode2();	
 	Category getCategory(int categoryID);
 	List<Category> getRegionCategories(int code1);
 	

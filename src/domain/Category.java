@@ -1,6 +1,6 @@
 package domain;
 
-import java.math.BigDecimal;
+//import java.math.BigDecimal;
 
 public class Category {
 	private int categoryID;
@@ -8,7 +8,12 @@ public class Category {
 	private int code2;
 	private int code3;
 	private String categoryName;
-	public Category(BigDecimal categoryID, BigDecimal code1, BigDecimal code2, BigDecimal code3,
+	private String categorySubject;
+	private int categoryUse;
+	
+	public Category(){}	
+
+	/*public Category(BigDecimal categoryID, BigDecimal code1, BigDecimal code2, BigDecimal code3,
 			String categoryName) {
 		super();
 		this.categoryID = categoryID.intValue();
@@ -16,7 +21,7 @@ public class Category {
 		this.code2 = code2.intValue();
 		this.code3 = code3.intValue();
 		this.categoryName = categoryName;
-	}
+	}*/
 	public Category(int code1, int code2, String categoryName) {
 		super();
 		this.code1 = code1;
@@ -52,5 +57,17 @@ public class Category {
 	}
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
+	}
+	public String getCategorySubject() {
+		return categorySubject;
+	}
+	public void setCategorySubject(String categorySubject) {
+		this.categorySubject = categorySubject;
+	}
+	public int getCategoryUse() {
+		return categoryUse;
+	}
+	public void setCategoryUse(int categoryUse) {
+		this.categoryUse = categoryUse;
 	}
 }

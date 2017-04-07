@@ -18,7 +18,7 @@
 		order by member_id
 	</select>
 	
-	<select id="getMember" parameterType="domain.Member" resultType="int">
+	<select id="getMember" parameterType="int" resultType="domain.Member">
 		select * from members
 		where member_id =#{memberID}
 	</select>

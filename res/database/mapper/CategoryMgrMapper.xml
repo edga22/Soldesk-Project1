@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="config.CategoryMgrMapper">
+	<resultMap id="CategoryMgrMap" type="domain.Category">
+		<id		property="categoryID"	   column="CATEGORY_ID"/>
+		<result	property="code1"		   column="CODE1"/>
+		<result	property="code2"		   column="CODE2"/>
+		<result	property="code3"		   column="CODE3"/>
+		<result	property="categoryName"    column="CATEGORY_NAME"/>
+		<result property="categorySubject" column="CATEGORY_SUBJECT"/>
+		<result property="categoryUse"     column="CATEGORY_USE"/>
+	</resultMap>
+	
+	<select id="getCategories" resultMap="CategoryMgrMap">
+		SELECT * FROM Category ORDER BY category_id
+	</select>
+	
+	<select id="getCategoriesUse" resultMap="CategoryMgrMap">
+        SELECT * FROM Category WHERE category_use=1 ORDER BY category_id
+    </select>
+    
+    <select id="getCategoriesUseCode1" resultMap="CategoryMgrMap">
+        SELECT * FROM Category WHERE category_use=1 AND code2=0 ORDER BY category_id
+    </select>
+    
+    <select id="getCategoriesUseCode2" resultMap="CategoryMgrMap">
+        SELECT * FROM Category WHERE category_use = 1 AND code2 > 0 ORDER BY category_id
+    </select>
+	
+	<select id="getCategory" parameterType="domain.Category" resultMap="CategoryMgrMap">
+		SELECT * FROM Category WHERE category_id = #{id}
+	</select>
+	
+	<select id="getRegionCategories" resultMap="CategoryMgrMap" parameterType="int">
+		SELECT * FROM Category WHERE code1 = #{code1}
+	</select>	
+</mapper>

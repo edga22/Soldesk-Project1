@@ -15,7 +15,7 @@
 	</select>
 	
 	<select id="getCategory" parameterType="int" resultMap="CategoryMap">
-		SELECT * FROM Category WHERE category_id = #{categoryid}
+		SELECT * FROM Category WHERE category_id = #{categoryID}
 	</select>
 	
 	<select id="getRegionCategories" resultMap="CategoryMap" parameterType="int">
