@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"%>
-<%@ page import="mgr.MemberService" %>
 <%@ page import="dao.MemberDao" %>
 <%@ page import="dao.DbBasedMemberDao" %>
+<%@ page import="mgr.MemberService" %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -23,6 +23,7 @@
 <div class="container">
 <jsp:include page="../logo.jsp"/>
 <%
+	request.setCharacterEncoding("utf-8");
 	String ID = request.getParameter("ID");
 	String name = request.getParameter("name");
 	String phone = request.getParameter("phone");
@@ -31,8 +32,8 @@
 	MemberService mapper = new MemberService();
 	
 	if((ID != null && !ID.equals(""))
-			&& (name != null && !name.equals("")
-			&& (phone != null && !phone.equals("")))){
+			&& (name != null && !name.equals(""))
+			&& (phone != null && !phone.equals(""))){
 		member.setEmail(ID);
 		member.setName(name);
 		member.setPhone(phone);
