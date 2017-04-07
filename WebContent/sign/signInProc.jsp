@@ -7,7 +7,6 @@
 <%
 	String ID = request.getParameter("ID");
 	String pw = request.getParameter("pw");
-	String remID = request.getParameter("remID");
 	int memberID = 0;
 
 	MemberService memberService = new MemberService();
@@ -18,22 +17,28 @@
 		temp.setEmail(ID);
 		temp.setPassword(pw);
 		Member mem = memberService.loginCheck(temp);
-		memberID = mem.getMemberID();
 		
-		session.setAttribute("memberID",memberID);
-		session.setAttribute("ID",ID);
+		if(mem !=null && !mem.equals("")){
+			memberID = mem.getMemberID();
+			
+			session.setAttribute("memberID",memberID);
+			session.setAttribute("ID",ID);
+			
 %>		
-	<script>
-		alert("로그인 성공");
-		window.location.replace("/main.jsp");
-	</script>
+			<script>
+				alert("로그인 성공");
+				window.location.replace("/main.jsp");
+			</script>
 <%	
-	}else{
+		}else{		
 %>		
-	<script>
-		alert("아이디 혹은 비밀번호가 틀렸습니다.");
-		window.location.replace("/sign/signInPage.jsp");
-	</script>			
+			<script>
+				alert("아이디 혹은 비밀번호가 틀렸습니다.");
+				window.location.replace("/sign/signInPage.jsp");
+			</script>			
 <%
+		}
+	}else{
+		
 	}
 %>
