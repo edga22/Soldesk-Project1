@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="domain.PurchaseOrder"
+			 import="mgr.DeliveryMgr" %>
 <!DOCTYPE html PUBLIC >
 <html>
 <head>
@@ -10,7 +12,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
-<body>          
+<body>
+<% 
+DeliveryMgr dm = new DeliveryMgr();
+String tmp = (String)session.getAttribute("memberID");
+int userID=1;
+if(tmp == null || tmp.equals("")){
+}else{
+	userID =  Integer.parseInt(tmp);
+}
+
+%>          
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
 <div class="container">
@@ -24,18 +36,15 @@
       <table class="table table-hover">
 	<thead>
 		<tr>
-			<th>주문일</th>
 			<th>주문번호</th>
 			<th>수령인</th>
 			<th>주문상품</th>
-			<th>조회</th>
+			<th>가격</th>
+			<th>배송조회</th>
 		</tr>
 	</thead>
 	<tbody>
-<%  
-	int temp=2;
-	for(int i = 0; i< temp ; i++){
-%>	
+
 		<tr>
 			<td><%="2016-01-18"%></td>
 			<td><%="1234-57" %></td>
@@ -43,9 +52,7 @@
 			<td><%="Java의 정석" %></td>
 			<td><a href="#">상세조회</a></td>
 		</tr>
-<%
-	}
-%>		
+	
 	</tbody>
 	</table>
 	</div>

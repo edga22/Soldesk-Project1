@@ -15,7 +15,7 @@
 <body>
 <%
 MemberService ms = new MemberService();
-String tmp = (String)session.getAttribute("ID");
+String tmp = (String)session.getAttribute("memberID");
 int userID=1;
 if(tmp == null || tmp.equals("")){
 }else{
