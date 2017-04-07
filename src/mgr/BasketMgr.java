@@ -16,11 +16,7 @@ public class BasketMgr {
 	public Basket[] getlist(){		
 		return bookList.toArray(new Basket[bookList.size()]);
 	}
-	
-	public ArrayList<Basket> getArrayList(){
-		return bookList;
-	}
-	
+
 	public void add(int bookID,int cnt){
 		Book book=new Book();
 		book=mgr.getBook(bookID);
@@ -29,11 +25,15 @@ public class BasketMgr {
 		bookList.add(basket);
 	}
 	
-	public ArrayList<Basket> remove(int bookID){
+	public void remove(int bookID){
 		Book book=new Book();
 		book=mgr.getBook(bookID);
-		bookList.remove(book);
 		
-		return bookList;
+		for(Basket tmpBasket:bookList){
+			if(tmpBasket.getBook()==book){
+				Basket tmp=tmpBasket;
+				bookList.remove(tmp);
+			}
+		}
 	}
 }

@@ -42,5 +42,6 @@
 			<mapper resource="database/mapper/DeliveryMapper.xml"/>
 			<mapper resource="database/mapper/CategoryMapper.xml"/>
 			<mapper resource="database/mapper/CategoryMgrMapper.xml"/>
+			<mapper resource="database/mapper/BestsellerMapper.xml"/>
     </mappers>
 </configuration>
