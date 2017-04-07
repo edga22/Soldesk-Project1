@@ -16,7 +16,7 @@
 <div class="container">
 	<div class="row content">
     	<div class="col-sm-2 sidenav">
-			<jsp:include page="/mypage/MypageMain.jsp"></jsp:include>
+			<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
 		</div>
 <div class="col-sm-10">
       <h2>반품/교환 내역 조회</h2>
