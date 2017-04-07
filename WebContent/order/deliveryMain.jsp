@@ -20,17 +20,17 @@
 	<h3>배송관리</h3><br>
 	<form>	
 	 회원번호로 조회: <input type="number" name="memberID" placeholder="유저 번호" required>
-	 <button type="submit" formaction="/manager/ordersByMemberID.jsp" class="btn btn-default">검색</button>
+	 <button type="submit" formaction="/order/ordersByMemberID.jsp" class="btn btn-default">검색</button>
 	</form>
 	<form>	
 	 배송상태로 조회: <input type="number" name="progress" placeholder="1입금확인,2배송준비,3배송시작,4배송완료,5완료" required>
-	 <button type="submit" formaction="/manager/ordersByProgress.jsp" class="btn btn-default">검색</button>
+	 <button type="submit" formaction="/order/ordersByProgress.jsp" class="btn btn-default">검색</button>
 	</form>	
 	<form>	
 	 주문번호로 조회: <input type="number" name="orderID" placeholder="주문번호" required>
-	 <button type="submit" formaction="/manager/ordersByOrderID.jsp" class="btn btn-default">검색</button>
+	 <button type="submit" formaction="/order/ordersByOrderID.jsp" class="btn btn-default">검색</button>
 	</form>	
-	<a href="/manager/orderAll.jsp" class="btn btn-default">전체검색</a>
+	<a href="/order/orderAll.jsp" class="btn btn-default">전체검색</a>
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#orderMod">수정</button>
 <!-- 배송상태 편집 기능 -->
   	  <div class="modal fade" id="orderMod">
@@ -40,7 +40,7 @@
             <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">주문상태 변경하기</h4>
           </div>
-         <form action="/manager/orderStateProc.jsp">
+         <form action="/order/orderStateProc.jsp">
           <div class="modal-body" align="left">         
 		  <ul style=" list-style:none">		 
 		   <li> 주문 번호:<input type="number" name="OrderID" placeholder="주문번호" required></li>	  

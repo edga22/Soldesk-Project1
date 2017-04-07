@@ -14,49 +14,23 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
+<jsp:include page="/order/deliveryMain.jsp"></jsp:include>
 <%
 DeliveryMgr mymgr = new DeliveryMgr();
 OrderState state = new OrderState();
 int progress = Integer.parseInt(request.getParameter("progress"));
-PurchaseOrder[] PurchaseOrders = mymgr.getProgress(progress);
-%>
-<jsp:include page="/manager/deliveryMain.jsp"></jsp:include>
-<div id="obm" class="container">
-<h3>회원번호 조회 결과</h3>
-	<table class="table table-condensed">
-	 <thead>
-	  <tr>
-		<th>상태</th>
-		<th>주문번호</th>
-		<th>회원번호</th>
-		<th>도서번호</th>
-		<th>수량</th>
-		<th>구매날짜</th>
-	  </tr>
-	 </thead>
-	 <tbody>
-<%
-if( PurchaseOrders != null){
-	for(PurchaseOrder po: PurchaseOrders){	
-%>	 	
-			  <tr>
-			    <th><%=state.change(po.getProgress())%></th>
-				<th><%=po.getPurchaseOrderID()%></th>
-				<th><%=po.getMemberID()%></th>
-				<th><%=po.getBookID()%></th>
-				<th><%=po.getAmount()%></th>
-				<th><%=po.getPurchaseDate()%></th>
-			  </tr>
-<%
-	}
+int OrderID = Integer.parseInt(request.getParameter("OrderID"));
+PurchaseOrder po = mymgr.getOrder(OrderID);
+
+if( po == null || po.equals("") ){
 }else{
 %>
-			  <tr><th> 검색하신 회원은 구매내역이 없습니다. </th></tr>
+	<h4>배송 상태가 변경되었습니다.</h4>
+	<p>주문 번호 : <%= po.getPurchaseOrderID()%></p>
+	<p>구매 날짜 : <%= po.getPurchaseDate()%></p>
+	<p>배송 상태 : <%= po.getProgress()%> -> <%po.setProgress(progress);%> <%= po.getProgress()%>  </p>	
 <%
 }
 %>
-	 </tbody>
-	</table>
-</div>
 </body>
 </html>

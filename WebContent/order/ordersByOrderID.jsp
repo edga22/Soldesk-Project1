@@ -20,7 +20,7 @@ OrderState state = new OrderState();
 int orderID = Integer.parseInt(request.getParameter("orderID"));
 PurchaseOrder po = mymgr.getOrder(orderID);
 %>
-<jsp:include page="/manager/deliveryMain.jsp"></jsp:include>
+<jsp:include page="/order/deliveryMain.jsp"></jsp:include>
 <div id="obm" class="container">
 <h3>주문번호 조회 결과</h3>
 	<table class="table table-condensed">
