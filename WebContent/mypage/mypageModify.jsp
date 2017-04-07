@@ -15,11 +15,11 @@
 <body>
 <%
 MemberService ms = new MemberService();
-String tmp = (String)session.getAttribute("memberID");
+int tmp = (Integer)session.getAttribute("memberID");
 int userID=1;
-if(tmp == null || tmp.equals("")){
+if(tmp == 0){
 }else{
-	userID =  Integer.parseInt(tmp);
+	userID = tmp;
 }
 Member member = ms.getMember(userID);
 %>
