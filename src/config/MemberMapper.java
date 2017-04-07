@@ -9,8 +9,8 @@ public interface MemberMapper {
 	Member getMember(int memberID);
 	int addMember(Member Member);
 	int loginCheck(Member member);
-	int findIdMember(Member Email);
-	int findPwMember(Member psw);
+	Member findIdMember(Member Email);
+	Member findPwMember(Member psw);
 	int updateMember(Member email);
 	int delMember(int MemberID);
 }

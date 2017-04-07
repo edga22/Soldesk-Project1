@@ -27,11 +27,11 @@ public class MemberService{
 		return mapper.addMember(Member);
 	}
 	
-	public int findIdMember(Member Email){
+	public Member findIdMember(Member Email){
 		return mapper.findIdMember(Email);
 	}
 	
-	public int findPwMember(Member psw){
+	public Member findPwMember(Member psw){
 		return mapper.findPwMember(psw);
 	}
 	

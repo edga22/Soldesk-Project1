@@ -36,14 +36,14 @@
 									  #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
 	</insert>
 	
-	<select id="findIdMember" parameterType="domain.Member" resultType="int">
-		select email
+	<select id="findIdMember" parameterType="domain.Member" resultMap="MemberMap">
+		select email 
 		from members
-		where (name = #{name} and phone = #{phone})
+		where name = #{name} and phone = #{phone}
 	</select>
 	
-	<select id="findPwMember" parameterType="domain.Member">
-		select passwd 
+	<select id="findPwMember" parameterType="domain.Member" resultMap="MemberMap">
+		select PASSWD 
 		from members 
 		where (email = #{email} and name = #{name} and phone = #{phone})
 	</select>

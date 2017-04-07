@@ -34,11 +34,11 @@
 		member.setPhone(phone);
 		MemberDao mapper = new DbBasedMemberDao();
 		
-		mapper.findIdMember(member);
+		member = mapper.findIdMember(member);
 %>
-	<h2>당신의 아이디는<%=mapper.findIdMember(member)%> 입니다.</h2>
+	<h2>당신의 아이디는<%=member.getEmail() %> 입니다.</h2>
 	
-	<a href="/signInPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
+	<a href="signInPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
 <%
 	}else{
 %>	
