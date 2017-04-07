@@ -13,11 +13,13 @@
 		int bookID=Integer.parseInt(bID);
 		int cnt=Integer.parseInt(count);
 		mgr.add(bookID, cnt);
+		out.println("<script>alert('장바구니에 추가'); location.href='basket.jsp';</script>");
 	}
 	if(bID != null && count == null){
 		int bookID=Integer.parseInt(bID);
 		int cnt=1;
 		mgr.add(bookID, cnt);
+		out.println("<script>alert('장바구니에 추가'); location.href='basket.jsp';</script>");
 	}
 	basketList=mgr.getlist();
 %>

@@ -20,7 +20,7 @@
       <br>
       <br>
       <h4>개인정보관리</h4>
-      <h5><a href="Mypagemodify.jsp">개인정보 수정</a></h5>
+      <h5><a href="mypageModify.jsp">개인정보 수정</a></h5>
       <h5><a href="MypagePoint.jsp">포인트 조회</a></h5>
       <h5><a href="Mypageout.jsp">회원 탈퇴</a></h5>
       <br>

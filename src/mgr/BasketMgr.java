@@ -18,21 +18,17 @@ public class BasketMgr {
 	}
 	
 	public void add(int bookID,int cnt){
-		Basket tmpBasket=new Basket();
 		Book book=new Book();
 		book=mgr.getBook(bookID);
-		
+		/*Basket tmpBasket=new Basket();
 		for(int i=0;i<=bookList.size();i++){
+			tmpBasket=bookList.get(i);
 			if(book==tmpBasket.getBook()){
-				tmpBasket=bookList.get(i);
+				break;
 			}
-		}
-		if(tmpBasket.getBook() != null){
-			tmpBasket.setCnt(cnt+tmpBasket.getCnt());
-		}else{
-			Basket basket=new Basket(book,cnt);
-			bookList.add(basket);
-		}
+		}*/
+		Basket basket=new Basket(book,cnt);
+		bookList.add(basket);
 	}
 	
 	public void remove(int bookID){
