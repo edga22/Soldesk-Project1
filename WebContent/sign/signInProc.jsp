@@ -16,9 +16,10 @@
 			&& (pw != null && !pw.equals(""))){
 		Member temp = new Member();
 		temp.setEmail(ID);
-		temp.setPassword(pw);		
-		memberService.loginCheck(temp);
-	
+		temp.setPassword(pw);
+		Member mem = memberService.loginCheck(temp);
+		memberID = mem.getMemberID();
+		
 		session.setAttribute("memberID",memberID);
 		session.setAttribute("ID",ID);
 %>		

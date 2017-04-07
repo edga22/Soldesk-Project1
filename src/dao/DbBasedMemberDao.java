@@ -11,7 +11,7 @@ public class DbBasedMemberDao implements MemberDao {
 		mapper = Factory.getMapper(MemberMapper.class);
 	}
 	
-	public int loginCheck(Member member){
+	public Member loginCheck(Member member){
 		return mapper.loginCheck(member);
 	}
 	

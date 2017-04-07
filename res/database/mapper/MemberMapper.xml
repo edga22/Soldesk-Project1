@@ -23,8 +23,8 @@
 		where member_id =#{memberID}
 	</select>
 	
-	<select id="loginCheck" parameterType="domain.Member" resultType="int">
-		select count(*)
+	<select id="loginCheck" parameterType="domain.Member" resultMap="MemberMap">
+		select member_id, email
 		from members
 		where (email=#{email} and PASSWD=#{password})
 	</select>

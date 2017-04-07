@@ -19,7 +19,7 @@ public class MemberService{
 		return mapper.getMember(memberID);
 	}
 	
-	public int loginCheck(Member member){
+	public Member loginCheck(Member member){
 		return mapper.loginCheck(member);
 	}
 	
