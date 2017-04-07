@@ -36,28 +36,23 @@
 					<table class="table table-condensed">
 						<thead>
 							<tr>
-								<th>구분(상태)</th>
-								<th>사용일자</th>
-								<th>세부내용</th>
-								<th>포인트(적립/사용)</th>
+								<th>세션 저장값</th>
+								<th>아이디번호</th>
+								<th>이메일</th>
+								<th>주소</th>
 								<th>총포인트</th>
+								<th>이름</th>
 							</tr>
 						</thead>
 						<tbody>
-							<%
-								/* int temp = 1;
-								for (int i = 0; i < temp; i++) { */
-							%>
 							<tr>
+								<th><%=memberID%></th>
 								<th><%=member.getMemberID()%></th>
 								<th><%=member.getEmail()%></th>
 								<th><%=member.getAddress()%></th>
 								<th><%=member.getBonusPoint()%></th>
-								<th><%=member.toString() %></th>
+								<th><%=member.getName() %></th>
 							</tr>
-							<%
-								/* } */
-							%>
 						</tbody>
 					</table>
 				</div>

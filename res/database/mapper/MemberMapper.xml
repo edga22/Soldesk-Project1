@@ -18,9 +18,9 @@
 		order by member_id
 	</select>
 	
-	<select id="getMember" parameterType="int" resultType="domain.Member">
+	<select id="getMember" parameterType="int" resultMap="MemberMap">
 		select * from members
-		where member_id =#{memberID}
+		where MEMBER_ID =#{memberID}
 	</select>
 	
 	<select id="loginCheck" parameterType="domain.Member" resultMap="MemberMap">
