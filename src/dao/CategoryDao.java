@@ -5,9 +5,9 @@ import domain.Category;
 
 public interface CategoryDao {
 	List<Category> getCategories();
-	Category getCategory(int categoryid);
+	Category getCategory(int categoryID);
 	List<Category> getRegionCategories(int code1);
 	
 	int addCategory(Category category);	
-	int delCategory(int categoryid);
+	int delCategory(int categoryID);
 }

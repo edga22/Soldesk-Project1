@@ -16,8 +16,8 @@ public class DbBasedCategoryDao implements CategoryDao{
 	public List<Category> getCategories(){
 		return mapper.getCategories();
 	}
-	public Category getCategory(int categoryid){
-		return mapper.getCategory(categoryid);
+	public Category getCategory(int categoryID){
+		return mapper.getCategory(categoryID);
 	}
 	public List<Category> getRegionCategories(int code1){
 		return mapper.getRegionCategories(code1);
