@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <%
-	session.invalidate();
+	session.removeAttribute("ID");
 %>
 <script>
 	alert("로그아웃 되었습니다.");
