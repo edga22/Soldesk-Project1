@@ -29,10 +29,10 @@
 	</script>
 <%	}else{
 %>		
-	<srcipt>
+	<script>
 		alert("아이디 혹은 비밀번호가 틀렸습니다.");
-		history.go(-1);
-	</srcipt>
+		window.location.replace("/sign/signInPage.jsp");
+	</script>
 			
 <%
 		}
