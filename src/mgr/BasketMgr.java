@@ -17,6 +17,10 @@ public class BasketMgr {
 		return bookList.toArray(new Basket[bookList.size()]);
 	}
 	
+	public ArrayList<Basket> getArrayList(){
+		return bookList;
+	}
+	
 	public void add(int bookID,int cnt){
 		Book book=new Book();
 		book=mgr.getBook(bookID);
