@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 <html>
 <%
-	int result = 0;
 	Member member = new Member();
 	MemberService findMember = new MemberService();
 	
