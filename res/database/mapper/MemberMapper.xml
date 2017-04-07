@@ -43,9 +43,9 @@
 	</select>
 	
 	<select id="findPwMember" parameterType="domain.Member" resultMap="MemberMap">
-		select PASSWD 
+		select passwd
 		from members 
-		where (email = #{email} and name = #{name} and phone = #{phone})
+		where email = #{email} and name = #{name} and phone = #{phone}
 	</select>
 	
 	<update id="updateMember" parameterType="domain.Member">

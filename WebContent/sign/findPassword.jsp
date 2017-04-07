@@ -20,16 +20,15 @@
 </style>
 </head>
 <body>
-<div class="container" id="pws3">
+<div class="container">
 <jsp:include page="../logo.jsp"/>
-
-	<div class="row" id="wrap">
 <%
 	String ID = request.getParameter("ID");
 	String name = request.getParameter("name");
 	String phone = request.getParameter("phone");
 	
 	Member member = new Member();
+	MemberService mapper = new MemberService();
 	
 	if((ID != null && !ID.equals(""))
 			&& (name != null && !name.equals("")
@@ -37,15 +36,12 @@
 		member.setEmail(ID);
 		member.setName(name);
 		member.setPhone(phone);
-		
-		MemberDao mapper = new DbBasedMemberDao();
-		
-		member = mapper.findPwMember(member);
+	
+		Member mem = mapper.findPwMember(member);
 %>
-	    <div class="col-md-12">
-			<%=ID %>님의 비밀번호는<%=member.getPassword() %> 입니다
-		</div>
-	</div>
+	<div class="row" id="wrap">
+	<h4><%=ID %>님의 비밀번호는 <%=mem.getPassword() %>입니다.</h4>
+	<a href="signInPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
 <%
 	}else{
 %>
@@ -56,8 +52,7 @@
 <%	
 	}
 %>
-
-<a href="signInPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
+</div>
 </div>
 </body>
 </html>
