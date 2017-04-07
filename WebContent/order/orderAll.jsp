@@ -19,7 +19,7 @@ DeliveryMgr mymgr = new DeliveryMgr();
 OrderState state = new OrderState();
 PurchaseOrder[] PurchaseOrders = mymgr.getOrders();
 %>
-<jsp:include page="/manager/deliveryMain.jsp"></jsp:include>
+<jsp:include page="/order/deliveryMain.jsp"></jsp:include>
 <div id="obm" class="container">
 <h3>회원번호 조회 결과</h3>
 	<table class="table table-condensed">
