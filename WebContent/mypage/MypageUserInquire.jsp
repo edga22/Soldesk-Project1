@@ -17,7 +17,7 @@
 	<jsp:include page="/main_navbar.jsp"></jsp:include>
 	<div class="container">
 		<div class="col-sm-2 sidenav" style="float: left;">
-			<jsp:include page="mypageMain.jsp"></jsp:include>
+			<jsp:include page="MypageMain.jsp"></jsp:include>
 		</div>
 		<div class="col-sm-10" id="MypageUserInquire">
 			<h3 style="text-align: center">1:1 문의</h3>

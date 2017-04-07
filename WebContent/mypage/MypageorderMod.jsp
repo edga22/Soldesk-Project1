@@ -16,7 +16,7 @@
 <div class="container">
   <div class="row content">
     <div class="col-sm-2 sidenav">
-		<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
+		<jsp:include page="/mypage/MypageMain.jsp"></jsp:include>
     </div>
   <div class="col-sm-10">
       <h2>주문조회/변경/취소</h2>

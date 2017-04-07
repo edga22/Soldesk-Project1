@@ -15,7 +15,7 @@
 <div class="container">
 <div class="row content">
     <div class="col-sm-2 sidenav">
-<jsp:include page="mypageMain.jsp"></jsp:include>
+<jsp:include page="MypageMain.jsp"></jsp:include>
 </div>
 <div class="col-sm-10">
 <div id="MypageQuestion">

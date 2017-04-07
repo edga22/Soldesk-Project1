@@ -76,7 +76,7 @@ if(session.getAttribute("ID") != null)memberID = (String)session.getAttribute("I
                            <span class="member_rate"> 회원등급 </span> <a href="main.html"><b><%=memberID %></b>님</a> <span class="divider"></span>
                        </li>
                        <li>
-                           <a href="/mypage/mypageorderMod.jsp">마이페이지</a> <span class="divider"></span>
+                           <a href="/mypage/MypageorderMod.jsp">마이페이지</a> <span class="divider"></span>
                        </li>
                        <li>
                            <a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>
