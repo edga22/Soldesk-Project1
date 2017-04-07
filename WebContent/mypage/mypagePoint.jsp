@@ -16,7 +16,7 @@
 <div class="container">
 	<div class="row content">
     	<div class="col-sm-2 sidenav">
-			<jsp:include page="MypageMain.jsp"></jsp:include>
+			<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
 		</div>
 
 	<div id="MypagePoint">		

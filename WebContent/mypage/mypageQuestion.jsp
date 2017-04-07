@@ -9,26 +9,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
-</head>
-         
-<body>
+</head>           
 <jsp:include page="/main_navbar.jsp"></jsp:include>
-
+<body>
 <div class="container">
-	<div class="row content">
-    	<div class="col-sm-2 sidenav">
-			<jsp:include page="MypageMain.jsp"></jsp:include>
-		</div>
-
+<div class="row content">
+    <div class="col-sm-2 sidenav">
+<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
+</div>
 <div class="col-sm-10">
-      <h2> 회원 탈퇴</h2>
-      <h3> -회원 탈퇴시 적립금,예치금,마일리지 등이 자동삭제 됩니다.</h3>
-      비밀번호:<input type="password" name="">
-      		 <button type="button" class="btn btn-danger"name="">회원탈퇴</button>
-</div>
-</div>
-</div>
-<jsp:include page="/main_foot.jsp"></jsp:include>
+<div id="MypageQuestion">
+      <h2>자주 묻는 질문</h2>
+      <h3>-Q&A</h3>
+ 	<a href="#">1.장바구니에 담아둔 내역이 자꾸 사라집니다.</a><br>
+ 	<a href="#">2.장바구니 담기가 안됩니다.</a><br>
+ 	<a href="#">3.장바구니 복원신청은 어떻게하나요?</a>
+ 	</div>
+ 	</div>
+ 	</div>
+ 	</div>
 </body>
-
+<jsp:include page="/main_foot.jsp"></jsp:include>
 </html>
