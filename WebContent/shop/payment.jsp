@@ -18,21 +18,25 @@
 <h3>주문 상품 확인</h3>
 <%
 BookMgr mymgr = new BookMgr();
-int bookCnt = 1;
-int bookID = 0;
 int overPrice = 0;
+int totalPrice = 0;
 int point = 0;
+int totalPoint = 0;
+int i=0;
 
 //장바구니에서 bookID 값들을 받을경우
 String[] bookIDs = request.getParameterValues("bookID");
-String tmpCnt = request.getParameter("cnt");
+String[] cnts = request.getParameterValues("cnt");
 if(bookIDs == null || bookIDs.equals("")){
 }else{
 	for(String bID : bookIDs){
-		if(tmpCnt == null || tmpCnt.equals("")){}else{bookCnt = Integer.parseInt(tmpCnt);}
+		int cnt = Integer.parseInt(cnts[i]);
+		i++;
 		Book book = mymgr.getBook(Integer.parseInt(bID));
 		overPrice = (int)(book.getPrice()*1.1)/100*100;
 		point = (int)(book.getPrice()*0.1)/1*1;
+		totalPrice += book.getPrice()*cnt;
+		totalPoint += point*cnt;
 %>	
 	<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">
 	<table class="table table-condensed">
@@ -52,9 +56,9 @@ if(bookIDs == null || bookIDs.equals("")){
 		<td><%=book.getBookName()%></td>
 		<td><%=overPrice%></td>
 		<td><%=book.getPrice()%></td>
-		<td><%=bookCnt %></td>
-		<td><%=book.getPrice()*bookCnt  %></td>
-		<td><%=point  %></td>
+		<td><%=cnt %></td>
+		<td><%=book.getPrice()*cnt  %></td>
+		<td><%=point*cnt  %></td>
 		<td><%= "usb 충전기"  %></td>
 	  </tr>  			
 	 </tbody>
@@ -63,8 +67,11 @@ if(bookIDs == null || bookIDs.equals("")){
 <%		
 	}
 }
-%>	
-	<br><br><br><br>
+%>
+	<div>
+		<p>총 금액 : <%=totalPrice %></p>
+		<p>총 포인트 : <%=totalPoint %> </p>	
+	</div><br><br><br><br>
 <!-- 구매자 정보 -->	
 	<h3>구매자 및 배송 정보</h3>
 	<form action="/shop/payResult.jsp">
