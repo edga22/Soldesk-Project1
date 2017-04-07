@@ -22,7 +22,8 @@ if(cataPage != null && !cataPage.equals("")){
 
 String memberID = "";
 if(session.getAttribute("ID") != null)memberID = (String)session.getAttribute("ID");
-
+int memberNum = 0;
+if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribute("memberID");
 %>
 <!DOCTYPE html PUBLIC>
 <html>
