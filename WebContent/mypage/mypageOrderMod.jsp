@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="domain.PurchaseOrder"
-			 import="mgr.DeliveryMgr" %>
+			 import="mgr.DeliveryMgr" 
+			 import="service.OrderState"
+			 import="domain.Book"
+			 import="mgr.BookMgr"%>
 <!DOCTYPE html PUBLIC >
 <html>
 <head>
@@ -14,7 +17,9 @@
 </head>
 <body>
 <% 
+response.setCharacterEncoding("utf-8");
 DeliveryMgr dm = new DeliveryMgr();
+BookMgr bm = new BookMgr();
 int tmp = (Integer)session.getAttribute("memberID");
 int userID=1;
 if(tmp == 0){
@@ -22,6 +27,8 @@ if(tmp == 0){
 	userID = tmp;
 }
 PurchaseOrder[] purchaseOrders = dm.getMember(userID);
+OrderState order = new OrderState();
+
 %>          
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
@@ -47,13 +54,14 @@ PurchaseOrder[] purchaseOrders = dm.getMember(userID);
 	<tbody>
 <%
 for(PurchaseOrder po:purchaseOrders){
+	Book book = bm.getBook(po.getBookID());
 %>	
 		<tr>
 			<td><%=po.getMemberID() %></td>
 			<td><%=po.getPurchaseOrderID() %></td>
-			<td><%=po.getBookID() %></td>
+			<td><%=book.getBookName() %></td>
 			<td><%=po.getAmount()%></td>
-			<td><%=po.getProgress() %></td>
+			<td><%=order.change(po.getProgress()) %></td>
 		</tr>
 <%
 } 
