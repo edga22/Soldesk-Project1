@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="config.BestsellerMapper">
+	<resultMap id="BookMap" type="domain.Book">
+		<id		property="bookID"		column="BOOK_ID" />
+		<result	property="categoryID"	column="CATEGORY_ID" />
+		<result	property="eventID"	column="EVENT_ID" />
+		<result	property="bookName"	column="BOOK_NAME" />
+		<result	property="author"	column="AUTHOR" />
+		<result	property="publisher"	column="PUBLISHER" />
+		<result	property="publishDate"	column="PUBLISH_DATE" />
+		<result	property="imageID"	column="IMAGE_ID" />
+		<result property="price"	column="PRICE" />
+	</resultMap>
+	
+	<resultMap id="OrderMap" type="domain.PurchaseOrder">
+		<id		property="bookID"		column="BOOK_ID" />
+		<result	property="amount"	column="AMOUNT" />
+	</resultMap>
+	
+	<select id="getBooks" parameterType="domain.Book" resultMap="BookMap">
+		SELECT * FROM Books 
+		WHERE bookID=(
+			SELECT Purchase_Order.bookID
+			FROM Purchase_Order
+			ORDER BY amount
+			)
+	</select>
+</mapper>
