@@ -8,6 +8,7 @@
 	String ID = request.getParameter("ID");
 	String pw = request.getParameter("pw");
 	String remID = request.getParameter("remID");
+	int memberID = 0;
 
 	MemberService memberService = new MemberService();
 	
@@ -15,8 +16,10 @@
 			&& (pw != null && !pw.equals(""))){
 		Member temp = new Member();
 		temp.setEmail(ID);
-		temp.setPassword(pw);
+		temp.setPassword(pw);		
 		memberService.loginCheck(temp);
+	
+		session.setAttribute("memberID",memberID);
 		session.setAttribute("ID",ID);
 %>		
 	<script>
