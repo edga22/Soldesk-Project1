@@ -10,13 +10,13 @@
 	String count=request.getParameter("cnt");
 	
 	basketList=mgr.getlist();
-	
 	if(bID != null && count != null){
 		int bookID=Integer.parseInt(bID);
 		int cnt=Integer.parseInt(count);
 		mgr.add(bookID, cnt);
 		out.println("<script>alert('장바구니에 추가했습니다.'); location.href='basket.jsp';</script>");
 	}
+	
 	if(bID != null && count == null){
 		int bookID=Integer.parseInt(bID);
 		int cnt=1;
@@ -24,13 +24,13 @@
 		out.println("<script>alert('장바구니에 추가했습니다.'); location.href='basket.jsp';</script>");
 	}
 	
-	//session.setAttribute("basketList", basketList);
 %>
 <script>
- function rowDel(obj)
+ function Del()
  {
-     var tr = obj.parentNode.parentNode;
-     tr.parentNode.removeChild(tr);
+	 mgr.remove(bookID);
+	 alert('삭제하였습니다');
+	 location.href='basket.jsp';
  }
 </script>
 <title>장바구니</title>
@@ -46,7 +46,7 @@
 <div class="row">
 <!-- table -->
 <h2>목록</h2>
-<table id="basketTable" class="table table-hover">
+<table class="table table-hover">
     <thead>
       <tr>
       	<th class="col-sm-1"></th>
@@ -77,8 +77,7 @@
         </td>
         <td>
     	<p><a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=basketList[i].getBook().getBookID()%>&cnt=<%=basketList[i].getCnt()%>">바로 구매</a></p>
-		<p><a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?mgr=<%=mgr%>&bookID=<%=basketList[i].getBook().getBookID()%>">삭제</a></p>
-		<input type="button" id="1" value="1ROW" onclick='javascript:rowDel(this);'>
+		<p><a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=<%=basketList[i].getBook().getBookID()%>">삭제</a></p>
 		</td>
       </tr>
       <%} %>
