@@ -15,7 +15,7 @@
 	</resultMap>
 	
 	<resultMap id="OrderMap" type="domain.PurchaseOrder">
-		<id		property="bookID"		column="BOOK_ID" />
+		<result	property="bookID"		column="BOOK_ID" />
 		<result	property="amount"	column="AMOUNT" />
 	</resultMap>
 	
@@ -24,7 +24,6 @@
 		WHERE bookID=(
 			SELECT Purchase_Order.bookID
 			FROM Purchase_Order
-			ORDER BY amount
-			)
+			ORDER BY amount)
 	</select>
 </mapper>
