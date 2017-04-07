@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="domain.Member"
+		 import="mgr.MemberService"%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -11,6 +13,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+MemberService ms = new MemberService();
+String tmp = (String)session.getAttribute("ID");
+int userID=1;
+if(tmp == null || tmp.equals("")){
+}else{
+	userID =  Integer.parseInt(tmp);
+}
+Member member = ms.getMember(userID);
+%>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
 <div class="container">
@@ -25,104 +37,34 @@
       <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th>회원번호</th>
-			<td><%=152%></td>
+			<th>아이디</th>
+			<td><%=member.getMemberID()%></td>
 		</tr>
 	</thead>
 	<tbody>          
 		<tr>
-			<th>아이디</th>
-			<td><%="mosa10"%></td>
+			<th>이름</th>
+			<td><%=member.getName()%></td>
 		</tr>
 		<tr>
-			<th>성명</th>
-			<td><%= "송성우"%></td>
+			<th>전화번호</th>
+			<td><%=member.getPhone()%></td>
 		</tr>
 		<tr>
-			<th>닉네임</th>
-			<td><%= "송싱우"%><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#mySmallModal">닉네임변경</button>
-				<div class="modal fade" id="mySmallModal">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h4 class="modal-title">아래에 변경할 새 닉네임을 입력하세요.</h4>
-							</div>
-							
-					<div class="modal-body">
-					<table style="padding:1rem;margin:1rem;">
-					<tr>
-						<th>변경하실 닉네임 명:</th><td><input type="text" style="margin:0.5rem;"></td>
-					</tr>
-					</table>
-					</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default">변경완료</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</td>
-</tr>
-		<tr>
-			<th>성별</th>
-			<td><input type="radio" name="radio"checked="checked">남 
-				<input type="radio" name="radio">여</td>
+			<th>이메일</th>
+			<td><%=member.getEmail()%></td>
 		</tr>
 		<tr>
-			<th>주민등록번호</th>
-			<td><%="911008-1011111"%></td>
-		</tr>
-
-		<tr>
-			<th>E-mail</th>
-			<td><input type="text" name=""><br>
-			<input type="radio" name="" checked>수신
-			<input type="radio" name="">수신거부</td>
+			<th>우편번호</th>
+			<td><%=member.getPostCode()%></td>
 		</tr>
 		<tr>
-			<th>비밀번호</th>
-			<td>
-			<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#mySmallModal1">비밀번호변경</button>
-	
-			<div class="modal fade" id="mySmallModal1">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-					<h4 class="modal-title">현재 사용하고 계신 비밀번호를 먼저 입력하신후,아래에 변경할 새 비밀번호를 입력하세요.</h4>
-						</div>
-					<div class="modal-body">
-					
-					<table style="padding:1rem;margin:1rem;">
-					<tr>
-						<th>기존 비밀번호:</th><td><input type="password" style="margin:0.5rem;"></td>
-					</tr>
-					<tr>
-						<td><br></td><td><br></td>
-				    </tr>
-					<tr>
-						<td><br></td><td><br></td>
-				    </tr>
-					<tr>
-						<th>새 비밀번호:</th><td><input type="password" style="margin:0.5rem;"></td>
-					</tr>
-					<tr>
-						<th>새 비밀번호 확인:</th><td><input type="password" style="margin:0.5rem;"></td>
-					</tr>
-				</table>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default">변경완료</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</td>
-</tr>
+			<th>주소</th>
+			<td><%=member.getAddress()%></td>
+		</tr>
 	</tbody>
 	</table>
-     <input type="submit" name=""class="btn btn-primary" value="수정완료">
+     <button type="submit" class="btn btn-danger">수정완료</button>
   </div>
   </div>
   </div>
