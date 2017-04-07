@@ -15,11 +15,11 @@
 <body>
 <% 
 DeliveryMgr dm = new DeliveryMgr();
-String tmp = (String)session.getAttribute("memberID");
+int tmp = (Integer)session.getAttribute("memberID");
 int userID=1;
-if(tmp == null || tmp.equals("")){
+if(tmp == 0){
 }else{
-	userID =  Integer.parseInt(tmp);
+	userID = tmp;
 }
 PurchaseOrder[] purchaseOrders = dm.getMember(userID);
 %>          
@@ -33,6 +33,7 @@ PurchaseOrder[] purchaseOrders = dm.getMember(userID);
   <div class="col-sm-10">
       <h2>주문조회/변경/취소</h2>
       <h3>-배송문의:CJ대한통운</h3>
+
       <table class="table table-hover">
 	<thead>
 		<tr>
