@@ -22,4 +22,8 @@ public class DbBasedMemberDao implements MemberDao {
 	public Member findPwMember(Member psw){
 		return mapper.findPwMember(psw);
 	}
+	
+	public Member getMember(int memberID){
+		return mapper.getMember(memberID);
+	}
 }
