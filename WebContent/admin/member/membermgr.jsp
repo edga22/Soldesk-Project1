@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"%>
 <%@ page import="mgr.MemberService" %>
+<%@ page import="dao.MemberDao" %>
+<%@ page import="dao.DbBasedMemberDao" %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -33,7 +35,7 @@ h3 {
 	int result = 0;
 	
 	Member updMem = new Member();
-	MemberService userList = new MemberService(); 
+	MemberDao userList = new DbBasedMemberDao(); 
 	
 	if(request.getParameter("ID") != null && !request.getParameter("ID").equals(""))
 		ID = request.getParameter("ID");

@@ -29,7 +29,7 @@
 	String phone = request.getParameter("phone");
 	
 	Member member = new Member();
-	MemberService mapper = new MemberService();
+	MemberDao mapper = new DbBasedMemberDao();
 	
 	if((ID != null && !ID.equals(""))
 			&& (name != null && !name.equals(""))

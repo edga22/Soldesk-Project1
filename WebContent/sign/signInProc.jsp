@@ -9,7 +9,7 @@
 	String pw = request.getParameter("pw");
 	int memberID = 0;
 
-	MemberService memberService = new MemberService();
+	MemberDao memberService = new DbBasedMemberDao();
 	
 	if((ID != null && !ID.equals(""))
 			&& (pw != null && !pw.equals(""))){
