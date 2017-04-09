@@ -43,7 +43,7 @@
 	}else{
 %>
 		<script>
-			alert("두 비밀번호의 값이 다릅니다.")
+			alert("이미 있는 아이디 혹은 두 비밀번호가 다릅니다.")
 			history.go(-1);
 		</script>
 <%	
