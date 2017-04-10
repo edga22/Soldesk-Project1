@@ -19,12 +19,26 @@
 <body>
 <%
 <<<<<<< HEAD
+<<<<<<< HEAD
 int tmp = (Integer)session.getAttribute("memberID");
 int userID=1;
 if(tmp == 0){
 }else{
 	userID = tmp;
 =======
+=======
+
+Member member= new Member();
+MemberDao md = new DbBasedMemberDao();
+String pw = "";
+if(pw !=null&& pw.equals("")){
+	pw = request.getParameter("password");}
+String getout = request.getParameter("out");
+if(getout.equals("sss")){
+	member.setPassword(pw);
+	md.getoutMember(member);
+}
+>>>>>>> 송성우 마이페이지
 
 Member member= new Member();
 MemberDao md = new DbBasedMemberDao();
@@ -65,14 +79,20 @@ if(getout.equals("sss")){
       <h2> 회원 탈퇴</h2>
       <h3> -회원 탈퇴시 적립금,예치금,마일리지 등이 자동삭제 됩니다.</h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
      
       비밀번호:<input type="password" name="password">
       	  <button type="submit" class="btn btn-danger"name="out" value="sss">회원탈퇴</button>
 =======
+=======
+>>>>>>> 송성우 마이페이지
       <form action="mypageOut.jsp">
       비밀번호:<input type="password" name="password">
       		 <button type="submit" class="btn btn-danger"name="out" value="sss">회원탈퇴</button>
       </form>
+<<<<<<< HEAD
+>>>>>>> 송성우 마이페이지
+=======
 >>>>>>> 송성우 마이페이지
 </div>
  </form>

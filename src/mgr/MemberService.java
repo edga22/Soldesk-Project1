@@ -43,9 +43,12 @@ public class MemberService{
 		return mapper.delMember(MemberID);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public Member idCheck(Member email){
 		return mapper.idCheck(email);
 	}
+=======
+>>>>>>> 송성우 마이페이지
 =======
 >>>>>>> 송성우 마이페이지
 	public Member getoutMember(Member psw){

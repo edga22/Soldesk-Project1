@@ -12,7 +12,10 @@ public interface MemberDao {
 	int updatePoint(Member point);
 	int delMember(int MemberID);
 <<<<<<< HEAD
+<<<<<<< HEAD
 	Member idCheck(Member email);
+=======
+>>>>>>> 송성우 마이페이지
 =======
 >>>>>>> 송성우 마이페이지
 	Member getoutMember(Member psw);
