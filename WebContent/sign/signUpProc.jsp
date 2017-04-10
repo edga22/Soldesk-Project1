@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <title>Insert title here</title>
 </head>
@@ -38,8 +39,14 @@
 		newMember.addMember(member);
 %>	
 		<script>
-			alert("회원가입 성공<%=member.getEmail()%>님 환영합니다.");
+			swal({
+				title: "성공",
+				text: "회원가입 성공<%=member.getEmail()%>님 환영합니다.",
+				type: "success"
+			},
+				function(){
 			window.location.replace("/sign/signInPage.jsp");
+			});
 		</script>
 <%
 	}else{	//비밀번호가 다를경우

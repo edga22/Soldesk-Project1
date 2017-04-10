@@ -4,8 +4,13 @@
 <%@ page import="mgr.MemberService" %>
 <%@ page import="dao.MemberDao" %>
 <%@ page import="dao.DbBasedMemberDao" %>
+<html>
+<head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+</head>
+<body>
 <%
 	String ID = request.getParameter("ID");
 	String pw = request.getParameter("pw");
@@ -28,8 +33,14 @@
 			
 %>		
 			<script>
-				alert("로그인 성공<%=mem.getEmail()%>님 환영합니다.");
+				swal({
+				title: "성공",
+				text: "로그인 성공 <%=mem.getEmail()%> 님 환영합니다.",
+				type: "success"
+				},
+					function(){
 				window.location.replace("/main.jsp");
+				});
 			</script>
 <%	
 		}else{		
@@ -41,6 +52,8 @@
 <%
 		}
 	}else{
-		
+
 	}
 %>
+</body>
+</html>
