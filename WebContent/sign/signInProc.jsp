@@ -28,7 +28,7 @@
 			
 %>		
 			<script>
-				swal("로그인 성공<%=session.getAttribute(ID)%>님 환영합니다.");
+				alert("로그인 성공<%=mem.getEmail()%>님 환영합니다.");
 				window.location.replace("/main.jsp");
 			</script>
 <%	

@@ -6,6 +6,6 @@
 	session.removeAttribute("ID");	//아이디만 종료 장바구니 남아있음.
 %>
 <script>
-	swal("로그아웃 되었습니다.");
+	alert("로그아웃 되었습니다.");
 	window.location.replace("/main.jsp");
 </script>

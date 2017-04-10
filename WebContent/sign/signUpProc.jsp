@@ -38,7 +38,7 @@
 		newMember.addMember(member);
 %>	
 		<script>
-			swal("회원가입 성공<%=member.getEmail()%>님 환영합니다.");
+			alert("회원가입 성공<%=member.getEmail()%>님 환영합니다.");
 			window.location.replace("/sign/signInPage.jsp");
 		</script>
 <%
