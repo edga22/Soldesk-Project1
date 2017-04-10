@@ -43,6 +43,13 @@
 		<jsp:forward page="basketproc.jsp"></jsp:forward>
 		<%
 	}	
+	
+	//도서 금액
+	int bookPrice=0;
+	//배송비
+	int delivery=0;
+	//총 주문금액
+	int totalPrice=0;
 %>
 <title>장바구니</title>
 </head>
@@ -86,20 +93,22 @@
         <td><%=basketList[i].getBook().getPrice() %> ￦</td>
         <td>
           <input type="number" name="cnt" min="1" value="<%=basketList[i].getCnt()%>"/>
-       	  <input formaction="/shop/basketUpdate.jsp" type="submit" class="btn btn-default btn-sm" size="2" value="변경"/>
+       	  <p><a class="btn btn-default btn-sm" href="/shop/basketUpdate.jsp?bookID=<%=basketList[i].getBook().getBookID()%>&cnt=">변경</a></p>
         </td>
         <td>
     	<p><a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=basketList[i].getBook().getBookID()%>&cnt=<%=basketList[i].getCnt()%>">바로 구매</a></p>
 		<p><a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=<%=basketList[i].getBook().getBookID()%>">삭제</a></p>
 		</td>
       </tr>
-      <%} %>
+      <%
+     	bookPrice+=basketList[i].getBook().getPrice();
+    } %>
       </tbody>
 </table> <!-- 테이블 -->
 
 <div class="row">
 <div> <!-- 전체선택과 버튼들 -->
-     <input formaction="basketDelete.jsp" type="submit" class="btn btn-default" value="선택한 상품 삭제"/>
+     <input formaction="/shop/basketDeleteValues.jsp" type="submit" class="btn btn-default" value="선택한 상품 삭제"/>
 </div> <!-- 전체선택과 버튼들 -->
 </div>
 
@@ -116,10 +125,15 @@
     </thead>
     <tbody>
       <tr>
-    	<td>0 ￦</td>
-    	<td>0 ￦</td>
-    	<td>0 ￦</td>
-    	<td>0 ￦</td>
+    	<td><%=bookPrice %> ￦</td>
+    	<%
+    		if(bookPrice>=9900 || bookPrice==0) delivery=0;
+    		else delivery=2500;
+    		totalPrice=bookPrice+delivery;
+    	%>
+    	<td><%=delivery %> ￦</td>
+    	<td><%=totalPrice %> ￦</td>
+    	<td><%=bookPrice/100 %> P</td>
        </tr>
     </tbody>
 </table> <!-- 가격 테이블 -->
