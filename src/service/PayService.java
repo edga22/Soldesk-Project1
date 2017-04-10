@@ -1,8 +1,8 @@
 package service;
 
 import dao.DBBaseDeliveryDao;
-import dao.DeliveryDao;
 import dao.DbBaseInvenDao;
+import dao.DeliveryDao;
 import dao.InvenDao;
 import dao.DbBasedMemberDao;
 import dao.MemberDao;
@@ -17,10 +17,10 @@ public class PayService {
 	PurchaseOrder resist;
 	
 	public PayService() {
-		InvenDao bmgr = new DbBaseInvenDao();
-		MemberDao ms = new DbBasedMemberDao();
-		DeliveryDao dmgr = new DBBaseDeliveryDao();	
-		PurchaseOrder po = new PurchaseOrder();
+		 this.bmgr = new DbBaseInvenDao();
+		 ms = new DbBasedMemberDao();
+		 dmgr = new DBBaseDeliveryDao();	
+		 resist = new PurchaseOrder();
 	}
 
 	//회원정보 불러오기

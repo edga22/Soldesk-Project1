@@ -24,8 +24,10 @@ String[] cnts = request.getParameterValues("cnt");
 <form action="/shop/payResult.jsp">
 <%
 // 회원정보 불러오기
-int memberID = 0;
-memberID = (Integer)session.getAttribute("memberID");
+Integer memberID;
+if(session.getAttribute("memberID") != null) memberID = (Integer)session.getAttribute("memberID");
+else { memberID = 0;}
+
 if(memberID == 0){
 %>
 	<p>로그인 되지 않았습니다.</p>
