@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="config.UserInquireMapper">
+	<resultMap id="UserInquireMap" type="domain.UserInquire">
+		<id		property="inquireEmail"		column="INQUIRE_EMAIL"/>
+		<result	property="inquireTitle"		column="INQUIRE_TITLE"/>
+		<result property="password"		column="PASSWD"/>
+		<result property="name"			column="NAME"/>
+		<result property="postCode"		column="POSTCODE"/>
+		<result property="address"		column="ADDRESS"/>
+		<result property="phone"		column="PHONE"/>
+		<result property="bonusPoint"	column="BONUS_POINT"/>
+	</resultMap>
+	
+	<select id="getMembers" resultMap="UserInquireMap">
+		select * from members 
+		order by member_id
+	</select>
+	
+	<select id="getMember" parameterType="int" resultMap="UserInquireMap">
+		select * from members
+		where MEMBER_ID =#{memberID}
+	</select>
+	
+	<select id="loginCheck" parameterType="domain.UserInquire" resultMap="UserInquireMap">
+		select member_id, email, passwd
+		from members
+		where (email=#{email} and PASSWD=#{password})
+	</select>
+	
+	<insert id="addMember" parameterType="domain.UserInquire">
+		insert into members(member_id, email, PASSWD, name, POSTCODE, address, phone)
+		values(member_id_seq.nextval, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+									  #{name,jdbcType=VARCHAR}, #{postCode,jdbcType=NUMERIC}, 
+									  #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="findIdMember" parameterType="domain.UserInquire" resultMap="UserInquireMap">
+		select email 
+		from members
+		where name = #{name} and phone = #{phone}
+	</select>
+	
+	<select id="findPwMember" parameterType="domain.UserInquire" resultMap="UserInquireMap">
+		select passwd
+		from members 
+		where email = #{email} and name = #{name} and phone = #{phone}
+	</select>
+	
+	<update id="updateMember" parameterType="domain.UserInquire">
+		update members 
+		set email = #{email}
+		where member_id = #{memberID}
+	</update>
+	
+	<delete id="delMember" parameterType="domain.UserInquire">
+		delete from members
+		where member_id=#{memberID}
+	</delete>
+</mapper>
