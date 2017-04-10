@@ -65,7 +65,7 @@ h3 {
     </div>
 <form action="membermgr.jsp">
 		<div class="col-sm-4">
-			<input type="number" class="form-control" name="point" placeholder="보너스 포인트 변경">
+			<input type="number" class="form-control" name="point" max="7" placeholder="보너스 포인트 변경">
 			<button type="submit" class="btn btn-default" name="mod" value="update"><span>회원 수정</span></button>
 			<button type="submit" class="btn btn-default" name="mod" value="delete"><span>회원 삭제</span></button>
 		</div>
