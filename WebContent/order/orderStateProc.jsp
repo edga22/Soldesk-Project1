@@ -19,7 +19,7 @@
 DeliveryMgr mymgr = new DeliveryMgr();
 OrderState state = new OrderState();
 int progress = Integer.parseInt(request.getParameter("progress"));
-int OrderID = Integer.parseInt(request.getParameter("OrderID"));
+int OrderID = Integer.parseInt(request.getParameter("orderID"));
 PurchaseOrder po = mymgr.getOrder(OrderID);
 
 if( po == null || po.equals("") ){
