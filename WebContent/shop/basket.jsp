@@ -14,7 +14,10 @@
 	String bID=request.getParameter("bookID");
 	String count=request.getParameter("cnt");
 	
-	if(session.getAttribute("basket")==null) mgr=new BasketMgr();
+	if(session.getAttribute("basket")==null) {
+		mgr=new BasketMgr();
+		session.setAttribute("basket", mgr);
+	}
 	else mgr=(BasketMgr)session.getAttribute("basket");
 		
 	boolean flag = false;
@@ -32,14 +35,14 @@
 		mgr.add(bookID, cnt);
 		flag= true;		
 	}
+	basketList=mgr.getlist();
 	
 	if(flag)
 	{
 		%>
 		<jsp:forward page="basketproc.jsp"></jsp:forward>
 		<%
-	}
-	basketList=mgr.getlist();
+	}	
 %>
 <title>장바구니</title>
 </head>
@@ -135,7 +138,6 @@
 </form>
 </div> <!-- 끝 -->
 </div>
-<% session.setAttribute("basket", mgr); %>
 <jsp:include page="/main_foot.jsp"/>
 </body>
 </html>
