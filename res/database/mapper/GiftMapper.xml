@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="config.GiftMapper">
+	<resultMap id="GiftMap" type="domain.Gift">
+		<id		property="giftID"		column="GIFT_ID" />
+		<result	property="giftName"	column="GIFT_NAME" />
+		<result	property="text"	column="TEXT" />
+		<result	property="image"	column="IMAGE" />
+	</resultMap>
+	
+	<select id="getGifts" resultMap="GiftMap">
+		SELECT * FROM Gifts
+		ORDER BY giftID
+	</select>
+	
+	<select id="getGift" parameterType="int" resultMap="GiftMap">
+		SELECT * FROM Gifts WHERE GIFT_ID = #{giftID}
+	</select>
+	
+	<insert id="addGift" parameterType="domain.Gift">
+		INSERT INTO Gifts (GIFT_ID, GIFT_NAME, TEXT, IMAGE)
+		values (GIFT_ID_SEQ.NEXTVAL, #{giftName}, #{text,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateGift" parameterType="domain.Gift">
+		UPDATE Gifts 
+		SET GIFT_NAME=#{giftName}, TEXT=#{text}, IMAGE=#{image}
+		WHERE GIFT_ID = #{giftID}
+	</update> 
+    
+    <delete id="delGift" parameterType="int">
+    	DELETE FROM Gifts
+    	WHERE GIFT_ID = #{giftID}
+    </delete>
+</mapper>

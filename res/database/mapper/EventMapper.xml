@@ -13,7 +13,7 @@
 	
 	<select id="getEvents" resultMap="EventMap">
 		SELECT * FROM Events
-		ORDER BY publish_date
+		ORDER BY EVENT_ID
 	</select>
 	
 	<select id="getEvent" parameterType="int" resultMap="EventMap">
