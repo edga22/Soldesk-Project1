@@ -21,7 +21,7 @@
 	 <input type="text" name="bookName" placeholder="도서 제목" required>
 	 <input type="submit" class="btn btn-default" value="검색">
 	</form>	
-	<a href="bookListAll.jsp" class="btn btn-default">전체검색</a>
+	<a href="/inven/bookListAll.jsp" class="btn btn-default">전체검색</a>
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#listAdd">추가</button>
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#listMod">수정</button>
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#listDel">삭제</button> 
@@ -33,7 +33,7 @@
             <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">도서 추가</h4>
           </div>
-         <form action="bookAdd.jsp">
+         <form action="/inven/bookAdd.jsp">
           <div class="modal-body" align="right">         
 		  <ul style=" list-style:none">		 
 		   <li> 도 서 명:<input type="text" name="bookName" placeholder="책이름" required></li>
