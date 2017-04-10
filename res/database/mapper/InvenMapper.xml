@@ -12,6 +12,7 @@
 		<result	property="publishDate"	column="PUBLISH_DATE" />
 		<result	property="imageID"	column="IMAGE_ID" />
 		<result property="price"	column="PRICE" />
+		<result property="stock"	column="STOCK" />
 	</resultMap>
 	
 	<select id="getBooks" resultMap="BookMap">
@@ -23,14 +24,14 @@
 	</select>
 	
 	<insert id="addBook" parameterType="domain.Book">
-		INSERT INTO Books (book_id, category_id, event_id, book_Name, author, publisher, publish_Date, image_id, price)
-		values (BOOK_ID_SEQ.NEXTVAL, #{categoryID}, #{eventID}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{publishDate,jdbcType=DATE}, #{imageID,jdbcType=VARCHAR}, #{price})
+		INSERT INTO Books (BOOK_ID, CATEGORY_ID, EVENT_ID, BOOK_NAME, AUTHOR, PUBLISHER, PUBLISH_DATE, IMAGE_ID, PRICE, STOCK)
+		values (BOOK_ID_SEQ.NEXTVAL, #{categoryID}, #{eventID}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{publishDate,jdbcType=DATE}, #{imageID,jdbcType=VARCHAR}, #{price}, #{stock})
 	</insert>
 	
 	<update id="updateBook" parameterType="domain.Book">
 		update Books 
-		set book_name=#{bookName}, author=#{author}, publisher=#{publisher}, publish_Date=#{publishDate}, image_id=#{imageID}, price=#{price}
-		where book_ID = #{bookID}
+		set BOOK_ID=#{bookName},CATEGORY_ID=#{categoryID}, AUTHOR=#{author}, PUBLISHER=#{publisher}, PUBLISH_DATE=#{publishDate}, IMAGE_ID=#{imageID}, PRICE=#{price}, STOCK=#{stock}
+		where BOOK_ID = #{bookID}
 	</update>
 	  	
 </mapper>
