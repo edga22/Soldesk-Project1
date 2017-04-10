@@ -38,6 +38,14 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/bookcafe.css">
+<style>
+#searchform{
+	width : 100%;
+}
+#search{
+	width : 70%;
+}
+</style>
 </head>
 <body>
 <div id="topheader" class="container-fluid">
@@ -109,7 +117,7 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
                           
             <div class="col-md-7">     
             <!-- 검색 시작 -->         
-                <form class="navbar-form navbar-left" role="search" action="/shop/searchresult.jsp">
+                <form class="navbar-form navbar-left" id="searchform" role="search" action="/shop/searchresult.jsp">
                     <select class="form-control" id="sel1" name="SearchTarget">
                         <option value="all">통합검색</option>
                         <option value="domestic">국내도서</option>
