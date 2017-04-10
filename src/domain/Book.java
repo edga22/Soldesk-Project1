@@ -1,6 +1,7 @@
 package domain;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Book {
 	private int bookID;
@@ -13,6 +14,7 @@ public class Book {
 	private String imageID;
 	private int price;
 	private int stock;
+	private List<OrderDetail> orderDetail;
 	
 	public int getStock() {
 		return stock;
@@ -89,5 +91,11 @@ public class Book {
 	}
 	public void setImageID(String imageID) {
 		this.imageID = imageID;
+	}
+	public List<OrderDetail> getOrderDetail() {
+		return orderDetail;
+	}
+	public void setOrderDetail(List<OrderDetail> orderDetail) {
+		this.orderDetail = orderDetail;
 	}
 }
