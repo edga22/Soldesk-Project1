@@ -59,6 +59,12 @@
 		where member_id=#{memberID}
 	</delete>
 	
+	<select id="idCheck" parameterType="domain.Member" resultMap="MemberMap">
+		select email
+		from members
+		where email = #{email}
+	</select>
+	
 	<delete id="getoutMember" parameterType="domain.Member">
 		delete from members
 		where PASSWD=#{password}

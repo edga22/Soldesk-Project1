@@ -16,14 +16,10 @@
 	MemberDao test = new DbBasedMemberDao();
 	Member member  = new Member();
 	member.setEmail("pdords@naver.com");
+
+	Member check = test.idCheck(member);
 	
-	boolean check = test.IdCheck(member);
-	
-	if(check==true){
-		out.print("중복임");
-	}else{
-		out.print("중복아님");
-	}
+	out.print(check);
 %>
 </body>
 </html>

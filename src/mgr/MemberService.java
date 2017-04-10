@@ -42,6 +42,9 @@ public class MemberService{
 	public int delMember(int MemberID){
 		return mapper.delMember(MemberID);
 	}
+	public Member idCheck(Member email){
+		return mapper.idCheck(email);
+	}
 	public Member getoutMember(Member psw){
 		return mapper.getoutMember(psw);
 	}

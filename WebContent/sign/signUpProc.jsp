@@ -34,7 +34,7 @@
 		member.setPostCode(postCode);
 		member.setAddress(address);
 		member.setPhone(phone);
-
+		
 		newMember.addMember(member);
 %>	
 		<script>
@@ -43,8 +43,8 @@
 				text: "회원가입 성공<%=member.getEmail()%>님 환영합니다.",
 				type: "success"
 			},
-				function(){
-			window.location.replace("/sign/signInPage.jsp");
+			function(){
+				window.location.replace("/sign/signInPage.jsp");
 			});
 		</script>
 <%
