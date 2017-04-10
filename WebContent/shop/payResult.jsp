@@ -60,7 +60,7 @@ if( bookIDs == null || bookIDs.equals("") || cnts == null || cnts.equals("")){
 	for(String bookID : bookIDs){		
 		ps.setOrder(memberID, bookID, cnts[i]);
 		point += ps.getPoint(bookID, cnts[i]);
-		ps.setPoint(memberID, point);
+		ps.setPoint(memberID, point); // 구매후 적립포인트
 %>	 	
 	  <tr>
 		<th><%="미구현"%></th>

@@ -63,4 +63,9 @@ public class PayService {
 		dmgr.addOrder(resist);
 	}
 	
+	// 오더 번호 가져오기
+	public int getOrderID(int memberID, String bookID){
+		return 1;
+	}
+	
 }

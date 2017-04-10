@@ -36,7 +36,8 @@
          <form action="bookAdd.jsp">
           <div class="modal-body" align="right">         
 		  <ul style=" list-style:none">		 
-		   <li> 도 서 명:<input type="text" name="bookName" placeholder="책이름" required></li>		  
+		   <li> 도 서 명:<input type="text" name="bookName" placeholder="책이름" required></li>
+		   <li> 카테고리:<input type="number" name="categoryID" placeholder="카테고리" required></li>			  
 		   <li> 작 가 명:<input type="text" name="author" placeholder="작가" required></li>		  
 		   <li> 출 판 사:<input type="text" name="publisher" placeholder="출판사" required></li>		  
 		   <li> 출 판 일:<input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)" required></li>		  
@@ -66,6 +67,7 @@
 		   <li> 도 서 명:<input type="number" name="bookID" placeholder="도서번호" required></li>		  
 		   <li> <hr style="border: solid 0.1rem;"> </li>		  
 		   <li> 도 서 명:<input type="text" name="bookName" placeholder="책이름" ></li>		  
+		   <li> 카테고리:<input type="number" name="categoryID" placeholder="카테고리" ></li>		  
 		   <li> 작 가 명:<input type="text" name="author" placeholder="작가" ></li>		  
 		   <li> 출 판 사:<input type="text" name="publisher" placeholder="출판사" ></li>		  
 		   <li> 출 판 일:<input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)" ></li>		  

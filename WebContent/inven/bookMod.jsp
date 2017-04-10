@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-	import="mgr.BookMgr" 
-	import="java.util.Date" 
-	import="java.text.SimpleDateFormat" %>
+	import="mgr.BookMgr"%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -25,42 +23,10 @@ String author = request.getParameter("author");
 String date = request.getParameter("publishDate");
 String price = request.getParameter("price");
 String publisher = request.getParameter("publisher");
+String categoryID = request.getParameter("categoryID");
 String imageID = request.getParameter("imageID");
 // 북 파라미터 수정을 위한 작업(받은값이 null이 아닐경우에만 값 덮어쓰기)
-Book[] books = mymgr.getBooks();
-Book modbook = new Book();
-for(Book book: books){
-	if( book.getBookID() == bookID ){ // 북아이디와 일치하는 책 찾기
-		modbook.setBookID(bookID);
-
-		if(bookName ==null || bookName.equals("")) modbook.setBookName(book.getBookName()); 
-			else modbook.setBookName(bookName);
-	 
-		if(author==null || author.equals("")) modbook.setAuthor(book.getAuthor());
-			else modbook.setAuthor(author);
-
-		if(publisher==null || publisher.equals("")) modbook.setPublisher(book.getPublisher());
-			else  modbook.setPublisher(publisher);
-		
-		if( date == null || date.equals("")){ // 날짜 포멧 및 날짜 변경
-			modbook.setPublishDate(book.getPublishDate());
-		}else {
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-			Date tmp = format.parse(date);
-			java.sql.Date pubDate = new java.sql.Date(tmp.getTime());
-			modbook.setPublishDate(pubDate);
-		}
-		
-		if( price == null || price.equals("")){
-			modbook.setPrice(book.getPrice());	
-		}else modbook.setPrice(Integer.parseInt(price));
-		
-		if(imageID == null || imageID.equals("")) modbook.setImageID(book.getImageID());
-			else modbook.setImageID(imageID);
-		
-		mymgr.updateBook(modbook);
-	}
-}
+Book book = mymgr.setBook(bookID,bookName,author,date,price,publisher,categoryID,imageID);
 %>
 <jsp:include page="/inven/bookManagement.jsp"></jsp:include>
 <div id="BookMod" class="container">
@@ -78,17 +44,16 @@ for(Book book: books){
 	 </thead>
 	 <tbody>	 	
 	  <tr>
-		<th><%=modbook.getBookName()%></th>
-		<th><%=modbook.getAuthor() %></th>
-		<th><%=modbook.getPublisher() %></th>
-		<th><%=modbook.getPublishDate() %></th>
-		<th><%=modbook.getPrice() %></th>
-		<th><%=modbook.getImageID() %></th>
+		<th><%=book.getBookName()%></th>
+		<th><%=book.getCategoryID()%></th>
+		<th><%=book.getAuthor() %></th>
+		<th><%=book.getPublisher() %></th>
+		<th><%=book.getPublishDate() %></th>
+		<th><%=book.getPrice() %></th>
+		<th><%=book.getImageID() %></th>
 	  </tr>	  			
 	 </tbody>
 	</table>	
 </div>
-
-
 </body>
 </html>
