@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="domain.PurchaseOrder"
-		 import="domain.Book"
-		 import="domain.Member"
-		 import="service.OrderState"
-		 import="mgr.MemberService"
-		 import="mgr.DeliveryMgr"
-		 import="mgr.BookMgr"%>
+<%@ page import="service.OrderState"
+		 import="service.PayService"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,26 +14,23 @@
 </head>
 <body>
 <%
-DeliveryMgr mymgr = new DeliveryMgr();
-BookMgr mymgr2 = new BookMgr();
+PayService ps = new PayService();
 OrderState state = new OrderState();
-PurchaseOrder resist = new PurchaseOrder();
+int point=0;
+int i=0;
+int memberID =0; 
 
-// 회원정보 저장준비(보너스 포인트 저장용)
-MemberService ms = new MemberService();
-int tmp = (Integer)session.getAttribute("memberID");
-int userID=1;
-if(tmp == 0){
+//로그인 되있는지 검사
+memberID = (Integer)session.getAttribute("memberID");
+if(memberID == 0){
+%>
+	<p>로그인 정보가 넘어오지 않았습니다.</p>
+<%
 }else{
-	userID = tmp;
-}
-Member member = ms.getMember(userID);
 
 // 이전 페이지에서 데이터 받아오기, 주문번호 자동생성
 String[] bookIDs = request.getParameterValues("bookID"); 
-
-int memberID = 1;//Integer.parseInt(request.getParameter("memberID"));
-int amount = 1; // 미구현
+String[] cnts = request.getParameterValues("cnt"); 
 String userName = request.getParameter("userName");
 String phone = request.getParameter("phone");
 String email = request.getParameter("email");
@@ -60,35 +52,35 @@ String address = request.getParameter("address");
 	 <tbody>
 <%
 // 책 한권씩 구매목록에 추가하기
-if( bookIDs == null || bookIDs.equals("")){
+if( bookIDs == null || bookIDs.equals("") || cnts == null || cnts.equals("")){
 %>	
-	<tr><th> 입력이 잘못되었습니다. </th></tr>
+	<tr><th> 데이터가 잘못 넘어왔습니다. </th></tr>
 <%	
 }else{
-	for(String bookID : bookIDs){	
-		resist.setMemberID(memberID);
-		resist.setBookID(Integer.parseInt(bookID));
-		resist.setAmount(amount);
-		resist.setProgress(1);
-//		member.setBonusPoint();
-	
-		mymgr.addOrder(resist);
-		Book book = mymgr2.getBook(Integer.parseInt(bookID));
+	for(String bookID : bookIDs){		
+		ps.setOrder(memberID, bookID, cnts[i]);
+		point += ps.getPoint(bookID, cnts[i]);
+		ps.setPoint(memberID, point);
 %>	 	
 	  <tr>
 		<th><%="미구현"%></th>
-		<th><%=book.getBookName()%></th>
-		<th><%=resist.getAmount()%></th>
+		<th><%=ps.getBook(bookID).getBookName()%></th>
+		<th><%=cnts[i]%></th>
 		<th><%="미구현"%></th>
 		<th><%=state.change(1)%></th>
 	  </tr>
 <%	
-	} 
+i++;} 
 }
 %>
 	 </tbody>
 	</table>
+	<p>총 적립금:<%=point %></p>
+	<p>구매해 주셔서 갑사합니다.</p>
 </div>
+<%
+}
+%>
 <jsp:include page="/main_foot.jsp"></jsp:include>
 </body>
 </html>
