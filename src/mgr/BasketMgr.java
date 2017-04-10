@@ -7,10 +7,11 @@ import domain.Book;
 
 public class BasketMgr {
 	BookMgr mgr;
-	static ArrayList<Basket> bookList=new ArrayList<Basket>();
+	ArrayList<Basket> bookList;
 	
 	public BasketMgr(){
 		mgr=new BookMgr();
+		bookList=new ArrayList<Basket>();
 	}
 	
 	public Basket[] getlist(){		
@@ -32,7 +33,7 @@ public class BasketMgr {
 		for(Basket tmpBasket:bookList){
 			if(tmpBasket.getBook()==book){
 				Basket tmp=tmpBasket;
-				bookList.remove(tmp); break;
+				bookList.remove(tmp);
 			}
 		}
 	}

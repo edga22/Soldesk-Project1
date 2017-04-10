@@ -3,13 +3,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	BasketMgr mgr=new BasketMgr();	
+	BasketMgr mgr;	
 	Basket[] basketList;
 	
 	String bID=request.getParameter("bookID");
 	String count=request.getParameter("cnt");
 	
+	if(session.getAttribute("basket")==null) mgr=new BasketMgr();
+	else mgr=(BasketMgr)session.getAttribute("basket");
+	
 	basketList=mgr.getlist();
+	
 	if(bID != null && count != null){
 		int bookID=Integer.parseInt(bID);
 		int cnt=Integer.parseInt(count);
@@ -26,12 +30,12 @@
 	
 %>
 <script>
- function Del()
+ /*function Del()
  {
 	 mgr.remove(bookID);
 	 alert('삭제하였습니다');
 	 location.href='basket.jsp';
- }
+ }*/
 </script>
 <title>장바구니</title>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
@@ -125,4 +129,5 @@
 </form>
 </div> <!-- 끝 -->
 </div>
+<% session.setAttribute("basket", mgr); %>
 <jsp:include page="/main_foot.jsp"></jsp:include>
