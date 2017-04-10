@@ -24,11 +24,13 @@ BookMgr mymgr = new BookMgr();
 	  <tr>
 		<th>도서번호</th>
 		<th>도서명</th>
+		<th>카테고리번호</th>
 		<th>작가</th>
 		<th>출판사</th>
 		<th>출판일</th>
 		<th>금 액(원)</th>
 		<th>책표지 주소</th>
+		<th>재고</th>
 	  </tr>
 	 </thead>
 	 <tbody>
@@ -40,11 +42,13 @@ if( books != null){
 			  <tr>
 				<th><%=book.getBookID()%></th>
 				<th><%=book.getBookName()%></th>
+				<th><%=book.getCategoryID()%></th>
 				<th><%=book.getAuthor() %></th>
 				<th><%=book.getPublisher() %></th>
 				<th><%=book.getPublishDate() %></th>
 				<th><%=book.getPrice() %></th>
 				<th><%=book.getImageID() %></th>
+				<th><%=book.getStock()%></th>
 			  </tr>
 <%
 	}

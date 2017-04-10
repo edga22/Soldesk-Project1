@@ -36,21 +36,25 @@ mymgr.addBook(newbook);
 	 <thead>
 	  <tr>
 		<th>도서명</th>
+		<th>카테고리번호</th>
 		<th>작가</th>
 		<th>출판사</th>
 		<th>출판일</th>
 		<th>금 액(원)</th>
 		<th>책표지 주소</th>
+		<th>재고</th>		
 	  </tr>
 	 </thead>
 	 <tbody>	 	
 	  <tr>
 		<th><%=newbook.getBookName()%></th>
+		<th><%=newbook.getCategoryID()%></th>
 		<th><%=newbook.getAuthor() %></th>
 		<th><%=newbook.getPublisher() %></th>
 		<th><%=newbook.getPublishDate() %></th>
 		<th><%=newbook.getPrice() %></th>
 		<th><%=newbook.getImageID() %></th>
+		<th><%=newbook.getStock() %></th>
 	  </tr>	  			
 	 </tbody>
 	</table>	

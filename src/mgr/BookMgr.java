@@ -79,7 +79,7 @@ public class BookMgr {
 					else modbook.setImageID(imageID);
 				
 				if(stock == null || stock.equals("")) modbook.setStock(book.getStock());
-				else modbook.setImageID(stock);
+				else modbook.setStock(Integer.parseInt(stock));
 				
 				invenDao.updateBook(modbook);
 			}
