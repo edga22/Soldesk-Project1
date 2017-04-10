@@ -32,7 +32,7 @@ public class BasketMgr {
 		for(Basket tmpBasket:bookList){
 			if(tmpBasket.getBook()==book){
 				Basket tmp=tmpBasket;
-				bookList.remove(tmp);
+				bookList.remove(tmp); break;
 			}
 		}
 	}

@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import="domain.PurchaseOrder"
 		 import="domain.Book"
+		 import="domain.Member"
 		 import="service.OrderState"
+		 import="mgr.MemberService"
 		 import="mgr.DeliveryMgr"
 		 import="mgr.BookMgr"%>
 <!DOCTYPE html>
@@ -22,8 +24,19 @@ BookMgr mymgr2 = new BookMgr();
 OrderState state = new OrderState();
 PurchaseOrder resist = new PurchaseOrder();
 
+// 회원정보 저장준비(보너스 포인트 저장용)
+MemberService ms = new MemberService();
+int tmp = (Integer)session.getAttribute("memberID");
+int userID=1;
+if(tmp == 0){
+}else{
+	userID = tmp;
+}
+Member member = ms.getMember(userID);
+
 // 이전 페이지에서 데이터 받아오기, 주문번호 자동생성
 String[] bookIDs = request.getParameterValues("bookID"); 
+
 int memberID = 1;//Integer.parseInt(request.getParameter("memberID"));
 int amount = 1; // 미구현
 String userName = request.getParameter("userName");
@@ -57,6 +70,7 @@ if( bookIDs == null || bookIDs.equals("")){
 		resist.setBookID(Integer.parseInt(bookID));
 		resist.setAmount(amount);
 		resist.setProgress(1);
+//		member.setBonusPoint();
 	
 		mymgr.addOrder(resist);
 		Book book = mymgr2.getBook(Integer.parseInt(bookID));

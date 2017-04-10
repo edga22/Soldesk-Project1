@@ -140,8 +140,8 @@ else{ // 최초 검색일때
 				</ul>
 			</div>
 			<div class="col-md-2">
-				<p><a class="btn btn-default" href="/shop/basket.jsp?BookID=<%=i%>">장바구니 추가</a></p>
-				<p><a class="btn btn-default" href="/shop/payment.jsp?BookID=<%=i%>">바로 구매</a></p>
+				<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=i%>">장바구니 추가</a></p>
+				<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=i%>">바로 구매</a></p>
 			</div>
 		</div>
 		<%} %>

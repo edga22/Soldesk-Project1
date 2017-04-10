@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
+		 import="domain.Member"
+		 import="mgr.MemberService"
 		 import="mgr.BookMgr"%>
 <!DOCTYPE html PUBLIC>
 <html>
@@ -23,6 +25,16 @@ int totalPrice = 0;
 int point = 0;
 int totalPoint = 0;
 int i=0;
+
+//회원정보 불러오기
+MemberService ms = new MemberService();
+int tmp = (Integer)session.getAttribute("memberID");
+int userID=1;
+if(tmp == 0){
+}else{
+	userID = tmp;
+}
+Member member = ms.getMember(userID);
 
 //장바구니에서 bookID 값들을 받을경우
 String[] bookIDs = request.getParameterValues("bookID");
@@ -87,16 +99,16 @@ if(bookIDs == null || bookIDs.equals("")){
 	<table class="table table-condensed">
 	 <tbody>	 	
 	  <tr>
-		<th>이름</th> <td><input type="text" name="userName" placeholder="주문자 성함" required></td>
+		<th>이름</th> <td><input type="text" name="userName" placeholder="주문자 성함" value="<%=member.getName()%>" required></td>
 	  </tr>  			
 	  <tr>
-		<th>연락처</th> <td><input type="number" name="phone" placeholder="연락처" required></td>
+		<th>연락처</th> <td><input type="number" name="phone" placeholder="연락처" value="<%=member.getPhone()%>" required></td>
 	  </tr>  			
 	  <tr>
-		<th>e-mail</th> <td><input type="email" name="email" placeholder="주문확인용 e-mail" required></td>
+		<th>e-mail</th> <td><input type="email" name="email" placeholder="주문확인용 e-mail" value="<%=member.getEmail()%>" required></td>
 	  </tr>  			
 	  <tr>
-		<th>주소</th> <td><input type="text" name="address" placeholder="배송 주소" required></td>
+		<th>주소</th> <td><input type="text" name="address" placeholder="배송 주소" value="<%=member.getAddress()%>" required></td>
 	  </tr>  			
 	 </tbody>
 	</table>		
