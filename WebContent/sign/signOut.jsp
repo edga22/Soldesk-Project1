@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <%
-	session.removeAttribute("ID");
+	session.removeAttribute("ID");	//아이디만 종료 장바구니 남아있음.
 %>
 <script>
-	alert("로그아웃 되었습니다.");
+	swal("로그아웃 되었습니다.");
 	window.location.replace("/main.jsp");
 </script>

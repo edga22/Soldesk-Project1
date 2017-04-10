@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <title>회원가입</title>
 <style>
 #my1{
@@ -99,7 +101,7 @@ $(function(){
 		<!-- jQuery와 Postcodify를 로딩한다 -->
 		<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 
-		<!-- "우편번호찾기." 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+		<!-- "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
 		<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 	</div>
 	<div class="form-group">

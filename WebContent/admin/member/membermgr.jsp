@@ -44,13 +44,13 @@ h3 {
 	if(request.getParameter("mod") != null && !request.getParameter("mod").equals(""))
 		modify = request.getParameter("mod");
 	
-	if(modify.equals("update")){
+	if(modify.equals("update")){			//유저 아이디 수정
 		if(ID != null && !ID.equals("")){
 			updMem.setEmail(ID);
 			updMem.setMemberID(userNo);
 			result = userList.updateMember(updMem);
 		}
-	}else if(modify.equals("delete")){
+	}else if(modify.equals("delete")){		//유저 강제 탈퇴.
 		if(userNo != 0){
 			result = userList.delMember(userNo);
 		}
