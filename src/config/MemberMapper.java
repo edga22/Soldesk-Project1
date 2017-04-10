@@ -13,4 +13,5 @@ public interface MemberMapper {
 	Member findPwMember(Member psw);
 	int updateMember(Member email);
 	int delMember(int MemberID);
+	Member getoutMember(Member psw);
 }

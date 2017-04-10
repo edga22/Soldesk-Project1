@@ -17,7 +17,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-<title>Insert title here</title>
+<title>마이페이지 1:1문의</title>
 </head>
 <body>
 

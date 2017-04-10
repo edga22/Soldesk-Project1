@@ -42,4 +42,7 @@ public class DbBasedMemberDao implements MemberDao {
 	public int delMember(int MemberID){
 		return mapper.delMember(MemberID);
 	}
+	public Member getoutMember(Member psw){
+		return mapper.getoutMember(psw);
+	}
 }

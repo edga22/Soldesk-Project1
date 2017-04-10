@@ -58,4 +58,9 @@
 		delete from members
 		where member_id=#{memberID}
 	</delete>
+	
+	<delete id="getoutMember" parameterType="domain.Member">
+		delete from members
+		where PASSWD=#{password}
+	</delete>
 </mapper>
