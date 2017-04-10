@@ -136,6 +136,6 @@
 </div> <!-- 끝 -->
 </div>
 <% session.setAttribute("basket", mgr); %>
-<jsp:include page="/main_foot.jsp"></jsp:include>
+<jsp:include page="/main_foot.jsp"/>
 </body>
 </html>
