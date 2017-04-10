@@ -17,15 +17,13 @@
 	Member member  = new Member();
 	member.setEmail("pdords@naver.com");
 	
-	test.IdCheck(member);
+	boolean check = test.IdCheck(member);
 	
-	test.getMembers();
-	
-	if(test.equals(member)){
+	if(check==true){
 		out.print("중복임");
 	}else{
 		out.print("중복아님");
 	}
-	%>
+%>
 </body>
 </html>

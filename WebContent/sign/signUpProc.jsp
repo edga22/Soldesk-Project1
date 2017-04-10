@@ -26,16 +26,15 @@
 	
 	if(pw.equals(pw2)){	// 두 비밀번호가 같을 때.
 		Member member = new Member();
-				
+		MemberDao newMember = new DbBasedMemberDao();
+		
 		member.setEmail(ID);
 		member.setPassword(pw);
 		member.setName(name);
 		member.setPostCode(postCode);
 		member.setAddress(address);
 		member.setPhone(phone);
-		
-		MemberDao newMember = new DbBasedMemberDao();
-				
+
 		newMember.addMember(member);
 %>	
 		<script>
@@ -55,8 +54,7 @@
 			alert("이미 있는 아이디 혹은 두 비밀번호가 다릅니다.")
 			history.go(-1);
 		</script>
-<%	
-	}
-%>
+<%
+	}%>
 </body>
 </html>
