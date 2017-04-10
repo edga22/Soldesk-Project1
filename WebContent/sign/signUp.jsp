@@ -28,7 +28,7 @@
 	</div>
 	<label class="control-label col-xs-1 text-right"style="margin-right:20px;">@</label>
 	<div class="col-xs-3"> 
-	<input type="text" class="from-control" style="width:95%" id="str_email02" name="str_email02" value="" readonly required>
+	<input type="text" class="from-control" style="width:95%" id="str_email02" name="str_email02" value="" required>
 	</div>
 	<div class="col-xs-3" style="margin-right:-20px">
 		<select class="form-control" id="selectEmail">
@@ -75,11 +75,11 @@ $(function(){
 </script>
 	<div class="form-group">
 		<label for="inputdefault">비밀번호</label>
-		<input class="form-control" id="psw" name="psw" type="password" required>
+		<input class="form-control" id="psw" name="psw" min="6" type="password" required>
 	</div>
 	<div class="form-group">
 		<label for="inputdefault">비밀번호 확인</label>
-		<input class="form-control" id="psw2" name="psw2" type="password" required>
+		<input class="form-control" id="psw2" name="psw2" min="6" type="password" required>
 		<font name="check" color="red"></font>
 	</div>
 	<div class="form-group">
@@ -99,7 +99,7 @@ $(function(){
 		<!-- jQuery와 Postcodify를 로딩한다 -->
 		<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 
-		<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+		<!-- "우편번호찾기." 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
 		<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 	</div>
 	<div class="form-group">

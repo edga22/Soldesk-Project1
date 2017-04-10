@@ -20,19 +20,20 @@
 	int postCode = Integer.parseInt(request.getParameter("postCode"));
 	String address = request.getParameter("address1")+" "+request.getParameter("address2");
 	String phone = request.getParameter("phone");
+	
+	Member member = new Member();
+	
+	MemberDao newMember = new DbBasedMemberDao();
 
 	if(pw.equals(pw2)){
-		Member member = new Member();
-		
+	
 		member.setEmail(ID);
 		member.setPassword(pw);
 		member.setName(name);
 		member.setPostCode(postCode);
 		member.setAddress(address);
 		member.setPhone(phone);
-		
-		MemberDao newMember = new DbBasedMemberDao();
-		
+				
 		newMember.addMember(member);
 %>	
 		<script>
