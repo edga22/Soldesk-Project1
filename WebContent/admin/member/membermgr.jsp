@@ -31,24 +31,24 @@ h3 {
 	request.setCharacterEncoding("utf-8");
 	int userNo = 0;
 	String modify = "";
-	String ID = "";
+	int point = 0;
 	int result = 0;
 	
 	Member updMem = new Member();
 	MemberDao userList = new DbBasedMemberDao(); 
 	
-	if(request.getParameter("ID") != null && !request.getParameter("ID").equals(""))
-		ID = request.getParameter("ID");
+	if(request.getParameter("point") != null && !request.getParameter("point").equals(""))
+		point = Integer.parseInt(request.getParameter("point"));
 	if(request.getParameter("userNo") != null && !request.getParameter("userNo").equals(""))
 		userNo = Integer.parseInt(request.getParameter("userNo"));
 	if(request.getParameter("mod") != null && !request.getParameter("mod").equals(""))
 		modify = request.getParameter("mod");
 	
 	if(modify.equals("update")){			//유저 아이디 수정
-		if(ID != null && !ID.equals("")){
-			updMem.setEmail(ID);
+		if(point != 0){
+			updMem.setBonusPoint(point);
 			updMem.setMemberID(userNo);
-			result = userList.updateMember(updMem);
+			result = userList.updatePoint(updMem);
 		}
 	}else if(modify.equals("delete")){		//유저 강제 탈퇴.
 		if(userNo != 0){
@@ -65,7 +65,7 @@ h3 {
     </div>
 <form action="membermgr.jsp">
 		<div class="col-sm-4">
-			<input type="text" class="form-control" name="ID" placeholder="아이디 입력">
+			<input type="number" class="form-control" name="point" placeholder="보너스 포인트 변경">
 			<button type="submit" class="btn btn-default" name="mod" value="update"><span>회원 수정</span></button>
 			<button type="submit" class="btn btn-default" name="mod" value="delete"><span>회원 삭제</span></button>
 		</div>
@@ -78,6 +78,7 @@ h3 {
 				<th>우편번호</th>
 				<th>주소</th>
 				<th>전화번호</th>
+				<th>포인트</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -93,6 +94,7 @@ h3 {
 				<td><%=member[i].getPostCode() %></td>
 				<td><%=member[i].getAddress() %></td>
 				<td><%=member[i].getPhone() %></td>
+				<td><%=member[i].getBonusPoint() %>
 			</tr>
 <%			
 		}

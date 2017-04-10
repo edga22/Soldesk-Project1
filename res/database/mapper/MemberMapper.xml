@@ -48,9 +48,9 @@
 		where email = #{email} and name = #{name} and phone = #{phone}
 	</select>
 	
-	<update id="updateMember" parameterType="domain.Member">
+	<update id="updatePoint" parameterType="domain.Member">
 		update members 
-		set email = #{email}
+		set bonus_point = #{bonusPoint}
 		where member_id = #{memberID}
 	</update>
 	

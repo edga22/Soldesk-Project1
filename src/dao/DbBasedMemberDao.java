@@ -34,9 +34,9 @@ public class DbBasedMemberDao implements MemberDao {
 	public Member findPwMember(Member psw){
 		return mapper.findPwMember(psw);
 	}
-	
-	public int updateMember(Member Email){
-		return mapper.updateMember(Email);
+
+	public int updatePoint(Member point){
+		return mapper.updatePoint(point);
 	}
 	
 	public int delMember(int MemberID){
