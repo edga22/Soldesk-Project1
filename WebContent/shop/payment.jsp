@@ -96,7 +96,7 @@ if(memberID == 0){
 			<th>이름</th> <td><input type="text" name="userName" placeholder="주문자 성함" value="<%=member.getName()%>" required></td>
 		  </tr>  			
 		  <tr>
-			<th>연락처</th> <td><input type="number" name="phone" placeholder="연락처" value="<%=member.getPhone()%>" required></td>
+			<th>연락처</th> <td><input type="text" name="phone" placeholder="연락처" value="<%=member.getPhone()%>" required></td>
 		  </tr>  			
 		  <tr>
 			<th>e-mail</th> <td><input type="email" name="email" placeholder="주문확인용 e-mail" value="<%=member.getEmail()%>" required></td>

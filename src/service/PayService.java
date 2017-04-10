@@ -1,10 +1,12 @@
 package service;
 
+import java.util.GregorianCalendar;
+
 import dao.DBBaseDeliveryDao;
 import dao.DbBaseInvenDao;
+import dao.DbBasedMemberDao;
 import dao.DeliveryDao;
 import dao.InvenDao;
-import dao.DbBasedMemberDao;
 import dao.MemberDao;
 import domain.Book;
 import domain.Member;
@@ -15,12 +17,14 @@ public class PayService {
 	MemberDao ms;
 	DeliveryDao dmgr;
 	PurchaseOrder resist;
+	GregorianCalendar now;
 	
 	public PayService() {
 		 this.bmgr = new DbBaseInvenDao();
 		 ms = new DbBasedMemberDao();
 		 dmgr = new DBBaseDeliveryDao();	
 		 resist = new PurchaseOrder();
+		 now = new GregorianCalendar();
 	}
 
 	//회원정보 불러오기
@@ -65,7 +69,13 @@ public class PayService {
 	
 	// 오더 번호 가져오기
 	public int getOrderID(int memberID, String bookID){
+		GregorianCalendar now = new GregorianCalendar();
+		String date = String.format("%TF", now);
 		return 1;
+	}
+	
+	public String getToday(){
+		return String.format("%TF", now);
 	}
 	
 }

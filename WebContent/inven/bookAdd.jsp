@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-	import="mgr.BookMgr" 
-	import="java.util.Date" 
-	import="java.text.SimpleDateFormat" %>
+		 import="mgr.BookMgr"%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -18,16 +16,17 @@
 <%
 BookMgr mymgr = new BookMgr();
 Book newbook = new Book();
-SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-Date tmp = format.parse(request.getParameter("publishDate"));
-java.sql.Date pubDate = new java.sql.Date(tmp.getTime());
-
+// 입력한 데이터 저장하기
+java.sql.Date date = new java.sql.Date(mymgr.changeDate(request.getParameter("publishDate")).getTime());
+newbook.setPublishDate(date);
 newbook.setBookName(request.getParameter("bookName"));
 newbook.setAuthor(request.getParameter("author"));
 newbook.setPublisher(request.getParameter("publisher"));
-newbook.setPublishDate(pubDate);
 newbook.setPrice(Integer.parseInt(request.getParameter("price")));
 newbook.setImageID(request.getParameter("imageID"));
+newbook.setStock(Integer.parseInt(request.getParameter("stock")));
+newbook.setCategoryID(Integer.parseInt(request.getParameter("categoryID")));
+//새책 생성
 mymgr.addBook(newbook);
 %>
 <jsp:include page="/inven/bookManagement.jsp"></jsp:include>

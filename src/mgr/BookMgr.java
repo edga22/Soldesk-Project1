@@ -34,8 +34,15 @@ public class BookMgr {
 	public int delBook(int bookID){
 		return invenDao.delBook(bookID);
 	}
+	
+	public Date changeDate(String date) throws ParseException{
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date newDate = format.parse(date);
+		return newDate;
+	}
 
-	public Book setBook(int bookID,String bookName,String author,String date, String price, String publisher,String categoryID,String imageID) throws ParseException{
+	public Book setBook(int bookID,String bookName,String author,String date, 
+			String price, String publisher,String categoryID,String imageID,String stock) throws ParseException{
 		Book[] books = invenDao.getBooks();
 		Book modbook = new Book();
 
@@ -70,6 +77,9 @@ public class BookMgr {
 				
 				if(imageID == null || imageID.equals("")) modbook.setImageID(book.getImageID());
 					else modbook.setImageID(imageID);
+				
+				if(stock == null || stock.equals("")) modbook.setStock(book.getStock());
+				else modbook.setImageID(stock);
 				
 				invenDao.updateBook(modbook);
 			}

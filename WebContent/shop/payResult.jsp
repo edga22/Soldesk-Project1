@@ -66,7 +66,7 @@ if( bookIDs == null || bookIDs.equals("") || cnts == null || cnts.equals("")){
 		<th><%="미구현"%></th>
 		<th><%=ps.getBook(bookID).getBookName()%></th>
 		<th><%=cnts[i]%></th>
-		<th><%="미구현"%></th>
+		<th><%=ps.getToday()%></th>
 		<th><%=state.change(1)%></th>
 	  </tr>
 <%	

@@ -25,8 +25,9 @@ String price = request.getParameter("price");
 String publisher = request.getParameter("publisher");
 String categoryID = request.getParameter("categoryID");
 String imageID = request.getParameter("imageID");
+String stock = request.getParameter("stock");
 // 북 파라미터 수정을 위한 작업(받은값이 null이 아닐경우에만 값 덮어쓰기)
-Book book = mymgr.setBook(bookID,bookName,author,date,price,publisher,categoryID,imageID);
+Book book = mymgr.setBook(bookID,bookName,author,date,price,publisher,categoryID,imageID,stock);
 %>
 <jsp:include page="/inven/bookManagement.jsp"></jsp:include>
 <div id="BookMod" class="container">
@@ -35,11 +36,13 @@ Book book = mymgr.setBook(bookID,bookName,author,date,price,publisher,categoryID
 	 <thead>
 	  <tr>
 		<th>도서명</th>
+		<th>카테고리번호</th>
 		<th>작가</th>
 		<th>출판사</th>
 		<th>출판일</th>
 		<th>금 액(원)</th>
 		<th>책표지 주소</th>
+		<th>재고</th>
 	  </tr>
 	 </thead>
 	 <tbody>	 	
@@ -51,6 +54,7 @@ Book book = mymgr.setBook(bookID,bookName,author,date,price,publisher,categoryID
 		<th><%=book.getPublishDate() %></th>
 		<th><%=book.getPrice() %></th>
 		<th><%=book.getImageID() %></th>
+		<th><%=book.getStock() %></th>
 	  </tr>	  			
 	 </tbody>
 	</table>	

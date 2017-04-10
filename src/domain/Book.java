@@ -12,7 +12,14 @@ public class Book {
 	private Date publishDate;
 	private String imageID;
 	private int price;
+	private int stock;
 	
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
 	public int getPrice() {
 		return price;
 	}
@@ -21,7 +28,7 @@ public class Book {
 	}
 	public Book() {}
 	public Book(int bookID, int categoryID, int eventID, String bookName,
-			String author, String publisher, Date publishDate, String imageID, int price) {
+			String author, String publisher, Date publishDate, String imageID, int price, int stock) {
 		super();
 		this.bookID = bookID;
 		this.categoryID = categoryID;
@@ -32,6 +39,7 @@ public class Book {
 		this.publishDate = publishDate;
 		this.imageID = imageID;
 		this.price = price;
+		this.stock = stock;
 	}
 
 	public int getBookID() {
