@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="config.OrderDetailMapper">
+	<resultMap id="DetailMap" type="domain.OrderDetail">
+		<id		property="orderDetailID"	column="ORDER_DETAIL_ID" />
+		<result	property="purchaseOrderID"	column="PURCHASE_ORDER_ID" />
+		<result	property="bookID"	column="BOOK_ID" />
+		<result	property="amount"	column="AMOUNT" />		
+	</resultMap>
+	
+	<select id="getDetails" resultMap="DetailMap">
+		SELECT * FROM Order_detail
+	</select>
+	
+	<select id="getIdDetails" parameterType="int" resultMap="DetailMap">
+		SELECT * FROM Order_detail WHERE PURCHASE_ORDER_ID = #{perchaseID}
+	</select>
+	
+	<insert id="addDetail" parameterType="domain.OrderDetail">
+		INSERT INTO Order_detail (ORDER_DETAIL_ID, PURCHASE_ORDER_ID, BOOK_ID, AMOUNT)
+		values (ORDER_DETAIL_ID_SEQ.NEXTVAL, #{purchaseOrderID}, #{bookID}, #{amount})
+	</insert>
+	
+	<insert id="addDetails" parameterType="domain.OrderDetail">
+		INSERT INTO Order_detail (ORDER_DETAIL_ID, PURCHASE_ORDER_ID, BOOK_ID, AMOUNT)
+		values 
+		<foreach item="item" collection="list" separator=",">
+		(ORDER_DETAIL_ID_SEQ.NEXTVAL, #{item.purchaseOrderID}, #{item.bookID}, #{item.amount})
+		</foreach>
+	</insert>
+	<!-- 
+	<update id="updateEvent" parameterType="domain.Event">
+		UPDATE Events 
+		SET GIFT_ID=#{giftID}, EVENT_NAME=#{eventName,jdbcType=VARCHAR}, DISCOUNT=#{discount}, START_DATE=#{startDate,jdbcType=DATE}, END_DATE=#{endDate,jdbcType=DATE}
+		WHERE EVENT_ID = #{eventID}
+	</update> 
+    
+    <delete id="delEvent" parameterType="int">
+    	DELETE FROM Events
+    	WHERE EVENT_ID = #{eventID}
+    </delete>
+     -->
+</mapper>

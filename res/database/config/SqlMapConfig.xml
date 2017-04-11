@@ -45,5 +45,6 @@
 			<mapper resource="database/mapper/BestsellerMapper.xml"/>
 			<mapper resource="database/mapper/EventMapper.xml"/>
 			<mapper resource="database/mapper/GiftMapper.xml"/>
+			<mapper resource="database/mapper/OrderDetailMapper.xml"/>
     </mappers>
 </configuration>
