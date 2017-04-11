@@ -9,7 +9,8 @@
 </head>
 <body>
 <%
-	session.setAttribute("ID", "");
+	session.setAttribute("ID", "");	// 아이디 제거.
+	session.setAttribute("memberID",""); //멤버 고유번호 제거
 %>
 <script>
 swal({

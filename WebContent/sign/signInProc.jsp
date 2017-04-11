@@ -23,7 +23,7 @@
 		Member temp = new Member();
 		temp.setEmail(ID);
 		temp.setPassword(pw);
-		Member mem = memberService.loginCheck(temp);
+		Member mem = memberService.loginCheck(temp);	// db에 있는 아이디면 로그인.
 		
 		if(mem !=null && !mem.equals("")){
 			memberID = mem.getMemberID();

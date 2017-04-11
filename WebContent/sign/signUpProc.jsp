@@ -35,14 +35,14 @@
 		member.setAddress(address);
 		member.setPhone(phone);
 		
-		if(newMember.idCheck(member) == true){
+		if(newMember.idCheck(member) == true){	// 아이디가 중복 되었을때.
 %>		
 		<script>
 			alert("아이디가 중복되었습니다. 다시입력하세요");
 			history.go(-1);
 		</script>
 <%
-		}else if(newMember.idCheck(member) ==false){
+		}else if(newMember.idCheck(member) ==false){	//아이디 중복이 아닐때
 			
 		newMember.addMember(member);
 %>	

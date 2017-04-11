@@ -29,7 +29,7 @@
 	Member member = new Member();
 	
 	if((name != null && !name.equals(""))
-			&& (phone != null && !phone.equals(""))){
+			&& (phone != null && !phone.equals(""))){	// id찾기
 		member.setName(name);
 		member.setPhone(phone);
 		

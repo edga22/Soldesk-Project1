@@ -33,7 +33,7 @@
 	
 	if((ID != null && !ID.equals(""))
 			&& (name != null && !name.equals(""))
-			&& (phone != null && !phone.equals(""))){
+			&& (phone != null && !phone.equals(""))){	// 비밀번호 찾기.
 		member.setEmail(ID);
 		member.setName(name);
 		member.setPhone(phone);
