@@ -3,7 +3,6 @@
 <%@ page import="domain.Member"%>
 <%@ page import="dao.MemberDao" %>
 <%@ page import="dao.DbBasedMemberDao" %>
-<%@ page import="mgr.MemberService" %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>

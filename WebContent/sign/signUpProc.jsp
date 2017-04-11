@@ -24,7 +24,7 @@
 	String address = request.getParameter("address1")+" "+request.getParameter("address2");
 	String phone = request.getParameter("phone");
 	
-	if(pw.equals(pw2)){	// 두 비밀번호가 같을 때.
+	if(pw.equals(pw2)){	// 두 비밀번호가 같을 때.(비밀번호 확인 되었을때)
 		Member member = new Member();
 		MemberDao newMember = new DbBasedMemberDao();
 		
@@ -60,7 +60,7 @@
 	}else{	//비밀번호가 다를경우
 %>
 		<script>
-			alert("이미 있는 아이디 혹은 두 비밀번호가 다릅니다.")
+			alert("두 비밀번호가 다릅니다.")
 			history.go(-1);
 		</script>
 <%
