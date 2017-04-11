@@ -59,12 +59,15 @@
 		where member_id=#{memberID}
 	</delete>
 	
+<<<<<<< HEAD
 	<select id="idCheck" parameterType="domain.Member" resultMap="MemberMap">
 		select email
 		from members
 		where email = #{email}
 	</select>
 	
+=======
+>>>>>>> 송성우 마이페이지
 	<delete id="getoutMember" parameterType="domain.Member">
 		delete from members
 		where PASSWD=#{password}

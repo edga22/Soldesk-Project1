@@ -11,6 +11,9 @@ public interface MemberDao {
 	Member findPwMember(Member psw);
 	int updatePoint(Member point);
 	int delMember(int MemberID);
+<<<<<<< HEAD
 	Member idCheck(Member email);
+=======
+>>>>>>> 송성우 마이페이지
 	Member getoutMember(Member psw);
 }
