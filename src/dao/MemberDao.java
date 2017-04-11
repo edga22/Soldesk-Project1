@@ -13,10 +13,14 @@ public interface MemberDao {
 	int delMember(int MemberID);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	Member idCheck(Member email);
 =======
 >>>>>>> 송성우 마이페이지
 =======
 >>>>>>> 송성우 마이페이지
+=======
+	boolean idCheck(Member email);
+>>>>>>> 박원서 ID 중복 되면 회원가입 불가능 완료
 	Member getoutMember(Member psw);
 }

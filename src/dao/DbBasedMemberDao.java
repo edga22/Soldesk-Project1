@@ -44,7 +44,11 @@ public class DbBasedMemberDao implements MemberDao {
 	}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public Member idCheck(Member email){
+=======
+	public boolean idCheck(Member email){
+>>>>>>> 박원서 ID 중복 되면 회원가입 불가능 완료
 		return mapper.idCheck(email);
 	}
 =======

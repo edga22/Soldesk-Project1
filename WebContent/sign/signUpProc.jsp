@@ -35,6 +35,15 @@
 		member.setAddress(address);
 		member.setPhone(phone);
 		
+		if(newMember.idCheck(member) == true){
+%>		
+		<script>
+			alert("아이디가 중복되었습니다. 다시입력하세요");
+			history.go(-1);
+		</script>
+<%
+		}else if(newMember.idCheck(member) ==false){
+			
 		newMember.addMember(member);
 %>	
 		<script>
@@ -47,7 +56,7 @@
 				window.location.replace("/sign/signInPage.jsp");
 			});
 		</script>
-<%
+<%			}
 	}else{	//비밀번호가 다를경우
 %>
 		<script>

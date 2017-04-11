@@ -17,9 +17,13 @@
 	Member member  = new Member();
 	member.setEmail("pdords@naver.com");
 
-	Member check = test.idCheck(member);
+	boolean check = test.idCheck(member);
 	
-	out.print(check);
+	if(check == true){
+		out.print("중복");
+	}else{
+		out.print("중복 아님");
+	}
 %>
 </body>
 </html>

@@ -37,7 +37,7 @@
 	</insert>
 	
 	<select id="findIdMember" parameterType="domain.Member" resultMap="MemberMap">
-		select email 
+		select email
 		from members
 		where name = #{name} and phone = #{phone}
 	</select>
@@ -61,8 +61,13 @@
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<select id="idCheck" parameterType="domain.Member" resultMap="MemberMap">
 		select email
+=======
+	<select id="idCheck" parameterType="domain.Member" resultType="boolean">
+		select count(*)
+>>>>>>> 박원서 ID 중복 되면 회원가입 불가능 완료
 		from members
 		where email = #{email}
 	</select>
