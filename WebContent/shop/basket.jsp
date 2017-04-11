@@ -13,6 +13,7 @@
 	
 	String bID=request.getParameter("bookID");
 	String count=request.getParameter("cnt");
+	String mode=request.getParameter("mod");
 	
 	if(session.getAttribute("basket")==null) {
 		mgr=new BasketMgr();
@@ -22,19 +23,21 @@
 		
 	boolean flag = false;
 	
-	if(bID != null && count != null){
-		int bookID=Integer.parseInt(bID);
-		int cnt=Integer.parseInt(count);
+	if(bID!=null) {
+		flag=true;
+		int bookID = Integer.parseInt(bID);
+		
+		if(mode != null){
+			
+		}else{
+			
+		int cnt=(count!=null)?Integer.parseInt(count):1;	
+
 		mgr.add(bookID, cnt);
-		flag = true;		
+		out.println("<script>alert('장바구니에 추가했습니다.'); location.href='basket.jsp';</script>");
+		}
 	}
 	
-	if(bID != null && count == null){
-		int bookID=Integer.parseInt(bID);
-		int cnt=1;
-		mgr.add(bookID, cnt);
-		flag= true;		
-	}
 	basketList=mgr.getlist();
 	
 	if(flag)
@@ -51,6 +54,39 @@
 	//총 주문금액
 	int totalPrice=0;
 %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){     
+	$('#checkall').click(function(){
+		//만약 전체 선택 체크박스가 체크된상태일경우 
+		if($("#checkall").prop("checked")){ 
+			//해당화면에 전체 checkbox들을 체크해준다 
+			$(":checkbox").prop("checked",true); 
+		// 전체선택 체크박스가 해제된 경우 
+		}else{ 
+			//해당화면에 모든 checkbox들의 체크를해제시킨다. 
+			$(":checkbox").prop("checked",false); 
+		} 
+	});
+
+ 	$('form').find(':checkbox').click(function () {
+		var amt1 = 0;
+		var amt2 = 0;
+		var amt3 = 0;
+		$('td').find(':checkbox').each(function () {
+			if ($(this).is(':checked')) {
+				amt1 = amt1 + parseInt($(this).val());
+				amt2 = amt1 * 90 / 100;
+				amt3 = amt1 * 5 / 100;
+			}
+		});
+		$('span.total').hide();
+		$('span.result1').text(amt1);
+		$('span.result2').text(amt2);
+		$('span.result3').text(amt3);		
+	});
+});
+</script>
 <title>장바구니</title>
 </head>
 <body>
@@ -86,13 +122,18 @@
     		<td></td>
     	</tr>
     	<%} %>
-    <%for(int i=0;i<basketList.length; i++) {%>
+    <%for(int i=0;i<basketList.length; i++) {
+    		int booIdInt = basketList[i].getBook().getBookID();
+    		bookPrice = basketList[i].getBook().getPrice();
+    		int bootCnt = basketList[i].getCnt();
+    		String bookIdLink = "/inven/bookDetail.jsp?bookID="+booIdInt;
+		    String bookNamestr = basketList[i].getBook().getBookName();	  %>
    	<tr>
       	<td><input type="checkbox" name="bookID" value="<%=basketList[i].getBook().getBookID()%>"/></td>
         <td><img src="<%=basketList[i].getBook().getImageID()%>"> <%=basketList[i].getBook().getBookName() %></td>
         <td><%=basketList[i].getBook().getPrice() %> ￦</td>
         <td>
-          <input type="number" name="cnt" min="1" value="<%=basketList[i].getCnt()%>"/>
+          <input type="number" name="cnt" min="1" value="<%=bootCnt%>"/>
        	  <p><a class="btn btn-default btn-sm" href="/shop/basketUpdate.jsp?bookID=<%=basketList[i].getBook().getBookID()%>&cnt=">변경</a></p>
         </td>
         <td>
