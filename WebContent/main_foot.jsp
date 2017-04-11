@@ -62,7 +62,7 @@
     <p class="text-center">Copyright 2017ⓒ BookNcafe Inc.. All rights reserved. System by: cwsys</p>
 </footer>
 <!-- 맨아래 탑버튼 -->
-<img id="MOVE_TOP_BTN" src="./img/main/btn_top2.png" alt="맨위로">
+<img id="MOVE_TOP_BTN" src="/img/main/btn_top2.png" alt="맨위로">
 <script>
 $(function() {
     $(window).scroll(function() {
