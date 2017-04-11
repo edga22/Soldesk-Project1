@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="config.UserInquireMapper">
-	<resultMap id="UserInquireMap" type="domain.UserInquire">
+<!-- 	<resultMap id="UserInquireMap" type="domain.UserInquire">
 		<id		property="inquireEmail"		column="INQUIRE_EMAIL"/>
 		<result	property="inquireTitle"		column="INQUIRE_TITLE"/>
 		<result property="password"		column="PASSWD"/>
@@ -57,5 +57,5 @@
 	<delete id="delMember" parameterType="domain.UserInquire">
 		delete from members
 		where member_id=#{memberID}
-	</delete>
+	</delete> -->
 </mapper>
