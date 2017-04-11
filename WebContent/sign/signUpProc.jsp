@@ -38,7 +38,7 @@
 		if(newMember.idCheck(member) == true){	// 아이디가 중복 되었을때.
 %>		
 		<script>
-			alert("아이디혹은 전화번호가 중복되었습니다. 다시입력하세요");
+			alert("존재하는 아이디혹은 전화번호 입니다. 다시입력하세요");
 			history.go(-1);
 		</script>
 <%

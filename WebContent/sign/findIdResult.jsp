@@ -22,8 +22,15 @@
 <div class="container" id="pws4">
 	<jsp:include page="../logo.jsp"/>
 <%	
-	String name = request.getParameter("name");
-	String phone = request.getParameter("phone");
+	String name = "";
+	String phone = "";	
+
+	if(request.getParameter("name") != null && !request.getParameter("name").equals("")){
+		name = request.getParameter("name");
+	}
+	if(request.getParameter("phone") != null && !request.getParameter("phone").equals("")){
+		phone = request.getParameter("phone");
+	}
 	
 	Member member = new Member();
 	
@@ -35,8 +42,9 @@
 		MemberDao mapper = new DbBasedMemberDao();
 		
 		member = mapper.findIdMember(member);
+	if(member != null && !member.equals("")){
 %>
-	<h4>당신의 아이디는<%=member.getEmail() %> 입니다.</h4>
+	<h4>당신의 아이디는<%=member.getEmail()%> 입니다.</h4>
 	
 	<a href="signInPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
 <%
@@ -46,8 +54,8 @@
 		alert("등록된 회원이 아닙니다.");
 		window.location.replace("signInPage.jsp");
 	</script>
-<%} %>
-	
+<%}
+		}%>
 </div>
 </body>
 </html>

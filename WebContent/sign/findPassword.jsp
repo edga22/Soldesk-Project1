@@ -23,9 +23,19 @@
 <jsp:include page="../logo.jsp"/>
 <%
 	request.setCharacterEncoding("utf-8");
-	String ID = request.getParameter("ID");
-	String name = request.getParameter("name");
-	String phone = request.getParameter("phone");
+	String ID = "";
+	String name = "";
+	String phone = "";
+	
+	if(request.getParameter("ID") != null && !request.getParameter("ID").equals("")){
+		ID = request.getParameter("ID");	
+	}
+	if(request.getParameter("name") != null && !request.getParameter("name").equals("")){
+		name = request.getParameter("name");	
+	}
+	if(request.getParameter("phone") != null && !request.getParameter("phone").equals("")){
+		phone = request.getParameter("phone");	
+	}
 	
 	Member member = new Member();
 	MemberDao mapper = new DbBasedMemberDao();
@@ -38,6 +48,8 @@
 		member.setPhone(phone);
 	
 		Member mem = mapper.findPwMember(member);
+		
+		if(mem != null && !mem.equals("")){
 %>
 	<div class="row" id="wrap">
 	<h4><%=ID %>님의 비밀번호는 <%=mem.getPassword() %>입니다.</h4>
@@ -50,6 +62,7 @@
 		window.location.replace("signInPage.jsp");
 	</script>
 <%	
+	}
 	}
 %>
 </div>
