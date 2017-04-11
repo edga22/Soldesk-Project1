@@ -34,7 +34,7 @@
 	</insert>
 	
 	<insert id="updateOrder" parameterType="domain.PurchaseOrder">
-		update Books 
+		update purchase_order
 		set PROGRESS=#{progress}
 		where PURCHASE_ORDER_ID = #{purchaseOrderID}
 	</insert><!-- 배송상태 업데이트 -->

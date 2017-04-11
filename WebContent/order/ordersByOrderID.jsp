@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>주문 번호 조회</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -20,41 +20,46 @@ OrderState state = new OrderState();
 int orderID = Integer.parseInt(request.getParameter("orderID"));
 PurchaseOrder po = mymgr.getOrder(orderID);
 %>
-<jsp:include page="/order/deliveryMain.jsp"></jsp:include>
-<div id="obm" class="container">
-<h3>주문번호 조회 결과</h3>
-	<table class="table table-condensed">
-	 <thead>
-	  <tr>	
-		<th>주문번호</th>
-		<th>회원번호</th>
-		<th>도서번호</th>
-		<th>수량</th>
-		<th>구매날짜</th>
-		<th>상태</th>
-	  </tr>
-	 </thead>
-	 <tbody>
+<div id="obmid" class="container">
+<jsp:include page="/order/orderMain_nav.jsp"></jsp:include>
+	<form action="/order/orderStateProc.jsp">	
+		<input type="number" name="progress" placeholder="변경할 상태" required>
+		<button type="submit" class="btn btn-default">수정</button>	
+<hr style="border: solid 0.1rem;">
+		<h4>주문 번호 조회 결과</h4>
+		 <table class="table table-condensed">
+	  	 <thead>
+	 	   <tr>
+			<th>회원번호</th>
+			<th>주문번호</th>
+			<th>도서번호</th>
+			<th>수량</th>
+			<th>구매날짜</th>
+			<th>상태</th>
+		  </tr>
+		 </thead>
+		 <tbody>
 <%
 if( po != null){
 %>	 	
-	  <tr>  
-		<th><%=po.getPurchaseOrderID()%></th>
-		<th><%=po.getMemberID()%></th>
-		<th><%=po.getBookID()%></th>
-		<th><%=po.getAmount()%></th>
-		<th><%=po.getPurchaseDate()%></th>
-		<th><%=state.change(po.getProgress())%></th>
-	  </tr>
+		  <tr>
+			<th><input type="radio" name="orderID" value="<%=po.getPurchaseOrderID()%>"><%=po.getMemberID()%></th>
+			<th><%=po.getPurchaseOrderID()%></th>
+			<th><%=po.getBookID()%></th>
+			<th><%=po.getAmount()%></th>
+			<th><%=po.getPurchaseDate()%></th>
+			<th><%=state.change(po.getProgress())%></th>
+		  </tr>
 <%
 }else{
 %>
-			  <tr><th> 입력하신 주문번호는 존재하지 않습니다. </th></tr>
+		  <tr><th> 검색하신 주문번호는 존재하지 않습니다. </th></tr>
 <%
 }
 %>
-	 </tbody>
-	</table>
+		 </tbody>
+		 </table>
+	</form>
 </div>
 </body>
 </html>

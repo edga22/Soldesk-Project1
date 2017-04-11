@@ -7,7 +7,7 @@ public interface DeliveryDao {
 	public PurchaseOrder getOrder(int OrderID);	
 	public PurchaseOrder[] getProgress(int Progress);
 	public PurchaseOrder[] getMember(int MemberID);
-	public int updateOrder(int OrderID);
+	public int updateOrder(PurchaseOrder purchaseOrder);
 	public int addOrder(PurchaseOrder purchaseOrder);
 
 }

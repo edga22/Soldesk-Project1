@@ -18,7 +18,7 @@ public interface DeliveryMapper {
 		List<PurchaseOrder> getMember(int MemberID);
 		
 		// 주문상태 업데이트
-		int updateOrder(int OrderID);
+		int updateOrder(PurchaseOrder purchaseOrder);
 		
 		// 주문추가
 		int addOrder(PurchaseOrder purchaseOrder);

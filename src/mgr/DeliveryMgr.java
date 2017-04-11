@@ -30,8 +30,8 @@ public class DeliveryMgr {
 		return deliveryDao.addOrder(purchaseOrder);
 	}
 	
-	public int updateOrder(int OrderID){
-		return deliveryDao.updateOrder(OrderID);
+	public int updateOrder(PurchaseOrder purchaseOrder){
+		return deliveryDao.updateOrder(purchaseOrder);
 	}
 
 }

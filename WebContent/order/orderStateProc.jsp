@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.PurchaseOrder"
-		 import="service.OrderState"
-		 import="mgr.DeliveryMgr"%>
+		 import="service.OrderState"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>배송상태 변경</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -15,22 +14,26 @@
 </head>
 <body>
 <jsp:include page="/order/deliveryMain.jsp"></jsp:include>
+<div class="container">
 <%
-DeliveryMgr mymgr = new DeliveryMgr();
-OrderState state = new OrderState();
+OrderState os = new OrderState();
 int progress = Integer.parseInt(request.getParameter("progress"));
 int OrderID = Integer.parseInt(request.getParameter("orderID"));
-PurchaseOrder po = mymgr.getOrder(OrderID);
+PurchaseOrder po = os.getOrder(OrderID);
 
 if( po == null || po.equals("") ){
 }else{
 %>
 	<h4>배송 상태가 변경되었습니다.</h4>
+	<p>유저 ID : <%= os.getMemberName(po.getMemberID()) %></p>
+	<p>주문 도서 : <%= os.getBookName( po.getBookID())%></p>
 	<p>주문 번호 : <%= po.getPurchaseOrderID()%></p>
 	<p>구매 날짜 : <%= po.getPurchaseDate()%></p>
-	<p>배송 상태 : <%= po.getProgress()%> -> <%po.setProgress(progress);%> <%= po.getProgress()%>  </p>	
+	<p>배송 상태 : <%= os.change(po.getProgress())%> -> <%po.setProgress(progress);%> <%= os.change(po.getProgress())%>  </p>	
 <%
+os.updateOrder(po);
 }
 %>
+</div>
 </body>
 </html>

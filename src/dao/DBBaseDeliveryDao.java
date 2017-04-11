@@ -26,8 +26,8 @@ public class DBBaseDeliveryDao implements DeliveryDao{
 		return  mapper.getMember(MemberID).toArray(new PurchaseOrder[mapper.getMember(MemberID).size()]);
 	}
 	
-	public int updateOrder(int OrderID){
-		return mapper.updateOrder(OrderID);
+	public int updateOrder(PurchaseOrder purchaseOrder){
+		return mapper.updateOrder(purchaseOrder);
 	}
 	
 	public int addOrder(PurchaseOrder purchaseOrder){
