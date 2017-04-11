@@ -1,8 +1,8 @@
-package config;
+package dao;
 
 import domain.Event;
 
-public interface EventMapper {
+public interface EventDao {
 	public Event[] getEvents();
 	public Event getEvent(int eventID);
 	public int getIdEvent(String eventName);

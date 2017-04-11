@@ -20,14 +20,18 @@
 		SELECT * FROM Events WHERE event_id = #{eventID}
 	</select>
 	
+	<select id="getIdEvent" parameterType="String" resultType="int">
+		SELECT EVENT_ID FROM Events WHERE event_name = #{value}
+	</select>
+	
 	<insert id="addEvent" parameterType="domain.Event">
 		INSERT INTO Events (EVENT_ID, GIFT_ID, EVENT_NAME, DISCOUNT, START_DATE, END_DATE)
-		values (EVENT_ID_SEQ.NEXTVAL, #{giftID}, #{eventName,jdbcType=VARCHAR}, #{discount}, #{startDate}, #{endDate})
+		values (EVENT_ID_SEQ.NEXTVAL, #{giftID}, #{eventName,jdbcType=VARCHAR}, #{discount}, #{startDate,jdbcType=DATE}, #{endDate,jdbcType=DATE})
 	</insert>
 	
 	<update id="updateEvent" parameterType="domain.Event">
 		UPDATE Events 
-		SET GIFT_ID=#{giftID}, EVENT_NAME=#{eventName}, DISCOUNT=#{discount}, START_DATE=#{startDate}, END_DATE=#{endDate}
+		SET GIFT_ID=#{giftID}, EVENT_NAME=#{eventName,jdbcType=VARCHAR}, DISCOUNT=#{discount}, START_DATE=#{startDate,jdbcType=DATE}, END_DATE=#{endDate,jdbcType=DATE}
 		WHERE EVENT_ID = #{eventID}
 	</update> 
     

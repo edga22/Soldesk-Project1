@@ -43,5 +43,7 @@
 			<mapper resource="database/mapper/CategoryMapper.xml"/>
 			<mapper resource="database/mapper/CategoryMgrMapper.xml"/>
 			<mapper resource="database/mapper/BestsellerMapper.xml"/>
+			<mapper resource="database/mapper/EventMapper.xml"/>
+			<mapper resource="database/mapper/GiftMapper.xml"/>
     </mappers>
 </configuration>

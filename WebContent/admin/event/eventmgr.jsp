@@ -1,6 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="mgr.search.SearchMgr"
+		import="mgr.EventMgr"
+		import="domain.Book"
+ %>
 <!DOCTYPE html PUBLIC>
+
+<%
+request.setCharacterEncoding("utf-8");
+String scTarget = "";
+String scWord = "";
+Book[] scResult = null;	// 검색 결과를 저장할 배열
+SearchMgr scmgr = new SearchMgr();
+
+if(request.getParameter("SearchTarget") != null) scTarget = request.getParameter("SearchTarget");
+if(request.getParameter("SearchWord") != null) scWord = request.getParameter("SearchWord");
+
+if(scTarget.equals("all") && !scWord.equals("")){
+	scResult = scmgr.getBooks(scWord);
+}
+else {
+	scResult = scmgr.getBooks("");
+}
+%>
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -15,6 +38,11 @@ body {
 }
 h3 {
 	margin-top : 0.5em;
+}
+
+#booktitle {
+	font-size : 2rem;
+	margin-top : -0.5rem;
 }
 
 .result-group{
@@ -33,15 +61,16 @@ h3 {
 </div>
 
 <div class="row">
-	<form class="form-inline" action="/admin/event/eventmgr.jsp">
+	<form class="form-inline">
 	<div class="form-group">
 		<p class="form-control-static">대상도서:</p>
-		<select name="type" class="form-control">
+		<select name="SearchTarget" class="form-control">
+			<option value="all">통합</option>
 			<option value="title">제목</option>
 			<option value="author">저자</option>
 			<option value="publisher">출판사</option>
 		</select>
- 		<input type="text" class="form-control" id="keyword" name="keyword">
+ 		<input type="text" class="form-control" id="keyword" name="SearchWord">
  		<button class="btn btn-primary" type="submit">검색</button>
 		<button class="btn btn-info" type="submit" name="type" value="all">전체 이벤트 불러오기</button>
 	</div>	
@@ -50,29 +79,36 @@ h3 {
 
 <!-- 결과물 출력 반복 -->
 <form action="/admin/event/eventmod.jsp">
-<%for(int i=1;i<=3;i++){ %> 
+<% 
+int i = 1;
+for(Book result: scResult){ %> 
 <div class="row result-group">
 	<div class="col-md-1">
 		<h5><%=i %>.</h5>
 		<div class="checkbox">
-		<label><input type="checkbox" name="item"value="<%= i %>"></label>
+		<label><input type="checkbox" name="bookID"value="<%= result.getBookID() %>"></label>
 		</div>
 	</div>
-	<div class="col-md-2"><img src="http://lorempixel.com/140/180"></div>
+	<div class="col-md-2"><img src="<%=result.getImageID()%>"></div>
 	<div class="col-md-6">
-		<h3>책 제목<%=i %></h3>
-		<p>저자 : 저자<%=i %>  옮긴이 : 옮긴이 <%=i %>  출판사 : 시공출판사</p>
-		<p>진행중인 이벤트 정보</p><br>
+		<p id="booktitle"><%=result.getBookName() %></p>
+		<p>저자 : <%= result.getAuthor() %>  출판사 : <%= result.getPublisher() %></p>
+		<p>진행중인 이벤트 정보</p>
 		<ul>
 			<li>할인 : %</li>
 			<li>사은품 : </li>
 		</ul>
 	</div>
 	<div class="col-md-3">
-		<button class="btn btn-primary" type="submit" name="item" value="<%=i%>">이벤트 수정</button>
+		<a class="btn btn-primary" href="/admin/event/eventmod.jsp?bookID=<%= result.getBookID() %>">이벤트 수정</a>
 	</div>
 </div>
-<%} %>
+<%i++;} %>
+<div class="row">
+	<div class="col-md-12">
+		<button class="btn btn-info" type="submit">선택 수정</button>
+	</div>
+</div>
 </form>
 <!-- 반복 끝 -->
 

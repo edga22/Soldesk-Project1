@@ -33,7 +33,7 @@
 	
 	<update id="updateBook" parameterType="domain.Book">
 		update Books 
-		set book_name=#{bookName}, author=#{author}, publisher=#{publisher}, publish_Date=#{publishDate}, image_id=#{imageID}, price=#{price}
+		set category_id=#{categoryID}, event_id=#{eventID}, book_name=#{bookName}, author=#{author}, publisher=#{publisher}, publish_Date=#{publishDate}, image_id=#{imageID}, price=#{price}
 		where book_ID = #{bookID}
 	</update>
 	
