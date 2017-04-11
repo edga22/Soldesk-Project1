@@ -42,19 +42,9 @@ public class DbBasedMemberDao implements MemberDao {
 	public int delMember(int MemberID){
 		return mapper.delMember(MemberID);
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public Member idCheck(Member email){
-=======
 	public boolean idCheck(Member email){
->>>>>>> 박원서 ID 중복 되면 회원가입 불가능 완료
 		return mapper.idCheck(email);
 	}
-=======
->>>>>>> 송성우 마이페이지
-=======
->>>>>>> 송성우 마이페이지
 	public Member getoutMember(Member psw){
 		return mapper.getoutMember(psw);
 	}
