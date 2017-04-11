@@ -1,14 +1,16 @@
+<%@page import="domain.OrderDetail"%>
+<%@page import="mgr.BookMgr"%>
+<%@page import="domain.Book"%>
+<%@page import="dao.DbBasedBestsellerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../bookcafe.css">
+<%
+	DbBasedBestsellerDao dao=new DbBasedBestsellerDao();
+	BookMgr mgr=new BookMgr();
+	
+	OrderDetail[] order=dao.getBestID();
+%>
 <title>베스트셀러</title>
 <style>
 #img{
@@ -55,12 +57,16 @@
     
     <ul class="list-group">
       <!-- 도서 한권 리스트 -->
+      <% for(int i=0;i<order.length;i++){
+		Book book=mgr.getBook(order[i].getBookID());%>
  	  <li class="list-group-item"> 
  	  <div class="row">
  	  	<div class="col-sm-1"><input type="checkbox"/></div>
- 	  	<div class="col-sm-2"><img id="img" src="http://lorempixel.com/140/180"/></div>
+ 	  	<div class="col-sm-2"><img id="img" src="<%=book.getImageID()%>"/></div>
  	  	<div class="col-sm-7">
- 	  		<p><a href="/inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
+ 	  		<p><a href="/inven/BookDetail.jsp"></a></p> 
+ 	  		<p><%=book.getBookName() %></p> 
+ 	  		<p> ￦</p>
  	  	</div>
  	  	<div class="col-sm-2">
  	  		<form action="/shop/basket.jsp">
@@ -72,12 +78,17 @@
  	  	</div>
  	   </div>
  	  </li> <!-- 도서 한권 리스트 -->
+ 	  <%} %>
+ 	  
+ 	  <!-- 도서 한권 리스트 -->
  	  <li class="list-group-item"> 
  	  <div class="row">
  	  	<div class="col-sm-1"><input type="checkbox"/></div>
- 	  	<div class="col-sm-2"><img id="img" src="http://lorempixel.com/140/180"/></div>
+ 	  	<div class="col-sm-2"><img id="img" src=""/></div>
  	  	<div class="col-sm-7">
- 	  		<p><a href="/inven/BookDetail.jsp">책 제목</a></p> <p>지은이 | 출판사 | 책을 펴낸 날짜</p> <p>가격</p>
+ 	  		<p><a href="/inven/BookDetail.jsp"></a></p> 
+ 	  		<p></p> 
+ 	  		<p> ￦</p>
  	  	</div>
  	  	<div class="col-sm-2">
  	  		<form action="/shop/basket.jsp">
@@ -88,7 +99,7 @@
  	  		</form>
  	  	</div>
  	   </div>
- 	  </li>
+ 	  </li> <!-- 도서 한권 리스트 -->
 	</ul>
 </div>
 
@@ -106,5 +117,3 @@
 </div> <!-- 끝 -->
 </div>
 <jsp:include page="/main_foot.jsp"></jsp:include>
-</body>
-</html>
