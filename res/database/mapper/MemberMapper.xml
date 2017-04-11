@@ -62,7 +62,7 @@
 	<select id="idCheck" parameterType="domain.Member" resultType="boolean">
 		select count(*)
 		from members
-		where email = #{email}
+		where email = #{email} or phone = #{phone}
 	</select>
 
 	<delete id="getoutMember" parameterType="domain.Member">

@@ -16,6 +16,7 @@
 	MemberDao test = new DbBasedMemberDao();
 	Member member  = new Member();
 	member.setEmail("pdords@naver.com");
+	member.setPhone("000-0000-0000");
 
 	boolean check = test.idCheck(member);
 	
