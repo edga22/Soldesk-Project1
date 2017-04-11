@@ -1,10 +1,8 @@
 package dao;
 
-import java.util.List;
-
+import config.Factory;
 import config.OrderDetailMapper;
 import domain.OrderDetail;
-import config.Factory;
 
 public class DbBasedOrderDetailDao implements OrderDetailDao {
 	OrderDetailMapper mapper = null;
@@ -26,11 +24,6 @@ public class DbBasedOrderDetailDao implements OrderDetailDao {
 	@Override
 	public int addDetail(OrderDetail orderdetail) {
 		return mapper.addDetail(orderdetail);
-	}
-
-	@Override
-	public int addDetails(List<OrderDetail> orderdetail) {
-		return mapper.addDetails(orderdetail);
 	}
 
 }
