@@ -5,9 +5,6 @@
 	<resultMap id="OrderMap" type="domain.PurchaseOrder">
 		<id		property="purchaseOrderID"		column="PURCHASE_ORDER_ID" />
 		<result	property="memberID"	column="MEMBER_ID" />
-		<result	property="bookID"	column="BOOK_ID" />
-		<result	property="eventID"	column="EVENT_ID" />
-		<result	property="amount"	column="AMOUNT" />
 		<result	property="purchaseDate"	column="PURCHASE_DATE" />
 		<result	property="progress"	column="PROGRESS" />
 	</resultMap>
@@ -29,8 +26,8 @@
 	</select><!-- 회원 번호로 검색 -->
 	
 	<insert id="addOrder" parameterType="domain.PurchaseOrder">
-		INSERT INTO purchase_order (PURCHASE_ORDER_ID, MEMBER_ID, BOOK_ID, AMOUNT, PURCHASE_DATE, PROGRESS)
-		values (PURCHASE_ORDER_ID_SEQ.NEXTVAL, #{memberID}, #{bookID}, #{amount}, sysdate, #{progress})
+		INSERT INTO purchase_order (PURCHASE_ORDER_ID, MEMBER_ID, PURCHASE_DATE, PROGRESS)
+		values (PURCHASE_ORDER_ID_SEQ.NEXTVAL, #{memberID}, sysdate, #{progress})
 	</insert>
 	
 	<insert id="updateOrder" parameterType="domain.PurchaseOrder">
