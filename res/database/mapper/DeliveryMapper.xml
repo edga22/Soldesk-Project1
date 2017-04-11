@@ -10,7 +10,7 @@
 	</resultMap>
 	
 	<select id="getOrders" resultMap="OrderMap">
-		SELECT * FROM purchase_order ORDER BY MEMBER_ID
+		SELECT * FROM purchase_order ORDER BY PURCHASE_ORDER_ID desc
 	</select><!-- 전체 주문목록 검색, 멤버별로 정리 -->
 	
 	<select id="getOrder" parameterType="int" resultMap="OrderMap">

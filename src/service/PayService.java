@@ -1,6 +1,8 @@
 package service;
 
 import java.util.GregorianCalendar;
+
+import mgr.OrderDatailMgr;
 import dao.DBBaseDeliveryDao;
 import dao.DbBaseInvenDao;
 import dao.DbBasedMemberDao;
@@ -9,8 +11,8 @@ import dao.InvenDao;
 import dao.MemberDao;
 import domain.Book;
 import domain.Member;
-import domain.PurchaseOrder;
 import domain.OrderDetail;
+import domain.PurchaseOrder;
 
 public class PayService {
 	InvenDao bmgr;
@@ -18,6 +20,7 @@ public class PayService {
 	DeliveryDao dmgr;
 	PurchaseOrder po;
 	GregorianCalendar now;
+	OrderDatailMgr odmgr;
 	
 	public PayService() {
 		 this.bmgr = new DbBaseInvenDao();
@@ -25,6 +28,7 @@ public class PayService {
 		 dmgr = new DBBaseDeliveryDao();	
 		 po = new PurchaseOrder();
 		 now = new GregorianCalendar();
+		 odmgr = new OrderDatailMgr();
 	}
 
 	//회원정보 불러오기
@@ -64,21 +68,22 @@ public class PayService {
 		po.setMemberID(memberID);
 		po.setProgress(1);
 		dmgr.addOrder(po);
-		//구매 세부정보 저장(OrderDetail)
+		//구매 세부정보 저장(OrderDetail), 구매한 도서 종류 수량에 맞게 저장
+		PurchaseOrder[] ods = dmgr.getOrders();
+		int purchaseOrderID = ods[0].getPurchaseOrderID();
 		for(int i = 0;i<bookIDs.length;i++){
 			od.setBookID(Integer.parseInt(bookIDs[i]));
 			od.setAmount(Integer.parseInt(cnt[i]));
-			od.setOrderDetailID(1);
-			od.setPurchaseOrderID(1);
+			od.setPurchaseOrderID(purchaseOrderID);
+			odmgr.addDetail(od);
 		}
 	}
 	
-/*	// 오더 번호 가져오기
-	public int getOrderID(int memberID, String bookID){
-		GregorianCalendar now = new GregorianCalendar();
-		String date = String.format("%TF", now);
-		return 1;
-	}*/
+	// 오더 번호 가져오기(가장 최근번호, 방금 구입한 번호)
+	public int getOrderID(){
+		PurchaseOrder[] ods = dmgr.getOrders();		
+		return ods[0].getPurchaseOrderID();
+	}
 	
 	// 오늘 날짜 출력
 	public String getToday(){

@@ -66,7 +66,7 @@ if( bookIDs == null || bookIDs.equals("") || cnts == null || cnts.equals("")){
 		ps.setPoint(memberID, point); // 구매후 적립포인트
 %>	 	
 	  <tr>
-		<th><%="미구현"%></th>
+		<th><%=ps.getOrderID() %></th>
 		<th><%=book.getBookName()%></th>
 		<th><%=cnts[i]%></th>
 		<th><%=ps.getToday()%></th>
