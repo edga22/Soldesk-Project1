@@ -12,14 +12,15 @@
 		<result	property="publishDate"	column="PUBLISH_DATE" />
 		<result	property="imageID"	column="IMAGE_ID" />
 		<result property="price"	column="PRICE" />
+		<association property="order" resultMap="OrderMap"/>
 	</resultMap>
 	
-	<resultMap id="OrderMap" type="domain.PurchaseOrder">
+	<resultMap id="OrderMap" type="domain.OrderDetail">
 		<id	property="bookID"		column="BOOK_ID" />
 		<result	property="amount"	column="AMOUNT" />
 	</resultMap>
 	
-	<select id="getBooks" parameterType="domain.Book" resultMap="BookMap">
+	<select id="getBooks" resultMap="BookMap">
 		SELECT * FROM Books 
 		WHERE bookID=(
 			SELECT Purchase_Order.bookID

@@ -14,7 +14,7 @@ public class Book {
 	private String imageID;
 	private int price;
 	private int stock;
-	private List<OrderDetail> orderDetail;
+	private OrderDetail orderDetail;
 	
 	public int getStock() {
 		return stock;
@@ -92,10 +92,10 @@ public class Book {
 	public void setImageID(String imageID) {
 		this.imageID = imageID;
 	}
-	public List<OrderDetail> getOrderDetail() {
+	public OrderDetail getOrderDetail() {
 		return orderDetail;
 	}
-	public void setOrderDetail(List<OrderDetail> orderDetail) {
+	public void setOrderDetail(OrderDetail orderDetail) {
 		this.orderDetail = orderDetail;
 	}
 }
