@@ -1,7 +1,6 @@
 package service;
 
 import java.util.GregorianCalendar;
-
 import dao.DBBaseDeliveryDao;
 import dao.DbBaseInvenDao;
 import dao.DbBasedMemberDao;
@@ -11,19 +10,20 @@ import dao.MemberDao;
 import domain.Book;
 import domain.Member;
 import domain.PurchaseOrder;
+import domain.OrderDetail;
 
 public class PayService {
 	InvenDao bmgr;
 	MemberDao ms;
 	DeliveryDao dmgr;
-	PurchaseOrder resist;
+	PurchaseOrder po;
 	GregorianCalendar now;
 	
 	public PayService() {
 		 this.bmgr = new DbBaseInvenDao();
 		 ms = new DbBasedMemberDao();
 		 dmgr = new DBBaseDeliveryDao();	
-		 resist = new PurchaseOrder();
+		 po = new PurchaseOrder();
 		 now = new GregorianCalendar();
 	}
 
@@ -58,21 +58,27 @@ public class PayService {
 	}
 	
 	// 구매 정보 저장
-	public void setOrder(int memberID,String bookID,String cnt){
-		resist.setMemberID(memberID);
-		resist.setBookID(Integer.parseInt(bookID));
-		resist.setAmount(Integer.parseInt(cnt));
-		resist.setProgress(1);
-	
-		dmgr.addOrder(resist);
+	public void setOrder(int memberID,String[] bookIDs,String[] cnt){
+		OrderDetail od = new OrderDetail();
+		//구매 정보 저장(구매번호 생성,purchaseOrderID)
+		po.setMemberID(memberID);
+		po.setProgress(1);
+		dmgr.addOrder(po);
+		//구매 세부정보 저장(OrderDetail)
+		for(int i = 0;i<bookIDs.length;i++){
+			od.setBookID(Integer.parseInt(bookIDs[i]));
+			od.setAmount(Integer.parseInt(cnt[i]));
+			od.setOrderDetailID(1);
+			od.setPurchaseOrderID(1);
+		}
 	}
 	
-	// 오더 번호 가져오기
+/*	// 오더 번호 가져오기
 	public int getOrderID(int memberID, String bookID){
 		GregorianCalendar now = new GregorianCalendar();
 		String date = String.format("%TF", now);
 		return 1;
-	}
+	}*/
 	
 	// 오늘 날짜 출력
 	public String getToday(){

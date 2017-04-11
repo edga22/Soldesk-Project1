@@ -1,7 +1,7 @@
 package service;
 
 import mgr.BookMgr;
-import mgr.MemberService;
+import service.MemberService;
 import mgr.DeliveryMgr;
 import domain.Book;
 import domain.Member;
