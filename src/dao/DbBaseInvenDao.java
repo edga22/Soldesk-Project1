@@ -14,6 +14,10 @@ public class DbBaseInvenDao implements InvenDao {
 		return mapper.getBooks().toArray(new Book[mapper.getBooks().size()]);
 	}
 	
+	public Book[] getAllBooks(){
+		return mapper.getAllBooks().toArray(new Book[mapper.getBooks().size()]);
+	}
+	
 	public Book getBook(int bookID){
 		return mapper.getBook(bookID);
 	}

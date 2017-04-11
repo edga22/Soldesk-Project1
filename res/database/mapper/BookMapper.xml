@@ -25,6 +25,10 @@
 		ORDER BY publish_date
 	</select>
 	
+	<select id="getAllBooks" resultMap="BookMap">
+		SELECT * FROM Books ORDER BY BOOK_ID
+	</select>
+	
 	<select id="getBook" parameterType="int" resultMap="BookMap">
 		SELECT * FROM Books WHERE book_ID = #{bookID}
 	</select>

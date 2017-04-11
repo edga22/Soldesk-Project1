@@ -19,6 +19,10 @@ public class BookMgr {
 		return invenDao.getBooks();
 	}
 	
+	public Book[] getAllBooks(){
+		return invenDao.getAllBooks();
+	}
+	
 	public Book getBook(int bookID){
 		return invenDao.getBook(bookID);
 	}
