@@ -12,7 +12,7 @@
 		<result	property="publishDate"	column="PUBLISH_DATE" />
 		<result	property="imageID"	column="IMAGE_ID" />
 		<result property="price"	column="PRICE" />
-		<association property="order" resultMap="OrderMap"/>
+		<association property="orderDetail" resultMap="OrderMap"/>
 	</resultMap>
 	
 	<resultMap id="OrderMap" type="domain.OrderDetail">
@@ -21,10 +21,7 @@
 	</resultMap>
 	
 	<select id="getBooks" resultMap="BookMap">
-		SELECT * FROM Books 
-		WHERE bookID=(
-			SELECT Purchase_Order.bookID
-			FROM Purchase_Order
-			ORDER BY amount)
+		SELECT * FROM books WHERE BOOK_ID in (
+		SELECT BOOK_ID FROM ORDER_DETAIL GROUP BY BOOK_ID)
 	</select>
 </mapper>
