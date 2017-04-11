@@ -1,7 +1,6 @@
 package domain;
 
 import java.sql.Date;
-import java.util.List;
 
 public class Book {
 	private int bookID;
@@ -14,7 +13,8 @@ public class Book {
 	private String imageID;
 	private int price;
 	private int stock;
-	private OrderDetail orderDetail;
+	private String subtitle;
+	private String description;
 	
 	public int getStock() {
 		return stock;
@@ -28,22 +28,6 @@ public class Book {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public Book() {}
-	public Book(int bookID, int categoryID, int eventID, String bookName,
-			String author, String publisher, Date publishDate, String imageID, int price, int stock) {
-		super();
-		this.bookID = bookID;
-		this.categoryID = categoryID;
-		this.eventID = eventID;
-		this.bookName = bookName;
-		this.author = author;
-		this.publisher = publisher;
-		this.publishDate = publishDate;
-		this.imageID = imageID;
-		this.price = price;
-		this.stock = stock;
-	}
-
 	public int getBookID() {
 		return bookID;
 	}
@@ -91,11 +75,17 @@ public class Book {
 	}
 	public void setImageID(String imageID) {
 		this.imageID = imageID;
+	}	
+	public String getSubtitle() {
+		return subtitle;
 	}
-	public OrderDetail getOrderDetail() {
-		return orderDetail;
+	public void setSubtitle(String subtitle) {
+		this.subtitle = subtitle;
 	}
-	public void setOrderDetail(OrderDetail orderDetail) {
-		this.orderDetail = orderDetail;
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }
