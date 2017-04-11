@@ -13,52 +13,28 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%
-BookMgr mymgr = new BookMgr();
-Book newbook = new Book();
-// 입력한 데이터 저장하기
-java.sql.Date date = new java.sql.Date(mymgr.changeDate(request.getParameter("publishDate")).getTime());
-newbook.setPublishDate(date);
-newbook.setBookName(request.getParameter("bookName"));
-newbook.setAuthor(request.getParameter("author"));
-newbook.setPublisher(request.getParameter("publisher"));
-newbook.setPrice(Integer.parseInt(request.getParameter("price")));
-newbook.setImageID(request.getParameter("imageID"));
-newbook.setStock(Integer.parseInt(request.getParameter("stock")));
-newbook.setCategoryID(Integer.parseInt(request.getParameter("categoryID")));
-//새책 생성
-mymgr.addBook(newbook);
-%>
-<jsp:include page="/inven/bookManagement.jsp"></jsp:include>
-<div id="BAdd" class="container">
-<h2>도서 추가 결과</h2>
-	<table class="table table-condensed">
-	 <thead>
-	  <tr>
-		<th>도서명</th>
-		<th>카테고리번호</th>
-		<th>작가</th>
-		<th>출판사</th>
-		<th>출판일</th>
-		<th>금 액(원)</th>
-		<th>책표지 주소</th>
-		<th>재고</th>		
-	  </tr>
-	 </thead>
-	 <tbody>	 	
-	  <tr>
-		<th><%=newbook.getBookName()%></th>
-		<th><%=newbook.getCategoryID()%></th>
-		<th><%=newbook.getAuthor() %></th>
-		<th><%=newbook.getPublisher() %></th>
-		<th><%=newbook.getPublishDate() %></th>
-		<th><%=newbook.getPrice() %></th>
-		<th><%=newbook.getImageID() %></th>
-		<th><%=newbook.getStock() %></th>
-	  </tr>	  			
-	 </tbody>
-	</table>	
+<jsp:include page="/inven/invenMain.jsp"></jsp:include>
+<div class="container">
+<h4 class="modal-title">도서 추가</h4>
+	<form action="/inven/bookAddProc.jsp">
+	<div style="width:30rem;">
+		<div align="right">         
+		  <ul style=" list-style:none">		 
+		   <li> 도 서 명:<input type="text" name="bookName" placeholder="책이름" required></li>
+		   <li> 카테고리:<input type="number" name="categoryID" placeholder="카테고리" required></li>			  
+		   <li> 작 가 명:<input type="text" name="author" placeholder="작가" required></li>		  
+		   <li> 출 판 사:<input type="text" name="publisher" placeholder="출판사" required></li>		  
+		   <li> 출 판 일:<input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)" required></li>		  
+		   <li> 책 금 액:<input type="number" name="price" placeholder="금액" required></li>		  
+		   <li> 이 미 지:<input type="text" name="imageID" placeholder="책표지 주소(.jpg)" required></li>		  
+		   <li> 재     고:<input type="number" name="stock" placeholder="등록 수량" required></li>		  
+		  </ul>		
+         </div>
+         <div align="right">
+		  <button type="submit" class="btn btn-primary">추가</button>         
+		</div>
+	</div>
+	</form>
 </div>
-
 </body>
 </html>

@@ -11,27 +11,25 @@
 <body>
 <%
 BookMgr mymgr = new BookMgr();
-int bookID = Integer.parseInt(request.getParameter("bookID"));
-Book delbook = new Book();
+String tmpID = request.getParameter("bookID");
+Book[] books = mymgr.getBooks();
+int bookID = 0;
 %>
-<jsp:include page="/inven/bookManagement.jsp"></jsp:include>
-<div id="BDel" class="container">
+<jsp:include page="/inven/invenMain.jsp"></jsp:include>
 <%
-	Book[] books = mymgr.getBooks();
-	for(Book book: books){
-		if( book.getBookID() == bookID ){
-			mymgr.delBook(bookID);
-			delbook.setBookName(book.getBookName());
-%>
-	<h3>요청하신 도서번호<%=bookID%> "<%= delbook.getBookName()%>" 도서가 재고에서 삭제되었습니다.</h3>
-<%					
-		}
-	}
-	if(delbook.getBookName()==null || delbook.getBookName().equals("") ){
+if(tmpID == null || tmpID.equals("")){
 %>		
-	<h3>요청하신  도서번호 "<%= bookID %>" 도서가 재고 존재하지 않습니다.</h3>
-<%		
-	}
+<h3>요청하신  도서번호는 존재하지 않습니다.</h3>
+<%	
+}else{
+	bookID = Integer.parseInt(tmpID);
+	Book book = mymgr.getBook(bookID);
+%>
+<div id="BDel" class="container">
+<h3>요청하신 도서번호<%=bookID%>, "<%= book.getBookName()%>" 도서가 재고에서 삭제되었습니다.</h3>
+<%	
+	mymgr.delBook(bookID);
+}
 %>	
 </div>
 </body>

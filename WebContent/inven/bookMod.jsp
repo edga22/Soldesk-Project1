@@ -14,10 +14,10 @@
 </head>
 <body>
 <%
-// import한 객체 생성
 BookMgr mymgr = new BookMgr();
 // 이전 페이지에서 넘어온 값들 저장
-int bookID = Integer.parseInt(request.getParameter("bookID"));
+String tmpID = request.getParameter("bookID");
+int bookID=0;
 String bookName = request.getParameter("bookName");
 String author = request.getParameter("author");
 String date = request.getParameter("publishDate");
@@ -26,11 +26,19 @@ String publisher = request.getParameter("publisher");
 String categoryID = request.getParameter("categoryID");
 String imageID = request.getParameter("imageID");
 String stock = request.getParameter("stock");
-// 북 파라미터 수정을 위한 작업(받은값이 null이 아닐경우에만 값 덮어쓰기)
-Book book = mymgr.setBook(bookID,bookName,author,date,price,publisher,categoryID,imageID,stock);
 %>
-<jsp:include page="/inven/bookManagement.jsp"></jsp:include>
+<jsp:include page="/inven/invenMain.jsp"></jsp:include>
 <div id="BookMod" class="container">
+<% 
+if(tmpID == null || tmpID.equals("")){
+%>
+<p>해당하는 도서번호가 존재하지 않습니다.</p>
+<%	
+}else{
+	bookID = Integer.parseInt(tmpID);
+	// 북 파라미터 수정을 위한 작업(받은값이 null이 아닐경우에만 값 덮어쓰기)
+	Book book = mymgr.setBook(bookID,bookName,author,date,price,publisher,categoryID,imageID,stock);
+%>
 <h2>도서 수정 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
@@ -59,5 +67,8 @@ Book book = mymgr.setBook(bookID,bookName,author,date,price,publisher,categoryID
 	 </tbody>
 	</table>	
 </div>
+<%
+}
+%>
 </body>
 </html>

@@ -74,6 +74,7 @@ public class PayService {
 		return 1;
 	}
 	
+	// 오늘 날짜 출력
 	public String getToday(){
 		return String.format("%TF", now);
 	}

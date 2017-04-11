@@ -17,7 +17,7 @@
 BookMgr mymgr = new BookMgr();
 String bookName = request.getParameter("bookName");
 %>
-<jsp:include page="/inven/bookManagement.jsp"></jsp:include>
+<jsp:include page="/inven/invenMain_nav.jsp"></jsp:include>
 <div id="BLA" class="container">
 <h3>전체 도서 검색 결과</h3>
 	<table class="table table-condensed">
