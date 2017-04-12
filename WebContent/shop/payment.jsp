@@ -107,10 +107,11 @@ if(memberID == 0){
 		 </tbody>
 		</table>		
 		</div>
-	<!-- 구매자 정보 -->	
-		<h3>구매자 및 배송 정보</h3>
+	<!-- 판매자 정보 -->	
+		<h3>판매자 및 배송 정보</h3>
 		<div style="border:solid black 0.1rem; margin:2rem; padding:1rem;">
 		 <p> 입금 계좌: 농협 123-456-7890 북카페</p>
+		 <p> 입금일 기준 2~3일 배송 시간 소요</p>
 		</div>
 	<!-- 완료하기 -->		
 		<div align="right">

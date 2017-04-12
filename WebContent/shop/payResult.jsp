@@ -28,14 +28,13 @@ if(memberID == 0){
 	<p>로그인이 안되었습니다.</p>
 <%
 }else{
-
-// 이전 페이지에서 데이터 받아오기, 주문번호 자동생성
-String[] bookIDs = request.getParameterValues("bookID"); 
-String[] cnts = request.getParameterValues("cnt"); 
-String userName = request.getParameter("userName");
-String phone = request.getParameter("phone");
-String email = request.getParameter("email");
-String address = request.getParameter("address");
+	// 이전 페이지에서 데이터 받아오기, 주문번호 자동생성
+	String[] bookIDs = request.getParameterValues("bookID"); 
+	String[] cnts = request.getParameterValues("cnt"); 
+	String userName = request.getParameter("userName");
+	String phone = request.getParameter("phone");
+	String email = request.getParameter("email");
+	String address = request.getParameter("address");
 %>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div id="obm" class="container">
@@ -52,18 +51,17 @@ String address = request.getParameter("address");
 	 </thead>
 	 <tbody>
 <%
-// 책 한권씩 구매목록에 추가하기
-if( bookIDs == null || bookIDs.equals("") || cnts == null || cnts.equals("")){
+	// 책 한권씩 구매목록에 추가하기
+	if( bookIDs == null || bookIDs.equals("") || cnts == null || cnts.equals("")){
 %>	
 	<tr><th> 데이터가 잘못 넘어왔습니다. </th></tr>
 <%	
-}else{
-	ps.setOrder(memberID, bookIDs, cnts); // 배송관리 DB에 저장(구매)
-	for(String bookID : bookIDs){
-		Book book = ps.getBook(bookID); // 도서 생성
-		book.setStock(book.getStock()-1); // 재고에서 1권 삭제	
-		point += ps.getPoint(bookID, cnts[i]); // 구매목록마다 포인트 누적
-		ps.setPoint(memberID, point); // 구매후 적립포인트
+	}else{
+		ps.setOrder(memberID, bookIDs, cnts); // 배송관리 DB에 저장(구매)
+		for(String bookID : bookIDs){
+			Book book = ps.getBook(bookID); // 도서 생성
+			book.setStock(book.getStock()-1); // 재고에서 1권 삭제	
+			point += ps.getPoint(bookID, cnts[i]); // 구매목록마다 포인트 누적		
 %>	 	
 	  <tr>
 		<th><%=ps.getOrderID() %></th>
@@ -73,15 +71,17 @@ if( bookIDs == null || bookIDs.equals("") || cnts == null || cnts.equals("")){
 		<th><%=state.change(1)%></th>
 	  </tr>
 <%	
-i++;} 
-}
+			i++;
+			}
+			ps.setPoint(memberID, point); // 구매후 적립포인트
 %>
 	 </tbody>
 	</table>
 	<p>총 적립금:<%=point %></p>
 	<p>구매해 주셔서 갑사합니다.</p>
 </div>
-<%
+<%		
+	}
 }
 %>
 <jsp:include page="/main_foot.jsp"></jsp:include>
