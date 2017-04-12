@@ -129,7 +129,7 @@ $(document).ready(function(){
 		<!-- 전체선택과 버튼들 -->
 		<div class="row" style="margin:0;padding:0">
 			<div class="col-sm-4">
-				<h3>장바구니 목록</h3>
+				<h3>목록</h3>
 			</div>
 			<div class="col-sm-8 text-right" style="margin-top:18px;">
 				<input type="button" class="btn btn-default btn-sm" value="선택상품삭제" id="btnRemovebasket"/>
@@ -232,10 +232,10 @@ $(document).ready(function(){
 	<!--// 가격 테이블 -->	
 	<!-- 주문 및 되돌아가기 -->
 	<div class="row">
-		<div class="col-sm-5"> 
+		<div class="col-sm-7"> 
 		   	<a href="/main.jsp" class="btn btn-default text-left" role="button">쇼핑 계속하기</a>
 		</div>
-		<div class="col-sm-7">
+		<div class="col-sm-5">
 	    	<input type="button" class="btn btn-default btn-lg" value="선택 상품 주문하기" id="btnSelecBasket"/>
 		</div>
 	</div> <!-- 주문 및 되돌아가기 -->

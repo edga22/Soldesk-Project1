@@ -1,3 +1,4 @@
+<%@page import="mgr.BestsellerMgr"%>
 <%@page import="domain.OrderDetail"%>
 <%@page import="mgr.BookMgr"%>
 <%@page import="domain.Book"%>
@@ -8,9 +9,17 @@
 <%
 	DbBasedBestsellerDao dao=new DbBasedBestsellerDao();
 	BookMgr mgr=new BookMgr();
+	BestsellerMgr bmgr=new BestsellerMgr();
 	
 	OrderDetail[] order=dao.getBestID();
+	bmgr.reverse(order);
 %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<head>
+	<script type="text/javascript" src="/js/paging.js">
+		$(‘#paging’).paging({current:5,max:50}); 
+	</script>
+</head>
 <title>베스트셀러</title>
 <style>
 #img{
@@ -55,62 +64,50 @@
  	  	</div>
     </div>
     
+    <% if(order==null || order.length==0){%>
+    <!-- 도서 한권 리스트 -->
+ 	  <li class="list-group-item"> 
+ 	  	<h2>준비중 입니다 :(</h2>
+ 	  </li> <!-- 도서 한권 리스트 -->
+ 	<% }%>
+ 	
     <ul class="list-group">
       <!-- 도서 한권 리스트 -->
       <% for(int i=0;i<order.length;i++){
-		Book book=mgr.getBook(order[i].getBookID());%>
+    	int booIdInt = order[i].getBookID();
+		Book book=mgr.getBook(order[i].getBookID());
+		String bookIdLink = "/inven/bookDetail.jsp?bookID="+booIdInt;
+		String bookNamestr = book.getBookName();	
+		%>
  	  <li class="list-group-item"> 
  	  <div class="row">
  	  	<div class="col-sm-1"><input type="checkbox"/></div>
  	  	<div class="col-sm-2"><img id="img" src="<%=book.getImageID()%>"/></div>
  	  	<div class="col-sm-7">
- 	  		<p><a href="/inven/BookDetail.jsp"></a></p> 
- 	  		<p><%=book.getBookName() %></p> 
- 	  		<p> ￦</p>
+ 	  		<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
+			<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 새창으로보기" target="_blank"></a>
+			<a><i class="glyphicon glyphicon-new-window" style="font-size:0.6rem;color:#555"></i></a><br>
+ 	  		<p><%=book.getAuthor()%> | <%=book.getPublisher() %> | <%=book.getPublishDate() %></p> 
+ 	  		<p><%=book.getPrice() %> ￦</p>
  	  	</div>
  	  	<div class="col-sm-2">
- 	  		<form action="/shop/basket.jsp">
-    			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
-    		</form>
-    		<form action="/shop/Payment.jsp">
- 	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
- 	  		</form>
+ 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니에 담기</a>
+            <a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a>
  	  	</div>
  	   </div>
  	  </li> <!-- 도서 한권 리스트 -->
  	  <%} %>
- 	  
- 	  <!-- 도서 한권 리스트 -->
- 	  <li class="list-group-item"> 
- 	  <div class="row">
- 	  	<div class="col-sm-1"><input type="checkbox"/></div>
- 	  	<div class="col-sm-2"><img id="img" src=""/></div>
- 	  	<div class="col-sm-7">
- 	  		<p><a href="/inven/BookDetail.jsp"></a></p> 
- 	  		<p></p> 
- 	  		<p> ￦</p>
- 	  	</div>
- 	  	<div class="col-sm-2">
- 	  		<form action="/shop/basket.jsp">
-    			<input type="submit" class="btn btn-default btn-block" value="장바구니에 담기">
-    		</form>
-    		<form action="/shop/Payment.jsp">
- 	  			<input type="submit" class="btn btn-default btn-block" value="바로구매">
- 	  		</form>
- 	  	</div>
- 	   </div>
- 	  </li> <!-- 도서 한권 리스트 -->
 	</ul>
 </div>
 
 <!-- 페이징 -->
 <div class="center">
 	<ul class="pagination">
-  		<li><a href="#">1</a></li>
-  		<li><a href="#">2</a></li>
-  		<li><a href="#">3</a></li>
-  		<li><a href="#">4</a></li>
-  		<li><a href="#">5</a></li>
+  		<li><a id="paging">1</a></li>
+  		<li><a id="paging">2</a></li>
+  		<li><a id="paging">3</a></li>
+  		<li><a id="paging">4</a></li>
+  		<li><a id="paging">5</a></li>
 	</ul>
 </div> <!-- 페이징 -->
 </div> <!-- 베스트셀러 탭 내용 -->
