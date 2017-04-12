@@ -28,12 +28,6 @@ public class Category {
 	public void setCode2(int code2) {
 		this.code2 = code2;
 	}
-	public int getCode3() {
-		return code3;
-	}
-	public void setCode3(int code3) {
-		this.code3 = code3;
-	}
 	public String getCategoryName() {
 		return categoryName;
 	}
