@@ -122,7 +122,8 @@ else{ // 최초 검색일때
 			</div>
 		</div>
 		
-		<%for(int i=1;i<=scResult.length;i++){
+		<%if(scResult != null){if(scResult.length <= 1){
+			for(int i=1;i<=scResult.length;i++){
 			int idx = i-1;%>
 		<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
 			<div class="col-md-1">
@@ -144,7 +145,17 @@ else{ // 최초 검색일때
 				<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=scResult[idx].getBookID()%>">바로 구매</a></p>
 			</div>
 		</div>
-		<%} %>
+		<%}}else{%>
+		<div class="row" style="margin-bottom: 1rem;">
+			<div class="col-md-5 col-md-offset-1"><p>검색 결과가 없습니다.</p></div>
+		</div>
+		<%		
+		}		
+		}else{%>
+		<div class="row" style="margin-bottom: 1rem;">
+			<div class="col-md-5 col-md-offset-1"><p>검색 결과가 없습니다.</p></div>
+		</div>
+		<%}%>
 		
 	</div><!-- result -->
 </div>

@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import config.BookMapper;
 import config.Factory;
 import domain.Book; 
@@ -15,6 +17,10 @@ public class DbBasedBookDao implements BookDao {
 	public Book[] getBooks(String target){
 		if(target != null && target.equals("")) target = null;
 		return mapper.getBooks(target).toArray(new Book[mapper.getBooks(target).size()]);
+	}
+	
+	public List<Book> getAllBooks(){
+		return mapper.getAllBooks();
 	}
 	public int cntBooks(){
 		return mapper.cntBooks();

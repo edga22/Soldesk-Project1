@@ -24,6 +24,10 @@
 		SELECT EVENT_ID FROM Events WHERE event_name = #{value}
 	</select>
 	
+	<select id="getNameEvents" resultMap="EventMap">
+		SELECT * FROM Events WHERE event_name LIKE CONCAT('%',#{value},'%')
+	</select>
+	
 	<insert id="addEvent" parameterType="domain.Event">
 		INSERT INTO Events (GIFT_ID, EVENT_NAME, DISCOUNT, START_DATE, END_DATE)
 		values (#{giftID}, #{eventName,jdbcType=VARCHAR}, #{discount}, #{startDate,jdbcType=DATE}, #{endDate,jdbcType=DATE})

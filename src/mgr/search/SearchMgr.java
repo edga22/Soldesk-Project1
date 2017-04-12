@@ -14,6 +14,10 @@ public class SearchMgr {
 		return bookdao.cntBooks();
 	}
 	
+	public BookDao getDao(){
+		return bookdao;
+	}
+	
 	public Book[] getBooks(String target){		
 		return bookdao.getBooks(target);
 	}

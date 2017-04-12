@@ -21,6 +21,10 @@ public class DbBasedEventDao implements EventDao {
 		return mapper.getIdEvent(eventName);
 	}
 	
+	public Event[] getNameEvents(String eventName){
+		return mapper.getNameEvents(eventName);
+	}
+	
 	public int addEvent(Event event){
 		return mapper.addEvent(event);
 	}

@@ -27,7 +27,9 @@ public class SearchBox {
 	
 	public boolean wordFilter(String word){
 		boolean isFiltered = false;
-		for(int idx=0; idx < pickBooks.size() ; idx++){
+		int fullsize = pickBooks.size();
+		for(int idx=0; idx < fullsize ; idx++){
+			if(pickBooks.size() <= idx) break;
 			if(!pickBooks.get(idx).getBookName().contains(word)){
 				pickBooks.remove(idx);
 				isFiltered = true;

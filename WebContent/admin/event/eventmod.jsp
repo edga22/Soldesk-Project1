@@ -54,8 +54,9 @@ body {
 <div class="row">
 	
 	<div class="form-inline form-group">
+		<input type="text" name="eventname">
 		<p class="form-control-static">할인율:</p>
-		<input type="number" max="100" class="form-control" id="percent" name="dc_percent">
+		<input type="number" min="0" max="100" class="form-control" id="percent" name="dc_percent">
 		
 		<p class="form-control-static">%   사은품:</p>
 		<select name="gift" class="form-control">

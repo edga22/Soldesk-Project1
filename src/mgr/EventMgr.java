@@ -40,13 +40,13 @@ public class EventMgr {
 		Book target = bookdao.getBook(bookID);
 		Event event = null;
 		boolean flag = true;
-		int eventid = eventdao.getIdEvent(eventname);			
+		Event[] existEvent = eventdao.getNameEvents(eventname);
 		
-		if(target.getEventID() == 0 && eventid == 0){
+		if(target.getEventID() == 0 && existEvent.length <= 1){
 			event = new Event();				
 		}
 		else {
-			event = eventdao.getEvent(eventid);			
+			event = eventdao.getEvent(existEvent[0].getEventID());			
 		}
 
 		event.setEventName(eventname);

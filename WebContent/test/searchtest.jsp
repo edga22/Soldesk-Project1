@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-	import="mgr.SearchMgr" %>
+	import="mgr.search.SearchMgr" %>
 <%
+request.setCharacterEncoding("utf-8");
 SearchMgr searcheng = new SearchMgr();
 String target = "";
 if(request.getParameter("target")!=null) target = request.getParameter("target");
@@ -19,15 +20,23 @@ String flag = "시험용 페이지";
 <title>Insert title here</title>
 </head>
 <body>
+
+<%
+for(Book output : searcheng.getDao().getAllBooks()){%>
+	<h5><%=output.getBookID() %>, <%=output.getBookName() %>, <%=output.getAuthor() %>, <%=output.getPublishDate() %></h5>
+<%}
+%>
+
+
 <h2><%=flag %></h2>
 <form>
 <p>검색 키워드:<input type="text" name="target"> <button type="submit">검색</button></p>
 </form>
-<h2>검색된 책의 갯수 : <%=searcheng.getBooks(target).length %></h2>
+<h2>검색된 책의 갯수 : <%=target%>으로 <%=searcheng.getBooks(target).length %></h2>
 <%
 	for(Book output:searcheng.getBooks(target)){
 %>
-	<h3><%=output.getBookID() %>, <%=output.getBookName() %>, <%=output.getAuthor() %></h3>
+	<h5><%=output.getBookID() %>, <%=output.getBookName() %>, <%=output.getAuthor() %>, <%=output.getPublishDate() %></h5>
 <%} %>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

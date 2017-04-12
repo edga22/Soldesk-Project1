@@ -24,7 +24,7 @@
             - JNDI : 이 DataSource 구현체는 컨테이너에 따라 설정이 변경되며 ,
               JNDI 컨텍스트를 참조한다. : initial_context, data_source 
             -->
-            <dataSource type="POOLED">
+            <dataSource type="UNPOOLED">
                 <property name="driver" value="${JDBC.Driver}" />
                 <property name="url" value="${JDBC.ConnectionURL}" />
                 <property name="username" value="${JDBC.Username}" />

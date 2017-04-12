@@ -16,21 +16,21 @@
 		<result property="subtitle"	column="SUBTITLE" />
 		<result property="description"	column="DESCRIPTION" />
 	</resultMap>
-	
-	<select id="getBooks" parameterType="String" resultMap="BookMap">
-		SELECT * FROM Books 
-		<if test="value != null">
-		WHERE book_name	LIKE '%' || #{value} || '%' OR author LIKE '%' || #{value} || '%' OR publisher LIKE '%' || #{value} || '%'
-		</if>
-		ORDER BY publish_date
-	</select>
-	
+		
 	<select id="getAllBooks" resultMap="BookMap">
-		SELECT * FROM Books ORDER BY BOOK_ID
+		SELECT * FROM Books ORDER BY BOOK_ID desc
 	</select>
 	
 	<select id="getBook" parameterType="int" resultMap="BookMap">
 		SELECT * FROM Books WHERE book_ID = #{bookID}
+	</select>
+	
+	<select id="getBooks" resultMap="BookMap">
+		SELECT * FROM Books 
+		<if test="value != null">
+		WHERE book_name	LIKE CONCAT('%',#{value},'%') OR author LIKE CONCAT('%',#{value},'%') OR publisher LIKE CONCAT('%',#{value},'%')
+		</if>
+		ORDER BY publish_date desc
 	</select>
 		
 	<insert id="addBook" parameterType="domain.Book">
@@ -46,35 +46,4 @@
 		where book_ID = #{bookID}
 	</update>
 	
-	
-	
-	
-<!--  
-    <resultMap id="MemberMap" type="">
-        <id     property="user_no"  column="user_no"/>
-        <result property="name"     column="name"/>
-        <result property="regDate"  column="reg_date"/>
-    </resultMap>
-         
-    <select id="getMembers" resultType="">
-        select user_no, name, reg_date from users
-    </select>
-    
-    <select id="getMember" parameterType="int" resultMap="MemberMap">
-        select user_no, name, reg_date from users where user_no=#{user_no}
-    </select>
-  
-    <update id="updateMember" parameterType="">
-    	update users
-    	<set>
-    		<if test="name != null">name = #{name}</if>
-    	</set>
-    	where user_no = #{user_no}
-    </update>
-    
-    <delete id="delMember" parameterType="int">
-    	delete from users
-    	where user_no = #{user_no}
-    </delete>
--->
 </mapper>
