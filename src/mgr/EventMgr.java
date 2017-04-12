@@ -20,11 +20,11 @@ public class EventMgr {
 	
 	// 책 할인율을 실제 비율로 반환합니다
 	// param : 책 ID
-	// return : 할인율 % * 0.01
+	// return : (1 -할인율 % * 0.01)
 	public double getDiscountMult(int bookID){
 		int eventID = bookdao.getBook(bookID).getEventID();
 		if(eventID == 0) return 0;
-		else return (double)(eventdao.getEvent(eventID).getDiscount() * 0.01);		
+		else return (1 - (double)(eventdao.getEvent(eventID).getDiscount() * 0.01));		
 	}
 	
 	// 책 사은품 ID 반환
