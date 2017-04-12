@@ -62,4 +62,16 @@ public class BasketMgr {
 			}
 		}
 	}
+	
+	public void update(int bookID,int cnt){
+		Book book=new Book();
+		book=mgr.getBook(bookID);
+		
+		for(Basket tmpBasket:bookList){
+			if(tmpBasket.getBook()==book){
+				Basket tmp=tmpBasket;
+				tmp.setCnt(cnt); break;
+			}
+		}
+	}
 }
