@@ -26,7 +26,7 @@ BookMgr mymgr = new BookMgr();
 		 <label>출 판 사:<input type="text" name="publisher" placeholder="출판사" ></label>
 		 <label>출 판 일:<input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)" ></label>
 		 <label>책 금 액:<input type="number" name="price" placeholder="금액" ></label>
-		 <label>이 미 지:<input type="text" name="imageID" placeholder="책표지 주소(.jpg)" ></label>
+		 <label>이 미 지:<input type="text" name="imageID" value="/img/item/" placeholder="책표지 주소(.jpg)" ></label>
 		 <label>재     고:<input type="number" name="stock" placeholder="등록 수량" ></label>
 		<br>
 		<button type="submit" formaction="/inven/bookMod.jsp" class="btn btn-default">수정</button>

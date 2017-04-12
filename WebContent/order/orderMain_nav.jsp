@@ -18,8 +18,16 @@
 	 회원번호로 조회: <input type="number" name="memberID" placeholder="유저 번호" required>
 	 <button type="submit" formaction="/order/ordersByMemberID.jsp" class="btn btn-default">검색</button>
 	</form>
-	<form>	
-	 배송상태로 조회: <input type="number" name="progress" placeholder="1입금확인,2배송준비,3배송시작,4배송완료,5완료" required>
+	<form> 	
+	 배송상태로 조회:
+	 <input type="number" name="progress" list="select" placeholder="배송상태" required>
+		<datalist id="select">
+			<option value="1">입금 확인중</option>
+			<option value="2">배송준비</option>
+			<option value="3">배송시작</option>
+			<option value="4">배송완료</option>
+			<option value="5">완료</option>
+		</datalist> 
 	 <button type="submit" formaction="/order/ordersByProgress.jsp" class="btn btn-default">검색</button>
 	</form>	
 	<form>	

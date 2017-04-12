@@ -26,7 +26,7 @@
 		   <li> 출 판 사:<input type="text" name="publisher" placeholder="출판사" required></li>		  
 		   <li> 출 판 일:<input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)" required></li>		  
 		   <li> 책 금 액:<input type="number" name="price" placeholder="금액" required></li>		  
-		   <li> 이 미 지:<input type="text" name="imageID" placeholder="책표지 주소(.jpg)" required></li>		  
+		   <li> 이 미 지:<input type="text" name="imageID" placeholder="/img/item/책표지 주소.jpg(경로)" required></li>		  
 		   <li> 재     고:<input type="number" name="stock" placeholder="등록 수량" required></li>		  
 		  </ul>		
          </div>
