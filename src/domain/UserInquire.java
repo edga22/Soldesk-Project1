@@ -3,9 +3,9 @@ package domain;
 import java.util.Date;
 
 public class UserInquire {
-	private String inquireTitle;
-	private String inquireName;
 	private String inquireEmail;
+	private String inquireTitle;
+	private String inquireName;	
 	private String inquireContent;
 	private Date inquireDate;
 	

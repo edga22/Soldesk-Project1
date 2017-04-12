@@ -7,9 +7,9 @@ import domain.UserInquire;
 
 public interface UserInquireMapper {
 	List<UserInquire> getUserInquires();
-	UserInquire getTitle(UserInquire inquireTitle);
-	UserInquire getName(UserInquire inquireName);
 	UserInquire getEmail(UserInquire inquireEmail);
+	UserInquire getTitle(UserInquire inquireTitle);
+	UserInquire getName(UserInquire inquireName);	
 	UserInquire getContent(UserInquire inquireContent);	
 	Date getDate(UserInquire inquireDate);
 }

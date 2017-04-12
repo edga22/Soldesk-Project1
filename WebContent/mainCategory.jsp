@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
-		 import="mgr.BookMgr"%>
+		 import="mgr.BookMgr"
+		 import="domain.Category"%>
 <%
 BookMgr mymgr = new BookMgr();
 String cataPage = request.getParameter("cata");
