@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="mgr.BasketMgr"
+        import="mgr.EventMgr"
 		import="domain.Basket" %>
 <%
-	BasketMgr mgr;	
+	BasketMgr mgr;
+    EventMgr evmgr = new EventMgr();
 	Basket[] basketList;
 	
 	String bID=request.getParameter("bookID");
@@ -47,7 +49,7 @@ $(document).ready(function(){
 		//만약 전체 선택 체크박스가 체크된상태일경우 
 		if($("#checkall").prop("checked")){ 
 			//해당화면에 전체 checkbox들을 체크해준다 
-			$(":checkbox").prop("checked",true); 
+			$(":checkbox").prop("checked",true);
 		// 전체선택 체크박스가 해제된 경우 
 		}else{ 
 			//해당화면에 모든 checkbox들의 체크를해제시킨다. 
@@ -55,25 +57,30 @@ $(document).ready(function(){
 		} 
 	});
 
- 	$('td').find(':checkbox').click(function () { 		
-		var amt1 = 0;
-		var amt2 = 0;
-		var amt3 = 0;
-		var amt4 = 0;
-		$('td').find(':checkbox').each(function () {
+ 	$('tr').find(':checkbox').click(function() { 		
+		var amt1 = 0; //총판매가
+		var amt2 = 0; //배송비
+		var amt3 = 0; //총판매가+배송비
+		var amt4 = 0; //포인트
+		$('td').find(':checkbox').each(function() {
 			if ($(this).is(':checked')) {
 				var amt = $(this).val();
 				var amtNum = amt.split(',');				
 				amt1 = amt1 + parseInt(amtNum[1]) * parseInt(amtNum[2]);
-				amt2 = amt1 * 90 / 100;
-				amt3 = amt1 * 10 / 100;
-				amt4 = 0;
+				if(amt1 >= 9900 || amt == 0) {
+					amt2 = 0;
+				}else{ 
+					amt2 = 2500;
+				}				
+				amt3 = amt1 + amt2;
+				amt4 = amt1 * 10 / 100;;
 			}
 		});
 		$('span.total').hide();
 		$('span.result1').text(amt1);
 		$('span.result2').text(amt2);
-		$('span.result3').text(amt3);		
+		$('span.result3').text(amt3);
+		$('span.result4').text(amt4);
 	});
  	
  	$('#btnRemovebasket').on('click', function(e) {
@@ -114,7 +121,13 @@ $(document).ready(function(){
      });
 });
 </script>
-
+<style>
+<!--
+#total th, #total td {
+    text-align:center;
+}
+-->
+</style>
 <title>장바구니</title>
 
 <jsp:include page="/main_navbar.jsp"></jsp:include>
@@ -156,17 +169,28 @@ $(document).ready(function(){
 		    	<%} %>
 		    	<% 
 		    	int totalBookPrice = 0;
+		    	int bookSalePrice = 0;
+		    	int bookPoint = 0;
+		    	int bootCnt = 0;
+		    	int bookdiscount = 0;
+		    	double eventdiscount = 0.0;
 		    	
 		    	for(int i=0;i<basketList.length; i++) {
-		    		int booIdInt = basketList[i].getBook().getBookID();
+		    		int bookIdInt = basketList[i].getBook().getBookID();
+		    		eventdiscount = evmgr.getDiscountMult(bookIdInt);
 		    		bookPrice = basketList[i].getBook().getPrice();
-		    		int bookSalePrice = bookPrice*100/100;
-		    		int bookPoint = bookSalePrice*10/100;
-		    		int bootCnt = basketList[i].getCnt();
-		    		String bookIdLink = "/inven/bookDetail.jsp?bookID="+booIdInt;
+		    		if(eventdiscount != 0){
+		    			bookSalePrice = (int)(bookPrice*eventdiscount);
+		    			bookdiscount = 100-(int)(eventdiscount*100);
+		    		}else{
+		    		    bookSalePrice = bookPrice*100/100;		    		
+		    		}
+		    		bookPoint = bookSalePrice*10/100;
+		    		bootCnt = basketList[i].getCnt();
+		    		String bookIdLink = "/inven/bookDetail.jsp?bookID="+bookIdInt;
 		    		String bookNamestr = basketList[i].getBook().getBookName();	    		
 		    		
-		    		totalBookPrice += bookSalePrice;
+		    		totalBookPrice += bookSalePrice*bootCnt;
 		    	%>
 		   		<tr>				      	
 			        <td style="vertical-align:middle;text-align:right;width:45px;">
@@ -181,22 +205,22 @@ $(document).ready(function(){
 			        </td>
 			        <td style="vertical-align:middle;">
 			        	정가: <del><%=bookPrice %></del>원<br>
-			        	판매가: <%=bookSalePrice %>원<br>
+			        	판매가: <%=bookSalePrice %>원<% if(bookdiscount != 0) out.print("("+bookdiscount+"%)"); %><br>
 			        	포인트: <%=bookPoint %>P (10%)			        	
 			        </td>
 			        <td style="vertical-align:middle;text-align:center">
 			            <form action="/shop/basketUpdate.jsp">
-			                <input type="hidden" name="bookID" value="<%=booIdInt%>"/>
-							<input type="number" name="cnt" min="1" value="" placeholder="<%=bootCnt%>" style="width:15%;min-width:40px" />
+			                <input type="hidden" name="bookID" value="<%=bookIdInt%>"/>
+							<input type="number" name="cnt" min="1" value="<%=bootCnt%>" style="width:15%;min-width:40px"/>
 							<input type="submit" class="btn btn-default btn-sm" value="변경" id="btnCntChangeBasket"/>
 						</form>
 			        </td>
 			        <td style="vertical-align:middle;text-align:center">
-				    	<a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=booIdInt%>&cnt=<%=bootCnt%>">바로 구매</a>
-                        <a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=<%=booIdInt%>">삭제</a>
+				    	<a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=bookIdInt%>&cnt=<%=bootCnt%>">바로 구매</a>
+                        <a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=<%=bookIdInt%>">삭제</a>
 					</td>
 					<td style="vertical-align:middle;text-align:center">
-						<input type="checkbox" name="bookIdList" value="<%=booIdInt%>,<%=bookPrice%>,<%=bootCnt%>" checked="checked">
+						<input type="checkbox" name="bookIdList" value="<%=bookIdInt%>,<%=bookSalePrice%>,<%=bootCnt%>" checked="checked">
 					</td>
 		      	</tr>
 		      	<% } %>
@@ -213,7 +237,7 @@ $(document).ready(function(){
 	<div class="row">
 		<div class="col-sm-12">
 			<h3>가격</h3>
-			<table class="table">
+			<table class="table" id="total">
 			    <thead>
 			      <tr>
 			        <th>상품금액</th>
@@ -224,10 +248,10 @@ $(document).ready(function(){
 			    </thead>
 			    <tbody>
 			      <tr>
-			    	<td><span class="total"><%= totalPrice %></span><span class="result1"></span>원</td>
-			    	<td><span class="total"><%= delivery %></span><span class="result4"></span>원</td>
-			    	<td><span class="total"><%= totalPrice + delivery %></span><span class="result2"></span>원</td>
-			    	<td><span class="total"><%= totalBookPrice*10/100 %></span><span class="result3"></span>P</td>
+			    	<td><span class="total"><%= totalBookPrice %></span><span class="result1"></span>원</td>
+			    	<td><span class="total"><%= delivery %></span><span class="result2"></span>원</td>
+			    	<td><span class="total"><%= totalPrice %></span><span class="result3"></span>원</td>
+			    	<td><span class="total"><%= totalBookPrice*10/100 %></span><span class="result4"></span>P</td>
 			       </tr>
 			    </tbody>
 			</table> 
@@ -236,10 +260,10 @@ $(document).ready(function(){
 	<!--// 가격 테이블 -->	
 	<!-- 주문 및 되돌아가기 -->
 	<div class="row">
-		<div class="col-sm-7"> 
+		<div class="col-sm-5"> 
 		   	<a href="/main.jsp" class="btn btn-default text-left" role="button">쇼핑 계속하기</a>
 		</div>
-		<div class="col-sm-5">
+		<div class="col-sm-7">
 	    	<input type="button" class="btn btn-default btn-lg" value="선택 상품 주문하기" id="btnSelecBasket"/>
 		</div>
 	</div> <!-- 주문 및 되돌아가기 -->
