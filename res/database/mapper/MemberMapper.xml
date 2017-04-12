@@ -65,8 +65,4 @@
 		where email = #{email} or phone = #{phone}
 	</select>
 
-	<delete id="getoutMember" parameterType="domain.Member">
-		delete from members
-		where PASSWD=#{password}
-	</delete>
 </mapper>
