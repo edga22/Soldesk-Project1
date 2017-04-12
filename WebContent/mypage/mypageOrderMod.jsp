@@ -3,6 +3,8 @@
     <%@ page import="domain.PurchaseOrder"
 			 import="mgr.DeliveryMgr" 
 			 import="domain.Book"
+			 import="service.OrderState"
+			 import="domain.OrderDetail"
 			 import="mgr.BookMgr"%>
 <!DOCTYPE html>
 <html>
@@ -16,18 +18,19 @@
 </head>
 <body>
 <% 
-response.setCharacterEncoding("utf-8");
 DeliveryMgr dm = new DeliveryMgr();
 BookMgr bm = new BookMgr();
+OrderState order = new OrderState();
+OrderDetail od = new OrderDetail();
+
 int tmp = (Integer)session.getAttribute("memberID");
 int userID=1;
 if(tmp == 0){
 }else{
 	userID = tmp;
 }
-PurchaseOrder[] purchaseOrders = dm.getMember(userID);
-//OrderState order = new OrderState();
 
+PurchaseOrder[] purchaseOrders = (dm.getMember(userID));
 %>          
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
@@ -47,24 +50,26 @@ PurchaseOrder[] purchaseOrders = dm.getMember(userID);
 			<th>수령인</th>
 			<th>주문상품</th>
 			<th>수량</th>
+			<th>구매일</th>
 			<th>배송조회</th>
 		</tr>
 	</thead>
 	<tbody>
-<%--
+<%
 for(PurchaseOrder po:purchaseOrders){
-	Book book = bm.getBook(po.getBookID());
---%>	
+	Book book = bm.getBook(po.getPurchaseOrderID());
+%>	
 		<tr>
-			<td><%--<%=po.getMemberID() %></td>
+			<td><%=po.getMemberID()%></td>
 			<td><%=po.getPurchaseOrderID() %></td>
 			<td><%=book.getBookName() %></td>
-			<td><%=po.getAmount()%></td>
-			<td><%=order.change(po.getProgress()) %></td>
-		</tr>--%>
-<%--
+			<td><%=od.getAmount() %></td>
+			<td><%=po.getPurchaseDate() %></td>
+			<td><%=order.change(po.getProgress())%></td>
+		</tr>
+<%
 } 
---%>
+%>
 	
 	</tbody>
 	</table>
