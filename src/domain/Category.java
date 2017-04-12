@@ -6,28 +6,10 @@ public class Category {
 	private int categoryID;
 	private int code1;
 	private int code2;
-	private int code3;
 	private String categoryName;
 	private String categorySubject;
 	private int categoryUse;
 	
-	public Category(){}	
-
-	/*public Category(BigDecimal categoryID, BigDecimal code1, BigDecimal code2, BigDecimal code3,
-			String categoryName) {
-		super();
-		this.categoryID = categoryID.intValue();
-		this.code1 = code1.intValue();
-		this.code2 = code2.intValue();
-		this.code3 = code3.intValue();
-		this.categoryName = categoryName;
-	}*/
-	public Category(int code1, int code2, String categoryName) {
-		super();
-		this.code1 = code1;
-		this.code2 = code2;
-		this.categoryName = categoryName;
-	}
 	public int getCategoryID() {
 		return categoryID;
 	}
