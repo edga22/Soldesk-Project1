@@ -7,6 +7,8 @@ import domain.Book;
 import domain.Member;
 import domain.OrderDetail;
 import domain.PurchaseOrder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class OrderState {
 	String state;

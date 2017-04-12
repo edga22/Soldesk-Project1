@@ -1,5 +1,8 @@
 package service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import mgr.OrderDatailMgr;
@@ -62,10 +65,12 @@ public class PayService {
 	}
 	
 	// 구매 정보 저장
-	public void setOrder(int memberID,String[] bookIDs,String[] cnts){
+	public void setOrder(int memberID,String[] bookIDs,String[] cnts) throws ParseException{
 		OrderDetail od = new OrderDetail();
 		//구매 정보 저장(구매번호 생성,purchaseOrderID)
 		po.setMemberID(memberID);
+		java.sql.Date date = new java.sql.Date(changeDate(String.format("%TY-%Tm-%Td",now, now, now)).getTime());
+		po.setPurchaseDate(date);//오늘날짜 저장
 		po.setProgress(1);
 		dmgr.addOrder(po);
 		//구매 세부정보 저장(OrderDetail), 구매한 도서 종류 수량에 맞게 저장
@@ -92,6 +97,13 @@ public class PayService {
 	// 오늘 날짜 출력
 	public String getToday(){
 		return String.format("%TF", now);
+	}
+	
+	// 오늘날짜 출력 DB용
+	public Date changeDate(String date) throws ParseException{	
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date newDate = format.parse(date);
+		return newDate;
 	}
 	
 }

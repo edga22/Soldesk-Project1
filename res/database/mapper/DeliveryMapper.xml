@@ -27,7 +27,7 @@
 	
 	<insert id="addOrder" parameterType="domain.PurchaseOrder">
 		INSERT INTO purchase_order (MEMBER_ID, PURCHASE_DATE, PROGRESS)
-		values (#{memberID}, sysdate, #{progress})
+		values (#{memberID}, #{purchaseDate}, #{progress})
 	</insert>
 	
 	<insert id="updateOrder" parameterType="domain.PurchaseOrder">
