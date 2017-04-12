@@ -1,10 +1,11 @@
 package service;
 
 import mgr.BookMgr;
-import service.MemberService;
 import mgr.DeliveryMgr;
+import mgr.OrderDatailMgr;
 import domain.Book;
 import domain.Member;
+import domain.OrderDetail;
 import domain.PurchaseOrder;
 
 public class OrderState {
@@ -12,11 +13,13 @@ public class OrderState {
 	BookMgr bmgr;
 	MemberService ms;
 	DeliveryMgr dmgr;
+	OrderDatailMgr odmgr;
 
 	public OrderState() {
 		bmgr = new BookMgr();
 		ms = new MemberService();
 		dmgr = new DeliveryMgr();
+		odmgr = new OrderDatailMgr();
 	}	
 	
 	public String change(int number){
@@ -50,6 +53,22 @@ public class OrderState {
 	// 오더 내용 수정
 	public int updateOrder(PurchaseOrder purchaseOrder){
 		return dmgr.updateOrder(purchaseOrder);
+	}
+	
+	// 주문 세부사항 조회
+	public OrderDetail[] getIdDetails(int PurchaseOrderID){
+		return odmgr.getIdDetails(PurchaseOrderID);
+	}
+	
+	public String getProduct(OrderDetail[] orderDetails){
+		String product ="";
+		int total = 0;
+		for(OrderDetail od: orderDetails){
+			product += "("+bmgr.getBook(od.getBookID()).getBookName()+" "+od.getAmount()+"권)";
+			total += od.getAmount();
+		}
+		product += " 총 "+total+"권";
+		return product;
 	}
 
 }

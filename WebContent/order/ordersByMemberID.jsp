@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.PurchaseOrder"
+		 import="domain.OrderDetail"
 		 import="service.OrderState"
 		 import="mgr.DeliveryMgr"%>
 <!DOCTYPE html>
@@ -32,8 +33,7 @@ PurchaseOrder[] PurchaseOrders = mymgr.getMember(memberID);
 	 	   <tr>
 			<th>회원번호</th>
 			<th>주문번호</th>
-			<th>도서번호</th>
-			<th>수량</th>
+			<th>품목</th>
 			<th>구매날짜</th>
 			<th>상태</th>
 		  </tr>
@@ -41,13 +41,13 @@ PurchaseOrder[] PurchaseOrders = mymgr.getMember(memberID);
 		 <tbody>
 <%
 if( PurchaseOrders != null){
-	for(PurchaseOrder po: PurchaseOrders){	
+	for(PurchaseOrder po: PurchaseOrders){
+		OrderDetail[] ods = state.getIdDetails(po.getPurchaseOrderID());
 %>	 	
 		  <tr>
 			<th><input type="radio" name="orderID" value="<%=po.getPurchaseOrderID()%>"><%=po.getMemberID()%></th>
 			<th><%=po.getPurchaseOrderID()%></th>
-			<th><%=po.getBookID()%></th>
-			<th><%=po.getAmount()%></th>
+			<th><%=state.getProduct(ods)%></th>
 			<th><%=po.getPurchaseDate()%></th>
 			<th><%=state.change(po.getProgress())%></th>
 		  </tr>

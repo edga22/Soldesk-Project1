@@ -1,7 +1,5 @@
 package mgr;
 
-import java.util.List;
-
 import dao.DbBasedOrderDetailDao;
 import dao.OrderDetailDao;
 import domain.OrderDetail;
@@ -21,7 +19,7 @@ public class OrderDatailMgr {
 		return orderDetailDao.addDetail(orderdetail);
 	}
 
-	public int addDetails(List<OrderDetail> orderdetail) {
+/*	public int addDetails(List<OrderDetail> orderdetail) {
 		return orderDetailDao.addDetails(orderdetail);
-	}
+	}*/
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.PurchaseOrder"
+		 import="domain.OrderDetail"
 		 import="service.OrderState"%>
 <!DOCTYPE html>
 <html>
@@ -22,11 +23,15 @@ int OrderID = Integer.parseInt(request.getParameter("orderID"));
 PurchaseOrder po = os.getOrder(OrderID);
 
 if( po == null || po.equals("") ){
+%>
+	<h4>배송 상태가 변경되지 않았습니다.</h4>
+<%	
 }else{
+	OrderDetail[] ods = os.getIdDetails(po.getPurchaseOrderID());
 %>
 	<h4>배송 상태가 변경되었습니다.</h4>
 	<p>유저 ID : <%= os.getMemberName(po.getMemberID()) %></p>
-	<p>주문 도서 : <%= os.getBookName( po.getBookID())%></p>
+	<p>주문 상품 : <%= os.getProduct(ods)%></p>
 	<p>주문 번호 : <%= po.getPurchaseOrderID()%></p>
 	<p>구매 날짜 : <%= po.getPurchaseDate()%></p>
 	<p>배송 상태 : <%= os.change(po.getProgress())%> -> <%po.setProgress(progress);%> <%= os.change(po.getProgress())%>  </p>	
