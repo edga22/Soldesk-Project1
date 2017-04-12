@@ -34,8 +34,8 @@
 	</select>
 		
 	<insert id="addBook" parameterType="domain.Book">
-		INSERT INTO Books (book_id, category_id, event_id, book_Name, author, publisher, publish_Date, image_id, price, stock, subtitle, description)
-		values (BOOK_ID_SEQ.NEXTVAL, #{categoryID}, #{eventID}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR},
+		INSERT INTO Books (category_id, event_id, book_Name, author, publisher, publish_Date, image_id, price, stock, subtitle, description)
+		values (#{categoryID}, #{eventID}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR},
 		 #{publishDate,jdbcType=DATE}, #{imageID,jdbcType=VARCHAR}, #{price}, #{stock}, #{subtitle,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
 	</insert>
 	
@@ -63,12 +63,7 @@
     <select id="getMember" parameterType="int" resultMap="MemberMap">
         select user_no, name, reg_date from users where user_no=#{user_no}
     </select>
-   
-    <insert id="addMember" parameterType="">
-    	insert into users (user_no, name)
-    	values (userno_seq.NEXTVAL, #{name})
-    </insert>
-    
+  
     <update id="updateMember" parameterType="">
     	update users
     	<set>

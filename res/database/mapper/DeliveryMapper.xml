@@ -26,8 +26,8 @@
 	</select><!-- 회원 번호로 검색 -->
 	
 	<insert id="addOrder" parameterType="domain.PurchaseOrder">
-		INSERT INTO purchase_order (PURCHASE_ORDER_ID, MEMBER_ID, PURCHASE_DATE, PROGRESS)
-		values (PURCHASE_ORDER_ID_SEQ.NEXTVAL, #{memberID}, sysdate, #{progress})
+		INSERT INTO purchase_order (MEMBER_ID, PURCHASE_DATE, PROGRESS)
+		values (#{memberID}, sysdate, #{progress})
 	</insert>
 	
 	<insert id="updateOrder" parameterType="domain.PurchaseOrder">

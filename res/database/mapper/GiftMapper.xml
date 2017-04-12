@@ -19,8 +19,8 @@
 	</select>
 	
 	<insert id="addGift" parameterType="domain.Gift">
-		INSERT INTO Gifts (GIFT_ID, GIFT_NAME, TEXT, IMAGE)
-		values (GIFT_ID_SEQ.NEXTVAL, #{giftName}, #{text,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR})
+		INSERT INTO Gifts (GIFT_NAME, TEXT, IMAGE)
+		values (, #{giftName}, #{text,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR})
 	</insert>
 	
 	<update id="updateGift" parameterType="domain.Gift">

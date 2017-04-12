@@ -30,8 +30,8 @@
 	</select>
 	
 	<insert id="addMember" parameterType="domain.UserInquire">
-		insert into members(member_id, email, PASSWD, name, POSTCODE, address, phone)
-		values(member_id_seq.nextval, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+		insert into members(email, PASSWD, name, POSTCODE, address, phone)
+		values(#{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
 									  #{name,jdbcType=VARCHAR}, #{postCode,jdbcType=NUMERIC}, 
 									  #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
 	</insert>
