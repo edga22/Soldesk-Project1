@@ -55,17 +55,19 @@ $(document).ready(function(){
 		} 
 	});
 
- 	$('form').find(':checkbox').click(function () { 		
+ 	$('td').find(':checkbox').click(function () { 		
 		var amt1 = 0;
 		var amt2 = 0;
 		var amt3 = 0;
+		var amt4 = 0;
 		$('td').find(':checkbox').each(function () {
 			if ($(this).is(':checked')) {
 				var amt = $(this).val();
-				var amtNum = amt.split(',');
-				amt1 = amt1 + parseInt(amtNum[1]);
-				amt2 = amt1 * 100 / 100;
-				amt3 = amt1 * 5 / 100;
+				var amtNum = amt.split(',');				
+				amt1 = amt1 + parseInt(amtNum[1]) * parseInt(amtNum[2]);
+				amt2 = amt1 * 90 / 100;
+				amt3 = amt1 * 10 / 100;
+				amt4 = 0;
 			}
 		});
 		$('span.total').hide();
@@ -158,11 +160,13 @@ $(document).ready(function(){
 		    	for(int i=0;i<basketList.length; i++) {
 		    		int booIdInt = basketList[i].getBook().getBookID();
 		    		bookPrice = basketList[i].getBook().getPrice();
+		    		int bookSalePrice = bookPrice*100/100;
+		    		int bookPoint = bookSalePrice*10/100;
 		    		int bootCnt = basketList[i].getCnt();
 		    		String bookIdLink = "/inven/bookDetail.jsp?bookID="+booIdInt;
 		    		String bookNamestr = basketList[i].getBook().getBookName();	    		
 		    		
-		    		totalBookPrice += bookPrice;
+		    		totalBookPrice += bookSalePrice;
 		    	%>
 		   		<tr>				      	
 			        <td style="vertical-align:middle;text-align:right;width:45px;">
@@ -177,13 +181,13 @@ $(document).ready(function(){
 			        </td>
 			        <td style="vertical-align:middle;">
 			        	정가: <del><%=bookPrice %></del>원<br>
-			        	판매가: <%=bookPrice*100/100 %>원<br>
-			        	포인트: <%=bookPrice*5/100 %>점 (5%)			        	
+			        	판매가: <%=bookSalePrice %>원<br>
+			        	포인트: <%=bookPoint %>P (10%)			        	
 			        </td>
 			        <td style="vertical-align:middle;text-align:center">
 			            <form action="/shop/basketUpdate.jsp">
 			                <input type="hidden" name="bookID" value="<%=booIdInt%>"/>
-							<input type="number" name="cnt" min="1" value="" placeholder="<%=bootCnt%>" style="width:10%;min-width:30px" />
+							<input type="number" name="cnt" min="1" value="" placeholder="<%=bootCnt%>" style="width:15%;min-width:40px" />
 							<input type="submit" class="btn btn-default btn-sm" value="변경" id="btnCntChangeBasket"/>
 						</form>
 			        </td>
@@ -221,9 +225,9 @@ $(document).ready(function(){
 			    <tbody>
 			      <tr>
 			    	<td><span class="total"><%= totalPrice %></span><span class="result1"></span>원</td>
-			    	<td><%= delivery %>원</td>
+			    	<td><span class="total"><%= delivery %></span><span class="result4"></span>원</td>
 			    	<td><span class="total"><%= totalPrice + delivery %></span><span class="result2"></span>원</td>
-			    	<td><span class="total"><%= totalBookPrice*5/100 %></span><span class="result3"></span>원</td>
+			    	<td><span class="total"><%= totalBookPrice*10/100 %></span><span class="result3"></span>P</td>
 			       </tr>
 			    </tbody>
 			</table> 
