@@ -62,7 +62,7 @@ public class PayService {
 	}
 	
 	// 구매 정보 저장
-	public void setOrder(int memberID,String[] bookIDs,String[] cnt){
+	public void setOrder(int memberID,String[] bookIDs,String[] cnts){
 		OrderDetail od = new OrderDetail();
 		//구매 정보 저장(구매번호 생성,purchaseOrderID)
 		po.setMemberID(memberID);
@@ -73,9 +73,13 @@ public class PayService {
 		int purchaseOrderID = ods[0].getPurchaseOrderID();
 		for(int i = 0;i<bookIDs.length;i++){
 			od.setBookID(Integer.parseInt(bookIDs[i]));
-			od.setAmount(Integer.parseInt(cnt[i]));
+			od.setAmount(Integer.parseInt(cnts[i]));
 			od.setPurchaseOrderID(purchaseOrderID);
-			odmgr.addDetail(od);
+			odmgr.addDetail(od); // 판매 내용 내용저장
+			//재고에서 판매수량만큼 삭제
+			Book book = getBook(bookIDs[i]); // 도서 생성
+			book.setStock(book.getStock()-1); // 재고에서 1권 삭제	
+			bmgr.updateBook(book); // 삭제하고 남은 수량 DB에 저장
 		}
 	}
 	

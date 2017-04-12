@@ -57,10 +57,9 @@ if(memberID == 0){
 	<tr><th> 데이터가 잘못 넘어왔습니다. </th></tr>
 <%	
 	}else{
-		ps.setOrder(memberID, bookIDs, cnts); // 배송관리 DB에 저장(구매)
+		ps.setOrder(memberID, bookIDs, cnts); // 배송관리 DB에 저장(재고에서 판매수량만큼 차감됨)
 		for(String bookID : bookIDs){
 			Book book = ps.getBook(bookID); // 도서 생성
-			book.setStock(book.getStock()-1); // 재고에서 1권 삭제	
 			point += ps.getPoint(bookID, cnts[i]); // 구매목록마다 포인트 누적		
 %>	 	
 	  <tr>
@@ -73,7 +72,7 @@ if(memberID == 0){
 <%	
 			i++;
 			}
-			ps.setPoint(memberID, point); // 구매후 적립포인트
+			ps.setPoint(memberID, point); // 구매후 총 적립포인트 저장
 %>
 	 </tbody>
 	</table>

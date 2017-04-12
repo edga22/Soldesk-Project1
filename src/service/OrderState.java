@@ -28,7 +28,10 @@ public class OrderState {
 		case 2: state = "배송준비중"; break;
 		case 3: state = "배송시작"; break;
 		case 4: state = "배송완료"; break;
-		case 5: state = "완료";
+		case 5: state = "완료"; break;
+		case 6: state = "교환접수"; break;
+		case 7: state = "환불접수"; break;
+		case 8: state = "환불완료"; 
 		}		
 		return state;
 	}

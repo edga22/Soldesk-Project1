@@ -11,9 +11,19 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container" id="delivery">
 <jsp:include page="/order/orderMain_nav.jsp"></jsp:include>
-	<input type="number" name="progress" placeholder="변경할 상태" required>
+<div class="container" id="delivery">
+	<input type="number" name="progress" list="select" placeholder="배송상태" required>
+		<datalist id="select">
+			<option value="1">입금 확인중</option>
+			<option value="2">배송준비</option>
+			<option value="3">배송시작</option>
+			<option value="4">배송완료</option>
+			<option value="5">완료</option>
+			<option value="6">교환접수</option>
+			<option value="7">환불접수</option>
+			<option value="8">환불완료</option>
+		</datalist> 
 	<button class="btn btn-default">수정</button>	
 <hr style="border: solid 0.1rem;">  
 </div>

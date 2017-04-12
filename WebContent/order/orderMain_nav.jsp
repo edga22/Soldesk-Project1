@@ -12,6 +12,7 @@
 <body>
 <jsp:include page="/admin/admin_nav.jsp"></jsp:include>
 <div id="deliNav">
+	<div class="container">
 	<h3>배송관리</h3><br>
 	<div>
 	<form>	
@@ -27,6 +28,9 @@
 			<option value="3">배송시작</option>
 			<option value="4">배송완료</option>
 			<option value="5">완료</option>
+			<option value="6">교환접수</option>
+			<option value="7">환불접수</option>
+			<option value="8">환불완료</option>
 		</datalist> 
 	 <button type="submit" formaction="/order/ordersByProgress.jsp" class="btn btn-default">검색</button>
 	</form>	
@@ -36,6 +40,7 @@
 	</form>
 	</div>	
 	<a href="/order/orderAll.jsp" class="btn btn-default">전체검색</a><br><br>
+	</div>
 </div>  
 </body>
 </html>

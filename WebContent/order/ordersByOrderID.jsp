@@ -21,8 +21,8 @@ OrderState state = new OrderState();
 int orderID = Integer.parseInt(request.getParameter("orderID"));
 PurchaseOrder po = mymgr.getOrder(orderID);
 %>
-<div id="obmid" class="container">
 <jsp:include page="/order/orderMain_nav.jsp"></jsp:include>
+<div id="obmid" class="container">
 	<form action="/order/orderStateProc.jsp">	
 		<input type="number" name="progress" placeholder="변경할 상태" required>
 		<button type="submit" class="btn btn-default">수정</button>	

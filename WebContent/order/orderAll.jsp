@@ -20,8 +20,8 @@ DeliveryMgr mymgr = new DeliveryMgr();
 OrderState state = new OrderState();
 PurchaseOrder[] PurchaseOrders = mymgr.getOrders();
 %>
-<div id="obm" class="container">
 <jsp:include page="/order/orderMain_nav.jsp"></jsp:include>
+<div id="obm" class="container">
 	<form action="/order/orderStateProc.jsp">	
 		<input type="number" name="progress" list="select" placeholder="배송상태" required>
 		<datalist id="select">
@@ -30,6 +30,9 @@ PurchaseOrder[] PurchaseOrders = mymgr.getOrders();
 			<option value="3">배송시작</option>
 			<option value="4">배송완료</option>
 			<option value="5">완료</option>
+			<option value="6">교환접수</option>
+			<option value="7">환불접수</option>
+			<option value="8">환불완료</option>
 		</datalist>
 		<button type="submit" class="btn btn-default">수정</button>	
 <hr style="border: solid 0.1rem;">
