@@ -44,12 +44,12 @@
 <%
 		}else if(newMember.idCheck(member) ==false){	//아이디 중복이 아닐때
 			
-		newMember.addMember(member);
+			newMember.addMember(member);
 %>	
 		<script>
 			swal({
 				title: "성공",
-				text: "회원가입 성공<%=member.getEmail()%>님 환영합니다.",
+				text: "회원가입 성공 <%=member.getEmail()%> 님 환영합니다.",
 				type: "success"
 			},
 			function(){
