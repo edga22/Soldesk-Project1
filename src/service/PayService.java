@@ -55,6 +55,7 @@ public class PayService {
 	public void setPoint(int memberID, int point){
 		Member member = ms.getMember(memberID);		
 		member.setBonusPoint(point);
+		ms.updatePoint(member);
 	}
 	
 	// 북 원래가격 책정
@@ -81,10 +82,11 @@ public class PayService {
 			od.setAmount(Integer.parseInt(cnts[i]));
 			od.setPurchaseOrderID(purchaseOrderID);
 			odmgr.addDetail(od); // 판매 내용 내용저장
+			
 			//재고에서 판매수량만큼 삭제
 			Book book = getBook(bookIDs[i]); // 도서 생성
 			book.setStock(book.getStock()-1); // 재고에서 1권 삭제	
-			bmgr.updateBook(book); // 삭제하고 남은 수량 DB에 저장
+			bmgr.updateBook(book); // 삭제하고 남은 수량 도서DB에 저장
 		}
 	}
 	
