@@ -10,6 +10,8 @@ public class Category {
 	private String categorySubject;
 	private int categoryUse;
 	
+	public Category(){}
+	
 	public int getCategoryID() {
 		return categoryID;
 	}

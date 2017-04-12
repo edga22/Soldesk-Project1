@@ -6,14 +6,7 @@
 	CategoryDao mydao = new DbBasedCategoryDao();
 	if(mydao.getCategories().size() <2){
 		Category[] temp = new Category[6];
-		temp[0] = new Category(10,10,"역사");
-		temp[1] = new Category(10,20,"과학");
-		
-		temp[2] = new Category(20,10,"역사");
-		temp[3] = new Category(20,20,"과학");
-		
-		temp[4] = new Category(30,10,"역사");
-		temp[5] = new Category(30,20,"과학");
+	    
 		
 		for(Category input:temp){
 			mydao.addCategory(input);

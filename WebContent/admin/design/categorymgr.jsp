@@ -124,10 +124,17 @@ function removeAll(e){
     </div>    
     
     <div class="table-responsive">      
-      <form action="/admin/design/categorymgr.jsp">              
+      <form action="/admin/design/categorymgr.jsp" method="post">
       <table class="table table-striped table-hover">
         <thead>
-          <tr class="info">
+          <tr>
+            <th colspan="6" class="text-center">
+                <p>분류코드는 직접 입력한 값을 사용하고 하위분류코드는 분류코드1은 셀렉트 박스를 선택합니다.<br>
+                분류코드는 0~9까지 입력이 가능하며 2자리씩 4자리를 사용하여 2단계를 표현합니다.<br> 
+                <strong>분류코드는 나중에 수정이 되지 않으므로 신중하게 결정하여 사용하십시오.</strong></p>
+            </th>
+          </tr>
+          <tr class="info" name="trBanner2">
             <th colspan="2" style="width:25%">분류코드</th>
             <th style="width:25%">분류명</th>
             <th style="width:25%">분류설명</th>
@@ -135,16 +142,7 @@ function removeAll(e){
             <th style="width:15%">분류관리</th>
           </tr>
         </thead>        
-        <tbody>
-          <tr name="trBanner2">
-            <td colspan="6" class="text-center">
-            <p>분류코드는 직접 입력한 값을 사용하고 하위분류코드는 분류코드1은 셀렉트 박스를 선택합니다.<br>
-			분류코드는 나중에 수정이 되지 않으므로 신중하게 결정하여 사용하십시오.</p>
-			
-			<p>분류코드는 2자리씩 10자리를 사용하여 2단계를 표현할 수 있습니다.<br>
-			0~9까지 입력이 가능하며 한 분류당 최대 1296가지를 표현할 수 있습니다.</p>
-            </td>
-          </tr>
+        <tbody>          
 	        <%
 		    int code;	        
 		    for(Category result:mymgr.listCategories()){

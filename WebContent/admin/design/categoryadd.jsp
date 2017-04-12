@@ -10,14 +10,13 @@ String code2str = request.getParameter("code2");
 String name = request.getParameter("categoryName");
 String subject = request.getParameter("categorySubject");
 String usestr = request.getParameter("categoryUse");
-Category cate;
 
 if(code1str != null){
 	int code1 = Integer.parseInt(code1str);
 	int code2 = (code2str != null)?Integer.parseInt(code2str):0;
 	int use = (usestr != null)?Integer.parseInt(usestr):0;
 
-	cate = new Category();
+	Category cate = new Category();
 	cate.setCode1(code1);
 	cate.setCode2(code1);
 	cate.setCategoryName(name);
