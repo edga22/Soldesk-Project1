@@ -15,23 +15,35 @@
 		SELECT * FROM Category ORDER BY category_id
 	</select>
 	
-	<select id="getCategoriesUse" resultMap="CategoryMgrMap">
-        SELECT * FROM Category WHERE category_use=1 ORDER BY category_id
+	<select id="getCategoriesUse" parameterType="domain.Category" resultMap="CategoryMgrMap">
+        SELECT * FROM Category
+        <where>
+            <if test="code1 != null and code2 == null">
+                code2 = 0
+            </if>
+            <if test="code1 != null and code2 != null">
+                code2 > 0
+            </if>
+            <if test="code1 != null and category_use != null">
+                and category_use=1
+            </if>
+        </where>
+        ORDER BY category_id        
     </select>
     
     <select id="getCategoriesUseCode1" resultMap="CategoryMgrMap">
-        SELECT * FROM Category WHERE category_use=1 AND code2=0 ORDER BY category_id
+        SELECT * FROM Category WHERE code2 = 0 ORDER BY category_id
     </select>
     
     <select id="getCategoriesUseCode2" resultMap="CategoryMgrMap">
-        SELECT * FROM Category WHERE category_use = 1 AND code2 > 0 ORDER BY category_id
+        SELECT * FROM Category WHERE code2 > 0 ORDER BY category_id
     </select>
 	
-	<select id="getCategory" parameterType="domain.Category" resultMap="CategoryMgrMap">
-		SELECT * FROM Category WHERE category_id = #{id}
+	<select id="getCategory" parameterType="int" resultMap="CategoryMgrMap">
+		SELECT * FROM Category WHERE category_id = #{category_id}
 	</select>
 	
-	<select id="getRegionCategories" resultMap="CategoryMgrMap" parameterType="int">
+	<select id="getRegionCategories" parameterType="int" resultMap="CategoryMgrMap">
 		SELECT * FROM Category WHERE code1 = #{code1}
 	</select>	
 </mapper>
