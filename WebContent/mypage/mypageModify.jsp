@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"
 		 import="dao.DbBasedMemberDao"%>
-<!DOCTYPE html PUBLIC>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

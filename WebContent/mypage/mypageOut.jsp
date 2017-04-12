@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"
-		 import="mgr.MemberService"
-		 import="dao.MemberDao"
-		 import="dao.DbBasedMemberDao"%>
+		 import="dao.MypageDao"
+		 import="dao.DbBasedMypageDao"%>
 		   
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,12 +22,12 @@ int userID=1;
 if(tmp == 0){
 }else{
 	userID = tmp;
-
+}
 Member member= new Member();
-MemberDao md = new DbBasedMemberDao();
+MypageDao md = new DbBasedMypageDao();
 String pw = "";
 
-if(pw !=null&& pw.equals("")){
+if(request.getParameter("password") !=null&& !request.getParameter("password").equals("")){
 	pw = request.getParameter("password");
 }
 
@@ -36,7 +35,11 @@ String getout = request.getParameter("out");
 
 if(getout.equals("sss")){
 	member.setPassword(pw);
-	md.getoutMember(member);
+	member.setMemberID(userID);
+	if(member !=null){
+		md.getoutMember(member);
+		session.invalidate();
+	}
 }
 %>
      

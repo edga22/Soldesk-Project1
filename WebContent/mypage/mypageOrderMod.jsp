@@ -2,10 +2,9 @@
     pageEncoding="UTF-8"%>
     <%@ page import="domain.PurchaseOrder"
 			 import="mgr.DeliveryMgr" 
-			 import="service.OrderState"
 			 import="domain.Book"
 			 import="mgr.BookMgr"%>
-<!DOCTYPE html PUBLIC >
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,7 +26,7 @@ if(tmp == 0){
 	userID = tmp;
 }
 PurchaseOrder[] purchaseOrders = dm.getMember(userID);
-OrderState order = new OrderState();
+//OrderState order = new OrderState();
 
 %>          
 <jsp:include page="/main_navbar.jsp"></jsp:include>
@@ -52,20 +51,20 @@ OrderState order = new OrderState();
 		</tr>
 	</thead>
 	<tbody>
-<%
+<%--
 for(PurchaseOrder po:purchaseOrders){
 	Book book = bm.getBook(po.getBookID());
-%>	
+--%>	
 		<tr>
-			<td><%=po.getMemberID() %></td>
+			<td><%--<%=po.getMemberID() %></td>
 			<td><%=po.getPurchaseOrderID() %></td>
 			<td><%=book.getBookName() %></td>
 			<td><%=po.getAmount()%></td>
 			<td><%=order.change(po.getProgress()) %></td>
-		</tr>
-<%
+		</tr>--%>
+<%--
 } 
-%>
+--%>
 	
 	</tbody>
 	</table>
