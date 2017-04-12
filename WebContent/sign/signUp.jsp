@@ -54,7 +54,7 @@
 		</div>
 		<div class="form-group">
 			<label for="inputdefault">우편번호</label>
-			<button type="button" id="postcodify_search_button" class="btn btn-default">우편번호찾기</button>
+			<button type="button" id="postcodify_search_button" class="btn btn-success">우편번호찾기</button>
 			<!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 class를 부여한다 -->
 			<input type="text" name="postCode" class="postcodify_postcode5 form-control" id="postNumber" value="" placeholder="우편번호 버튼을 누르세요." readonly/>
 		</div>
