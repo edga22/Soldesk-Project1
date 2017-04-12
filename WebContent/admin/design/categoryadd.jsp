@@ -5,6 +5,8 @@
 <%@ page import="mgr.CategoryMgr" %>
 <%@ page import="java.util.List" %>
 <%
+response.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 String code1str = request.getParameter("code1");
 String code2str = request.getParameter("code2");
 String name = request.getParameter("categoryName");
@@ -18,7 +20,7 @@ if(code1str != null){
 
 	Category cate = new Category();
 	cate.setCode1(code1);
-	cate.setCode2(code1);
+	cate.setCode2(code2);
 	cate.setCategoryName(name);
 	cate.setCategorySubject(subject);
 	cate.setCategoryUse(use);    
@@ -27,12 +29,14 @@ if(code1str != null){
 	
 	if(mymgr.addCategory(cate) == true){ %>
 		<script>
-		   alert("카테고리 생성성공");
+		   	alert("카테고리 생성성공");
+		   	window.location.replace("basket.jsp");
 		</script>
 <%  }else{ %>
-	   <script>
-	       alert("카테고리 생성실패");
-	   </script>
+	   	<script>
+	    	alert("카테고리 생성실패");
+	     	window.location.replace("basket.jsp");
+	   	</script>
 <%  }
 }
 %>

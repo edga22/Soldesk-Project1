@@ -124,14 +124,15 @@ function removeAll(e){
     </div>    
     
     <div class="table-responsive">      
-      <form action="/admin/design/categorymgr.jsp" method="post">
+      <form action="/admin/design/categoryadd.jsp" method="post">
       <table class="table table-striped table-hover">
         <thead>
-          <tr>
-            <th colspan="6" class="text-center">
-                <p>분류코드는 직접 입력한 값을 사용하고 하위분류코드는 분류코드1은 셀렉트 박스를 선택합니다.<br>
-                분류코드는 0~9까지 입력이 가능하며 2자리씩 4자리를 사용하여 2단계를 표현합니다.<br> 
-                <strong>분류코드는 나중에 수정이 되지 않으므로 신중하게 결정하여 사용하십시오.</strong></p>
+          <tr class="warning" id="categoryAddInfo" style="display:none">
+            <th colspan="6" class="text-center">            	
+            	<a class="close" id="addInfoClose">&times;</a>
+                <p>분류코드는 직접 입력한 값을 사용하고 하위분류코드의 분류코드1은 셀렉트 박스를 선택합니다.</p>                
+                <h5>분류코드는 0~9까지 입력이 가능하며 2자리씩 4자리를 사용하여 2단계를 표현합니다.</h5> 
+                <span style="color:red;font-size:1.5rem">분류코드는 나중에 수정/삭제이 되지 않으므로 신중하게 결정하여 사용하십시오.</span>
             </th>
           </tr>
           <tr class="info" name="trBanner2">
@@ -168,8 +169,7 @@ function removeAll(e){
             <td><input class="form-control input-sm" id="inputsm" type="text" value="<%=result.getCategorySubject() %>"></td>
             <td><label><input type="checkbox" value="<%=categoryUse %>" <% if(categoryUse == 1){ %>checked<% } %>>사용</label></td>
             <td>
-               <button name="delBanner" class="btn btn-info btn-sm">삭제</button>
-               <input type="button" class="btn btn-info btn-sm" value="적용">             
+               <input type="button" class="btn btn-info btn-sm" value="적용">          
             </td>
           </tr>
           <% } %>
@@ -217,25 +217,26 @@ function removeAll(e){
    //추가 버튼
     $(document).on("click","input[name=addBanner]",function(){
         var addBannerText =  '<tr name="trBanner">'+
-            '   <td><input name="code1" class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="두자리숫자입력"></td>'+
-            '   <td><input name="code2" class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="두자리숫자입력"></td>'+
+            '   <td colspan="2"><input name="code1" class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="두자리 숫자입력"></td>'+
             '   <td><input name="categoryName" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류1 이름입력"></td>'+
             '   <td><input name="categorySubject" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류1 설명입력"></td>'+
             '   <td><label><input name="categoryUse" type="checkbox" value="1">사용</label></td>'+
             '   <td>'+
             '           <button name="delBanner" class="btn btn-info btn-sm">삭제</button>'+
-            '           <input type="button" class="btn btn-info btn-sm" value="적용">'+
+            '           <input type="submit" class="btn btn-info btn-sm" value="적용">'+
             '   </td>'+
             '</tr>';
              
         var trHtml = $( "tr[name=trBanner2]:last" ); //last를 사용하여 trSchool라는 명을 가진 마지막 태그 호출         
-        trHtml.after(addBannerText); //마지막 trSchool명 뒤에 붙인다.         
+        trHtml.after(addBannerText); //마지막 trSchool명 뒤에 붙인다.
+        $("#categoryAddInfo").show();
     });
      
     //삭제 버튼
     $(document).on("click","button[name=delBanner]",function(){    	
         var trHtml = $(this).parent().parent();        
-        trHtml.remove(); //tr 테그 삭제         
+        trHtml.remove(); //tr 테그 삭제
+        $("#categoryAddInfo").hide();
     });
 
     //하위추가 버튼
@@ -243,14 +244,14 @@ function removeAll(e){
 
         var addBannerText2 =  '<tr name="trBanner2">'+            
             '   <td>'+
-	        '      <select class="form-control input-sm" name="selOne" id="selOne" onchange="doChange(this, "selTwo")">'+
+	        '      <select class="form-control input-sm" name="code1" id="selOne">'+
 		    '         <option value="default">-1차분류-</option>'+
 		    '         <c:forEach var="categoryuse" items="${categoriesusecode1}">'+
 		    '         <option value="${categoryuse.code1}">${categoryuse.categoryName}</option>'+
 		    '         </c:forEach>'+
 	        '      </select>'+
             '   </td>'+
-            '   <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="4자리숫자입력"></td>'+
+            '   <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="2자리숫자입력"></td>'+
             '   <td>'+
             '   <div class="input-group">'+
             '       <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>'+
@@ -261,13 +262,13 @@ function removeAll(e){
             '   <td><label><input type="checkbox" value="1">사용</label></td>'+
             '   <td>'+
             '      <button name="delBanner2" class="btn btn-info btn-sm">삭제</button>'+
-            '      <input type="button" class="btn btn-info btn-sm" value="적용">'+
+            '      <input type="submit" class="btn btn-info btn-sm" value="적용">'+
             '   </td>'+
             '</tr>';
              
-        var trHtml = $( "tr[name=trBanner]:last" ); //last를 사용하여 trSkill라는 명을 가진 마지막 태그 호출         
+        var trHtml = $( "tr[name=trBanner2]:last" ); //last를 사용하여 trSkill라는 명을 가진 마지막 태그 호출         
         trHtml.after(addBannerText2); //마지막 trSkill명 뒤에 붙인다.
-         
+        $("#categoryAddInfo").show();
     });
      
     //하위삭제 버튼
@@ -279,6 +280,10 @@ function removeAll(e){
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
+
+	$("#addInfoClose").click(function(){
+		$("#categoryAddInfo").hide();
+	});
 });
 </script>
 
