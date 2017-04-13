@@ -82,7 +82,7 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
                    <ul class="breadcrumb" style="height:36px">
                        <%if(!memberID.equals("")){%>
                        <li>
-                           <span class="member_rate" style="display:none;"> 회원등급 </span> <a href="main.html"><b><%=memberID %></b>님</a> <span class="divider"></span>
+                           <span class="member_rate" style="display:none;"> 회원등급 </span><a href="/mypage/mypageOrderMod.jsp"><b><%=memberID %></b>님</a><span class="divider"></span>
                        </li>
                        <li>
                            <a href="/mypage/mypageOrderMod.jsp">마이페이지</a> <span class="divider"></span>
