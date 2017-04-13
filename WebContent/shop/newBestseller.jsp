@@ -13,9 +13,8 @@
 	
 	OrderDetail[] order=dao.getBestID();
 	bmgr.reverse(order);
-	//OrderDetail[] newOrder=bmgr.newBestseller(order);
+	OrderDetail[] newOrder=bmgr.newBestseller(order);
 %>
-<%=bmgr.newBestseller(order) %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <head>
 	<script type="text/javascript" src="/js/paging.js">

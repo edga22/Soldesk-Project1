@@ -63,12 +63,10 @@ public class BestsellerMgr {
 	}
 	
 	//신간 베스트셀러 뽑아내기
-	public String newBestseller(OrderDetail[] order){
+	public OrderDetail[] newBestseller(OrderDetail[] order){
 		OrderDetail[] newOrder=new OrderDetail[order.length];
 		String monthAgo=getMonthAgoDate();
 		int j=0;
-		
-		String test="";
 		
 		for(int i=0;i<order.length;i++){
 			Book book=mgr.getBook(order[i].getBookID());
@@ -78,13 +76,7 @@ public class BestsellerMgr {
 				j++;
 			}
 		}
-		
-		if(newOrder.length==0 || newOrder==null){
-			test="값이 없다";
-		}else{
-			test="값이 있다.";
-		}
-		return test;
+		return newOrder;
 	}
 	
 	//String으로 된 날짜 비교 (테스트 OK)
