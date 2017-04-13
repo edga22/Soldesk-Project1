@@ -43,7 +43,17 @@
 		  });
 		}
 	</script>
-	
+	<script>
+	$(function(){ //전체선택 체크박스 클릭 
+		$("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크된상태일경우 
+			if($("#allCheck").prop("checked")) { //해당화면에 전체 checkbox들을 체크해준다 
+				$("input[type=checkbox]").prop("checked",true); // 전체선택 체크박스가 해제된 경우 
+			}else { //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+				$("input[type=checkbox]").prop("checked",false); 
+			} 
+		}) 
+	})
+	</script>
 	<style type="text/css">
 		#paging{text-align:center;}
 		a.pagings-item,a.pagings-side{margin:0 .25em;}
@@ -65,14 +75,17 @@
 <!-- 시작 -->
 <div class="container"> 
   	<div class="row">
-    	<h3 class="col-sm-8">이 달의 베스트</h3>
+    	<h3 class="col-sm-6">이 달의 베스트</h3>
+    	<div class="col-sm-2">
+    		<input type="checkbox" id="allCheck" checked="checked"/> 전체선택
+    	</div>
     	<div class="col-sm-2">
        		<form action="/shop/basket.jsp">
     			<input type="submit" class="btn btn-default" value="장바구니에 담기">
     		</form>
     	</div>
     	<div class="col-sm-2">
-    		<form action="/shop/Payment.jsp">
+    		<form action="/shop/payment.jsp">
  	  			<input type="submit" class="btn btn-default" value="바로구매">
  	  		</form>
     	</div>
@@ -84,17 +97,17 @@
  	  </li> <!-- 도서 한권 리스트 -->
  	<% }%>
  	
+ 	
     <ul class="list-group">
       <!-- 도서 한권 리스트 -->
       <% for(int i=0;i<order.length;i++){
     	int booIdInt = order[i].getBookID();
 		Book book=mgr.getBook(order[i].getBookID());
 		String bookIdLink = "/inven/bookDetail.jsp?bookID="+booIdInt;
-		String bookNamestr = book.getBookName();	
-		%>
+		String bookNamestr = book.getBookName();	%>
  	  <li class="list-group-item"> 
  	  <div class="row">
- 	  	<div class="col-sm-1"><%=++i %>. <input type="checkbox"/></div>
+ 	  	<div class="col-sm-1"><input type="checkbox" checked="checked"/> <%=i %>.</div>
  	  	<div class="col-sm-2"><img id="img" src="<%=book.getImageID()%>"/></div>
  	  	<div class="col-sm-7">
  	  		<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
