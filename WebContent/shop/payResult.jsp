@@ -66,7 +66,7 @@ if(memberID == 0){
 	  <tr>
 		<th><%=ps.getOrderID() %></th>
 		<th><%=book.getBookName()%></th>
-		<th><%=cnts[i]%></th>
+		<th><%=cnt%></th>
 		<th><%=ps.getToday()%></th>
 		<th><%=state.change(1)%></th>
 	  </tr>
