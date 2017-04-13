@@ -18,24 +18,30 @@
 <%
 DbBasedMemberDao ms = new DbBasedMemberDao();
 DbBasedMypageDao dm = new DbBasedMypageDao();
-int tmp = (Integer)session.getAttribute("memberID");
-int userID=1;
-if(tmp == 0){
-}else{
-	userID = tmp;
-}
-Member member = ms.getMember(userID);
+int memberID = (Integer)session.getAttribute("memberID");
+
+Member member = ms.getMember(memberID);
 String oldpw =request.getParameter("oldpw");
 String newpw1 =request.getParameter("newpw1");
 String newpw2 =request.getParameter("newpw2");
 
-if(oldpw !=null&& !oldpw.equals("") && newpw1 !=null && newpw1.equals("") && newpw2 !=null && newpw2.equals("")){
-
-	if(oldpw == member.getPassword()){
-		if(newpw1 == newpw2){
+if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && newpw2 !=null && !newpw2.equals("")){	
+	if(oldpw.equals(member.getPassword()) ){
+		if(newpw1.equals(newpw2)){
 			member.setPassword(newpw1);
-			dm.updateMember(member);
+			dm.updateMember(member);			
+%>
+	<p>비밀번호가 변경되었습니다.</p>
+<%			
+		}else{
+%>
+	<p>새 비밀번호와 다시입력한 번호가 일치하지 않습니다.</p>
+<%	
 		}
+	}else{
+%>
+	<p>기존 비밀번호를 잘못입력했습니다.</p>
+<%			
 	}
 }
 %>
@@ -86,7 +92,7 @@ if(oldpw !=null&& !oldpw.equals("") && newpw1 !=null && newpw1.equals("") && new
 							</table>
 							</div>
 					<div class="modal-footer">
-					<button type="submit" class="btn btn-default" name="complete" value="pwcp">변경완료</button>
+					<button type="submit" class="btn btn-default" value="pwcp">변경완료</button>
 					<button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>

@@ -15,6 +15,6 @@ public class DbBasedMypageDao implements MypageDao{
 	}
 
 	public int updateMember(Member id) {
-		return mapper.getoutMember(id);
+		return mapper.updateMember(id);
 	}
 } 
