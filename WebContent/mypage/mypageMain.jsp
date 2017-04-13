@@ -16,7 +16,6 @@
       <br>
       <h4>주문내역</h4>
       <h5><a href="mypageOrderMod.jsp">주문조회/변경/취소</a></h5>
-      <h5><a href="mypageRefund.jsp">반품/교환내역</a></h5>
       <br>
       <br>
       <h4>개인정보관리</h4>

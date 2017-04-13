@@ -72,7 +72,8 @@ for(PurchaseOrder po:purchaseOrders){
 			<td><%=po.getPurchaseDate() %></td>
 			<td><%=order.change(po.getProgress())%></td>
 			<td><a href="/mypage/mypageRefundProc.jsp?a=1&orderID=<%=orderID %>" class="btn btn-danger btn-xs">교환</a>
-			    <a href="/mypage/mypageRefundProc.jsp?a=2&orderID=<%=orderID %>" class="btn btn-danger btn-xs">환불</a></td>
+			    <a href="/mypage/mypageRefundProc.jsp?a=2&orderID=<%=orderID %>" class="btn btn-danger btn-xs">환불</a>
+			    <a href="/mypage/mypageRefundProc.jsp?a=3&orderID=<%=orderID %>" class="btn btn-primary btn-xs">교환/환불취소</a></td>
 		</tr>
 <%
 } 

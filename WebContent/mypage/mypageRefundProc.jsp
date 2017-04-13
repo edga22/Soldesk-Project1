@@ -18,18 +18,24 @@ PurchaseOrder po = dm.getOrder(orderID);
 po.setProgress(6);
 dm.updateOrder(po);
 %>	
-	<p>교환</p>
-	<p>oderID=<%=orderID %></p>
+
 <%	
 }else if(select==2){
 PurchaseOrder po = dm.getOrder(orderID);
 po.setProgress(7);
 dm.updateOrder(po);
 %>
-	<p>환불</p>
-	<p>oderID=<%=orderID %></p>
+	
 <%
+}else if(select==3){
+PurchaseOrder po = dm.getOrder(orderID);
+po.setProgress(1);
+dm.updateOrder(po);
 }
+%>
+<%
+RequestDispatcher dispatcher = request.getRequestDispatcher("/mypage/mypageOrderMod.jsp");
+		dispatcher.forward(request,response);
 %>
 </body>
 </html>
