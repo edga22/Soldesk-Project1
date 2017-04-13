@@ -13,7 +13,9 @@
 	
 	OrderDetail[] order=dao.getBestID();
 	bmgr.reverse(order);
+	//OrderDetail[] newOrder=bmgr.newBestseller(order);
 %>
+<%=bmgr.newBestseller(order) %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <head>
 	<script type="text/javascript" src="/js/paging.js">
@@ -75,7 +77,7 @@
 <!-- 시작 -->
 <div class="container"> 
   	<div class="row">
-    	<h3 class="col-sm-6">이 달의 베스트</h3>
+    	<h3 class="col-sm-6">신간 도서 베스트</h3>
     	<div class="col-sm-2">
     		<input type="checkbox" id="allCheck" checked="checked"/> 전체선택
     	</div>
@@ -100,8 +102,7 @@
  	
     <ul class="list-group">
       <!-- 도서 한권 리스트 -->
-      <% 
-      	for(int i=0;i<order.length;i++){
+      <% for(int i=0;i<order.length;i++){
     	int booIdInt = order[i].getBookID();
 		Book book=mgr.getBook(order[i].getBookID());
 		String bookIdLink = "/inven/bookDetail.jsp?bookID="+booIdInt;
@@ -123,19 +124,19 @@
  	  	</div>
  	   </div>
  	  </li> <!-- 도서 한권 리스트 -->
- 	  <%}%>
+ 	  <%} %>
 	</ul>
 </div>
 
 <!-- 페이징 -->
 <div class="center">
 	<div id="paging"></div>
-	<ul class="pagination" id="pagin">
-  		<li><a>1</a></li>
-  		<li><a>2</a></li>
-  		<li><a>3</a></li>
-  		<li><a>4</a></li>
-  		<li><a>5</a></li>
+	<ul class="pagination">
+  		<li><a id="paging">1</a></li>
+  		<li><a id="paging">2</a></li>
+  		<li><a id="paging">3</a></li>
+  		<li><a id="paging">4</a></li>
+  		<li><a id="paging">5</a></li>
 	</ul>
 </div> <!-- 페이징 -->
 </div>

@@ -223,7 +223,7 @@ $(document).ready(function(){
 						</form>
 			        </td>
 			        <td style="vertical-align:middle;text-align:center">
-				    	<a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=bookIdInt%>&cnt=<%=bootCnt%>">바로 구매</a>
+				    	<a class="btn btn-default btn-block btn-primary" href="/shop/payment.jsp?bookID=<%=bookIdInt%>&cnt=<%=bootCnt%>">바로 구매</a>
                         <a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=<%=bookIdInt%>">삭제</a>
 					</td>
 					<td style="vertical-align:middle;text-align:center">
@@ -268,10 +268,10 @@ $(document).ready(function(){
 	<!-- 주문 및 되돌아가기 -->
 	<div class="row">
 		<div class="col-sm-5"> 
-		   	<a href="/main.jsp" class="btn btn-default text-left" role="button">쇼핑 계속하기</a>
+		   	<a href="/main.jsp" class="btn btn-default btn-lg text-left" role="button">쇼핑 계속하기</a>
 		</div>
 		<div class="col-sm-7">
-	    	<input type="button" class="btn btn-default btn-lg" value="선택 상품 주문하기" id="btnSelecBasket"/>
+	    	<input type="button" class="btn btn-default btn-lg btn-primary" value="선택 상품 주문하기" id="btnSelecBasket"/>
 		</div>
 	</div> <!-- 주문 및 되돌아가기 -->
 </div> 

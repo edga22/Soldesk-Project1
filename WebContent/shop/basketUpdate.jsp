@@ -12,5 +12,3 @@
 	mgr.update(bookID, cnt);
 	response.sendRedirect("/shop/basket.jsp");
 %>
-<%=bookID %>
-<%=cnt%>
