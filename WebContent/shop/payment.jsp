@@ -11,6 +11,18 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style>
+#address{
+	width:60rem;
+}
+#total{
+	color: red;
+	width: 25rem;
+	margin:2rem;
+	padding:1rem;
+	align:right;
+}
+</style>
 </head>
 <body>
 <%
@@ -89,9 +101,9 @@ if(memberID == 0){
 	i++;}
 	}
 	%>
-		<div>
-			<p>총 금액 : <%=totalPrice %></p>
-			<p>총 포인트 : <%=totalPoint %> </p>	
+		<div id="total">
+			<h4>총 결재 금액: <%=totalPrice %>원</h4>
+			<h4>포인트 적립  :<%=totalPoint %> point</h4>	
 		</div><br><br><br><br>
 	<!-- 구매자 정보 -->	
 		<h3>구매자 및 배송 정보</h3>
@@ -105,10 +117,10 @@ if(memberID == 0){
 			<th>연락처</th> <td><input type="text" name="phone" placeholder="연락처" value="<%=member.getPhone()%>" required></td>
 		  </tr>  			
 		  <tr>
-			<th>e-mail</th> <td><input type="email" name="email" placeholder="주문확인용 e-mail" value="<%=member.getEmail()%>" required></td>
+			<th>우편번호</th> <td><input type="number" name="postCode" placeholder="우편번호" value="<%=member.getPostCode()%>" required></td>
 		  </tr>  			
 		  <tr>
-			<th>주소</th> <td><input type="text" name="address" placeholder="배송 주소" value="<%=member.getAddress()%>" required></td>
+			<th>주소</th> <td><input type="text" id="address" name="address" placeholder="배송 주소" value="<%=member.getAddress()%>" required></td>
 		  </tr>  			
 		 </tbody>
 		</table>		
@@ -117,7 +129,7 @@ if(memberID == 0){
 		<h3>판매자 및 배송 정보</h3>
 		<div style="border:solid black 0.1rem; margin:2rem; padding:1rem;">
 		 <p> 입금 계좌: 농협 123-456-7890 북카페</p>
-		 <p> 입금일 기준 2~3일 배송 시간 소요</p>
+		 <p> 입금 완료 후  1~2일 배송 시간 소요</p>
 		</div>
 	<!-- 완료하기 -->		
 		<div align="right">

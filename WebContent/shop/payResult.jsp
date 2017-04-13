@@ -33,7 +33,7 @@ if(memberID == 0){
 	String[] cnts = request.getParameterValues("cnt"); 
 	String userName = request.getParameter("userName");
 	String phone = request.getParameter("phone");
-	String email = request.getParameter("email");
+	String email = request.getParameter("postCode");
 	String address = request.getParameter("address");
 %>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
