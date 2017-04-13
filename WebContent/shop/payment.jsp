@@ -41,15 +41,21 @@ if(memberID == 0){
 	int i=0;
 
 	//받은 데이터 나열하기
-	if(bookIDs == null || bookIDs.equals("") || cnts == null || cnts.equals("")){
+	if(bookIDs == null || bookIDs.equals("")){
 	%>
 		<p>장바구니에서 데이터가 넘어오지 않음!!!</p>
 	<%
 	}else{
+		
 		for(String bID : bookIDs){
-			int cnt = Integer.parseInt(cnts[i]);	
+			// 수량이 넘어오지 않을경우 1권으로 인식.
+			int cnt = 1;
+			if(cnts == null || cnts.equals("")){
+			}else{
+				cnt = Integer.parseInt(cnts[i]);
+			}
 			totalPrice += (ps.getBook(bID)).getPrice()*cnt;
-			totalPoint += ps.getPoint(bID, cnts[i]);
+			totalPoint += ps.getPoint(bID, cnt);
 	%>	
 		<input type="hidden" name="bookID" value="<%=bID%>"><!-- 책번호 넘겨주기 -->
 		<input type="hidden" name="cnt" value="<%=cnt%>"><!-- 책 수량 넘겨주기 -->
@@ -71,9 +77,9 @@ if(memberID == 0){
 			<td><%=ps.getBook(bID).getBookName()%></td>
 			<td><%=ps.getOverPrice(bID)%></td>
 			<td><%=ps.getBook(bID).getPrice()%></td>
-			<td><%=cnts[i] %></td>
+			<td><%=cnt %></td>
 			<td><%=ps.getBook(bID).getPrice()*cnt  %></td>
-			<td><%=ps.getPoint(bID, cnts[i])  %></td>
+			<td><%=ps.getPoint(bID, cnt) %></td>
 			<td><%= "usb 충전기"  %></td>
 		  </tr>  			
 		 </tbody>

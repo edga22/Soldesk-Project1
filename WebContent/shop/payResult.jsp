@@ -60,7 +60,8 @@ if(memberID == 0){
 		ps.setOrder(memberID, bookIDs, cnts); // 배송관리 DB에 저장(재고에서 판매수량만큼 차감됨)
 		for(String bookID : bookIDs){
 			Book book = ps.getBook(bookID); // 도서 생성
-			point += ps.getPoint(bookID, cnts[i]); // 구매목록마다 포인트 누적		
+			int cnt = Integer.parseInt(cnts[i]);
+			point += ps.getPoint(bookID, cnt); // 구매목록마다 포인트 누적		
 %>	 	
 	  <tr>
 		<th><%=ps.getOrderID() %></th>

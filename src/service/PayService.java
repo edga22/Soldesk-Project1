@@ -45,10 +45,9 @@ public class PayService {
 	}
 	
 	// 포인트 계산
-	public int getPoint(String bookID,String cnt){
+	public int getPoint(String bookID,int cnt){
 		Book book = bmgr.getBook(Integer.parseInt(bookID));
-		int count= Integer.parseInt(cnt);
-		int point = (int)(book.getPrice()*0.1)*count;
+		int point = (int)(book.getPrice()*0.1)*cnt;
 		return point;
 	}
 	
