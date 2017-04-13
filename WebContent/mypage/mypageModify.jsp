@@ -37,8 +37,12 @@ Member member = ms.getMember(userID);
       <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th>아이디</th>
+			<th>회원번호</th>
 			<td><%=member.getMemberID()%></td>
+		</tr>
+		<tr>
+			<th>아이디</th>
+			<td><%=member.getEmail()%></td>
 		</tr>
 	</thead>
 	<tbody>          
@@ -49,10 +53,6 @@ Member member = ms.getMember(userID);
 		<tr>
 			<th>전화번호</th>
 			<td><%=member.getPhone()%></td>
-		</tr>
-		<tr>
-			<th>이메일</th>
-			<td><%=member.getEmail()%></td>
 		</tr>
 		<tr>
 			<th>우편번호</th>
