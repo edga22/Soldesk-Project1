@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"%>
-<%@ page import="dao.MemberDao" %>
-<%@ page import="dao.DbBasedMemberDao" %>
+<%@ page import="service.MemberService"%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -34,7 +33,7 @@ h3 {
 	int result = 0;
 	
 	Member updMem = new Member();
-	MemberDao userList = new DbBasedMemberDao(); 
+	MemberService userList = new MemberService(); 
 	
 	if(request.getParameter("point") != null && !request.getParameter("point").equals(""))
 		point = Integer.parseInt(request.getParameter("point"));
