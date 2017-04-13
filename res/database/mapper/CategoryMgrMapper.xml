@@ -12,7 +12,7 @@
 	</resultMap>
 	
 	<select id="getCategories" resultMap="CategoryMgrMap">
-		SELECT * FROM Category ORDER BY category_id
+		SELECT * FROM Category ORDER BY 2,3
 	</select>
 	
 	<select id="getCategoriesUse" parameterType="domain.Category" resultMap="CategoryMgrMap">
@@ -28,15 +28,15 @@
                 and category_use = 1
             </if>
         </where>
-        ORDER BY category_id        
+        ORDER BY 2,3        
     </select>
     
     <select id="getCategoriesUseCode1" resultMap="CategoryMgrMap">
-        SELECT * FROM Category WHERE code2 = 0 ORDER BY category_id
+        SELECT * FROM Category WHERE code2 = 0 ORDER BY 2,3
     </select>
     
     <select id="getCategoriesUseCode2" resultMap="CategoryMgrMap">
-        SELECT * FROM Category WHERE code2 > 0 ORDER BY category_id
+        SELECT * FROM Category WHERE code2 > 0 ORDER BY 2,3
     </select>
 	
 	<select id="getCategory" parameterType="int" resultMap="CategoryMgrMap">

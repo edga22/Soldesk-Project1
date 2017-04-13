@@ -39,7 +39,7 @@ function doChange(srcE, targetId){
         for(Category result2:mymgr.listCategoriesUseCode2()){
             if(result2.getCode1()==result1.getCode1()){
     %>
-    addOption('<%=result2.getCategoryName() %>', targetE); 
+    addOption('<%=result2.getCategoryID()%>,<%=result2.getCategoryName() %>', targetE); 
     <%
             }
         }   
@@ -49,8 +49,8 @@ function doChange(srcE, targetId){
     }
 }
 
-function addOption(value, e){
-    var o = new Option(value);
+function addOption(num,value, e){
+    var o = new Option(num,value);
     try{
         e.add(o);
     }catch(ee){
@@ -65,27 +65,19 @@ function removeAll(e){
 }
 </script>
 </head>
-<body>
-<div class="row">
-    <form action="#">
-    <div class="col-md-1 col-md-offset-3">
-        <div class="form-group">        
-          <select class="form-control input-sm" name="selOne" id="selOne" onchange="doChange(this, 'selTwo')">
-            <option value="default">-1차분류-</option>           
+<body> 
+	<div>
+		<form name='form'>
+		<select name="selOne" id="selOne" onchange="doChange(this, 'selTwo')">
+			<option value="default">-1차분류-</option>           
             <c:forEach var="categoryuse" items="${categoriesusecode1}">
             <option value="${categoryuse.code1}">${categoryuse.categoryName}</option>
             </c:forEach>
-           </select>
-         </div>
-    </div>
-    <div class="col-md-1">
-        <div class="form-group">       
-           <select class="form-control input-sm" name="selTwo" id="selTwo">
-            <option value="default">-2차분류-</option>
-           </select>        
-        </div>
-    </div>
-    </form>
-</div>
+		</select>
+		<select name="selTwo" id="selTwo">
+		    <option>--2차분류--</option>
+		</select>
+		</form>
+	</div>
 </body>
 </html>

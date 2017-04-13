@@ -251,15 +251,15 @@ function removeAll(e){
 		    '         </c:forEach>'+
 	        '      </select>'+
             '   </td>'+
-            '   <td><input class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="2자리숫자입력"></td>'+
+            '   <td><input name="code2" class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="2자리숫자입력"></td>'+
             '   <td>'+
             '   <div class="input-group">'+
             '       <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>'+
-            '       <input class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류2 이름입력">'+
+            '       <input name="categoryName" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류2 이름입력">'+
             '   </div>'+
             '   </td>'+
-            '   <td><input class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류2 설명입력"></td>'+
-            '   <td><label><input type="checkbox" value="1">사용</label></td>'+
+            '   <td><input name="categorySubject" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류2 설명입력"></td>'+
+            '   <td><label><input name="categoryUse" type="checkbox" value="1">사용</label></td>'+
             '   <td>'+
             '      <button name="delBanner2" class="btn btn-info btn-sm">삭제</button>'+
             '      <input type="submit" class="btn btn-info btn-sm" value="적용">'+

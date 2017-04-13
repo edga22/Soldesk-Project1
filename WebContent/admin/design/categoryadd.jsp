@@ -30,12 +30,12 @@ if(code1str != null){
 	if(mymgr.addCategory(cate) == true){ %>
 		<script>
 		   	alert("카테고리 생성성공");
-		   	window.location.replace("basket.jsp");
+		   	window.location.replace("/admin/design/categorymgr.jsp");
 		</script>
 <%  }else{ %>
 	   	<script>
 	    	alert("카테고리 생성실패");
-	     	window.location.replace("basket.jsp");
+	     	window.location.replace("/admin/design/categorymgr.jsp");
 	   	</script>
 <%  }
 }
