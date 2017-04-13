@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@page import="mgr.BasketMgr"
         import="mgr.EventMgr"
-		import="domain.Basket" %>
+		import="domain.Basket"
+		import="java.text.NumberFormat"
+%>
 <%
 	BasketMgr mgr;
     EventMgr evmgr = new EventMgr();
@@ -77,10 +79,10 @@ $(document).ready(function(){
 			}
 		});
 		$('span.total').hide();
-		$('span.result1').text(amt1);
-		$('span.result2').text(amt2);
-		$('span.result3').text(amt3);
-		$('span.result4').text(amt4);
+		$('span.result1').text(amt1.toLocaleString());
+		$('span.result2').text(amt2.toLocaleString());
+		$('span.result3').text(amt3.toLocaleString());
+		$('span.result4').text(amt4.toLocaleString());
 	});
  	
  	$('#btnRemovebasket').on('click', function(e) {
@@ -125,6 +127,7 @@ $(document).ready(function(){
 <!--
 #total th, #total td {
     text-align:center;
+    width:25%;
 }
 -->
 </style>
@@ -167,15 +170,19 @@ $(document).ready(function(){
 		    		<td colspan="6" style="vertical-align:middle;text-align:center"><h2>장바구니가 비었습니다 :( </h2></td>		    		
 		    	</tr>
 		    	<%} %>
-		    	<% 
+		    	<%
+		    	NumberFormat nf = NumberFormat.getNumberInstance();
+		    	
 		    	int totalBookPrice = 0;
 		    	int bookSalePrice = 0;
-		    	int bookPoint = 0;
-		    	int bootCnt = 0;
-		    	int bookdiscount = 0;
-		    	double eventdiscount = 0.0;
-		    	
+		    			    	
 		    	for(int i=0;i<basketList.length; i++) {
+		    		int bookPoint = 0;
+	                int bootCnt = 0;
+	                int bookdiscount = 0;
+	                int pointPer = 10; //포인트 % 100기준
+	                int discountPer = 100; //판매가 % 100기준
+	                double eventdiscount = 0.0;
 		    		int bookIdInt = basketList[i].getBook().getBookID();
 		    		eventdiscount = evmgr.getDiscountMult(bookIdInt);
 		    		bookPrice = basketList[i].getBook().getPrice();
@@ -183,9 +190,9 @@ $(document).ready(function(){
 		    			bookSalePrice = (int)(bookPrice*eventdiscount);
 		    			bookdiscount = 100-(int)(eventdiscount*100);
 		    		}else{
-		    		    bookSalePrice = bookPrice*100/100;		    		
+		    		    bookSalePrice = bookPrice*discountPer/100;		    		
 		    		}
-		    		bookPoint = bookSalePrice*10/100;
+		    		bookPoint = bookSalePrice*pointPer/100;
 		    		bootCnt = basketList[i].getCnt();
 		    		String bookIdLink = "/inven/bookDetail.jsp?bookID="+bookIdInt;
 		    		String bookNamestr = basketList[i].getBook().getBookName();	    		
@@ -204,9 +211,9 @@ $(document).ready(function(){
 			        	*지금 주문하면 "오늘 출고" 가능(출고후 1~2일 이내 수령)
 			        </td>
 			        <td style="vertical-align:middle;">
-			        	정가: <del><%=bookPrice %></del>원<br>
-			        	판매가: <%=bookSalePrice %>원<% if(bookdiscount != 0) out.print("("+bookdiscount+"%)"); %><br>
-			        	포인트: <%=bookPoint %>P (10%)			        	
+			        	정가: <del><%=nf.format(bookPrice) %></del>원<br>
+			        	판매가: <%=nf.format(bookSalePrice) %>원<% if(bookdiscount != 0) out.print("("+bookdiscount+"%)"); %><br>
+			        	포인트: <%=nf.format(bookPoint) %>P (<%=pointPer%>%)<br>	        	
 			        </td>
 			        <td style="vertical-align:middle;text-align:center">
 			            <form action="/shop/basketUpdate.jsp">
@@ -237,9 +244,9 @@ $(document).ready(function(){
 	<div class="row">
 		<div class="col-sm-12">
 			<h3>가격</h3>
-			<table class="table" id="total">
+			<table class="table table-bordered table-condensed" id="total">
 			    <thead>
-			      <tr>
+			      <tr class="active text-center">
 			        <th>상품금액</th>
 			        <th>배송비</th>
 			        <th>결제 예정금액</th>
@@ -248,10 +255,10 @@ $(document).ready(function(){
 			    </thead>
 			    <tbody>
 			      <tr>
-			    	<td><span class="total"><%= totalBookPrice %></span><span class="result1"></span>원</td>
-			    	<td><span class="total"><%= delivery %></span><span class="result2"></span>원</td>
-			    	<td><span class="total"><%= totalPrice %></span><span class="result3"></span>원</td>
-			    	<td><span class="total"><%= totalBookPrice*10/100 %></span><span class="result4"></span>P</td>
+			    	<td><span class="total"><%= nf.format(totalBookPrice) %></span><span class="result1"></span>원</td>
+			    	<td><span class="total"><%= nf.format(delivery) %></span><span class="result2"></span>원</td>
+			    	<td><span class="total"><%= nf.format(totalPrice) %></span><span class="result3"></span>원</td>
+			    	<td><span class="total"><%= nf.format(totalBookPrice*10/100) %></span><span class="result4"></span>P</td>
 			       </tr>
 			    </tbody>
 			</table> 
