@@ -36,7 +36,7 @@ String bookName = request.getParameter("bookName");
 	 </thead>
 	 <tbody>
 <%
-Book[] books = mymgr.getBooks();
+Book[] books = mymgr.getAllBooks();
 Book check = new Book();
 if( books != null){
 	for(Book book: books){

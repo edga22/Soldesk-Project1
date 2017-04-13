@@ -50,7 +50,7 @@ BookMgr mymgr = new BookMgr();
 	 </thead>
 	 <tbody>
 <%
-Book[] books = mymgr.getBooks();
+Book[] books = mymgr.getAllBooks();
 if( books != null){
 	for(Book book: books){	
 %>	 	
