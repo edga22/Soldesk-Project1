@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="config.MypageMapper">
+	<resultMap id="MemberMap" type="domain.Member">
+		<id		property="memberID"		column="MEMBER_ID"/>
+		<result	property="email"		column="EMAIL"/>
+		<result property="password"		column="PASSWD"/>
+		<result property="name"			column="NAME"/>
+		<result property="postCode"		column="POSTCODE"/>
+		<result property="address"		column="ADDRESS"/>
+		<result property="phone"		column="PHONE"/>
+		<result property="bonusPoint"	column="BONUS_POINT"/>
+	</resultMap>
+
+	<delete id="getoutMember" parameterType="domain.Member">
+		delete from members
+		where PASSWD=#{password} and MEMBER_ID=#{memberID}
+	</delete>
+</mapper> 
