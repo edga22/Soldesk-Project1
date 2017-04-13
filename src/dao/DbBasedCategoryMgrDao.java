@@ -16,7 +16,7 @@ public class DbBasedCategoryMgrDao implements CategoryMgrDao{
 	public List<Category> getCategories(){
 		return mapper.getCategories();
 	}
-	public List<Category> getCategoriesUse(){
+	public List<Category> getCategoriesUse(Category category){
 		return mapper.getCategoriesUse();
 	}
 	public List<Category> getCategoriesUseCode1(){

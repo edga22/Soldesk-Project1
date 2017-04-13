@@ -25,7 +25,7 @@
                 code2 > 0
             </if>
             <if test="code1 != null and category_use != null">
-                and category_use=1
+                and category_use = 1
             </if>
         </where>
         ORDER BY category_id        

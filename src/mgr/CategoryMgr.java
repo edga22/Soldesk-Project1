@@ -17,8 +17,8 @@ public class CategoryMgr{
 		return categoMgrDao.getCategories();
 	}
 	
-	public List<Category> listCategoriesUse(){
-		return categoMgrDao.getCategoriesUse();
+	public List<Category> listCategoriesUse(Category category){
+		return categoMgrDao.getCategoriesUse(category);
 	}
 	
 	public List<Category> listCategoriesUseCode1(){
