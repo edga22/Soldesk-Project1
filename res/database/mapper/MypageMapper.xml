@@ -17,4 +17,10 @@
 		delete from members
 		where PASSWD=#{password} and MEMBER_ID=#{memberID}
 	</delete>
+	
+	<update id="updateMember" parameterType="domain.Member">
+		update members 
+		set PASSWD = #{password}
+		where MEMBER_ID = #{memberID} 
+	</update>
 </mapper> 

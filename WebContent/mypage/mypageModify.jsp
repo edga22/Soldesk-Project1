@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"
+		 import="dao.MypageDao"
+		 import="dao.DbBasedMypageDao"
 		 import="dao.DbBasedMemberDao"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +17,7 @@
 <body>
 <%
 DbBasedMemberDao ms = new DbBasedMemberDao();
+DbBasedMypageDao dm = new DbBasedMypageDao();
 int tmp = (Integer)session.getAttribute("memberID");
 int userID=1;
 if(tmp == 0){
@@ -22,6 +25,19 @@ if(tmp == 0){
 	userID = tmp;
 }
 Member member = ms.getMember(userID);
+String oldpw =request.getParameter("oldpw");
+String newpw1 =request.getParameter("newpw1");
+String newpw2 =request.getParameter("newpw2");
+
+if(oldpw !=null&& !oldpw.equals("") && newpw1 !=null && newpw1.equals("") && newpw2 !=null && newpw2.equals("")){
+
+	if(oldpw == member.getPassword()){
+		if(newpw1 == newpw2){
+			member.setPassword(newpw1);
+			dm.updateMember(member);
+		}
+	}
+}
 %>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
@@ -44,6 +60,41 @@ Member member = ms.getMember(userID);
 			<th>아이디</th>
 			<td><%=member.getEmail()%></td>
 		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td><form action="mypageModify.jsp">
+			<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#mySmallModal">비밀번호변경</button>
+	
+				<div class="modal fade" id="mySmallModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+							<h4 class="modal-title">아래에 변경할 비밀번호를 입력하세요.</h4>
+							</div>
+							<div class="modal-body">
+					
+							<table style="padding:1rem;margin:1rem;">
+							<tr>
+								<th>기존 비밀번호:</th><td><input type="password" style="margin:0.5rem;" name="oldpw"></td>
+							</tr>
+							<tr>
+							<th>새 비밀번호:</th><td><input type="password" style="margin:0.5rem;"name="newpw1"></td>
+							</tr>
+							<tr>
+							<th>새 비밀번호확인:</th><td><input type="password" style="margin:0.5rem;"name="newpw2"></td>
+							</tr>
+							</table>
+							</div>
+					<div class="modal-footer">
+					<button type="submit" class="btn btn-default" name="complete" value="pwcp">변경완료</button>
+					<button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+</td>
+</tr>
 	</thead>
 	<tbody>          
 		<tr>
