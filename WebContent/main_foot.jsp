@@ -15,7 +15,7 @@
                        <a href="/sign/accessTerm.jsp">이용약관</a>                   
                    </li>
                    <li>
-                       <a href="#">개인정보취급방침</a> 
+                       <a href="/sign/personalInfo.jsp">개인정보취급방침</a> 
                    </li>
                    <li>
                        <a href="#">고객센터</a> 

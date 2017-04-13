@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"%>
-<%@ page import="dao.MemberDao" %>
-<%@ page import="dao.DbBasedMemberDao" %>
+<%@ page import="service.MemberService"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +25,7 @@
 	
 	if(pw.equals(pw2)){	// 두 비밀번호가 같을 때.(비밀번호 확인 되었을때)
 		Member member = new Member();
-		MemberDao newMember = new DbBasedMemberDao();
+		MemberService newMember = new MemberService();
 		
 		member.setEmail(ID);
 		member.setPassword(pw);

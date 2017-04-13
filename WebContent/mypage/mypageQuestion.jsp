@@ -13,21 +13,25 @@
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <body>
 <div class="container">
-<div class="row content">
-    <div class="col-sm-2 sidenav">
-<jsp:include page="mypageMain.jsp"></jsp:include>
-</div>
-<div class="col-sm-10">
-<div id="MypageQuestion">
-      <h2>자주 묻는 질문</h2>
-      <h3>-Q&A</h3>
- 	<a href="#">1.장바구니에 담아둔 내역이 자꾸 사라집니다.</a><br>
- 	<a href="#">2.장바구니 담기가 안됩니다.</a><br>
- 	<a href="#">3.장바구니 복원신청은 어떻게하나요?</a>
- 	</div>
- 	</div>
- 	</div>
- 	</div>
+	<div class="row content">
+    	<div class="col-sm-2 sidenav">
+		<jsp:include page="mypageMain.jsp"></jsp:include>
+	</div>
+		<div class="col-sm-10">
+			<div id="MypageQuestion">
+				<h2>자주 묻는 질문</h2>
+				<h3>-Q&A</h3>
+					<a href="/mypageAnswer/loginAnswer.jsp">1.로그인시 이상한 영어가 뜨면서 로그인이안되요.</a><br>
+					<a href="/mypageAnswer/basketAnswer.jsp">2.로그아웃을 해도 장바구니가 남아있나요?</a><br>
+					<a href="/mypageAnswer/nonmemberAnswer.jsp">3.회원가입(로그인)을 안한상태에서 구매는 불가능한건가요?</a><br>
+					<a href="/mypageAnswer/newBookAnswer.jsp">4.목록에 없는 책을 사고 싶은데 신청 가능한가요?</a><br>
+					<a href="#">5.적립된 포인트로 뭘 할 수있나요?</a><br>
+					<a href="#">6.회원 탈퇴 하고싶어요.</a><br>
+					<a href="#">7.재외국인은 어떻게 가입해야하죠?(주소문제)</a><br>
+			</div>
+		</div>
+	</div>
+ </div>
 </body>
 <jsp:include page="/main_foot.jsp"></jsp:include>
 </html>

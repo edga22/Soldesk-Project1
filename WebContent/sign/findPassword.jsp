@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"%>
-<%@ page import="dao.MemberDao" %>
-<%@ page import="dao.DbBasedMemberDao" %>
+<%@ page import="service.MemberService"%>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -38,7 +37,7 @@
 	}
 	
 	Member member = new Member();
-	MemberDao mapper = new DbBasedMemberDao();
+	MemberService mapper = new MemberService();
 	
 	if((ID != null && !ID.equals(""))
 			&& (name != null && !name.equals(""))

@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"%>
-<%@ page import="dao.MemberDao" %>
-<%@ page import="dao.DbBasedMemberDao" %>
+<%@ page import="service.MemberService" %>
 <html>
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
@@ -15,7 +14,7 @@
 	String pw = request.getParameter("pw");
 	int memberID = 0;
 
-	MemberDao memberService = new DbBasedMemberDao();
+	MemberService memberService = new MemberService();
 	
 	if((ID != null && !ID.equals(""))
 			&& (pw != null && !pw.equals(""))){

@@ -29,6 +29,7 @@
 <title>회사 소개</title>
 </head>
 <body>
+<div class="container">
 <h2>개요</h2>
 	<br />
 		<jsp:include page="/logo.jsp"/>
@@ -74,5 +75,7 @@
 				</table>
 			</div>
       <div><img src="http://image.aladin.co.kr/img/aladdin/top_foot.gif" width="912" height="9" alt=""></div></td>
+     <jsp:include page="/main_foot.jsp"></jsp:include>
+     </div>
 </body>
 </html>
