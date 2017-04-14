@@ -43,7 +43,7 @@ if(pw.equals(member.getPassword())){
 %>
 <jsp:include page="../logo.jsp"/>
 <div class="container" id="out">
-	<h4>그동안 Book&Cafe를 이용해주셔서 감사합니다.</h4>
+	<h4>그동안 BookCafe를 이용해주셔서 감사합니다.</h4>
 	<p>앞으로 더 나은 서비스를 제공할수 있도록 최선을 다하겠습니다.</p>
 	<p>서비스 개선을 위한 의견이나 제안을 master@bookncafe로 보내주시면</p>
 	<p>향후 서비스 개선 활동에 반영하도록 하겠습니다. 감사합니다.</p>
@@ -54,9 +54,8 @@ if(pw.equals(member.getPassword())){
 <%
 }else{
 %>
-<p>회우너탈퇴가안ㄷ댓어</p>
+<jsp:include page="/mypage/mypageOut.jsp"/>
 
-<jsp:include page="/mypage/mypageOut.jsp"/> 
 <%
 }
 %>
