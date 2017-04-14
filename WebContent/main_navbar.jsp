@@ -80,10 +80,16 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
                </div>
                <div class="col-md-6 text-right">
                    <ul class="breadcrumb" style="height:36px">
-                       <%if(!memberID.equals("")){%>
+                       <%if(!memberID.equals("")){
+                       		if(memberID.equals("admin@admin.com")){%>
+                       <li>
+                           <span class="member_rate" style="display:none;"> 회원등급 </span><a href="/admin/index.jsp"><b><%=memberID %></b>님</a><span class="divider"></span>
+                       </li>
+                      		<%}else{ %>
                        <li>
                            <span class="member_rate" style="display:none;"> 회원등급 </span><a href="/mypage/mypageOrderMod.jsp"><b><%=memberID %></b>님</a><span class="divider"></span>
                        </li>
+                      		<%} %>
                        <li>
                            <a href="/mypage/mypageOrderMod.jsp">마이페이지</a> <span class="divider"></span>
                        </li>
