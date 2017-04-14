@@ -56,12 +56,6 @@ public class PayService {
 		return point;
 	}
 	
-	public void setPoint(int memberID, int point){
-		Member member = ms.getMember(memberID);		
-		member.setBonusPoint(point);
-		ms.updatePoint(member);
-	}
-	
 	// 북 원래가격 책정
 	public int getOverPrice(String bookID){
 		Book book = bmgr.getBook(Integer.parseInt(bookID));

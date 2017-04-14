@@ -73,5 +73,25 @@ public class OrderState {
 		product += " 총 "+total+"권";
 		return product;
 	}
+	
+	// 배송완료시 포인트 적립
+	public void updatePoint(int oldProgress,int newProgress,int memberID,int orderID){
+		//입금확인중,배송준비,배송시작에서 넘어올경우에만 실행.
+		if(oldProgress == 1 || oldProgress == 2 ||oldProgress == 3 ){
+			//배송상태가 완료상태로 바꼇을경우에만 실행.
+			if(newProgress==4 || newProgress==5){
+				// 포인트 적립
+				int point=0;
+				Member member = ms.getMember(memberID);
+				OrderDetail[] ods = odmgr.getIdDetails(orderID);
+				for(OrderDetail od: ods){
+					Book book = bmgr.getBook(od.getBookID()); 
+					point += book.getPrice()*od.getAmount()/10;										
+				}
+				member.setBonusPoint(point);		
+				ms.updatePoint(member);
+			}
+		}
+	}
 
 }

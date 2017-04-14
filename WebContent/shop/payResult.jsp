@@ -73,12 +73,12 @@ if(memberID == 0){
 <%	
 			i++;
 			}
-			ps.setPoint(memberID, point); // 구매후 총 적립포인트 저장
 %>
 	 </tbody>
 	</table>
-	<p>총 적립금:<%=point %></p>
+	<p>적립 예정 포인트:<%=point %></p>
 	<p>구매해 주셔서 갑사합니다.</p>
+	<p>적립금은 주문이 완료될경우 자동으로 적립됩니다.</p>
 </div>
 <%		
 	}
