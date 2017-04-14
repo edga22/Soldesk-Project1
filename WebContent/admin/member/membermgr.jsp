@@ -43,7 +43,7 @@ h3 {
 		modify = request.getParameter("mod");
 	
 	if(modify.equals("update")){			//유저 아이디 수정
-		if(point != 0){
+		if(userNo != 0){
 			updMem.setBonusPoint(point);
 			updMem.setMemberID(userNo);
 			result = userList.updatePoint(updMem);
