@@ -1,11 +1,15 @@
+<%@page import="mgr.BestsellerMgr"%>
 <%@page import="domain.BestSeller"%>
 <%@page import="dao.DbBasedBestsellerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
+	BestsellerMgr mgr=new BestsellerMgr();
 	DbBasedBestsellerDao dao=new DbBasedBestsellerDao();
 	BestSeller[] bestseller=dao.getBestseller();
+	
+	String monthAgo=mgr.getMonthAgoDate();
 %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <head>
@@ -56,7 +60,7 @@
 		.center {text-align: center;}
 	</style>
 </head>
-<title>베스트셀러</title>
+<title>월간 베스트셀러</title>
 <style>
 
 </style>
@@ -67,6 +71,16 @@
 <div id="monthBestseller">
 <!-- 시작 -->
 <div class="container"> 
+
+	<ul class="nav nav-tabs">
+  		<li class="active"><a data-toggle="tab" href="#month">이 달의 베스트</a></li>
+  		<li><a data-toggle="tab" href="#new">신간 베스트</a></li>
+  		<li><a data-toggle="tab" href="#">e-book 베스트</a></li>
+	</ul>
+	
+	
+	<div class="tab-content">
+    <div id="month" class="tab-pane fade in active">
   	<div class="row">
     	<h3 class="col-sm-6">이 달의 베스트</h3>
     	<div class="col-sm-2">
@@ -83,6 +97,7 @@
  	  		</form>
     	</div>
     </div>
+    
     
     <% if(bestseller==null || bestseller.length==0){%>
     <!-- 도서 한권 리스트 -->
@@ -117,18 +132,63 @@
  	  </li> <!-- 도서 한권 리스트 -->
  	  <%}%>
 	</ul>
-</div>
-
-<!-- 페이징 -->
-<div class="center">
-	<div id="paging"></div>
-	<ul class="pagination" id="pagin">
-  		<li><a>1</a></li>
-  		<li><a>2</a></li>
-  		<li><a>3</a></li>
-  		<li><a>4</a></li>
-  		<li><a>5</a></li>
+	</div>
+	
+	<div id="new" class="tab-pane fade">
+	<div class="row">
+    	<h3 class="col-sm-6">신간 도서 베스트</h3>
+    	<div class="col-sm-2">
+    		<input type="checkbox" id="allCheck" checked="checked"/> 전체선택
+    	</div>
+    	<div class="col-sm-2">
+       		<form action="/shop/basket.jsp">
+    			<input type="submit" class="btn btn-default" value="장바구니에 담기">
+    		</form>
+    	</div>
+    	<div class="col-sm-2">
+    		<form action="/shop/payment.jsp">
+ 	  			<input type="submit" class="btn btn-default btn-primary" value="바로구매">
+ 	  		</form>
+    	</div>
+    </div>
+    
+    <% if(bestseller==null || bestseller.length==0){%>
+    <!-- 도서 한권 리스트 -->
+ 	  <li class="list-group-item"> 
+ 	  	<h2>준비중 입니다 :(</h2>
+ 	  </li> <!-- 도서 한권 리스트 -->
+ 	<% }%>
+ 	
+    <ul class="list-group">
+      <!-- 도서 한권 리스트 -->
+      <% for(int i=0;i<bestseller.length;i++){
+    	String bookDate=mgr.transFormate(bestseller[i].getBook().getPublishDate());
+    	if(bookDate.compareTo(monthAgo)>=0){
+    		int booIdInt = bestseller[i].getBookID();
+			String bookIdLink = "/inven/bookDetail.jsp?bookID="+booIdInt;
+			String bookNamestr = bestseller[i].getBook().getBookName();	%>
+ 	  <li class="list-group-item"> 
+ 	  <div class="row">
+ 	  	<div class="col-sm-1"><input type="checkbox" checked="checked"/> <%=i %>.</div>
+ 	  	<div class="col-sm-2"><img id="img" src="<%=bestseller[i].getBook().getImageID()%>"/></div>
+ 	  	<div class="col-sm-7">
+ 	  		<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
+			<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 새창으로보기" target="_blank"></a>
+			<a><i class="glyphicon glyphicon-new-window" style="font-size:0.6rem;color:#555"></i></a><br>
+ 	  		<p>저자: <%=bestseller[i].getBook().getAuthor()%> | 출판사: <%=bestseller[i].getBook().getPublisher() %> | 출판일: <%=bestseller[i].getBook().getPublishDate() %></p> 
+ 	  		<p>가격: <%=bestseller[i].getBook().getPrice() %> ￦</p>
+ 	  	</div>
+ 	  	<div class="col-sm-2">
+ 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=<%=bestseller[i].getBook().getBookID()%>">장바구니에 담기</a>
+            <a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=bestseller[i].getBook().getBookID()%>">바로 구매</a>
+ 	  	</div>
+ 	   </div>
+ 	  </li> <!-- 도서 한권 리스트 -->
+ 	  <%}
+ 	  } %>
 	</ul>
-</div> <!-- 페이징 -->
+	</div>
+	</div>
+</div>
 </div>
 <jsp:include page="/main_foot.jsp"></jsp:include>
