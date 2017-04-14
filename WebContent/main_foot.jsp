@@ -20,9 +20,14 @@
                    <li>
                        <a href="#">고객센터</a> 
                    </li>
+                <%
+           			String admin = (String)session.getAttribute("ID");
+           			if(admin.equals("admin@admin.com")){
+           		%>
                    <li>
-                       <a href="/admin/index.jsp">판매자 매니저</a> 
-                   </li>                                
+                      <a href="/admin/index.jsp">판매자 매니저</a> 
+                   </li>
+               <%}else{} %>               
                    <li style="float:right">
                        <a href="#">▲TOP</a>
                    </li>
