@@ -21,7 +21,10 @@
                        <a href="#">고객센터</a> 
                    </li>
                 <%
-           			String admin = (String)session.getAttribute("ID");
+                	String admin="";
+                	if(session.getAttribute("ID") != null && !session.getAttribute("ID").equals("")){
+           				admin = (String)session.getAttribute("ID");
+                	}
            			if(admin.equals("admin@admin.com")){
            		%>
                    <li>
