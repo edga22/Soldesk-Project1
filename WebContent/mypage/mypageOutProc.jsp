@@ -54,6 +54,10 @@ if(pw.equals(member.getPassword())){
 <%
 }else{
 %>
+<script>
+	alert("비밀번호가 일치하지않습니다.");
+	window.location.replace("/mypage/mypageOut.jsp");
+</script>
 <jsp:include page="/mypage/mypageOut.jsp"/>
 
 <%

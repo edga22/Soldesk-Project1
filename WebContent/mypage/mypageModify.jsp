@@ -14,6 +14,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 <title>마이페이지 개인정보수정</title>
 </head>
 <body>
@@ -130,7 +132,8 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 		</tr>
 		<tr>
 			<th>우편번호</th>
-			<td><%=member.getPostCode()%></td>
+			<td><%=member.getPostCode()%>
+			</td>
 		</tr>
 		<tr>
 			<th>주소</th>
@@ -138,7 +141,6 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 		</tr>
 	</tbody>
 	</table>
-	
   </div>
   </div>
   </div>
