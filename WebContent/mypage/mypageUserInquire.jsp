@@ -1,18 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="dao.MemberDao"%>
+<%@ page import="dao.DbBasedMemberDao"%>
+<%@ page import="domain.Member"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>마이페이지 1:1문의</title>
+<%
+	int tmp = (Integer) session.getAttribute("memberID");
+	int userID = 1;
+	if (tmp == 0) {
+	} else {
+		userID = tmp;
+	}
+
+	MemberDao mbDao = new DbBasedMemberDao();
+	
+	mbDao.getMember(userID);
+	
+	Member mb = mbDao.getMember(userID);		
+%>
 </head>
 <body>
 
@@ -31,49 +44,47 @@
 						<form action="mypageUserInquireResult.jsp">
 							<button type="submit" class="btn btn-default"
 								style="float: right;">문의 결과</button>
-						</form>
-						<form action="mypageUserInquire.jsp">
-							<button type="submit" class="btn btn-default"
-								style="float: right;">문의 하기</button>
-						</form>
+						</form> 
 					</td>
 				</tr>
 				<tr>
-					<td><form class="form-horizontal">
+					<td><form action="mypageUserInquireProc.jsp"
+							class="form-horizontal">
 							<div class="form-group">
 								<!-- col-sm 2칸!! 띄운 상태이다. -->
 								<label class="control-label col-sm-2" for="text">이름:</label>
 								<!-- col-sm 10칸!! 차지함!-->
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="title"
-										autofocus="autofocus" placeholder="이름">
+									<input type="text" class="form-control" name="userInquireName"
+										autofocus="autofocus" placeholder="이름"
+										value="<%=mb.getName()%>">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="text">이메일:</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="author"
-										placeholder="E-Mail">
+									<input type="text" class="form-control" name="userInquireEmail"
+										placeholder="E-Mail" value="<%=mb.getEmail()%>">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="text">질문유형:</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="publicsher"
+									<input type="text" class="form-control" name="userInquireType"
 										placeholder="질문유형">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="text">제목:</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="title"
+									<input type="text" class="form-control" name="userInquireTitle"
 										autofocus="autofocus" placeholder="제목" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="text">내용:</label>
 								<div class="col-sm-10">
-									<textarea rows="10" cols=100% name="contents"
+									<textarea rows="10" cols=100% name="userInquireContents"
 										style="width: 100%; hight: 800px;"
 										placeholder=" ※구매내역(책 제목, 구매일)을 함께 남겨주시면 보다 빠른 답변이 가능합니다."
 										required></textarea>
@@ -82,20 +93,13 @@
 							<div>
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
-										<!-- <form action="#">
-								<button type="submit" class="btn btn-default"
-									style="float: right;">취소</button>
-							</form> -->
-										<form action="#">
-											<button type="submit" class="btn btn-default"
-												style="float: right;">전송</button>
-										</form>
+										<button type="submit" class="btn btn-default"
+											style="float: right;">전송</button>
 										<br> <br>
 									</div>
 								</div>
 							</div>
-						</form>
-					</td>
+						</form></td>
 				</tr>
 			</table>
 		</div>

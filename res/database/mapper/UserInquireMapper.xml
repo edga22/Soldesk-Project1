@@ -24,8 +24,7 @@
 	
 	<insert id="addUserInquire" parameterType="domain.UserInquire">
 		insert into USERINQUIRES(Q_TYPE, Q_TITLE, Q_CONTENT, Q_DATE)
-		values( #{qType,jdbcType=VARCHAR}, #{qTitle,jdbcType=VARCHAR}, 
-				#{qContent,jdbcType=NUMERIC}, #{qDate,jdbcType=DATE}, )
+		values(#{qType,jdbcType=VARCHAR},#{qTitle,jdbcType=VARCHAR},#{qContent,jdbcType=NUMERIC},#{qDate,jdbcType=DATE})
 	</insert>
 	<!-- 
 	<insert id="addUserInquire" parameterType="domain.UserInquire">
