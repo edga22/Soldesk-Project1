@@ -9,9 +9,6 @@ List<Category> categories = mymgr.listCategories();
 pageContext.setAttribute("categories", categories);
 int categoriesSize = categories.size();
 %>
-<!DOCTYPE html PUBLIC>
-<html>
-<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 아이콘 -->
@@ -23,54 +20,51 @@ int categoriesSize = categories.size();
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-    $(function() {
-	   $('#sel1').change(function() {
-		   var temp = $('#sel2');
-		   var a = $(this).val();
-		   temp.children().remove();
-		   temp.append('<option value="">--2차분류--</option>');
+   $(function() {
+   $('#sel1').change(function() {
+	   var temp = $('#sel2');
+	   var a = $(this).val();
+	   temp.children().remove();
+	   temp.append('<option value="">--2차분류--</option>');
 
-	<%
-	int i =0;
-	for(Category result:mymgr.listCategories()){
-		
-		if(result.getCode2() == 0){
-			if(i == 0){
-	%>
-		   if(a == '<%=result.getCode1() %>'){
-	     <% }else{ %>
-	       }
-		   
-	       if(a == '<%=result.getCode1() %>'){
-	     <% }
-		}else{ %>
-		    temp.append('<option value="<%=result.getCategoryID()%>"><%=result.getCategoryName() %></option>');
-    <% 
+<%
+int i =0;
+for(Category result:mymgr.listCategories()){
+	
+	if(result.getCode2() == 0){
+		if(i == 0){
+%>
+	   if(a == '<%=result.getCode1() %>'){
+     <% }else{ %>
        }
-	   i++;
-	}
-    %>
-		   }
-	   });
-	   /* $('#sel2').change(function() {
-           console.log($('#sel2').val());           
-	   }); */
-	});
-	</script>
-</head>
-<body> 
-	<div>
-		<select id="sel1">
-			<option value="">-1차분류-</option>           
-            <c:forEach var="category" items="${categories}">
-	            <c:if test="${category.code2 == 0}">
-	               <option value="${category.code1}">${category.categoryName}</option>
-	            </c:if>
-            </c:forEach>
-		</select>
-		<select id="sel2" name="category_id">
-		    <option>--2차분류--</option>
-		</select>		
-	</div>
-</body>
-</html>
+	   
+       if(a == '<%=result.getCode1() %>'){
+     <% }
+	}else{ %>
+	    temp.append('<option value="<%=result.getCategoryID()%>"><%=result.getCategoryName() %></option>');
+   <% 
+      }
+   i++;
+}
+   %>
+	   }
+   });
+   /* $('#sel2').change(function() {
+          console.log($('#sel2').val());           
+   }); */
+});
+</script>
+
+<div>
+	<select id="sel1">
+		<option value="">-1차분류-</option>           
+           <c:forEach var="category" items="${categories}">
+            <c:if test="${category.code2 == 0}">
+               <option value="${category.code1}">${category.categoryName}</option>
+            </c:if>
+           </c:forEach>
+	</select>
+	<select id="sel2" name="category_id">
+	    <option>--2차분류--</option>
+	</select>		
+</div>
