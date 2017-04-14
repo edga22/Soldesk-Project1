@@ -7,11 +7,10 @@
 CategoryMgr mymgr = new CategoryMgr();
 List<Category> categories = mymgr.listCategories();
 List<Category> categoriesusecode1 = mymgr.listCategoriesUseCode1();
-List<Category> categoriesusecode2 = mymgr.listCategoriesUseCode2();
 pageContext.setAttribute("categoriesusecode1", categoriesusecode1);
 int categoriesSize = categories.size();
 int categoriesCode1Size = categoriesusecode1.size();
-int categoriesCode2Size = categoriesusecode2.size();
+int categoriesCode2Size = categoriesSize-categoriesusecode1.size();
 %>
 <!DOCTYPE html PUBLIC>
 <html>
@@ -56,51 +55,7 @@ td, th {
 }
 </style>
 <script type="text/javascript">
-function doChange(srcE, targetId){
-    var val = srcE.options[srcE.selectedIndex].value;
-    var targetE = document.getElementById(targetId);
-    alert(val);
-    removeAll(targetE);
-    
-    <%
-    int i=0;
-    for(Category result1:mymgr.listCategoriesUseCode1()){       
-        if(i == 0){
-    %>
-    if(val == '<%=result1.getCode1() %>'){
-    <%
-        }else{
-    %>
-    }else if(val == '<%=result1.getCode1() %>'){
-    <%
-        }
-        for(Category result2:mymgr.listCategoriesUseCode2()){
-            if(result2.getCode1()==result1.getCode1()){
-    %>
-    addOption('<%=result2.getCategoryName() %>', targetE); 
-    <%
-            }
-        }   
-        i++;
-    }
-    %>
-    }
-}
 
-function addOption(value, e){
-    var o = new Option(value);
-    try{
-        e.add(o);
-    }catch(ee){
-        e.add(o, null);
-    }
-}
-
-function removeAll(e){
-    for(var i = 0, limit = e.options.length; i < limit - 1; ++i){
-        e.remove(1);
-    }
-}
 </script>
 </head>
 <body>
@@ -128,7 +83,7 @@ function removeAll(e){
       <table class="table table-striped table-hover">
         <thead>
           <tr class="warning" id="categoryAddInfo" style="display:none">
-            <th colspan="6" class="text-center">            	
+            <th colspan="7" class="text-center">            	
             	<a class="close" id="addInfoClose">&times;</a>
                 <p>분류코드는 직접 입력한 값을 사용하고 하위분류코드의 분류코드1은 셀렉트 박스를 선택합니다.</p>                
                 <h5>분류코드는 0~9까지 입력이 가능하며 2자리씩 4자리를 사용하여 2단계를 표현합니다.</h5> 
@@ -136,11 +91,12 @@ function removeAll(e){
             </th>
           </tr>
           <tr class="info" name="trBanner2">
-            <th colspan="2" style="width:25%">분류코드</th>
+            <th style="width:10%">ID</th>
+            <th colspan="2" style="width:20%">분류코드</th>
             <th style="width:25%">분류명</th>
-            <th style="width:25%">분류설명</th>
-            <th style="width:10%">사용</th>
-            <th style="width:15%">분류관리</th>
+            <th style="width:30%">분류설명</th>
+            <th style="width:5%">사용</th>
+            <th style="width:10%">분류관리</th>
           </tr>
         </thead>        
         <tbody>          
@@ -155,17 +111,18 @@ function removeAll(e){
 		        }
 		    %>
           <tr>
+            <td><%= result.getCategoryID() %></td>
             <td colspan="2"><input class="form-control input-sm text-center" id="inputsm" type="text" value="<%= code %>" readonly="readonly"></td>
-            <% if(result.getCode2() == 0){ %>
-            <td><input class="form-control input-sm" id="inputsm" type="text" value="<%=result.getCategoryName() %>"></td>
-            <% }else{ %>
             <td>
+            <% if(result.getCode2() == 0){ %>
+                <input class="form-control input-sm" id="inputsm" type="text" value="<%=result.getCategoryName() %>">
+            <% }else{ %>            
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>
                     <input class="form-control input-sm" id="inputsm" type="text" value="<%=result.getCategoryName() %>">
-                </div>
-            </td>
+                </div>            
             <% } %>
+            </td>
             <td><input class="form-control input-sm" id="inputsm" type="text" value="<%=result.getCategorySubject() %>"></td>
             <td><label><input type="checkbox" value="<%=categoryUse %>" <% if(categoryUse == 1){ %>checked<% } %>>사용</label></td>
             <td>
@@ -189,38 +146,16 @@ function removeAll(e){
     </div>
  </div>
  
- <div class="row">
-    <form action="#">
-    <div class="col-md-1 col-md-offset-3">
-        <div class="form-group">        
-          <select class="form-control input-sm" name="selOne" id="selOne" onchange="doChange(this, 'selTwo')">
-            <option value="default">-1차분류-</option>           
-            <c:forEach var="categoryuse" items="${categoriesusecode1}">
-            <option value="${categoryuse.code1}">${categoryuse.categoryName}</option>
-            </c:forEach>
-           </select>
-         </div>
-    </div>
-    <div class="col-md-1">
-        <div class="form-group">       
-           <select class="form-control input-sm" name="selTwo" id="selTwo">
-            <option value="default">-2차분류-</option>
-           </select>        
-        </div>
-    </div>
-    </form>
-</div>
- 
  <!-- main container -->
 
 <script>
    //추가 버튼
     $(document).on("click","input[name=addBanner]",function(){
         var addBannerText =  '<tr name="trBanner">'+
-            '   <td colspan="2"><input name="code1" class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="두자리 숫자입력"></td>'+
+            '   <td colspan="3"><input name="code1" class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="두자리 숫자입력"></td>'+
             '   <td><input name="categoryName" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류1 이름입력"></td>'+
             '   <td><input name="categorySubject" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류1 설명입력"></td>'+
-            '   <td><label><input name="categoryUse" type="checkbox" value="1">사용</label></td>'+
+            '   <td><label><input name="categoryUse" type="checkbox" value="1" checked>사용</label></td>'+
             '   <td>'+
             '           <button name="delBanner" class="btn btn-info btn-sm">삭제</button>'+
             '           <input type="submit" class="btn btn-info btn-sm" value="적용">'+
@@ -243,8 +178,8 @@ function removeAll(e){
     $(document).on("click","input[name=addBanner2]",function(){
 
         var addBannerText2 =  '<tr name="trBanner2">'+            
-            '   <td>'+
-	        '      <select class="form-control input-sm" name="code1" id="selOne">'+
+            '   <td colspan="2">'+
+	        '      <select class="form-control input-sm" name="code1">'+
 		    '         <option value="default">-1차분류-</option>'+
 		    '         <c:forEach var="categoryuse" items="${categoriesusecode1}">'+
 		    '         <option value="${categoryuse.code1}">${categoryuse.categoryName}</option>'+
@@ -259,7 +194,7 @@ function removeAll(e){
             '   </div>'+
             '   </td>'+
             '   <td><input name="categorySubject" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류2 설명입력"></td>'+
-            '   <td><label><input name="categoryUse" type="checkbox" value="1">사용</label></td>'+
+            '   <td><label><input name="categoryUse" type="checkbox" value="1" checked>사용</label></td>'+
             '   <td>'+
             '      <button name="delBanner2" class="btn btn-info btn-sm">삭제</button>'+
             '      <input type="submit" class="btn btn-info btn-sm" value="적용">'+
@@ -274,7 +209,8 @@ function removeAll(e){
     //하위삭제 버튼
     $(document).on("click","button[name=delBanner2]",function(){         
         var trHtml = $(this).parent().parent();         
-        trHtml.remove(); //tr 테그 삭제         
+        trHtml.remove(); //tr 테그 삭제
+        $("#categoryAddInfo").hide();
     });    
 </script>
 <script>

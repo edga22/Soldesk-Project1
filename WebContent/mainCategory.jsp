@@ -117,11 +117,10 @@ a {
 				</div>
 			</div>
 		</div>
-		<!--// 카테고리 -->		
-		
-		
-		
-		<div class="col-md-10" id="result"> <!-- result -->
+		<!--// 카테고리 -->
+			
+		<!-- result -->
+		<div class="col-md-10" id="result">
 		<div class="row" id="align-bar">
 				<div class="col-md-2 col-md-offset-1">
 					<a href="#">제목순</a>
@@ -143,120 +142,49 @@ a {
 					</select>
 				</div>
 			</div>
-		<form>
-		<button type="submit" class="btn btn-default">선택한것 찜하기</button><br>
-		<%
-			Book[] books = mymgr.getBooks();
-				for(Book book: books){			
-		%>
-		<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
-			<div class="col-md-1">
-				<p><%=book.getBookID() %></p>
-				<input type="checkbox" name="bookID" value="<%=book.getBookID() %>">
+			<form>
+			<button type="submit" class="btn btn-default">선택한것 찜하기</button><br>
+			<%
+				Book[] books = mymgr.getBooks();
+					for(Book book: books){			
+			%>
+			<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
+				<div class="col-md-1">
+					<p><%=book.getBookID() %></p>
+					<input type="checkbox" name="bookID" value="<%=book.getBookID() %>">
+				</div>
+				<div class="col-md-2"><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>"></a></div>
+				<div class="col-md-7">
+					<h3><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><%=book.getBookName() %></a></h3>
+					<p>저자 :<%=book.getAuthor() %>  옮긴이 :<%=book.getAuthor() %>  출판사 : <%=book.getPublisher() %></p>
+					<ul>
+						<li><%=book.getPrice()*1.1 %> -> <%=book.getPrice()%></li>
+						<li>적립포인트 : <%=book.getPrice()*0.1 %>%</li>
+						<li>사은품 : 없음</li>
+					</ul>
+				</div>
+				<div class="col-md-2">
+					<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a></p>
+					<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a></p>
+				</div>
 			</div>
-			<div class="col-md-2"><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>"></a></div>
-			<div class="col-md-7">
-				<h3><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><%=book.getBookName() %></a></h3>
-				<p>저자 :<%=book.getAuthor() %>  옮긴이 :<%=book.getAuthor() %>  출판사 : <%=book.getPublisher() %></p>
-				<ul>
-					<li><%=book.getPrice()*1.1 %> -> <%=book.getPrice()%></li>
-					<li>적립포인트 : <%=book.getPrice()*0.1 %>%</li>
-					<li>사은품 : 없음</li>
-				</ul>
-			</div>
-			<div class="col-md-2">
-				<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a></p>
-				<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a></p>
-			</div>
+			<%} %>
+			</form>
 		</div>
-		<%} %>
-		</form>
-	</div><!-- result -->
-		
-		
-
-		<%-- 디자인발표 전 수정 파일 
-		<div class="col-md-10" id="result">
-			<!-- result -->
-			<div class="row" id="align-bar">
-				<div class="col-md-2 col-md-offset-1">
-					<a href="#">제목순</a>
-				</div>
-				<div class="col-md-2 col-md-offset-1">
-					<a href="#">저자순</a>
-				</div>
-				<div class="col-md-2 col-md-offset-1">
-					<a href="#">가격순</a>
-				</div>
-				<div class="col-md-2 col-md-offset-1">
-					<a href="#">출간일순</a>
-				</div>
-				<div class="col-md-2 col-md-offset-1">
-					<select name="display_number" class="">
-						<option value="25">25개</option>
-						<option value="50">50개</option>
-						<option value="100">100개</option>
-					</select>
-				</div>
-			</div>
-			<form action="/shop/payment.jsp">
-				<%
-					for (int i = 1; i <= 5; i++) {
-				%>
-				<div class="row" style="margin-bottom: 1rem;">
-					<!-- items -->
-					<div class="col-md-1">
-						<p><%=i%></p>
-						<input type="checkbox" name="bookID" value="<%=i%>">
-					</div>
-					<div class="col-md-2">
-						<img src="http://lorempixel.com/140/180">
-					</div>
-					<div class="col-md-7">
-						<h3>
-							책 제목<%=i%></h3>
-						<p>
-							저자 : 저자<%=i%>
-							옮긴이 : 옮긴이
-							<%=i%>
-							출판사 : 시공출판사
-						</p>
-						<ul>
-							<li>10000원 -> 9000원</li>
-							<li>적립포인트 : <%=i%>%
-							</li>
-							<li>사은품 :</li>
-						</ul>
-					</div>
-					<div class="col-md-2">
-						<p>
-							<button class="btn btn-default">장바구니 추가</button>
-						</p>
-						<p>
-							<button class="btn btn-default" type="submit" name="bookID"
-								value="<%=i%>">바로 구매</button>
-						</p>
-					</div>
-				</div>
-				<%
-					}
-				%>
-			</form> --%>
-	
-	       <!-- result -->
-		   <!-- 하단 페이지 바 -->
-			<div align="center">
-				<ul class="pagination">
-					<li><a href="#">◁</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">▷</a></li>
-				</ul>
-			</div>
-        </div>
-	
+	    <!--// result -->
+	    <!-- 하단 페이지 바 -->
+		<div align="center">
+			<ul class="pagination">
+				<li><a href="#">◁</a></li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">▷</a></li>
+			</ul>
+		</div>
+    </div>	
 </div>	
+
 <jsp:include page="/main_foot.jsp"></jsp:include>
