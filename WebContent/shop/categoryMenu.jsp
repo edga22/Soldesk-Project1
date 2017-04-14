@@ -1,76 +1,81 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="domain.Category" %>
 <%@ page import="mgr.CategoryMgr" %>
 <%@ page import="java.util.List" %>
 <%
 CategoryMgr mymgr = new CategoryMgr();
 List<Category> categories = mymgr.listCategories();
-pageContext.setAttribute("categories", categories);
 int categoriesSize = categories.size();
 %>
-<!DOCTYPE html PUBLIC>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- 아이콘 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-    $(function() {
-	   $('#sel1').change(function() {
-		   var temp = $('#sel2');
-		   var a = $(this).val();
-		   temp.children().remove();
-		   temp.append('<option value="">--2차분류--</option>');
-
-	<%
-	int i =0;
-	for(Category result:mymgr.listCategories()){
-		
-		if(result.getCode2() == 0){
-			if(i == 0){
-	%>
-		   if(a == '<%=result.getCode1() %>'){
-	     <% }else{ %>
-	       }
-		   
-	       if(a == '<%=result.getCode1() %>'){
-	     <% }
-		}else{ %>
-		    temp.append('<option value="<%=result.getCategoryID()%>"><%=result.getCategoryName() %></option>');
-    <% 
-       }
-	   i++;
+<%
+String cataPage = request.getParameter("cata");
+String cata1 = "";
+String cata2 = "";
+String cata3 = "";
+String cata4 = "";
+%>
+<%
+if(cataPage != null){
+	if(cataPage.equals("domestic")){
+	    cata1 = "in";
+	}else if(cataPage.equals("oversea")){   
+	    cata2 = "in";
+	}else if(cataPage.equals("ebook")){
+	    cata3 = "in";
+	}else if(cataPage.equals("etc")){
+        cata4 = "in";
+	}else{
+	    
 	}
+}
+%>
+<style>
+#categori a {
+	padding: 0.3rem;
+}
+
+#categori {
+	margin-top: 5rem;
+}
+</style>
+
+<div class="panel-group" id="categori">
+<%
+    int i = 1;
+
+    for(Category result:mymgr.listCategories()){
+        String catai = "cata"+i;
+        String catastr = catai;
+        
+        if(result.getCode2() == 0){  
+        	if(i == 1){        		
     %>
-		   }
-	   });
-	   /* $('#sel2').change(function() {
-           console.log($('#sel2').val());           
-	   }); */
-	});
-	</script>
-</head>
-<body> 
-	<div>
-		<select id="sel1">
-			<option value="">-1차분류-</option>           
-            <c:forEach var="category" items="${categories}">
-	            <c:if test="${category.code2 == 0}">
-	               <option value="${category.code1}">${category.categoryName}</option>
-	            </c:if>
-            </c:forEach>
-		</select>
-		<select id="sel2" name="category_id">
-		    <option>--2차분류--</option>
-		</select>		
-	</div>
-</body>
-</html>
+            <div class="panel panel-default">
+		        <div class="panel-heading">
+		            <h5 class="panel-title">
+		                <a data-toggle="collapse" data-parent="#categori" href="#c<%= i %>"><%=result.getCategoryName() %></a>
+		            </h5>
+		        </div>
+		        <div id="c1" class="panel-collapse collapse <%=cata1 %>">
+		            <div class="panel-body">
+	<%      }else{ %>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="panel panel-default">
+		        <div class="panel-heading">
+		            <h5 class="panel-title">
+		                <a data-toggle="collapse" data-parent="#categori" href="#c<%= i %>"><%=result.getCategoryName() %></a>
+		            </h5>
+		        </div>
+		        <div id="c<%= i %>" class="panel-collapse collapse <%=catastr %>">
+		            <div class="panel-body">
+    <%      }  i++;
+		}else{ %>		    
+		                <a href="/mainCategory.jsp?cata=oversea"><%=result.getCategoryName() %></a><br>      
+    <%  }
+    } %>
+		            </div>
+		        </div>
+		    </div>
+		</div>

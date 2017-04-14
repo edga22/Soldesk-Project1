@@ -2,27 +2,19 @@
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
 		 import="mgr.BookMgr"
-		 import="domain.Category"%>
+		 import="mgr.EventMgr"
+		 import="domain.Category"
+		 import="java.text.NumberFormat"
+%>
 <%
 BookMgr mymgr = new BookMgr();
-String cataPage = request.getParameter("cata");
-String cata1 = "";
-String cata2 = "";
-String cata3 = "";
-String cata4 = "";
-%>
-<%
-if(cataPage.equals("domestic")){
-	cata1 = "in";
-}else if(cataPage.equals("oversea")){   
-	cata2 = "in";
-}else if(cataPage.equals("ebook")){
-	cata3 = "in";
-}else{
-	
-}
 %>
 <style>
+ul {
+    margin: 0;
+    padding: 0;
+}
+
 li {
 	list-style: none;
 }
@@ -31,36 +23,25 @@ a {
 	padding: 0.3rem;
 }
 
-#categori {
-	margin-top: 5rem;
-}
-
-#cate-side {
-	margin-top: 2rem;
-	background-color: white;
-	border: 1px black solid;
-}
-
 #align-bar {
-	margin: 1rem;
-	padding: 1rem 0.3rem;
+	margin: 1rem 0;
+	padding: 1rem 0;
 	border-bottom: 1px solid black;
 }
 
-#align-bar>.col-md-2 {
-	width: 15%;
+#categoryLine {
+    border-bottom:1px solid #eee;
+    margin-bottom:1.8rem;
 }
-
-#align-bar>.col-md-offset-1 {
-	margin-left: 5%;
+#categoryLine h3 {
+    margin:0 0 0.8rem 0;
+    padding:0;
 }
-
-.inSearch-group {
-	padding-top: 1rem;
-}
-
-.cate-group {
-	padding-top: 1rem;
+#categoryLine img{
+    width:85px;
+    height:auto;
+    max-height:125px;
+    padding-bottom:1.5rem;
 }
 </style>
 
@@ -72,69 +53,30 @@ a {
 	
 	<div class="row">
         <div class="col-md-2">
-			<div class="panel-group" id="categori">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h5 class="panel-title">
-							<a data-toggle="collapse" data-parent="#categori" href="#menu1">국내도서</a>
-						</h5>
-					</div>
-					<div id="menu1" class="panel-collapse collapse <%= cata1 %>">
-						<div class="panel-body">
-							<a href="/mainCategory.jsp?cata=domestic">교양</a><br> 
-							<a href="/mainCategory.jsp?cata=domestic">소설</a><br> 
-							<a href="/mainCategory.jsp?cata=domestic">전공서적</a><br>
-						</div>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h5 class="panel-title">
-							<a data-toggle="collapse" data-parent="#categori" href="#c2">외국도서</a>
-						</h5>
-					</div>
-					<div id="c2" class="panel-collapse collapse <%= cata2 %>">
-						<div class="panel-body">
-							<a href="/mainCategory.jsp?cata=oversea">교양</a><br> 
-							<a href="/mainCategory.jsp?cata=oversea">소설</a><br> 
-							<a href="/mainCategory.jsp?cata=oversea">전공서적</a><br>
-						</div>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h5 class="panel-title">
-							<a data-toggle="collapse" data-parent="#categori" href="#c3">eBook</a>
-						</h5>
-					</div>
-					<div id="c3" class="panel-collapse collapse <%= cata3 %>">
-						<div class="panel-body">
-							<a href="/mainCategory.jsp?cata=ebook">교양</a><br> 
-							<a href="/mainCategory.jsp?cata=ebook">소설</a><br> 
-							<a href="/mainCategory.jsp?cata=ebook">전공서적</a><br>
-						</div>
-					</div>
-				</div>
-			</div>
+            <jsp:include page="/shop/categoryMenu.jsp"/>
 		</div>
 		<!--// 카테고리 -->
 			
 		<!-- result -->
 		<div class="col-md-10" id="result">
-		<div class="row" id="align-bar">
-				<div class="col-md-2 col-md-offset-1">
+		   <div class="row" id="align-bar">
+		        <div class="col-md-1">
+		            <input type="checkbox" name="all" value=""> 전체
+                </div>
+				<div class="col-md-2 text-center">
 					<a href="#">제목순</a>
 				</div>
-				<div class="col-md-2 col-md-offset-1">
+				<div class="col-md-2 text-center">
 					<a href="#">저자순</a>
 				</div>
-				<div class="col-md-2 col-md-offset-1">
+				<div class="col-md-2 text-center">
 					<a href="#">가격순</a>
 				</div>
-				<div class="col-md-2 col-md-offset-1">
+				<div class="col-md-2 text-center">
 					<a href="#">출간일순</a>
-				</div>
-				<div class="col-md-2 col-md-offset-1">
+				</div>				
+				<div class="col-md-3 text-right">
+				    리스트 갯수 : 
 					<select name="display_number" class="">
 						<option value="25">25개</option>
 						<option value="50">50개</option>
@@ -146,28 +88,52 @@ a {
 			<button type="submit" class="btn btn-default">선택한것 찜하기</button><br>
 			<%
 				Book[] books = mymgr.getBooks();
-					for(Book book: books){			
+			    EventMgr evmgr = new EventMgr();
+			    
+			    NumberFormat nf = NumberFormat.getNumberInstance();
+			    
+					for(Book book: books){
+						int bookPoint = 0;
+						int bookPrice = 0;
+	                    int bookdiscount = 0;
+	                    int bookSalePrice = 0;
+	                    int pointPer = 10; //포인트 % 100기준
+	                    int discountPer = 100; //판매가 % 100기준
+	                    double eventdiscount = 0.0;
+	                    int bookIdInt = book.getBookID();
+	                    
+	                    eventdiscount = evmgr.getDiscountMult(bookIdInt);
+	                    bookPrice = book.getPrice();
+	                    
+	                    if(eventdiscount != 0){
+	                        bookSalePrice = (int)(bookPrice*eventdiscount);
+	                        bookdiscount = 100-(int)(eventdiscount*100);
+	                    }else{
+	                        bookSalePrice = bookPrice*discountPer/100;                  
+	                    }
+	                    bookPoint = bookSalePrice*pointPer/100;
 			%>
-			<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
+			<div class="row" id="categoryLine"> <!-- items -->
 				<div class="col-md-1">
 					<p><%=book.getBookID() %></p>
 					<input type="checkbox" name="bookID" value="<%=book.getBookID() %>">
 				</div>
-				<div class="col-md-2"><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>"></a></div>
+				<div class="col-md-2"><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>"/></a></div>
 				<div class="col-md-7">
 					<h3><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><%=book.getBookName() %></a></h3>
-					<p>저자 :<%=book.getAuthor() %>  옮긴이 :<%=book.getAuthor() %>  출판사 : <%=book.getPublisher() %></p>
+					<p style="margin:0.2rem 0;">저자 :<%=book.getAuthor() %>  | 옮긴이 :<%=book.getAuthor() %> | 출판사 : <%=book.getPublisher() %></p>
 					<ul>
-						<li><%=book.getPrice()*1.1 %> -> <%=book.getPrice()%></li>
-						<li>적립포인트 : <%=book.getPrice()*0.1 %>%</li>
+						<li>정가: <del><%=nf.format(bookPrice) %></del>원 <i class="glyphicon glyphicon-arrow-right"></i>
+						판매가: <%=nf.format(bookSalePrice) %>원<% if(bookdiscount != 0) out.print("("+bookdiscount+"%)"); %></li>
+						<li>적립포인트 : <%=nf.format(bookPoint) %>P (<%=pointPer%>%)P</li>
 						<li>사은품 : 없음</li>
 					</ul>
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-2" style="vertical-align:middle;">
 					<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a></p>
 					<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a></p>
-				</div>
-			</div>
+				</div>				
+			</div>			
 			<%} %>
 			</form>
 		</div>
