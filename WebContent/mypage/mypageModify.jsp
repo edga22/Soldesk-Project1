@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <title>마이페이지 개인정보수정</title>
 </head>
 <body>
@@ -31,16 +33,31 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 			member.setPassword(newpw1);
 			dm.updateMember(member);			
 %>
-	<p>비밀번호가 변경되었습니다.</p>
+	<script>
+	swal({
+	title: "성공",
+	text: "비밀번호변경이 완료되었습니다.",
+	type: "success"
+	},
+	function(){
+	window.location.replace("/mypage/mypageModify.jsp");
+	});
+	</script>
 <%			
 		}else{
 %>
-	<p>새 비밀번호와 다시입력한 번호가 일치하지 않습니다.</p>
+	<script>
+	alert("새 비밀번호가 일치하지않습니다.");
+	window.location.replace("/mypage/mypageModify.jsp");
+	</script>
 <%	
 		}
 	}else{
 %>
-	<p>기존 비밀번호를 잘못입력했습니다.</p>
+	<script>
+	alert("기존 비밀번호가 일치하지않습니다.");
+	window.location.replace("/mypage/mypageModify.jsp");
+	</script>
 <%			
 	}
 }
@@ -121,7 +138,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 		</tr>
 	</tbody>
 	</table>
-     <button type="submit" class="btn btn-danger">수정완료</button>
+	
   </div>
   </div>
   </div>
