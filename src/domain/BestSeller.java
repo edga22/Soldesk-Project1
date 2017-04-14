@@ -2,7 +2,7 @@ package domain;
 
 import java.sql.Date;
 
-public class Bestseller {
+public class BestSeller {
 	private int bookID;
 	private int amount;
 	private Book book;

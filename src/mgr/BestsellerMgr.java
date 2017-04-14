@@ -14,29 +14,15 @@ public class BestsellerMgr {
 	BookMgr mgr=new BookMgr();
 	DbBasedBestsellerDao dao=new DbBasedBestsellerDao();
 	
-	//index 순서 거꾸로 하기
-	public void reverse(OrderDetail[] order){
-		int left  = 0;
-	    int right = order.length - 1;
-
-	    while (left < right) {
-	      OrderDetail temp = order[left];
-	      order[left]  = order[right];
-	      order[right] = temp;
-
-	      left++; right--;
-	    }
-	}
-	
 	//오늘 날짜 (String type/yyyy-mm-dd)
-	private String getCurrentDate(){
+	public String getCurrentDate(){
 		Date dateNow=Calendar.getInstance(new SimpleTimeZone(0x1ee6280, "KST")).getTime();
 		SimpleDateFormat fommatter = new SimpleDateFormat("yyyy/MM/dd",Locale.getDefault());
 		return fommatter.format(dateNow);
 	}
 	
 	//한달 전 날짜 (String type/yyyy-mm-dd)
-	private String getMonthAgoDate(){
+	public String getMonthAgoDate(){
 		Calendar cal = Calendar.getInstance(new SimpleTimeZone(0x1ee6390, "KST"));
 		cal.add(Calendar.MONTH, -1);
 		Date monthAgo = cal.getTime();
@@ -45,7 +31,7 @@ public class BestsellerMgr {
 	}
 	
 	//도서 한권의 출판일 (String type/yyyy-mm-dd)
-	private String transFormate(java.sql.Date publishDate) {
+	public String transFormate(java.sql.Date publishDate) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
 		String bookDate=df.format(publishDate);
 		return bookDate;
@@ -66,20 +52,5 @@ public class BestsellerMgr {
 			}
 		}
 		return newOrder;
-	}
-	
-	//String으로 된 날짜 비교 (테스트 OK)
-	public String test(){
-		Book book=mgr.getBook(10);
-		String monthago=getMonthAgoDate();
-		String bookDate=transFormate(book.getPublishDate());
-		String test=null;
-		
-		if(bookDate.compareTo(monthago)>=0){
-			test="출간일이 03월 13일 이후야";
-		}else{
-			test="출간일이 03월 13일 이전이야";
-		}
-		return test;
 	}
 }

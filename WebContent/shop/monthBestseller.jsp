@@ -1,11 +1,11 @@
-<%@page import="domain.Bestseller"%>
+<%@page import="domain.BestSeller"%>
 <%@page import="dao.DbBasedBestsellerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	DbBasedBestsellerDao dao=new DbBasedBestsellerDao();
-	Bestseller[] bestseller=dao.getBestseller();
+	BestSeller[] bestseller=dao.getBestseller();
 %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <head>
@@ -101,7 +101,7 @@
  	  <li class="list-group-item"> 
  	  <div class="row">
  	  	<div class="col-sm-1"><input type="checkbox" checked="checked"/> <%=i %>.</div>
- 	  	<div class="col-sm-2"><img id="img" src="<%=bestseller[i].getBook().getImageID()%>"/></div>
+ 	  	<div class="col-sm-2"><img id="img" src="<%=bestseller[i].getBook().getImageID()%>" style="width:85px;height:auto;"/></div>
  	  	<div class="col-sm-7">
  	  		<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
 			<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 새창으로보기" target="_blank"></a>

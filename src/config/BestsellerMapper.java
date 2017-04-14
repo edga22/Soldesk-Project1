@@ -2,8 +2,8 @@ package config;
 
 import java.util.List;
 
-import domain.Bestseller;
+import domain.BestSeller;
 
 public interface BestsellerMapper {
-	List<Bestseller> getBestseller();
+	List<BestSeller> getBestseller();
 }
