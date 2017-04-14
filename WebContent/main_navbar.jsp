@@ -90,6 +90,9 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
                        <li>
                            <a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>
                        </li>
+                        <li>
+                           <a href="/game/miniGame.jsp">Game zone</a>
+                       </li>
                        <%}else{ %>
                        <li>
                            <a href="/sign/signInPage.jsp">로그인</a> <span class="divider"></span>
@@ -100,9 +103,6 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
                        <%} %>
                        <li>
                            <a href="/shop/basket.jsp">장바구니</a>
-                       </li>
-                       <li>
-                           <a href="/game/miniGame.jsp">Game zone</a>
                        </li>
                    </ul>
                </div>

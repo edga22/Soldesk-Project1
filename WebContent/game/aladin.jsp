@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="domain.Member"
+		 import="service.PayService"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +13,14 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
+<%
+PayService ps = new PayService();
+int memberID = (Integer)session.getAttribute("memberID");
+Member member = ps.getMember(memberID);
+int point = member.getBonusPoint()-500;
+member.setBonusPoint(point);
+ps.updatePoint(member);
+%>
 <div class="lightsoff" id="fullscreen" style="width:640px;height:480px;">
 <iframe width="640" scrolling="no" height="480" frameborder="0" src="http://flashgames312.com/emulator/Aladdin.html"></iframe><script type="text/javascript">
 $(function() {

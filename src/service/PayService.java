@@ -39,6 +39,11 @@ public class PayService {
 		return ms.getMember(memberID);
 	}
 	
+	//회원정보 DB에 수정하기(포인트 차감용)
+	public int updatePoint(Member member){
+		return ms.updatePoint(member);
+	}
+	
 	//책정보 가져오기
 	public Book getBook(String bookID){
 		return bmgr.getBook(Integer.parseInt(bookID));
