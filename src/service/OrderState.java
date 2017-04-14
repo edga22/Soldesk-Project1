@@ -75,7 +75,8 @@ public class OrderState {
 	}
 	
 	// 배송완료시 포인트 적립
-	public void updatePoint(int oldProgress,int newProgress,int memberID,int orderID){
+	public String updatePoint(int oldProgress,int newProgress,int memberID,int orderID){
+		String result = "포인트가 적립 되었습니다.";
 		//입금확인중,배송준비,배송시작에서 넘어올경우에만 실행.
 		if(oldProgress == 1 || oldProgress == 2 ||oldProgress == 3 ){
 			//배송상태가 완료상태로 바꼇을경우에만 실행.
@@ -86,12 +87,14 @@ public class OrderState {
 				OrderDetail[] ods = odmgr.getIdDetails(orderID);
 				for(OrderDetail od: ods){
 					Book book = bmgr.getBook(od.getBookID()); 
-					point += book.getPrice()*od.getAmount()/10;										
+					point += (book.getPrice()*od.getAmount())/10;										
 				}
+				point += member.getBonusPoint();
 				member.setBonusPoint(point);		
 				ms.updatePoint(member);
-			}
-		}
+			}else{ result = "포인트 변경 없음1"+oldProgress+"뉴"+newProgress+"아이디"+memberID+"주문"+orderID;}
+		}else{ result = "포인트 변경 없음2"+oldProgress+"뉴"+newProgress+"아이디"+memberID+"주문"+orderID;}
+		return result;
 	}
 
 }

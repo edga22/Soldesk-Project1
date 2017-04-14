@@ -24,7 +24,17 @@ PurchaseOrder[] PurchaseOrders = mymgr.getMember(memberID);
 <jsp:include page="/order/orderMain_nav.jsp"></jsp:include>
 <div id="obmid" class="container">
 	<form action="/order/orderStateProc.jsp">	
-		<input type="number" name="progress" placeholder="변경할 상태" required>
+		<input type="number" name="progress" list="select" placeholder="배송상태" required>
+		<datalist id="select">
+			<option value="1">입금 확인중</option>
+			<option value="2">배송준비</option>
+			<option value="3">배송시작</option>
+			<option value="4">배송완료</option>
+			<option value="5">완료</option>
+			<option value="6">교환접수</option>
+			<option value="7">환불접수</option>
+			<option value="8">환불완료</option>
+		</datalist>
 		<button type="submit" class="btn btn-default">수정</button>	
 <hr style="border: solid 0.1rem;">
 		<h4>회원 조회 결과</h4>

@@ -30,14 +30,15 @@ if( po == null || po.equals("") ){
 	// 주문상품을 불러오기 위한 객체 준비.
 	OrderDetail[] ods = os.getIdDetails(po.getPurchaseOrderID());
 	// 배송상태 (입금확인중,배송준비,배송시작)-> (배송완료, 완료) 상태로 변경되었을경우 포인트 적립.
-	os.updatePoint(progress,po.getProgress(),po.getMemberID(),OrderID);
+	String check = os.updatePoint(po.getProgress(),progress,po.getMemberID(),OrderID);
 %>
 	<h4>배송 상태가 변경되었습니다.</h4>
 	<p>유저 ID : <%= os.getMemberName(po.getMemberID()) %></p>
 	<p>주문 상품 : <%= os.getProduct(ods)%></p>
 	<p>주문 번호 : <%= po.getPurchaseOrderID()%></p>
 	<p>구매 날짜 : <%= po.getPurchaseDate()%></p>
-	<p>배송 상태 : <%= os.change(po.getProgress())%> -> <%po.setProgress(progress);%> <%= os.change(po.getProgress())%>  </p>	
+	<p>배송 상태 : <%= os.change(po.getProgress())%> -> <%po.setProgress(progress);%> <%= os.change(po.getProgress())%>  </p>
+	<p><%=check %></p>	
 <%
 os.updateOrder(po);
 }
