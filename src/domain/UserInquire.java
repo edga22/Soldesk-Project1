@@ -1,42 +1,57 @@
 package domain;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 public class UserInquire {
-	private String inquireEmail;
-	private String inquireTitle;
-	private String inquireName;	
-	private String inquireContent;
-	private Date inquireDate;
+	private int userInquireId;
+	private String qType;
+	private String qTitle;	
+	private String qContent;
+	private Date qDate;
+	private String qAnswer;
+	private String qState;
 	
-	public Date getInquireDate() {
-		return inquireDate;
+	public int getUserInquireId() {
+		return userInquireId;
 	}
-	public void setInquireDate(Date inquireDate) {
-		this.inquireDate = inquireDate;
+	public void setUserInquireId(int userInquireId) {
+		this.userInquireId = userInquireId;
 	}
-	public String getInquireTitle() {
-		return inquireTitle;
+	public String getqType() {
+		return qType;
 	}
-	public void setInquireTitle(String inquireTitle) {
-		this.inquireTitle = inquireTitle;
+	public void setqType(String qType) {
+		this.qType = qType;
 	}
-	public String getInquireName() {
-		return inquireName;
+	public String getqTitle() {
+		return qTitle;
 	}
-	public void setInquireName(String inquireName) {
-		this.inquireName = inquireName;
+	public void setqTitle(String qTitle) {
+		this.qTitle = qTitle;
 	}
-	public String getInquireEmail() {
-		return inquireEmail;
+	public String getqContent() {
+		return qContent;
 	}
-	public void setInquireEmail(String inquireEmail) {
-		this.inquireEmail = inquireEmail;
+	public void setqContent(String qContent) {
+		this.qContent = qContent;
 	}
-	public String getInquireContent() {
-		return inquireContent;
+	public Date getqDate() {
+		return qDate;
 	}
-	public void setInquireContent(String inquireContent) {
-		this.inquireContent = inquireContent;
+	public void setqDate(Date qDate) {
+		this.qDate = qDate;
 	}
+	public String getqAnswer() {
+		return qAnswer;
+	}
+	public void setqAnswer(String qAnswer) {
+		this.qAnswer = qAnswer;
+	}
+	public String getqState() {
+		return qState;
+	}
+	public void setqState(String qState) {
+		this.qState = qState;
+	}	
 }

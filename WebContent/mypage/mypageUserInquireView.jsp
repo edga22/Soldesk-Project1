@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC>
+<!DOCTYPE html PUBLIC >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -36,26 +36,32 @@
 					</td>
 				</tr>
 				<tr>
-					<td><form class="form-horizontal">
+					<td><form action="#" class="form-horizontal">
 							<div class="form-group">
-								<label class="col-sm-8" for="text" style="text-align:center;">제목</label>
-								<label class="col-sm-2" for="text" style="text-align:center;">등록일</label>
-								<label class="col-sm-2" for="text" style="text-align:center;">상태</label>
+								<label class="control-label col-sm-2" for="text">질문제목:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="title"
+										placeholder="질문제목" readonly>
+								</div>
 							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="text">등록일:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="title"
+										placeholder="질문제목" readonly>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="text">질문답변:</label>
+								<div class="col-sm-10">
+									<textarea rows="10" cols=100% name="contents"
+										style="width: 100%; hight: 800px;"
+										placeholder=" ※구매내역(책 제목, 구매일)을 함께 남겨주시면 보다 빠른 답변이 가능합니다."
+										readonly></textarea>
+								</div>
+							</div>							
 						</form></td>
 				</tr>
-				<!-- 1:1 질문 답변 준비 -->
-				<tr>
-					<td>
-						<form class="form-horizontal">
-							<div class="form-group">
-								<a href="mypageUserInquireView.jsp" class="col-sm-8" style="text-align:center;">월요일에 책을 샀는데 왜 책이 오지를 않나요?</a>
-								<label class="col-sm-2" for="text" style="text-align:center;">2017-07-02</label>
-								<label class="col-sm-2" for="text" style="text-align:center;">답변완료</label>
-							</div>
-						</form>
-					</td>
-				</tr>				
 			</table>
 		</div>
 	</div>

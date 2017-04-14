@@ -2,60 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="config.UserInquireMapper">
-<!-- 	<resultMap id="UserInquireMap" type="domain.UserInquire">
-		<id		property="inquireEmail"		column="INQUIRE_EMAIL"/>
-		<result	property="inquireTitle"		column="INQUIRE_TITLE"/>
-		<result property="password"		column="PASSWD"/>
-		<result property="name"			column="NAME"/>
-		<result property="postCode"		column="POSTCODE"/>
-		<result property="address"		column="ADDRESS"/>
-		<result property="phone"		column="PHONE"/>
-		<result property="bonusPoint"	column="BONUS_POINT"/>
+	 	<resultMap id="UserInquireMap" 		type="domain.UserInquire">
+		<id		property="userInquireId"	column="USERINQUIRE_ID"/>
+		<result	property="qType"			column="Q_TYPE"/>
+		<result property="qTitle"			column="Q_TITLE"/>
+		<result property="qContent"			column="Q_CONTENT"/>
+		<result property="qDate"			column="Q_DATE"/>
+		<result property="qAnswer"			column="Q_ANSWER"/>
+		<result property="qState"			column="Q_STATE"/>		
 	</resultMap>
 	
-	<select id="getMembers" resultMap="UserInquireMap">
-		select * from members 
-		order by member_id
+	<select id="getUserInquires" resultMap="UserInquireMap">
+		select * from USERINQUIRES 
+		order by USERINQUIRE_ID
 	</select>
 	
-	<select id="getMember" parameterType="int" resultMap="UserInquireMap">
-		select * from members
-		where MEMBER_ID =#{memberID}
+	<select id="getUserInquire" resultMap="UserInquireMap">
+		select * from USERINQUIRES 
+		where USERINQUIRE_ID = #{userInuqerId}
 	</select>
 	
-	<select id="loginCheck" parameterType="domain.UserInquire" resultMap="UserInquireMap">
-		select member_id, email, passwd
-		from members
-		where (email=#{email} and PASSWD=#{password})
-	</select>
-	
-	<insert id="addMember" parameterType="domain.UserInquire">
-		insert into members(email, PASSWD, name, POSTCODE, address, phone)
-		values(#{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-									  #{name,jdbcType=VARCHAR}, #{postCode,jdbcType=NUMERIC}, 
-									  #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
+	<insert id="addUserInquire" parameterType="domain.UserInquire">
+		insert into USERINQUIRES(Q_TYPE, Q_TITLE, Q_CONTENT, Q_DATE)
+		values( #{qType,jdbcType=VARCHAR}, #{qTitle,jdbcType=VARCHAR}, 
+				#{qContent,jdbcType=NUMERIC}, #{qDate,jdbcType=DATE}, )
 	</insert>
-	
-	<select id="findIdMember" parameterType="domain.UserInquire" resultMap="UserInquireMap">
-		select email 
-		from members
-		where name = #{name} and phone = #{phone}
-	</select>
-	
-	<select id="findPwMember" parameterType="domain.UserInquire" resultMap="UserInquireMap">
-		select passwd
-		from members 
-		where email = #{email} and name = #{name} and phone = #{phone}
-	</select>
-	
-	<update id="updateMember" parameterType="domain.UserInquire">
-		update members 
-		set email = #{email}
-		where member_id = #{memberID}
+	<!-- 
+	<insert id="addUserInquire" parameterType="domain.UserInquire">
+		insert into USERINQUIRES(Q_TYPE, Q_TITLE, Q_CONTENT, Q_DATE, Q_ANSWER, Q_STATE)
+		values( #{qType,jdbcType=VARCHAR}, #{qTitle,jdbcType=VARCHAR},  
+				#{qContent,jdbcType=NUMERIC}, #{qDate,jdbcType=VARCHAR},  
+				#{qAnswer,jdbcType=VARCHAR}, #{qState,jdbcType=VARCHAR})
+	</insert> 
+	-->
+	<!-- 
+	<update id="resultUserInquire" parameterType="domain.UserInquire">	
+		
 	</update>
-	
-	<delete id="delMember" parameterType="domain.UserInquire">
-		delete from members
-		where member_id=#{memberID}
-	</delete> -->
+	 -->
 </mapper>
