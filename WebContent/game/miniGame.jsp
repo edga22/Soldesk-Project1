@@ -30,6 +30,8 @@ if(member.getBonusPoint()>=500){
 	<a href="/game/super.jsp" class="btn btn-default" target="content">슈퍼마리오</a>
 	<a href="/game/chess.jsp" class="btn btn-default" target="content">체스</a>
 	<a href="/game/aladin.jsp" class="btn btn-default" target="content">알라딘</a>
+	<a href="/game/cart.jsp" class="btn btn-default" target="content">마리오 카트</a>
+	<a href="/game/bird.jsp" class="btn btn-default" target="content">앵그리 버드</a>
 	</div>
 	<hr style="border: solid 0.1rem;">
 	<div align="center"> 
