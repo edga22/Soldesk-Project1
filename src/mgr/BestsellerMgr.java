@@ -14,17 +14,6 @@ public class BestsellerMgr {
 	BookMgr mgr=new BookMgr();
 	DbBasedBestsellerDao dao=new DbBasedBestsellerDao();
 	
-	public int[] getBookID(){
-		OrderDetail[] order=dao.getBestID();
-		int bookID[]=null;
-		
-		for(int i=0;i<order.length;i++){
-			int bID=order[i].getBookID();
-			bookID[i]=bID;
-		}
-		return bookID;
-	}
-	
 	//index 순서 거꾸로 하기
 	public void reverse(OrderDetail[] order){
 		int left  = 0;

@@ -2,7 +2,7 @@ package dao;
 
 import config.BestsellerMapper;
 import config.Factory;
-import domain.OrderDetail;
+import domain.Bestseller;
 
 public class DbBasedBestsellerDao implements BestsellerDao{
 	BestsellerMapper mapper;
@@ -11,7 +11,7 @@ public class DbBasedBestsellerDao implements BestsellerDao{
 		mapper=Factory.getMapper(BestsellerMapper.class);
 	}
 
-	public OrderDetail[] getBestID() {
-		return mapper.getBestID().toArray(new OrderDetail[mapper.getBestID().size()]);
+	public Bestseller[] getBestseller() {
+		return mapper.getBestseller().toArray(new Bestseller[mapper.getBestseller().size()]);
 	}
 }

@@ -2,13 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="config.BestsellerMapper">
-	<resultMap id="OrderMap" type="domain.OrderDetail">
+	<resultMap id="BestMap" type="domain.Bestseller">
 		<id	property="bookID"		column="BOOK_ID" />
 		<result	property="amount"	column="AMOUNT" />
+		<association property="book"	resultMap="BookMap" />
 	</resultMap>
 	
-	<select id="getBestID" resultMap="OrderMap">
-		SELECT BOOK_ID,sum(AMOUNT) FROM ORDER_DETAIL
-		GROUP BY BOOK_ID ORDER BY sum(AMOUNT)
+	<resultMap id="BookMap" type="domain.Book">
+		<id property="bookID" column="BOOK_ID"/>
+		<result	property="categoryID"	column="CATEGORY_ID" />
+		<result	property="eventID"	column="EVENT_ID" />
+		<result	property="bookName"	column="BOOK_NAME" />
+		<result	property="author"	column="AUTHOR" />
+		<result	property="publisher"	column="PUBLISHER" />
+		<result	property="publishDate"	column="PUBLISH_DATE" />
+		<result	property="imageID"	column="IMAGE_ID" />
+		<result property="price"	column="PRICE" />
+		<result property="stock"	column="STOCK" />
+		<result property="subtitle"	column="SUBTITLE" />
+		<result property="description"	column="DESCRIPTION" />
+	</resultMap>
+	
+	<select id="getBestseller" resultMap="BestMap">
+		SELECT a.BOOK_ID, sum(a.AMOUNT), b.*
+		FROM ORDER_DETAIL a
+		LEFT JOIN BOOKS b
+		ON a.BOOK_ID = b.BOOK_ID
+		GROUP BY a.BOOK_ID ORDER BY sum(a.AMOUNT) DESC
 	</select>
 </mapper>

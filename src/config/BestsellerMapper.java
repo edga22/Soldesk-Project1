@@ -1,8 +1,9 @@
 package config;
 
 import java.util.List;
-import domain.OrderDetail;
+
+import domain.Bestseller;
 
 public interface BestsellerMapper {
-	List<OrderDetail> getBestID();
+	List<Bestseller> getBestseller();
 }

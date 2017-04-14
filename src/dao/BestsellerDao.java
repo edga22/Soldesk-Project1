@@ -1,7 +1,7 @@
 package dao;
 
-import domain.OrderDetail;
+import domain.Bestseller;
 
 public interface BestsellerDao {
-	OrderDetail[] getBestID();
+	Bestseller[] getBestseller();
 }

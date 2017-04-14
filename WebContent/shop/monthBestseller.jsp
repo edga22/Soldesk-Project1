@@ -1,18 +1,11 @@
-<%@page import="mgr.BestsellerMgr"%>
-<%@page import="domain.OrderDetail"%>
-<%@page import="mgr.BookMgr"%>
-<%@page import="domain.Book"%>
+<%@page import="domain.Bestseller"%>
 <%@page import="dao.DbBasedBestsellerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	DbBasedBestsellerDao dao=new DbBasedBestsellerDao();
-	BookMgr mgr=new BookMgr();
-	BestsellerMgr bmgr=new BestsellerMgr();
-	
-	OrderDetail[] order=dao.getBestID();
-	bmgr.reverse(order);
+	Bestseller[] bestseller=dao.getBestseller();
 %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <head>
@@ -91,7 +84,7 @@
     	</div>
     </div>
     
-    <% if(order==null || order.length==0){%>
+    <% if(bestseller==null || bestseller.length==0){%>
     <!-- 도서 한권 리스트 -->
  	  <li class="list-group-item"> 
  	  	<h2>준비중 입니다 :(</h2>
@@ -101,25 +94,24 @@
     <ul class="list-group">
       <!-- 도서 한권 리스트 -->
       <% 
-      	for(int i=0;i<order.length;i++){
-    	int booIdInt = order[i].getBookID();
-		Book book=mgr.getBook(order[i].getBookID());
+      	for(int i=0;i<bestseller.length;i++){
+    	int booIdInt = bestseller[i].getBookID();
 		String bookIdLink = "/inven/bookDetail.jsp?bookID="+booIdInt;
-		String bookNamestr = book.getBookName();	%>
+		String bookNamestr = bestseller[i].getBook().getBookName();	%>
  	  <li class="list-group-item"> 
  	  <div class="row">
  	  	<div class="col-sm-1"><input type="checkbox" checked="checked"/> <%=i %>.</div>
- 	  	<div class="col-sm-2"><img id="img" src="<%=book.getImageID()%>"/></div>
+ 	  	<div class="col-sm-2"><img id="img" src="<%=bestseller[i].getBook().getImageID()%>"/></div>
  	  	<div class="col-sm-7">
  	  		<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
 			<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 새창으로보기" target="_blank"></a>
 			<a><i class="glyphicon glyphicon-new-window" style="font-size:0.6rem;color:#555"></i></a><br>
- 	  		<p>저자: <%=book.getAuthor()%> | 출판사: <%=book.getPublisher() %> | 출판일: <%=book.getPublishDate() %></p> 
- 	  		<p>가격: <%=book.getPrice() %> ￦</p>
+ 	  		<p>저자: <%=bestseller[i].getBook().getAuthor()%> | 출판사: <%=bestseller[i].getBook().getPublisher() %> | 출판일: <%=bestseller[i].getBook().getPublishDate() %></p> 
+ 	  		<p>가격: <%=bestseller[i].getBook().getPrice() %> ￦</p>
  	  	</div>
  	  	<div class="col-sm-2">
- 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니에 담기</a>
-            <a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a>
+ 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=<%=bestseller[i].getBook().getBookID()%>">장바구니에 담기</a>
+            <a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=<%=bestseller[i].getBook().getBookID()%>">바로 구매</a>
  	  	</div>
  	   </div>
  	  </li> <!-- 도서 한권 리스트 -->
