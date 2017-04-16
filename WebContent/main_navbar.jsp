@@ -1,23 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="domain.Category"
+		 import="mgr.CategoryMgr" %>
 <%
-String cataPage = request.getParameter("cata");
-String catat1 = "";
-String catat2 = "";
-String catat3 = "";
-String catat4 = "";
+CategoryMgr catemgr = new CategoryMgr();
 
-if(cataPage != null && !cataPage.equals("")){
-	if(cataPage.equals("domestic")){
-	    catat1 = "active";
-	}else if(cataPage.equals("oversea")){   
-	    catat2 = "active";
-	}else if(cataPage.equals("ebook")){
-	    catat3 = "active";
-	}
+String cataPage = request.getParameter("cata");
+String catastr="";
+String catastr2="";
+int cataCode = 0;
+
+if(cataPage != null){
+	if(cataPage.equals("all"))	catastr2="active";		
+	else cataCode = Integer.parseInt(cataPage);
 }else{
-    catat4 = "active";
+	catastr="active";
 }
 
 String memberID = "";
@@ -59,61 +55,70 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
     </div>
 </div>
 <nav id="topheaderwrap" class="headerwrap" data-spy="affix" data-offset-top="97">
-    <div class="row" id="wrap">
-       <div class="col-md-12"> 
-           <div class="row" >
-               <div class="col-md-6">
-                    <ul class="nav nav-tabs">
-                       <li class="<%= catat4 %>">
-                           <a href="/main.jsp">Home</a>
-                       </li>
-                       <li class="<%= catat1 %>">
-                           <a href="/mainCategory.jsp?cata=domestic">국내도서</a>
-                       </li>
-                       <li class="<%= catat2 %>">
-                           <a href="/mainCategory.jsp?cata=oversea">외국도서</a>
-                       </li>
-                       <li class="<%= catat3 %>">
-                           <a href="/mainCategory.jsp?cata=ebook">eBook</a>
-                       </li>                                                            
-                   </ul>
-               </div>
-               <div class="col-md-6 text-right">
-                   <ul class="breadcrumb" style="height:36px">
-                       <%if(!memberID.equals("")){
-                       		if(memberID.equals("admin@admin.com")){%>
-                       <li>
-                           <span class="member_rate" style="display:none;"> 회원등급 </span><a href="/admin/index.jsp"><b><%=memberID %></b>님</a><span class="divider"></span>
-                       </li>
+	<div class="row" id="wrap">
+    	<div class="col-md-12"> 
+        	<div class="row" >
+            	<div class="col-md-6">
+                	<ul class="nav nav-tabs">
+							<li class="<%=catastr %>">
+								<a href="/main.jsp">Home</a>
+							</li>
+							<li class="<%=catastr2 %>">
+								<a href="/mainCategory.jsp?cata=all">전체도서</a>
+							</li>
+							<%		    
+						    for(Category result1:catemgr.listCategoriesUseCode1()){
+						    	String cateHeaderStr = "";
+						    	if(cataCode != 0){
+						    		if(cataCode == result1.getCode1()){
+						    		    cateHeaderStr = "active";
+						    		}
+						    	} 
+						    %>
+					        <li class="<%= cateHeaderStr %>">
+	                        	<a href="/mainCategory.jsp?cata=<%=result1.getCode1() %>"><%=result1.getCategoryName() %></a>
+	                       	</li>   		              
+							<% 	
+							} %>		            
+                   	</ul>
+               	</div>
+               	<div class="col-md-6 text-right">
+                   	<ul class="breadcrumb" style="height:36px">
+                       	<%if(!memberID.equals("")){ %>
+                       		
+                       	<li>
+                           	<span class="member_rate" style="display:none;"> 회원등급 </span>
+                           	<%if(memberID.equals("admin@admin.com")){%>
+                           	<a href="/admin/index.jsp"><b><%=memberID %></b>님</a>                       	
                       		<%}else{ %>
-                       <li>
-                           <span class="member_rate" style="display:none;"> 회원등급 </span><a href="/mypage/mypageOrderMod.jsp"><b><%=memberID %></b>님</a><span class="divider"></span>
-                       </li>
+                           	<a href="/mypage/mypageOrderMod.jsp"><b><%=memberID %></b>님</a>                      	
                       		<%} %>
-                       <li>
-                           <a href="/mypage/mypageOrderMod.jsp">마이페이지</a> <span class="divider"></span>
-                       </li>
-                       <li>
-                           <a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>
+                      		<span class="divider"></span> 
+                      	</li>
+                       	<li>
+                           	<a href="/mypage/mypageOrderMod.jsp">마이페이지</a> <span class="divider"></span>
+                       	</li>
+                       	<li>
+                           	<a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>
                        </li>
                         <li>
-                           <a href="/game/miniGame.jsp">Game zone</a>
-                       </li>
-                       <%}else{ %>
-                       <li>
-                           <a href="/sign/signInPage.jsp">로그인</a> <span class="divider"></span>
-                       </li>
-                       <li>
-                           <a href="/sign/signUp.jsp">회원가입</a> <span class="divider"></span>
-                       </li>
-                       <%} %>
-                       <li>
-                           <a href="/shop/basket.jsp">장바구니</a>
-                       </li>
-                   </ul>
-               </div>
-           </div>
-       </div>
+                           	<a href="/game/miniGame.jsp">Game zone</a>
+                       	</li>
+                       	<%}else{ %>
+                       	<li>
+                           	<a href="/sign/signInPage.jsp">로그인</a> <span class="divider"></span>
+                       	</li>
+                       	<li>
+                           	<a href="/sign/signUp.jsp">회원가입</a> <span class="divider"></span>
+                       	</li>
+                       	<%} %>
+                       	<li>
+                           	<a href="/shop/basket.jsp">장바구니</a>
+                       	</li>
+                   	</ul>
+               	</div>
+           	</div>
+       	</div>
     </div>
 </nav>
 

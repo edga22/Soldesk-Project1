@@ -46,7 +46,7 @@
             <div style="width:50%;float: left;">   
                 <address>
                     <strong>Book&#38;Cafe, Inc.</strong><br /> 대표이사 : 윤광재<br /> <abbr title="Phone">전화상담 : 02) 1234-5678</abbr>                   
-                    <div style="position: absolute;width:100%;clear: left;margin:0;">서울 종로구 종로12길 15 코아빌딩1 5층  <a href="http://naver.me/xicaa2oH" target="blank">약도</a></div>
+                    <abbr style="position: absolute;width:100%;clear: left;margin:0;">서울 종로구 종로12길 15 코아빌딩1 5층  <a href="http://naver.me/xicaa2oH" target="blank">약도</a></abbr>
                 </address>
                 
             </div>

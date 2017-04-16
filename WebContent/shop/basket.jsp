@@ -97,10 +97,7 @@ $(document).ready(function(){
         });
         
         var arrboolid = arrParam.join('&');
-        console.log(arrParam.length);
-        console.log(arrParam);
-        console.log(arrboolid);
-        //return false;
+        
         location.href = '/shop/basketDeleteValues.jsp?' + arrboolid;
      });
  	
@@ -115,21 +112,16 @@ $(document).ready(function(){
            arrParam.push(arrBookCnt);
         });
         
-        var arrBookCnt = arrParam.join('&');        
-        console.log(arrParam);
-        console.log(arrBookCnt);
-        //return false;
+        var arrBookCnt = arrParam.join('&');
         location.href = '/shop/payment.jsp?' + arrBookCnt;
      });
 });
 </script>
 <style>
-<!--
 #total th, #total td {
     text-align:center;
     width:25%;
 }
--->
 </style>
 <title>장바구니</title>
 

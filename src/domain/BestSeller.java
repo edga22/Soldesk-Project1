@@ -1,7 +1,5 @@
 package domain;
 
-import java.sql.Date;
-
 public class BestSeller {
 	private int bookID;
 	private int amount;

@@ -1,14 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
 		 import="mgr.BookMgr"
 		 import="mgr.EventMgr"
-		 import="domain.Category"
-		 import="java.text.NumberFormat"
-%>
+		 import="java.text.NumberFormat" %>
 <%
-BookMgr mymgr = new BookMgr();
+	BookMgr bookmgr = new BookMgr();
 %>
+
+<title>분류페이지</title>
+
+<jsp:include page="/main_navbar.jsp"/>
+
 <style>
 ul {
     margin: 0;
@@ -45,15 +47,13 @@ a {
 }
 </style>
 
-<jsp:include page="/main_navbar.jsp"/>
-
 	<!-- 상품 진열 1줄에 4개씩  -->
 <div class="container">		
 	<!-- 좌측 카테고리 메뉴바 -->
 	
 	<div class="row">
         <div class="col-md-2">
-            <jsp:include page="/shop/categoryMenu.jsp"/>
+        <jsp:include page="/shop/categoryMenu.jsp"/>
 		</div>
 		<!--// 카테고리 -->
 			
@@ -61,7 +61,7 @@ a {
 		<div class="col-md-10" id="result">
 		   <div class="row" id="align-bar">
 		        <div class="col-md-1">
-		            <input type="checkbox" name="all" value=""> 전체
+		            <label><input type="checkbox" name="all" value=""> 전체</label>
                 </div>
 				<div class="col-md-2 text-center">
 					<a href="#">제목순</a>
@@ -87,7 +87,7 @@ a {
 			<form>
 			<button type="submit" class="btn btn-default">선택한것 찜하기</button><br>
 			<%
-				Book[] books = mymgr.getBooks();
+				Book[] books = bookmgr.getBooks();
 			    EventMgr evmgr = new EventMgr();
 			    
 			    NumberFormat nf = NumberFormat.getNumberInstance();

@@ -24,17 +24,22 @@
             - JNDI : 이 DataSource 구현체는 컨테이너에 따라 설정이 변경되며 ,
               JNDI 컨텍스트를 참조한다. : initial_context, data_source 
             -->
-            <dataSource type="UNPOOLED">
+            <dataSource type="POOLED">
                 <property name="driver" value="${JDBC.Driver}" />
                 <property name="url" value="${JDBC.ConnectionURL}" />
                 <property name="username" value="${JDBC.Username}" />
                 <property name="password" value="${JDBC.Password}" />
-            </dataSource>
-            
+                <property name="poolMaximumActiveConnections" value="10" /> <!-- 주어진 시간에 존재할 수 있는 활성화된(사용중인) 커넥션의 수. -->
+				<property name="poolMaximumIdleConnections" value="10" /> <!-- 주어진 시간에 존재할 수 있는 유휴 커넥션의 수 -->
+				<property name="poolPingEnabled" value="true"/> <!-- 커넥션 ping 테스트 -->
+		        <property name="poolPingQuery" value="select 1"/> <!-- 커넥션이 살아 있는지 확인할 쿼리 -->		
+		        <property name="poolPingConnectionsNotUsedFor" value="43200"/> <!-- 어떤 커넥션이 닫힐 상태인지 판단하는 기준시간 -->		
+		        <property name="poolTimeToWait" value="30000"/> <!-- 사용 불가능한 커넥션 기다리는 시간 -->
+            </dataSource>            
         </environment>
     </environments>
     
- <!--템플릿용  <mapper resource="database/mapper/Mapper.xml" />   -->
+ 	<!--템플릿용  <mapper resource="database/mapper/Mapper.xml" />   -->
     <mappers>        
 			<mapper resource="database/mapper/BookMapper.xml" />
 			<mapper resource="database/mapper/MemberMapper.xml"/>
