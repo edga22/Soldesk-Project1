@@ -93,7 +93,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 		<tr>
 			<th>비밀번호</th>
 			<td><form action="mypageModify.jsp">
-			<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#mySmallModal">비밀번호변경</button>
+			<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#mySmallModal">비밀번호변경</button>
 	
 				<div class="modal fade" id="mySmallModal">
 					<div class="modal-dialog">
@@ -116,8 +116,8 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 							</table>
 							</div>
 					<div class="modal-footer">
-					<button type="submit" class="btn btn-default" >변경완료</button>
-					<button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary" >변경완료</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
@@ -135,7 +135,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 			<th>전화번호</th>
 			<td><%=member.getPhone()%>
 			<form action="/mypage/mypageModifyProc1.jsp">
-			<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#mySmallModal2">전화번호변경</button>
+			<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#mySmallModal2">전화번호변경</button>
 			<div class="modal fade" id="mySmallModal2">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -151,8 +151,8 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 						</table>
 						</div>
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-default" >변경완료</button>
-					<button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary" >변경완료</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
@@ -168,8 +168,8 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 			<input type="text" name="postCode" class="postcodify_postcode5 form-control" id="postNumber" value="<%=member.getPostCode()%>" readonly/>
 			<input type="text" name="address" class="postcodify_address form-control" value="<%=member.getAddress()%>" required readonly/><br />
 			<input type="text" name="address2" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요." required />
-			<button type="button" id="postcodify_search_button" class="btn btn-primary btn-xs">주소변경</button>
-			<button type="submit" class="btn btn-primary btn-xs">변경완료</button>
+			<button type="button" id="postcodify_search_button" class="btn btn-danger btn-xs">주소변경</button>
+			<button type="submit" class="btn btn-danger btn-xs">변경완료</button>
 			<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 			<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 			</form>

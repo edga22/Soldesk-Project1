@@ -54,6 +54,7 @@ PurchaseOrder[] purchaseOrders = dm.getMember(userID);
 			<th>구매일</th>
 			<th>배송상태</th>
 			<th>반품</th>
+			<th>포인트</th>
 		</tr>
 	</thead>
 	<tbody>
