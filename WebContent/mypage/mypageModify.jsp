@@ -135,7 +135,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 		<tr>
 			<th>전화번호</th>
 			<td><%=member.getPhone()%>
-			<form action="/mypage/mypageModifyProc.jsp">
+			<form action="/mypage/mypageModifyProc1.jsp">
 			<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#mySmallModal2">전화번호변경</button>
 			<div class="modal fade" id="mySmallModal2">
 				<div class="modal-dialog">
