@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="domain.Member"%>
+<%@ page import="service.MemberService" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +12,54 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>마이페이지</title>
 </head>                 
-<body>  
+<body>
+ <%
+ int tmp = (Integer)session.getAttribute("memberID");
+ int userNo = 0;
+ if(tmp!=0){
+	 userNo = tmp;
+ }
+ MemberService ms = new MemberService();
+ Member member = ms.getMember(userNo);
+ 
+ int level = member.getBonusPoint();
+ String img = "";
+ String font = "";
+ 	if(level<=2000){
+ 		img="/img/member/bronze.PNG";
+    	font = "브론즈";
+ 	}else if(2000<level && level<=5000){
+ 		img="/img/member/silver.PNG";
+    	font = "실버";
+    }else if(5000<level && level<=10000){
+    	img="/img/member/gold.PNG";
+    	font = "골드";
+    }else if(10000<level && level<=30000){
+    	img="/img/member/platinum.PNG";
+        font = "플레티넘";
+    }else if(30000<level && level<=50000){
+    	img="/img/member/diamond.PNG";
+    	font = "다이아";
+    }else{
+    	img="/img/member/vip.PNG";
+   		font = "VIP";
+    }
+%>
 <div class="container">
-      <h3>My Account</h3>
+	<table>
+	<tr>
+		<th><img src="<%=img %>" style="width:90px; height:70px;"></th>
+    </tr> 
+    <tr>
+    	<th>회원명: <%=member.getName() %></th>
+   	</tr>
+   	<tr>
+    	<th>보너스: <%=level %>P</th>
+   	</tr> 
+   	<tr>  
+    	<th>등급 : <%=font %></th> 
+  	</tr> 
+    </table>
       <br>
       <h4>주문내역</h4>
       <h5><a href="mypageOrderMod.jsp">주문조회/변경/취소</a></h5>

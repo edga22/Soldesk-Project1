@@ -42,10 +42,17 @@ PurchaseOrder[] purchaseOrders = dm.getMember(userID);
 
 <div class="container">
   <div class="row content">
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-3 sidenav">
 		<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
     </div>
+<<<<<<< HEAD
   <div class="col-sm-10">
+=======
+  <div class="col-sm-9">
+      <h2>주문조회/변경/취소</h2>
+      <h3>-배송문의:CJ대한통운</h3>
+
+>>>>>>> 박원서 마이페이지 회원등급 설정
       <table class="table table-hover">
 	<thead>
 		<tr>
