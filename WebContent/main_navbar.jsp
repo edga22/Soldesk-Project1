@@ -90,39 +90,31 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
                        		MemberService ms = new MemberService();
                        		Member member = ms.getMember(memberNum);
                        		int level = member.getBonusPoint();
+                       		String color = "";
+                       		String font = "";
                        			if(level<=2000){
-                       	%>
-                       		<li>
-                       		<span class="member_rate" style="background-color: brown;">브론즈회원</span>		
-                       	<%		}else if(2000<level && level<=5000){
-                       		
-                       	%>
-                       		<li>
-                       		<span class="member_rate" style="background-color: #e6e6e6;">실버회원</span>		
-                       	<%
+                       				color = "brown";
+                       				font = "브론즈";
+                       			}else if(2000<level && level<=5000){
+                       				color = "#e6e6e6";
+                       				font = "실버";
                        			}else if(5000<level && level<=10000){
-                       	%>
-                       		<li>
-                       		<span class="member_rate" style="background-color: #ffd633;">골드회원</span>	
-                       	<%
+                       				color = "#ffd633";
+                       				font = "골드";
                        			}else if(10000<level && level<=30000){
-                   
-                       	%>
-                       		<li>
-                       		<span class="member_rate" style="background-color: #009999;">플레티넘회원</span>	
-                       	<%
+                       				color = "#009999";
+                       				font = "플레티넘";
                        			}else if(30000<level && level<=50000){
-                       	%>
-                       		<li>
-                       		<span class="member_rate" style="background-color: #00bfff;">다이아회원</span>	
-                       	<%
+                       				color = "#00bfff";
+                       				font = "다이아";
                        			}else{
+                       				color = "#9933ff";
+                       				font = "VIP";
+                       			}        
                        	%>
                        		<li>
-                       		<span class="member_rate" style="background-color: #9933ff;">VIP회원</span>	
-                       	<%
-                       			}
-                       	%>                          	
+                       		<span class="member_rate" style="background-color: <%=color%>;"><%=font %>회원</span>
+                               	
                            	<%if(memberID.equals("admin@admin.com")){%>
                            	<a href="/admin/index.jsp"><b><%=memberID %></b></a>                       	
                       		<%}else{ %>
