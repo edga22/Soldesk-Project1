@@ -85,5 +85,6 @@ for(PurchaseOrder po:purchaseOrders){
 	</div>
 </div>
 <jsp:include page="/main_foot.jsp"></jsp:include>
+</div>
 </body>
 </html>
