@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="domain.Category"
-		 import="mgr.CategoryMgr" %>
+		 import="mgr.CategoryMgr"
+		 import="domain.Member"
+		 import="service.MemberService" %>
 <%
 CategoryMgr catemgr = new CategoryMgr();
 
@@ -84,14 +86,47 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
                	</div>
                	<div class="col-md-6 text-right">
                    	<ul class="breadcrumb" style="height:36px">
-                       	<%if(!memberID.equals("")){ %>
+                       	<%if(!memberID.equals("")){ 
+                       		MemberService ms = new MemberService();
+                       		Member member = ms.getMember(memberNum);
+                       		int level = member.getBonusPoint();
+                       			if(level<=2000){
+                       	%>
+                       		<li>
+                       		<span class="member_rate" style="background-color: brown;">브론즈회원</span>		
+                       	<%		}else if(2000<level && level<=5000){
                        		
-                       	<li>
-                           	<span class="member_rate" style="display:none;"> 회원등급 </span>
+                       	%>
+                       		<li>
+                       		<span class="member_rate" style="background-color: #e6e6e6;">실버회원</span>		
+                       	<%
+                       			}else if(5000<level && level<=10000){
+                       	%>
+                       		<li>
+                       		<span class="member_rate" style="background-color: #ffd633;">골드회원</span>	
+                       	<%
+                       			}else if(10000<level && level<=30000){
+                   
+                       	%>
+                       		<li>
+                       		<span class="member_rate" style="background-color: #009999;">플레티넘회원</span>	
+                       	<%
+                       			}else if(30000<level && level<=50000){
+                       	%>
+                       		<li>
+                       		<span class="member_rate" style="background-color: #00bfff;">다이아회원</span>	
+                       	<%
+                       			}else{
+                       	%>
+                       		<li>
+                       		<span class="member_rate" style="background-color: #9933ff;">VIP회원</span>	
+                       	<%
+                       			}
+                       	%>                          	
                            	<%if(memberID.equals("admin@admin.com")){%>
-                           	<a href="/admin/index.jsp"><b><%=memberID %></b>님</a>                       	
+                           	<a href="/admin/index.jsp"><b><%=memberID %></b> 관리자</a>                       	
                       		<%}else{ %>
-                           	<a href="/mypage/mypageOrderMod.jsp"><b><%=memberID %></b>님</a>                      	
+                           	<a href="/mypage/mypageOrderMod.jsp"><b><%=memberID %></b> 환영합니다.</a>                      	
                       		<%} %>
                       		<span class="divider"></span> 
                       	</li>
