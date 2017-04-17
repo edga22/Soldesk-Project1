@@ -39,6 +39,15 @@ public class MemberService {
 		return mapper.addMember(Member);
 	}
 	
+	/**
+	 * 회원수정
+	 * @param member
+	 * @return 1-성공 0-실패
+	 */
+	public int updateMember(Member member){
+		return mapper.updateMember(member);
+	}
+	
 	//아이디찾기
 	//praram: Member
 	//return : 이름, 전화번호

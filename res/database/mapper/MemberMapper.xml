@@ -37,10 +37,9 @@
 	</insert>
 	
 	<update id="updateMember" parameterType="domain.Member">
-		insert into members(email, PASSWD, name, POSTCODE, address, phone)
-		values( #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-									  #{name,jdbcType=VARCHAR}, #{postCode,jdbcType=NUMERIC}, 
-									  #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
+		update members
+		set passwd=#{password,jdbcType=VARCHAR}, name=#{name,jdbcType=VARCHAR}, postcode=#{postCode,jdbcType=NUMERIC}, 
+		address=#{address,jdbcType=VARCHAR}, phone=#{phone,jdbcType=VARCHAR}
 		WHERE member_id = #{memberID}
 	</update>
 	
