@@ -41,11 +41,11 @@
 		</div>
 		<div class="form-group">
 			<label for="inputdefault">비밀번호</label>
-			<input class="form-control" id="psw" name="psw" min="6" type="password" required>
+			<input class="form-control" id="psw" name="psw" maxlength="14" type="password" required>
 		</div>
 		<div class="form-group">
 			<label for="inputdefault">비밀번호 확인</label>
-			<input class="form-control" id="psw2" name="psw2" min="6" type="password" required>
+			<input class="form-control" id="psw2" name="psw2" maxlength="14" type="password" required>
 			<font name="check" color="red"></font>
 		</div>
 		<div class="form-group">
@@ -96,6 +96,9 @@
 		$(function(){
 			$('#psw').keyup(function(){
 				$('font[name=check]').text('');
+				if($('#psw').val().length < 6 || $('#psw').val().length > 14) { 
+					$('font[name=check]').html("Password가 잘못되었습니다.6~14자만 입력하세요."); 					  
+				}
 			}); 
 			$('#psw2').keyup(function(){
 	 	  		if($('#psw').val()!=$('#psw2').val()){
