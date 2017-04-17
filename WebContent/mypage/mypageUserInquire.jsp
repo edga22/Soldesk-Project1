@@ -8,23 +8,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>마이페이지 1:1문의</title>
 <%
-	int tmp = (Integer) session.getAttribute("memberID");
+	int memberID = (Integer)session.getAttribute("memberID");
 	int userID = 1;
-	if (tmp == 0) {
+	if (memberID == 0) {
 	} else {
-		userID = tmp;
+		userID = memberID;
 	}
 
 	MemberDao mbDao = new DbBasedMemberDao();
-	
+
 	mbDao.getMember(userID);
 	
-	Member mb = mbDao.getMember(userID);		
+	Member mb = mbDao.getMember(userID);
 %>
 </head>
 <body>
@@ -44,7 +47,7 @@
 						<form action="mypageUserInquireResult.jsp">
 							<button type="submit" class="btn btn-default"
 								style="float: right;">문의 결과</button>
-						</form> 
+						</form>
 					</td>
 				</tr>
 				<tr>
@@ -55,6 +58,8 @@
 								<label class="control-label col-sm-2" for="text">이름:</label>
 								<!-- col-sm 10칸!! 차지함!-->
 								<div class="col-sm-10">
+									<!-- memberID를 넘겨받기 위해 숨긴상태. -->
+									<input type="hidden" name="qID" value="<%=memberID%>">									
 									<input type="text" class="form-control" name="userInquireName"
 										autofocus="autofocus" placeholder="이름"
 										value="<%=mb.getName()%>">
@@ -68,10 +73,20 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<!-- 질문유형을 int 값으로 받아 선택할수 있게 한다. -->
 								<label class="control-label col-sm-2" for="text">질문유형:</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" name="userInquireType"
-										placeholder="질문유형">
+								<div class="col-sm-10">									
+									<input type="number" class="form-control" name="userInquireType" list="select"
+										placeholder="질문유형" required>
+									<datalist id="select">
+										<option value="1">국내도서</option>
+										<option value="2">외국도서</option>
+										<option value="3">전자책</option>
+										<option value="4">구매문의</option>
+										<option value="5">배송문의</option>
+										<option value="6">반품/교환문의</option>
+										<option value="7">기타</option>
+									</datalist>
 								</div>
 							</div>
 							<div class="form-group">

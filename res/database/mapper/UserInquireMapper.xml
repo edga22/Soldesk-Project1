@@ -3,13 +3,14 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="config.UserInquireMapper">
 	 	<resultMap id="UserInquireMap" 		type="domain.UserInquire">
-		<id		property="userInquireId"	column="USERINQUIRE_ID"/>
-		<result	property="qType"			column="Q_TYPE"/>
-		<result property="qTitle"			column="Q_TITLE"/>
-		<result property="qContent"			column="Q_CONTENT"/>
-		<result property="qDate"			column="Q_DATE"/>
-		<result property="qAnswer"			column="Q_ANSWER"/>
-		<result property="qState"			column="Q_STATE"/>		
+		<id		property="userInquireID"	column="USERINQUIRE_ID"/>
+		<result	property="memberID"			column="MEMBER_ID"/>
+		<result	property="Type"				column="TYPE"/>
+		<result property="Title"			column="TITLE"/>
+		<result property="Content"			column="CONTENT"/>
+		<result property="Date"				column="DATE"/>
+		<result property="Answer"			column="ANSWER"/>
+		<result property="State"			column="STATE"/>		
 	</resultMap>
 	
 	<select id="getUserInquires" resultMap="UserInquireMap">
@@ -23,8 +24,8 @@
 	</select>
 	
 	<insert id="addUserInquire" parameterType="domain.UserInquire">
-		insert into USERINQUIRES(Q_TYPE, Q_TITLE, Q_CONTENT, Q_DATE)
-		values(#{qType,jdbcType=VARCHAR},#{qTitle,jdbcType=VARCHAR},#{qContent,jdbcType=NUMERIC},#{qDate,jdbcType=DATE})
+		insert into USERINQUIRES(MEMBER_ID, TYPE, TITLE, CONTENT, DATE)
+		values(#{memberID},#{Type},#{Title,jdbcType=VARCHAR},#{Content,jdbcType=VARCHAR},#{Date,jdbcType=DATE})
 	</insert>
 	<!-- 
 	<insert id="addUserInquire" parameterType="domain.UserInquire">

@@ -52,7 +52,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="text">질문답변:</label>
+								<label class="control-label col-sm-2" for="text">답변내용:</label>
 								<div class="col-sm-10">
 									<textarea rows="10" cols=100% name="contents"
 										style="width: 100%; hight: 800px;"

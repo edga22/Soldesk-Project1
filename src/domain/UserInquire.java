@@ -4,54 +4,61 @@ import java.sql.Date;
 
 
 public class UserInquire {
-	private int userInquireId;
-	private String qType;
-	private String qTitle;	
-	private String qContent;
-	private Date qDate;
-	private String qAnswer;
-	private String qState;
+	private int userInquireID;
+	private int memberID;
+	private int Type;
+	private String Title;
+	private String Content;
+	private Date Date;
+	private String Answer;
+	private int State;
 	
-	public int getUserInquireId() {
-		return userInquireId;
+	public int getUserInquireID() {
+		return userInquireID;
 	}
-	public void setUserInquireId(int userInquireId) {
-		this.userInquireId = userInquireId;
+	public void setUserInquireID(int userInquireID) {
+		this.userInquireID = userInquireID;
 	}
-	public String getqType() {
-		return qType;
+	public int getMemberID() {
+		return memberID;
 	}
-	public void setqType(String qType) {
-		this.qType = qType;
+	public void setMemberID(int memberID) {
+		this.memberID = memberID;
 	}
-	public String getqTitle() {
-		return qTitle;
+	public int getType() {
+		return Type;
 	}
-	public void setqTitle(String qTitle) {
-		this.qTitle = qTitle;
+	public void setType(int type) {
+		Type = type;
 	}
-	public String getqContent() {
-		return qContent;
+	public String getTitle() {
+		return Title;
 	}
-	public void setqContent(String qContent) {
-		this.qContent = qContent;
+	public void setTitle(String title) {
+		Title = title;
 	}
-	public Date getqDate() {
-		return qDate;
+	public String getContent() {
+		return Content;
 	}
-	public void setqDate(Date qDate) {
-		this.qDate = qDate;
+	public void setContent(String content) {
+		Content = content;
 	}
-	public String getqAnswer() {
-		return qAnswer;
+	public Date getDate() {
+		return Date;
 	}
-	public void setqAnswer(String qAnswer) {
-		this.qAnswer = qAnswer;
+	public void setDate(Date date) {
+		Date = date;
 	}
-	public String getqState() {
-		return qState;
+	public String getAnswer() {
+		return Answer;
 	}
-	public void setqState(String qState) {
-		this.qState = qState;
-	}	
+	public void setAnswer(String answer) {
+		Answer = answer;
+	}
+	public int getState() {
+		return State;
+	}
+	public void setState(int state) {
+		State = state;
+	}
 }

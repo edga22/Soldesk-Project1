@@ -23,7 +23,7 @@ public class DbBasedUserInquireDao implements UserInquireDao{
 	}
 	
 	@Override
-	public UserInquire addUserInquire(UserInquire addUserInquire){
+	public int addUserInquire(UserInquire addUserInquire){
 		return mapper.addUserInquire(addUserInquire);
 	}
 

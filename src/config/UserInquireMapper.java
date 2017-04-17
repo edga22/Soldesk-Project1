@@ -7,5 +7,7 @@ import domain.UserInquire;
 public interface UserInquireMapper {
 	List<UserInquire> getUserInquires();
 	UserInquire getUserInquire();
-	UserInquire addUserInquire(UserInquire addUserInquire);	
+	int addUserInquire(UserInquire addUserInquire);
+	//select 가 아닌경우 입력여부 확인용만????????
+	/*UserInquire addUserInquire(UserInquire addUserInquire);*/	
 }

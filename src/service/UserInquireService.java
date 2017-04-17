@@ -11,35 +11,61 @@ import domain.Member;
 import domain.UserInquire;
 
 public class UserInquireService {
-	PayService ps;	
-	UserInquireDao uid;
-	OrderState os;
+	PayService payService;	
+	UserInquireDao userInquireDao;
+	OrderState orderState;
 	GregorianCalendar now;
-	MemberDao ms;
+	MemberDao memberDao;	
+	String askType;		//질문유형
+	
 //	class에서 공통적으로 사용할 method를 정의한것.
 //	method 기본 생성자로  class 초기화 작업을 선 진행!
 	public UserInquireService() {			
-		uid = new DbBasedUserInquireDao();
-		ps = new PayService();
-		os = new OrderState();
+		payService = new PayService();
+		userInquireDao = new DbBasedUserInquireDao();		
+		orderState = new OrderState();
 		now = new GregorianCalendar();
-		ms = new DbBasedMemberDao();
+		memberDao = new DbBasedMemberDao();
 	}
 	
-	public void setAsk(String uiqt, String uit, String uic)throws ParseException{	//도메인 초기화		
-		UserInquire ui = new UserInquire();		
+	public void setAsk(int memberID, int uiqt, String uit, String uic)throws ParseException{	//도메인 초기화		
+		UserInquire userInquire = new UserInquire();		
 		/*java.sql.Date date = new java.sql.Date(ps.changeDate(String.format("%TY-%Tm-%Td",now, now, now)).getTime());*/
-		java.sql.Date date = new java.sql.Date(ps.changeDate(String.format("%TY-%Tm-%Td",now, now, now)).getTime());
+		java.sql.Date date = new java.sql.Date(payService.changeDate(String.format("%TY-%Tm-%Td",now, now, now)).getTime());
 		
-		ui.setqType(uiqt);
-		ui.setqTitle(uit);
-		ui.setqContent(uic);
-		ui.setqDate(date);	
+		switch(uiqt){
+		case 1: askType = "국내도서"; break;
+		case 2: askType = "외국도서"; break;
+		case 3: askType = "전자책"; break;
+		case 4: askType = "구매문의"; break;
+		case 5: askType = "배송문의"; break;
+		case 6: askType = "반품/교환문의"; break;
+		case 7: askType = "기타";		
+		}
 		
-		uid.addUserInquire(ui);
+		userInquire.setMemberID(memberID);
+		userInquire.setType(uiqt);
+		userInquire.setTitle(uit);
+		userInquire.setContent(uic);
+		userInquire.setDate(date);	
+		
+		userInquireDao.addUserInquire(userInquire);
 	}
+	
+	/*	질문유형 선택		
+	public String typeChange(int number){
+		switch(number){
+		case 1: askType = "국내도서"; break;
+		case 2: askType = "외국도서"; break;
+		case 3: askType = "전자책"; break;
+		case 4: askType = "구매문의"; break;
+		case 5: askType = "배송문의"; break;
+		case 6: askType = "반품/교환문의"; break;
+		case 7: askType = "기타";		
+		}		
+		return state;}		*/
 	
 	public Member getMember(int memberID){
-		return ms.getMember(memberID);
+		return memberDao.getMember(memberID);
 	}
 }	
