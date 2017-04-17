@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style>
+</style>
 </head>
 <body>
 <%
@@ -19,19 +21,29 @@ BookMgr mymgr = new BookMgr();
 <jsp:include page="/inven/invenMain_nav.jsp"></jsp:include>
 <div class="container" id="bim">
 <form>
-<div style="border:0.1rem solid black;"><!-- 도서 수정 -->		
-	 	 <label>도 서 명:<input type="text" name="bookName" placeholder="책이름" ></label>
-		 <label>카테고리:<input type="number" name="categoryID" placeholder="카테고리" ></label>
-		 <label>작 가 명:<input type="text" name="author" placeholder="작가" ></label>
-		 <label>출 판 사:<input type="text" name="publisher" placeholder="출판사" ></label>
-		 <label>출 판 일:<input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)" ></label>
-		 <label>책 금 액:<input type="number" name="price" placeholder="금액" ></label>
-		 <label>이 미 지:<input type="text" name="imageID" value="/img/item/" placeholder="책표지 주소(.jpg)" ></label>
-		 <label>재     고:<input type="number" name="stock" placeholder="등록 수량" ></label>
+<div style="border:0.1rem solid black; margin:1rem; padding:1rem;"><!-- 도서 수정 -->		
+	 	 <table id="imain">
+			<tr>
+				<th>도 서 명 :</th><td><input type="text" name="bookName" placeholder="책이름" ></td>
+				<th>작 가 명 :</th><td><input type="text" name="author" placeholder="작가" ></td>
+				<th>출 판 사 :</th><td><input type="text" name="publisher" placeholder="출판사" ></td>
+			</tr>
+			<tr>		
+				<th>출 판 일 :</th><td><input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)" ></td>
+				<th>도서금액 :</th><td><input type="number" name="price" placeholder="금액" ></td>
+				<th>총 재 고 :</th><td><input type="number" name="stock" placeholder="등록 수량" ></td>
+			</tr>
+			<tr>
+				<th>이 미 지 :</th><td><input type="text" name="imageID" placeholder="책표지 주소(.jpg)" ></td>							
+				<th>카테고리 :</th><td><jsp:include page="/inven/categorySelect.jsp"/></td>
+				<th></th><td></td>
+			</tr>
+		</table>
 		<br>
-		<button type="submit" formaction="/inven/bookMod.jsp" class="btn btn-default">수정</button>
-		<button type="submit" formaction="/inven/bookDel.jsp" class="btn btn-default">삭제</button>
+		
 </div>
+<button type="submit" formaction="/inven/bookMod.jsp" class="btn btn-default">수정</button>
+		<button type="submit" formaction="/inven/bookDel.jsp" class="btn btn-default">삭제</button>
 <hr style="border: solid 0.1rem;"> 
 <h3>전체 도서 검색 결과</h3>
 	<table class="table table-condensed">

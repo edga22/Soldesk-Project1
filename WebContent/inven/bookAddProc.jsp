@@ -26,6 +26,8 @@ newbook.setPrice(Integer.parseInt(request.getParameter("price")));
 newbook.setImageID(request.getParameter("imageID"));
 newbook.setStock(Integer.parseInt(request.getParameter("stock")));
 newbook.setCategoryID(Integer.parseInt(request.getParameter("categoryID")));
+newbook.setSubtitle(request.getParameter("subtitle"));
+newbook.setDescription(request.getParameter("description"));
 //새책 생성
 mymgr.addBook(newbook);
 %>
@@ -44,19 +46,25 @@ mymgr.addBook(newbook);
 		<th>책표지 주소</th>
 		<th>재고</th>		
 	  </tr>
+	  <tr>
+		<td><%=newbook.getBookName()%></td>
+		<td><%=newbook.getCategoryID()%></td>
+		<td><%=newbook.getAuthor() %></td>
+		<td><%=newbook.getPublisher() %></td>
+		<td><%=newbook.getPublishDate() %></td>
+		<td><%=newbook.getPrice() %></td>
+		<td><%=newbook.getImageID() %></td>
+		<td><%=newbook.getStock() %></td>
+	  </tr>	  
 	 </thead>
 	 <tbody>	 	
-	  <tr>
-		<th><%=newbook.getBookName()%></th>
-		<th><%=newbook.getCategoryID()%></th>
-		<th><%=newbook.getAuthor() %></th>
-		<th><%=newbook.getPublisher() %></th>
-		<th><%=newbook.getPublishDate() %></th>
-		<th><%=newbook.getPrice() %></th>
-		<th><%=newbook.getImageID() %></th>
-		<th><%=newbook.getStock() %></th>
-	  </tr>	  			
+	    <tr><th>소제목</th></tr>
+	 	<tr><td><%=newbook.getSubtitle() %></td></tr>		
 	 </tbody>
+	 <tfoot> 	
+	 	<tr><th>내용</th></tr>
+	 	<tr><td><%=newbook.getDescription() %></td></tr>
+	 </tfoot>
 	</table>	
 </div>
 </body>

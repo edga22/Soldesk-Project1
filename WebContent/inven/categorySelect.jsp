@@ -64,7 +64,7 @@ for(Category result:mymgr.listCategories()){
             </c:if>
            </c:forEach>
 	</select>
-	<select id="sel2" name="category_id">
+	<select id="sel2" name=categoryID>
 	    <option>--2차분류--</option>
 	</select>		
 </div>
