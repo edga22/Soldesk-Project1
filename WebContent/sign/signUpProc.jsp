@@ -28,6 +28,13 @@
 		MemberService newMember = new MemberService();
 		
 		member.setEmail(ID);
+		if(pw.length()<=6){
+	%>
+		<script>
+			alert("비밀번호 숫자가 너무 적습니다.");
+			history.go(-1);
+		</script>
+	<%	}else{
 		member.setPassword(pw);
 		member.setName(name);
 		member.setPostCode(postCode);
@@ -56,6 +63,7 @@
 			});
 		</script>
 <%			}
+		}
 	}else{	//비밀번호가 다를경우
 %>
 		<script>
@@ -63,6 +71,7 @@
 			history.go(-1);
 		</script>
 <%
-	}%>
+	}
+	%>
 </body>
 </html>

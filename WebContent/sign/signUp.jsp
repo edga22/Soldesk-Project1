@@ -97,7 +97,7 @@
 			$('#psw').keyup(function(){
 				$('font[name=check]').text('');
 				if($('#psw').val().length < 6 || $('#psw').val().length > 14) { 
-					$('font[name=check]').html("Password가 잘못되었습니다.6~14자만 입력하세요."); 					  
+					$('font[name=check]').html("Password가 잘못되었습니다.6~14자만 입력하세요.");			  
 				}
 			}); 
 			$('#psw2').keyup(function(){
