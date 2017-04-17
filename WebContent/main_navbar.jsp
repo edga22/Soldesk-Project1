@@ -60,7 +60,7 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
 	<div class="row" id="wrap">
     	<div class="col-md-12"> 
         	<div class="row" >
-            	<div class="col-md-6">
+            	<div class="col-md-5">
                 	<ul class="nav nav-tabs">
 							<li class="<%=catastr %>">
 								<a href="/main.jsp">Home</a>
@@ -84,7 +84,7 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
 							} %>		            
                    	</ul>
                	</div>
-               	<div class="col-md-6 text-right">
+               	<div class="col-md-7 text-right">
                    	<ul class="breadcrumb" style="height:36px">
                        	<%if(!memberID.equals("")){ 
                        		MemberService ms = new MemberService();
@@ -124,9 +124,9 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
                        			}
                        	%>                          	
                            	<%if(memberID.equals("admin@admin.com")){%>
-                           	<a href="/admin/index.jsp"><b><%=memberID %></b> 관리자</a>                       	
+                           	<a href="/admin/index.jsp"><b><%=memberID %></b></a>                       	
                       		<%}else{ %>
-                           	<a href="/mypage/mypageOrderMod.jsp"><b><%=memberID %></b> 환영합니다.</a>                      	
+                           	<a href="/mypage/mypageOrderMod.jsp"><b><%=memberID %></b></a>                      	
                       		<%} %>
                       		<span class="divider"></span> 
                       	</li>
