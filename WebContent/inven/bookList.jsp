@@ -54,7 +54,7 @@ String bookName = request.getParameter("bookName");
 			<tr>
 				<th>이 미 지 :</th><td><input type="text" name="imageID" placeholder="책표지 주소(.jpg)" ></td>							
 				<th>카테고리 :</th><td><jsp:include page="/inven/categorySelect.jsp"/></td>
-				<th>추천상태</th><td><input type="number" name="recomend" placeholder="추천상태(1:추천, 0:비추천)" ></td>
+				<th>추천상태</th><td><input type="number" name="recommend" placeholder="추천상태(1:추천, 0:비추천)" ></td>
 			</tr>
 		</table>
 		<div id="block">
