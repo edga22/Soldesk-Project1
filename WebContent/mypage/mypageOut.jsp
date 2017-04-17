@@ -19,7 +19,6 @@
 		</div> 		
 		<div class="col-sm-10">
 		<form action="/mypage/mypageOutProc.jsp">
-      	  <h2> 회원 탈퇴</h2>
       	  <h3> -회원 탈퇴시 적립금,예치금,마일리지 등이 자동삭제 됩니다.</h3>
       	   비밀번호:<input type="password" name="password">
       	  <button type="submit" class="btn btn-danger">회원탈퇴</button>

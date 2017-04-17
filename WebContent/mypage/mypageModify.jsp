@@ -78,7 +78,6 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 			<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
 		</div>
 <div class="col-sm-8">
-      <h2>개인정보 수정</h2>
       <br>
       <h4>회원정보</h4>
       <table class="table table-bordered">

@@ -19,7 +19,6 @@
 	</div>
 		<div class="col-sm-10">
 			<div id="MypageQuestion">
-				<h2>자주 묻는 질문</h2>
 				<h3>-Q&A</h3>
 					<a href="/mypageAnswer/loginAnswer.jsp">1.로그인시 이상한 영어가 뜨면서 로그인이안되요.</a><br>
 					<a href="/mypageAnswer/basketAnswer.jsp">2.로그아웃을 해도 장바구니가 남아있나요?</a><br>

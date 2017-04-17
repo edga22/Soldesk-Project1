@@ -46,9 +46,6 @@ PurchaseOrder[] purchaseOrders = dm.getMember(userID);
 		<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
     </div>
   <div class="col-sm-10">
-      <h2>주문조회/변경/취소</h2>
-      <h3>-배송문의:CJ대한통운</h3>
-
       <table class="table table-hover">
 	<thead>
 		<tr>
