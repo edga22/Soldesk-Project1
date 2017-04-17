@@ -45,5 +45,11 @@
 	
 	<select id="getRegionCategories" parameterType="int" resultMap="CategoryMgrMap">
 		SELECT * FROM Category WHERE code1 = #{code1}
-	</select>	
+	</select>
+	
+	<update id="setCategory" parameterType="domain.Category">
+	    update Category 
+	    set categoryID = #{category_id}, code1 = #{code1}, code2 = #{code2}, categoryName = #{category_name,jdbcType=VARCHAR}, categorySubject = #{category_subject,jdbcType=VARCHAR}, categoryUse= #{categoryUse}
+	    where categoryID = #{category_id}
+    </update>
 </mapper>

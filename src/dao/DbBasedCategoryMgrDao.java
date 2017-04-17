@@ -31,9 +31,11 @@ public class DbBasedCategoryMgrDao implements CategoryMgrDao{
 	public List<Category> getRegionCategories(int code1){
 		return mapper.getRegionCategories(code1);
 	}
-	
 	public int addCategory(Category category){
 		return mapper.addCategory(category);
+	}
+	public int setCategory(Category category){
+		return mapper.setCategory(category);
 	}
 	public int delCategory(int categoryID){
 		return mapper.delCategory(categoryID);

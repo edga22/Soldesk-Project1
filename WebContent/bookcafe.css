@@ -140,7 +140,7 @@ headerwrap .navbar-form #search {
 .allMenu_list {
 	display: inline;
 	float: left;
-	width: 30%;
+	width: 22%;
 }
 /* 메인상단 전체메뉴 시작 */
 .allMenu ul{
@@ -168,8 +168,8 @@ headerwrap .navbar-form #search {
 .allMenu li a {
     color:#000;
 }
-.allMenu li a {
-    color:#000;
+.allMenu li a.white {
+    color: white;
 }
 .allMenuLine {
     border-left:1px solid #ccc;

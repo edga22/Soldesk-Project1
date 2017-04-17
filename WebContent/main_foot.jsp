@@ -45,25 +45,27 @@
         <div class="col-md-5">
             <div style="width:50%;float: left;">   
                 <address>
-                    <strong>Book&#38;Cafe, Inc.</strong><br /> 대표이사 : 윤광재<br /> <abbr title="Phone">전화상담 : 02) 1234-5678</abbr><br />                 
-                    <abbr style="position: absolute;width:100%;clear: left;margin:0;">서울 종로구 종로12길 15 코아빌딩1 5층  <a href="http://naver.me/xicaa2oH" target="blank">약도</a></abbr>
+                    <strong>Book&#38;Cafe, Inc.</strong><br />
+                    대표이사 : 윤광재<br /> 
+                    <abbr title="Phone">전화상담 : 02) 1234-5678</abbr><br />                 
+                    <abbr style="position: absolute;width:100%;clear: left;margin:0;">주소 : 서울 종로구 종로12길 15 코아빌딩1 5층  <a href="http://naver.me/xicaa2oH" target="blank">약도</a></abbr>
                 </address>
                 
             </div>
             <div style="width:50%;float: left;">               
                 <address>
-                    <strong></strong><br /> 고객정보보호 책임자:유강현<br /> E-mail:master@bookncafe
+                    <strong></strong><br />
+                    고객정보보호 책임자 : 유강현<br />
+                    <i class="glyphicon glyphicon-envelope" style="color:#555;font-size:0.2rem"></i> E-mail:master@bookncafe
                 </address>
             </div>          
         </div>   
         <div class="col-md-5">               
             <address>
                 <strong></strong><br />
-                <ul>
-                    <li>1:1고객상담 : 메일로 빠르게 답신드립니다.  <a href="/mypage/MypageUserInquire.jsp" target="blank">문의하기</a></li>
-                    <li>구매안전 에스크로 서비스 : <br />
-                    안전거래를 위해 현금 결제시 이용가능  <a href="#" target="blank">서비스가입확인</a></li>                
-                </ul>
+                    <i class="glyphicon glyphicon-comment" style="color:#555;font-size:0.2rem"></i> 1:1고객상담 : 메일로 빠르게 답신드립니다.  <a href="/mypage/MypageUserInquire.jsp" target="blank">문의하기</a><br />
+                    <i class="glyphicon glyphicon-lock" style="color:#555;font-size:0.2rem"></i> 구매안전 에스크로 서비스 : <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;안전거래를 위해 현금 결제시 이용가능  <a href="#" target="blank">서비스가입확인</a>
             </address>
         </div>
     </div>

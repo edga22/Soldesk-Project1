@@ -122,6 +122,15 @@ $(document).ready(function(){
     text-align:center;
     width:25%;
 }
+#basketTable img{
+    width:85px;
+    height:auto;
+    max-height:125px;
+    padding-bottom:1.5rem;
+}
+#basketTable td {
+    vertical-align:middle;
+}
 </style>
 <title>장바구니</title>
 
@@ -130,7 +139,7 @@ $(document).ready(function(){
 <div class="container" id="basket">
 	<!-- 장바구니 패널 -->
 	<div class="panel panel-default"> 
-	  <div class="panel-heading"><h2>장바구니</h2></div>
+	  <div class="panel-heading"><h2><i class="glyphicon glyphicon-shopping-cart"></i> 장바구니</h2></div>
 	  <div class="panel-body">회원가입을 하시면 통합포인트 적립, 쿠폰사용을 통한 추가할인, 추가적립 등 다양한 혜택이 가득합니다.</div>
 	</div> 
 	<!--// 장바구니 패널 -->	
@@ -139,14 +148,14 @@ $(document).ready(function(){
 		<!-- 전체선택과 버튼들 -->
 		<div class="row" style="margin:0;padding:0">
 			<div class="col-sm-4">
-				<h3>목록</h3>
+				<h3><i class="glyphicon glyphicon-edit"></i> 목록</h3>
 			</div>
 			<div class="col-sm-8 text-right" style="margin-top:18px;">
 				<input type="button" class="btn btn-default btn-sm" value="선택상품삭제" id="btnRemovebasket"/>
 			</div>
 		</div>
 		<!--// 전체선택과 버튼들 -->
-		<table class="table table-hover table-condensed">
+		<table class="table table-hover table-condensed" id="basketTable">
 		    <thead>
 		      <tr class="info text-center">			      	
 		        <th colspan="2" class="text-center" >상품명</th>
@@ -192,33 +201,33 @@ $(document).ready(function(){
 		    		totalBookPrice += bookSalePrice*bootCnt;
 		    	%>
 		   		<tr>				      	
-			        <td style="vertical-align:middle;text-align:right;width:45px;">
+			        <td style="text-align:right;width:45px;">
 			        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기">
 			        	<img src="<%=basketList[i].getBook().getImageID() %>"></a>
 			        </td>
-			        <td style="vertical-align:middle;">
+			        <td>
 			        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
 			        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 새창으로보기" target="_blank">
-			        	<i class="glyphicon glyphicon-new-window" style="font-size:1rem;color:#555"></i></a><br>
+			        	<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a><br>
 			        	*지금 주문하면 "오늘 출고" 가능(출고후 1~2일 이내 수령)
 			        </td>
-			        <td style="vertical-align:middle;">
+			        <td>
 			        	정가: <del><%=nf.format(bookPrice) %></del>원<br>
 			        	판매가: <%=nf.format(bookSalePrice) %>원<% if(bookdiscount != 0) out.print("("+bookdiscount+"%)"); %><br>
 			        	포인트: <%=nf.format(bookPoint) %>P (<%=pointPer%>%)<br>	        	
 			        </td>
-			        <td style="vertical-align:middle;text-align:center">
+			        <td style="text-align:center">
 			            <form action="/shop/basketUpdate.jsp">
 			                <input type="hidden" name="bookID" value="<%=bookIdInt%>"/>
 							<input type="number" name="cnt" min="1" value="<%=bootCnt%>" style="width:15%;min-width:40px"/>
 							<input type="submit" class="btn btn-default btn-sm" value="변경" id="btnCntChangeBasket"/>
 						</form>
 			        </td>
-			        <td style="vertical-align:middle;text-align:center">
+			        <td style="text-align:center">
 				    	<a class="btn btn-default btn-block btn-primary" href="/shop/payment.jsp?bookID=<%=bookIdInt%>&cnt=<%=bootCnt%>">바로 구매</a>
                         <a class="btn btn-default btn-block" href="/shop/basketDelete.jsp?bookID=<%=bookIdInt%>">삭제</a>
 					</td>
-					<td style="vertical-align:middle;text-align:center">
+					<td style="text-align:center">
 						<input type="checkbox" name="bookIdList" value="<%=bookIdInt%>,<%=bookSalePrice%>,<%=bootCnt%>" checked="checked">
 					</td>
 		      	</tr>
@@ -235,14 +244,14 @@ $(document).ready(function(){
 	<!-- 가격 테이블 -->
 	<div class="row">
 		<div class="col-sm-12">
-			<h3>가격</h3>
+			<h3> <span class="glyphicon glyphicon-check"></span> 가격</h3>
 			<table class="table table-bordered table-condensed" id="total">
 			    <thead>
 			      <tr class="active text-center">
-			        <th>상품금액</th>
+			        <th>총 상품금액</th>
 			        <th>배송비</th>
-			        <th>결제 예정금액</th>
-			        <th>적립예정</th>
+			        <th>총 결제 예상금액</th>
+			        <th>총 적립 예상 포인트</th>
 			      </tr>
 			    </thead>
 			    <tbody>

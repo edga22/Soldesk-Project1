@@ -1,7 +1,5 @@
 package domain;
 
-//import java.math.BigDecimal;
-
 public class Category {
 	private int categoryID;
 	private int code1;

@@ -37,6 +37,10 @@ public class CategoryMgr{
 		return categoMgrDao.addCategory(category)>0;
 	}
 	
+	public boolean setCategory(Category category){
+		return categoMgrDao.setCategory(category)>0;
+	}
+	
 	public boolean delCategory(int categoryID){
 		return categoMgrDao.delCategory(categoryID)>0;
 	}

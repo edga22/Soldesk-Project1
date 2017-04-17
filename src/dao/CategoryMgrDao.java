@@ -11,6 +11,7 @@ public interface CategoryMgrDao {
 	Category getCategory(int categoryID);
 	List<Category> getRegionCategories(int code1);
 	
-	int addCategory(Category category);	
+	int addCategory(Category category);
+	int setCategory(Category category);
 	int delCategory(int categoryID);
 }
