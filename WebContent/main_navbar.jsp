@@ -54,7 +54,7 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
        </div>
     </div>
 </div>
-<nav id="topheaderwrap" class="headerwrap" data-spy="affix" data-offset-top="97">
+<nav id="topheaderwrap" class="headerwrap" data-spy="affix" data-offset-top="70">
 	<div class="row" id="wrap">
     	<div class="col-md-12"> 
         	<div class="row" >

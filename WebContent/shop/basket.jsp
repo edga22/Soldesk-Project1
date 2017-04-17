@@ -199,7 +199,7 @@ $(document).ready(function(){
 			        <td style="vertical-align:middle;">
 			        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
 			        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 새창으로보기" target="_blank">
-			        	<i class="glyphicon glyphicon-new-window" style="font-size:0.6rem;color:#555"></i></a><br>
+			        	<i class="glyphicon glyphicon-new-window" style="font-size:1rem;color:#555"></i></a><br>
 			        	*지금 주문하면 "오늘 출고" 가능(출고후 1~2일 이내 수령)
 			        </td>
 			        <td style="vertical-align:middle;">
@@ -258,7 +258,7 @@ $(document).ready(function(){
 	</div>
 	<!--// 가격 테이블 -->	
 	<!-- 주문 및 되돌아가기 -->
-	<div class="row">
+	<div class="row" style="margin-bottom:3rem">
 		<div class="col-sm-5"> 
 		   	<a href="/main.jsp" class="btn btn-default btn-lg text-left" role="button">쇼핑 계속하기</a>
 		</div>

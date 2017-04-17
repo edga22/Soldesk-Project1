@@ -45,7 +45,7 @@
         <div class="col-md-5">
             <div style="width:50%;float: left;">   
                 <address>
-                    <strong>Book&#38;Cafe, Inc.</strong><br /> 대표이사 : 윤광재<br /> <abbr title="Phone">전화상담 : 02) 1234-5678</abbr>                   
+                    <strong>Book&#38;Cafe, Inc.</strong><br /> 대표이사 : 윤광재<br /> <abbr title="Phone">전화상담 : 02) 1234-5678</abbr><br />                 
                     <abbr style="position: absolute;width:100%;clear: left;margin:0;">서울 종로구 종로12길 15 코아빌딩1 5층  <a href="http://naver.me/xicaa2oH" target="blank">약도</a></abbr>
                 </address>
                 
@@ -89,12 +89,5 @@ $(function() {
     });
 });
 </script>
-
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
