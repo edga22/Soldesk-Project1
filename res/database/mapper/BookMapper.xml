@@ -15,6 +15,7 @@
 		<result property="stock"	column="STOCK" />
 		<result property="subtitle"	column="SUBTITLE" />
 		<result property="description"	column="DESCRIPTION" />
+		<result property="recommend"	column="RECOMMEND" />
 	</resultMap>
 		
 	<select id="getAllBooks" resultMap="BookMap">
@@ -34,9 +35,9 @@
 	</select>
 		
 	<insert id="addBook" parameterType="domain.Book">
-		INSERT INTO Books (category_id, event_id, book_Name, author, publisher, publish_Date, image_id, price, stock, subtitle, description)
+		INSERT INTO Books (category_id, event_id, book_Name, author, publisher, publish_Date, image_id, price, stock, subtitle, description, recommend)
 		values (#{categoryID}, #{eventID}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR},
-		 #{publishDate,jdbcType=DATE}, #{imageID,jdbcType=VARCHAR}, #{price}, #{stock}, #{subtitle,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
+		 #{publishDate,jdbcType=DATE}, #{imageID,jdbcType=VARCHAR}, #{price}, #{stock}, #{subtitle,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{recommend})
 	</insert>
 	
 	<update id="updateBook" parameterType="domain.Book">

@@ -15,6 +15,7 @@ public class Book {
 	private int stock;
 	private String subtitle;
 	private String description;
+	private int recommend;
 	
 	public int getStock() {
 		return stock;
@@ -87,5 +88,11 @@ public class Book {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public int getRecommend() {
+		return recommend;
+	}
+	public void setRecommend(int recommend) {
+		this.recommend = recommend;
 	}
 }

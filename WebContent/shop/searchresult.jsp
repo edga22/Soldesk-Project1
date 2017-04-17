@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
 	import="mgr.search.SearchMgr"
-	import="mgr.search.SearchBox" %>
+	import="mgr.search.SearchBox"
+	import="mgr.BookSortMgr" %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -12,8 +13,18 @@ Book[] scResult = null;	// 검색 결과를 저장할 배열
 
 String scTarget = "";
 String scWord = "";
+String sortOrder = "";
+int order = 9;
 if(request.getParameter("SearchTarget") != null) scTarget = request.getParameter("SearchTarget");
 if(request.getParameter("SearchWord") != null) scWord = request.getParameter("SearchWord");
+if(request.getParameter("SortOrder") != null) sortOrder = request.getParameter("SortOrder");
+
+try{
+	order = Integer.parseInt(sortOrder);
+}catch(Exception e){
+	if(request.getParameter("SortOrder")!=null)	order = 9;
+	else order = 0;
+}
 
 // 결과 내 검색일때
 if(request.getParameter("inSc") != null && request.getParameter("inSc").equals("1")){
@@ -33,6 +44,28 @@ else{ // 최초 검색일때
 	// 검색결과를 세션에 저장
 	SearchBox scbox = new SearchBox(scResult);
 	session.setAttribute("scbox", scbox);	
+}
+
+/* 정렬방식 order
+0 : 출시일순 (기본값)
+1 : 제목순
+2 : 저자순
+3 : 가격순
+*/
+BookSortMgr sortMgr = new BookSortMgr();
+switch(order){
+case 0:
+	scResult = sortMgr.toArray(sortMgr.dateSort(sortMgr.toList(scResult)));
+	break;
+case 1:
+	scResult = sortMgr.toArray(sortMgr.nameSort(sortMgr.toList(scResult)));
+	break;
+case 2:
+	scResult = sortMgr.toArray(sortMgr.authorSort(sortMgr.toList(scResult)));
+	break;
+case 3:
+	scResult = sortMgr.toArray(sortMgr.priceSort(sortMgr.toList(scResult)));
+	break;
 }
 
 %>
@@ -73,9 +106,15 @@ else{ // 최초 검색일때
 .cate-group{
 	padding-top : 1rem;
 }
+
+#order<%=order%>{
+	font-weight : bold;
+}
 </style>
 
-<title>Book&Cafe - 검색 결과</title>
+
+
+<title>북카페: 검색 결과</title>
 </head>
 <body>
 
@@ -109,10 +148,11 @@ else{ // 최초 검색일때
 	</div>
 	<div class="col-md-10" id="result"> <!-- result -->
 		<div class="row" id="align-bar">
-			<div class="col-md-2 col-md-offset-1"><a>제목순</a></div>
-			<div class="col-md-2 col-md-offset-1"><a>저자순</a></div>
-			<div class="col-md-2 col-md-offset-1"><a>가격순</a></div>
-			<div class="col-md-2 col-md-offset-1"><a><b>출간일순</b></a></div>
+			
+			<div class="col-md-2 col-md-offset-1"><a id="order1" href="/shop/searchresult.jsp?SortOrder=1&inSc=1">제목순</a></div>
+			<div class="col-md-2 col-md-offset-1"><a id="order2" href="/shop/searchresult.jsp?SortOrder=2&inSc=1">저자순</a></div>
+			<div class="col-md-2 col-md-offset-1"><a id="order3" href="/shop/searchresult.jsp?SortOrder=3&inSc=1">가격순</a></div>
+			<div class="col-md-2 col-md-offset-1"><a id="order0" href="/shop/searchresult.jsp?SortOrder=0&inSc=1">출간일순</a></div>
 			<div class="col-md-2 col-md-offset-1">
 			<select name="display_number" class="">
 				<option value="25">25개</option>
@@ -120,6 +160,7 @@ else{ // 최초 검색일때
 				<option value="100">100개</option>
 			</select>
 			</div>
+			
 		</div>
 		
 		<%if(scResult != null){if(scResult.length <= 1){
