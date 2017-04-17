@@ -36,13 +36,12 @@ BookMgr mymgr = new BookMgr();
 			<tr>
 				<th>이 미 지 :</th><td><input type="text" name="imageID" placeholder="책표지 주소(.jpg)" ></td>							
 				<th>카테고리 :</th><td><jsp:include page="/inven/categorySelect.jsp"/></td>
-				<th></th><td></td>
+				<th>추천상태</th><td><input type="number" name="recomend" placeholder="추천상태(1:추천, 0:비추천)" ></td>
 			</tr>
 		</table>
-		<br>
-		
+		<br>		
 </div>
-<button type="submit" formaction="/inven/bookMod.jsp" class="btn btn-default">수정</button>
+		<button type="submit" formaction="/inven/bookMod.jsp" class="btn btn-default">수정</button>
 		<button type="submit" formaction="/inven/bookDel.jsp" class="btn btn-default">삭제</button>
 <hr style="border: solid 0.1rem;"> 
 <h3>전체 도서 검색 결과</h3>

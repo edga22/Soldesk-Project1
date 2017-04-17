@@ -11,6 +11,24 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style>
+#counter {
+  background:rgba(255,0,0,0.5);
+  border-radius: 0.5em;
+  padding: 0 .5em 0 .5em;
+  font-size: 0.75em;
+}
+</style>
+<script>
+$(function() {
+    $('#content').keyup(function (e){
+        var content = $(this).val();
+        $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+        $('#counter').html(content.length + '/250');
+    });
+    $('#content').keyup();
+});
+</script>
 </head>
 <body>
 <%
@@ -18,6 +36,40 @@ BookMgr mymgr = new BookMgr();
 String bookName = request.getParameter("bookName");
 %>
 <jsp:include page="/inven/invenMain_nav.jsp"></jsp:include>
+<form action="/inven/bookMod.jsp">
+<div class="container" id="bim">
+	<br>
+	<div style="border:0.1rem solid black; padding:1rem; margin:1rem;"><!-- 도서 수정 -->
+		<table id="imain">
+			<tr>
+				<th>도 서 명 :</th><td><input type="text" name="bookName" placeholder="책이름" ></td>
+				<th>작 가 명 :</th><td><input type="text" name="author" placeholder="작가" ></td>
+				<th>출 판 사 :</th><td><input type="text" name="publisher" placeholder="출판사" ></td>
+			</tr>
+			<tr>		
+				<th>출 판 일 :</th><td><input type="text" name="publishDate" placeholder="양식필수(yyyy-mm-dd)" ></td>
+				<th>도서금액 :</th><td><input type="number" name="price" placeholder="금액" ></td>
+				<th>총 재 고 :</th><td><input type="number" name="stock" placeholder="등록 수량" ></td>
+			</tr>
+			<tr>
+				<th>이 미 지 :</th><td><input type="text" name="imageID" placeholder="책표지 주소(.jpg)" ></td>							
+				<th>카테고리 :</th><td><jsp:include page="/inven/categorySelect.jsp"/></td>
+				<th>추천상태</th><td><input type="number" name="recomend" placeholder="추천상태(1:추천, 0:비추천)" ></td>
+			</tr>
+		</table>
+		<div id="block">
+		  <br><h4>부 제목</h4>
+		  <textarea rows="3" cols=100% name="subtitle" id="content" maxlength="250"
+				style="width: 100%; resize:none;" placeholder="내용 작성"></textarea>
+   		  	<span id="counter">255</span><br><br>
+		  <h4>책 내용</h4>
+		  <textarea rows="8" cols=100% name="description"
+				style="width: 100%; resize:none;" placeholder="내용 작성"></textarea>
+	  </div>
+	</div>
+	<button type="submit" class="btn btn-default">수정</button>	
+	<hr style="border: solid 0.1rem;"> 
+</div>
 <div id="BLA" class="container">
 <h3>전체 도서 검색 결과</h3>
 	<table class="table table-condensed">
@@ -45,7 +97,7 @@ if( books != null){
 			check.setBookName(book.getBookName());
 %>	 	
 			  <tr>
-				<th><%=book.getBookID()%></th>
+				<th><%=book.getBookID()%><input type="number" value="<%=book.getBookID()%>" name="bookID" hidden></th>
 				<th><%=book.getBookName()%></th>
 				<th><%=book.getCategoryID()%></th>
 				<th><%=book.getAuthor() %></th>
@@ -56,12 +108,10 @@ if( books != null){
 				<th><%=book.getStock()%></th>
 				<th><%=book.getRecommend()%></th>
 			  </tr>	
-				<tr><th colspan="9"> </th></tr>
-				<tr class="active"><th colspan="9" style="text-align:center;">소제목</th></tr>
-				<tr><td colspan="9"><%=book.getSubtitle() %></td></tr>		
-	 			<tr><th colspan="9"> </th></tr>
-	 			<tr class="active"><th colspan="9" style="text-align:center;">내용</th></tr>
-	 			<tr><td colspan="9"><%=book.getDescription() %></td></tr>
+				<tr class="active"><th colspan="10" style="text-align:center;">소제목</th></tr>
+				<tr><td colspan="10"><%=book.getSubtitle() %></td></tr>		
+	 			<tr class="active"><th colspan="10" style="text-align:center;">내용</th></tr>
+	 			<tr><td colspan="10"><%=book.getDescription() %></td></tr>
 
 <%
 		}
@@ -81,5 +131,6 @@ if( books != null){
 %>
 	</table>
 </div>
+</form>
 </body>
 </html>

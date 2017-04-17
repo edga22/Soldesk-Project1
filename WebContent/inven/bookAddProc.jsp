@@ -57,7 +57,7 @@ mymgr.addBook(newbook);
 		<td><%=newbook.getPrice() %></td>
 		<td><%=newbook.getImageID() %></td>
 		<td><%=newbook.getStock() %></td>
-		<td><%=newbook.getRecommend %></td>
+		<td><%=newbook.getRecommend() %></td>
 	  </tr>	  
 	 </thead>
 	 <tbody>	 	

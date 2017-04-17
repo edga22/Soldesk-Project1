@@ -27,6 +27,8 @@ String categoryID = request.getParameter("categoryID");
 String imageID = request.getParameter("imageID");
 String stock = request.getParameter("stock");
 String recommend = request.getParameter("recommend");
+String subtitle = request.getParameter("subtitle");
+String description = request.getParameter("description");
 %>
 <jsp:include page="/inven/invenMain_nav.jsp"/>
 <div id="BookMod" class="container">
@@ -38,12 +40,12 @@ if(tmpID == null || tmpID.equals("")){
 }else{
 	bookID = Integer.parseInt(tmpID);
 	// 북 파라미터 수정을 위한 작업(받은값이 null이 아닐경우에만 값 덮어쓰기)
-	Book book = mymgr.setBook(bookID,bookName,author,date,price,publisher,categoryID,imageID,stock);
+	Book book = mymgr.setBook(bookID,bookName,author,date,price,publisher,categoryID,imageID,stock,recommend,subtitle,description);
 %>
 <h2>도서 수정 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
-	  <tr>
+	  <tr class="active">
 		<th>도서명</th>
 		<th>카테고리번호</th>
 		<th>작가</th>
@@ -68,6 +70,12 @@ if(tmpID == null || tmpID.equals("")){
 		<th><%=book.getRecommend() %></th>
 	  </tr>	  			
 	 </tbody>
+	 <tfoot>
+		<tr class="active"><th colspan="10" style="text-align:center;">소제목</th></tr>
+		<tr><td colspan="10"><%=book.getSubtitle() %></td></tr>		
+		<tr class="active"><th colspan="10" style="text-align:center;">내용</th></tr>
+		<tr><td colspan="10"><%=book.getDescription() %></td></tr>
+	 </tfoot>
 	</table>	
 </div>
 <%
