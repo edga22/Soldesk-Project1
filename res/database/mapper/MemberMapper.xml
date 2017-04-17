@@ -36,6 +36,14 @@
 									  #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
 	</insert>
 	
+	<update id="updateMember" parameterType="domain.Member">
+		insert into members(email, PASSWD, name, POSTCODE, address, phone)
+		values( #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+									  #{name,jdbcType=VARCHAR}, #{postCode,jdbcType=NUMERIC}, 
+									  #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
+		WHERE member_id = #{memberID}
+	</update>
+	
 	<select id="findIdMember" parameterType="domain.Member" resultMap="MemberMap">
 		select email
 		from members

@@ -8,6 +8,7 @@ public interface MemberMapper {
 	List<Member> getMembers();			//맴버 전체리스트
 	Member getMember(int memberID);		//맴버 한명
 	int addMember(Member Member);		//회원가입
+	int updateMember(Member member);	//회원수정
 	Member loginCheck(Member member);	//로그인 확인
 	Member findIdMember(Member Email);	//아이디 찾기
 	Member findPwMember(Member psw);	//비밀번호 찾기

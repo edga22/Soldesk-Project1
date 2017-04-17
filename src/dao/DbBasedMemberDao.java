@@ -39,6 +39,13 @@ public class DbBasedMemberDao implements MemberDao {
 		return mapper.addMember(Member);
 	}
 	
+	/** 회원수정
+	 * param : member
+	 */
+	public int updateMember(Member member) {		
+		return mapper.updateMember(member);
+	}
+
 	//아이디찾기
 	//praram: Member
 	//return : 이름, 전화번호
