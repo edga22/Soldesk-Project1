@@ -3,7 +3,8 @@
 <%@ page import="domain.Member"
 		 import="dao.MypageDao"
 		 import="dao.DbBasedMypageDao"
-		 import="dao.DbBasedMemberDao"%>
+		 import="dao.DbBasedMemberDao"
+		 import="service.MemberService"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,9 +24,13 @@
 <%
 DbBasedMemberDao ms = new DbBasedMemberDao();
 DbBasedMypageDao dm = new DbBasedMypageDao();
+MemberService memser = new MemberService();
+
+
+
 int memberID = (Integer)session.getAttribute("memberID");
 
-Member member = ms.getMember(memberID);
+Member member = memser.getMember(memberID);
 String oldpw =request.getParameter("oldpw");
 String newpw1 =request.getParameter("newpw1");
 String newpw2 =request.getParameter("newpw2");
@@ -34,7 +39,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 	if(oldpw.equals(member.getPassword()) ){
 		if(newpw1.equals(newpw2)){
 			member.setPassword(newpw1);
-			dm.updateMember(member);			
+			dm.updateMember(member);				
 %>
 	<script>
 	swal({
@@ -85,7 +90,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 		<tr>
 			<th>아이디</th>
 			<td><%=member.getEmail()%></td>
-		</tr>
+		</tr>		
 		<tr>
 			<th>비밀번호</th>
 			<td><form action="mypageModify.jsp">
@@ -112,7 +117,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 							</table>
 							</div>
 					<div class="modal-footer">
-					<button type="submit" class="btn btn-default" value="pwcp">변경완료</button>
+					<button type="submit" class="btn btn-default" >변경완료</button>
 					<button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
@@ -121,37 +126,62 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 	</form>
 </td>
 </tr>
-	</thead>
-	<tbody>          
+	</thead>		
+	<tbody>	          
 		<tr>
 			<th>이름</th>
 			<td><%=member.getName()%></td>
 		</tr>
 		<tr>
 			<th>전화번호</th>
-			<td><%=member.getPhone()%></td>
+			<td><%=member.getPhone()%>
+			<form action="/mypage/mypageModifyProc.jsp">
+			<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#mySmallModal2">전화번호변경</button>
+			<div class="modal fade" id="mySmallModal2">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h4 class="modal-title">아래에 변경할 전화번호를 입력하세요.</h4>
+						</div>
+						<div class="modal-body">
+					
+						<table style="padding:1rem;margin:1rem;">
+						<tr>
+						<th>새 전화번호:</th><td><input type="text" style="margin:0.5rem;"name="newph" placeholder="'-'생략하고입력하세요"></td>
+						</tr>
+						</table>
+						</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default" >변경완료</button>
+					<button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+	</td>
 		</tr>
+		
 		<tr>
 			<th>우편번호/주소</th>
 			<td>
-			<div>
-			<!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 class를 부여한다 -->
-			</div>
-			<input type="text" name="postCode" class="postcodify_postcode5 form-control" id="postNumber" value="<%=member.getPostCode()%>" placeholder="우편번호 버튼을 누르세요." readonly/>
-			<input type="text" name="address1" class="postcodify_address form-control" value="<%=member.getAddress()%>" required readonly/><br />
+			<form action="/mypage/mypageModifyProc2.jsp">
+			<input type="text" name="postCode" class="postcodify_postcode5 form-control" id="postNumber" value="<%=member.getPostCode()%>" readonly/>
+			<input type="text" name="address" class="postcodify_address form-control" value="<%=member.getAddress()%>" required readonly/><br />
+			<input type="text" name="address2" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요." required />
 			<button type="button" id="postcodify_search_button" class="btn btn-primary btn-xs">주소변경</button>
+			<button type="submit" class="btn btn-primary btn-xs">변경완료</button>
 			<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-	
-			<!-- "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
 			<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
+			</form>
 			</td>
 		</tr>
 	</tbody>
 	</table>
-	
   </div>
   </div>
   </div>
   <jsp:include page="/main_foot.jsp"></jsp:include>
+
 </body>
 </html>
