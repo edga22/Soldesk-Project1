@@ -58,6 +58,7 @@ BookMgr mymgr = new BookMgr();
 		<th>금 액(원)</th>
 		<th>책표지 주소</th>
 		<th>재고</th>
+		<th>상태</th>
 	  </tr>
 	 </thead>
 	 <tbody>
@@ -76,6 +77,7 @@ if( books != null){
 				<th><%=book.getPrice() %></th>
 				<th><%=book.getImageID() %></th>
 				<th><%=book.getStock()%></th>
+				<th><%=book.getRecommend()%></th>
 			  </tr>
 <%
 	}

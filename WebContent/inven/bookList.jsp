@@ -22,7 +22,7 @@ String bookName = request.getParameter("bookName");
 <h3>전체 도서 검색 결과</h3>
 	<table class="table table-condensed">
 	 <thead>
-	  <tr>
+	  <tr class=active>
 		<th>도서번호</th>
 		<th>도서명</th>
 		<th>카테고리번호</th>
@@ -32,6 +32,7 @@ String bookName = request.getParameter("bookName");
 		<th>금 액(원)</th>
 		<th>책표지 주소</th>
 		<th>재고</th>
+		<th>상태(1:추천)</th>
 	  </tr>
 	 </thead>
 	 <tbody>
@@ -53,22 +54,31 @@ if( books != null){
 				<th><%=book.getPrice() %></th>
 				<th><%=book.getImageID() %></th>
 				<th><%=book.getStock()%></th>
-			  </tr>
+				<th><%=book.getRecommend()%></th>
+			  </tr>	
+				<tr><th colspan="9"> </th></tr>
+				<tr class="active"><th colspan="9" style="text-align:center;">소제목</th></tr>
+				<tr><td colspan="9"><%=book.getSubtitle() %></td></tr>		
+	 			<tr><th colspan="9"> </th></tr>
+	 			<tr class="active"><th colspan="9" style="text-align:center;">내용</th></tr>
+	 			<tr><td colspan="9"><%=book.getDescription() %></td></tr>
+
 <%
 		}
 	} 
 	if(check.getBookName() == null || check.getBookName().equals("") ){
 %>
 		  <tr><th> 요청하신 도서"<%=bookName%>"가 존재하지 않습니다. </th></tr>
+		  </tbody>
 <%					
 	}
 }else{
 %>
 			  <tr><th> 재고관리 목록에 책이 없습니다. </th></tr>
+			  </tbody>
 <%
 }
 %>
-	 </tbody>
 	</table>
 </div>
 </body>

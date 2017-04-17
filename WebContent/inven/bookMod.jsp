@@ -26,8 +26,9 @@ String publisher = request.getParameter("publisher");
 String categoryID = request.getParameter("categoryID");
 String imageID = request.getParameter("imageID");
 String stock = request.getParameter("stock");
+String recommend = request.getParameter("recommend");
 %>
-<jsp:include page="/inven/invenMain.jsp"></jsp:include>
+<jsp:include page="/inven/invenMain_nav.jsp"/>
 <div id="BookMod" class="container">
 <% 
 if(tmpID == null || tmpID.equals("")){
@@ -51,6 +52,7 @@ if(tmpID == null || tmpID.equals("")){
 		<th>금 액(원)</th>
 		<th>책표지 주소</th>
 		<th>재고</th>
+		<th>상태</th>
 	  </tr>
 	 </thead>
 	 <tbody>	 	
@@ -63,6 +65,7 @@ if(tmpID == null || tmpID.equals("")){
 		<th><%=book.getPrice() %></th>
 		<th><%=book.getImageID() %></th>
 		<th><%=book.getStock() %></th>
+		<th><%=book.getRecommend() %></th>
 	  </tr>	  			
 	 </tbody>
 	</table>	

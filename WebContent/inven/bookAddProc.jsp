@@ -28,6 +28,7 @@ newbook.setStock(Integer.parseInt(request.getParameter("stock")));
 newbook.setCategoryID(Integer.parseInt(request.getParameter("categoryID")));
 newbook.setSubtitle(request.getParameter("subtitle"));
 newbook.setDescription(request.getParameter("description"));
+newbook.setRecommend(Integer.parseInt(request.getParameter("recommend")));
 //새책 생성
 mymgr.addBook(newbook);
 %>
@@ -45,6 +46,7 @@ mymgr.addBook(newbook);
 		<th>금 액(원)</th>
 		<th>책표지 주소</th>
 		<th>재고</th>		
+		<th>상태(1:추천)</th>		
 	  </tr>
 	  <tr>
 		<td><%=newbook.getBookName()%></td>
@@ -55,6 +57,7 @@ mymgr.addBook(newbook);
 		<td><%=newbook.getPrice() %></td>
 		<td><%=newbook.getImageID() %></td>
 		<td><%=newbook.getStock() %></td>
+		<td><%=newbook.getRecommend %></td>
 	  </tr>	  
 	 </thead>
 	 <tbody>	 	
