@@ -18,6 +18,7 @@
 
 <title>마이페이지 개인정보수정</title>
 </head>
+
 <body>
 <%
 DbBasedMemberDao ms = new DbBasedMemberDao();
@@ -71,7 +72,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
     	<div class="col-sm-2 sidenav">
 			<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
 		</div>
-<div class="col-sm-10">
+<div class="col-sm-8">
       <h2>개인정보 수정</h2>
       <br>
       <h4>회원정보</h4>
@@ -131,16 +132,23 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 			<td><%=member.getPhone()%></td>
 		</tr>
 		<tr>
-			<th>우편번호</th>
-			<td><%=member.getPostCode()%>
+			<th>우편번호/주소</th>
+			<td>
+			<div>
+			<!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 class를 부여한다 -->
+			</div>
+			<input type="text" name="postCode" class="postcodify_postcode5 form-control" id="postNumber" value="<%=member.getPostCode()%>" placeholder="우편번호 버튼을 누르세요." readonly/>
+			<input type="text" name="address1" class="postcodify_address form-control" value="<%=member.getAddress()%>" required readonly/><br />
+			<button type="button" id="postcodify_search_button" class="btn btn-primary btn-xs">주소변경</button>
+			<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+	
+			<!-- "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+			<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 			</td>
-		</tr>
-		<tr>
-			<th>주소</th>
-			<td><%=member.getAddress()%></td>
 		</tr>
 	</tbody>
 	</table>
+	
   </div>
   </div>
   </div>
