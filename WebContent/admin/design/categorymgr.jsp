@@ -131,13 +131,14 @@ td, th {
 		        }else{
 		            code = ((result.getCode1()*100)+result.getCode2());
 		        }
-		    %>		  
+		    %>
+		  <form action="/admin/design/categorymod.jsp" method="get">	  
           <tr>
-            <form action="/admin/design/categorymod.jsp" method="get">
-            <td><input name="category_ID" type="hidden" value="<%= result.getCategoryID() %>"><%= result.getCategoryID() %></td>
+            
+            <td><input name="categoryID" type="hidden" value="<%= result.getCategoryID() %>"><%= result.getCategoryID() %></td>
             <td colspan="2">
-                <input name="category_ID" type="hidden" value="<%= result.getCode1() %>">
-                <input name="category_ID" type="hidden" value="<%= result.getCode2() %>">
+                <input name="code1" type="hidden" value="<%= result.getCode1() %>">
+                <input name="code2" type="hidden" value="<%= result.getCode2() %>">
                 <input class="form-control input-sm text-center" id="inputsm" type="text" value="<%= code %>" readonly="readonly">
             </td>
             <td>
@@ -154,9 +155,9 @@ td, th {
             <td><label><input name="categoryUse" type="checkbox" value="<%=categoryUse %>" <% if(categoryUse == 1){ %>checked<% } %>>사용</label></td>
             <td>
                <input type="submit" class="btn btn-info btn-sm" value="적용">          
-            </td>
-            </form>
-          </tr>          
+            </td>            
+          </tr>
+          </form>        
           <% } %>
         </tbody>        
       </table>      

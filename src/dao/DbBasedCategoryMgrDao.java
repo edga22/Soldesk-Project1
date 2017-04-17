@@ -16,14 +16,14 @@ public class DbBasedCategoryMgrDao implements CategoryMgrDao{
 	public List<Category> getCategories(){
 		return mapper.getCategories();
 	}
-	public List<Category> getCategoriesUse(Category category){
+	public List<Category> getCategoriesUse(){
 		return mapper.getCategoriesUse();
 	}
-	public List<Category> getCategoriesUseCode1(){
-		return mapper.getCategoriesUseCode1();
+	public List<Category> getCategoriesCode1(){
+		return mapper.getCategoriesCode1();
 	}
-	public List<Category> getCategoriesUseCode2(){
-		return mapper.getCategoriesUseCode2();
+	public List<Category> getCategoriesCode2(){
+		return mapper.getCategoriesCode2();
 	}
 	public Category getCategory(int categoryID){
 		return mapper.getCategory(categoryID);
@@ -34,8 +34,8 @@ public class DbBasedCategoryMgrDao implements CategoryMgrDao{
 	public int addCategory(Category category){
 		return mapper.addCategory(category);
 	}
-	public int setCategory(Category category){
-		return mapper.setCategory(category);
+	public int updateCategory(Category category){
+		return mapper.updateCategory(category);
 	}
 	public int delCategory(int categoryID){
 		return mapper.delCategory(categoryID);

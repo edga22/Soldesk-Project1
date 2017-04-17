@@ -3,18 +3,16 @@
 <%@ page import="domain.Category" %>
 <%@ page import="mgr.CategoryMgr" %>
 <%
-response.setCharacterEncoding("utf-8");
-request.setCharacterEncoding("utf-8");
-String categoryid = request.getParameter("category_ID");
+String id = request.getParameter("categoryID");
 String code1str = request.getParameter("code1");
 String code2str = request.getParameter("code2");
 String name = request.getParameter("categoryName");
 String subject = request.getParameter("categorySubject");
 String usestr = request.getParameter("categoryUse");
 
-if(categoryid != null){
+if(id != null){
 	
-    int categoryID = Integer.parseInt(categoryid);
+    int categoryID = Integer.parseInt(id);
     int code1 = (code1str != null)?Integer.parseInt(code1str):0;
     int code2 = (code2str != null)?Integer.parseInt(code2str):0;
     int use = (usestr != null)?Integer.parseInt(usestr):0;
@@ -29,9 +27,11 @@ if(categoryid != null){
     cate.setCategorySubject(subject);
     cate.setCategoryUse(use);
     
-	if(catemgr.setCategory(cate) == true){ %>
- 		<script>
-		   	alert("카테고리 수정성공");
+    
+	if(catemgr.updateCategory(cate) == true){ %>
+
+		<script>
+		   	alert("카테고리 수정성공 <%=cate %>");
 		   	window.location.replace("/admin/design/categorymgr.jsp");
 		</script>
 <% }else{ %>

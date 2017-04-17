@@ -17,16 +17,16 @@ public class CategoryMgr{
 		return categoMgrDao.getCategories();
 	}
 	
-	public List<Category> listCategoriesUse(Category category){
-		return categoMgrDao.getCategoriesUse(category);
+	public List<Category> listCategoriesUse(){
+		return categoMgrDao.getCategoriesUse();
 	}
 	
-	public List<Category> listCategoriesUseCode1(){
-		return categoMgrDao.getCategoriesUseCode1();
+	public List<Category> listCategoriesCode1(){
+		return categoMgrDao.getCategoriesCode1();
 	}
 	
-	public List<Category> listCategoriesUseCode2(){
-		return categoMgrDao.getCategoriesUseCode2();
+	public List<Category> listCategoriesCode2(){
+		return categoMgrDao.getCategoriesCode2();
 	}
 	
 	public Category findCategory(int categoryID){
@@ -37,8 +37,8 @@ public class CategoryMgr{
 		return categoMgrDao.addCategory(category)>0;
 	}
 	
-	public boolean setCategory(Category category){
-		return categoMgrDao.setCategory(category)>0;
+	public boolean updateCategory(Category category){
+		return categoMgrDao.updateCategory(category)>0;
 	}
 	
 	public boolean delCategory(int categoryID){

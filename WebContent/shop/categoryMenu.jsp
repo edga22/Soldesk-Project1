@@ -37,7 +37,7 @@ if(cataPage != null){
 	<%
     int i = 0;
 
-    for(Category result:catemgr.listCategories()){
+    for(Category result:catemgr.listCategoriesUse()){
     	String cateMenuStr = "";
         
     	if(cataCode != 0){

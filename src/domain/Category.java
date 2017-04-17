@@ -45,5 +45,9 @@ public class Category {
 	}
 	public void setCategoryUse(int categoryUse) {
 		this.categoryUse = categoryUse;
+	}	
+	@Override
+	public String toString(){
+		return String.format("%d %d %d %s %s %d", categoryID, code1, code2, categoryName, categorySubject, categoryUse);
 	}
 }

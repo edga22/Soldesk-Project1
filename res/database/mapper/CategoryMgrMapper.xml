@@ -15,41 +15,29 @@
 		SELECT * FROM Category ORDER BY 2,3
 	</select>
 	
-	<select id="getCategoriesUse" parameterType="domain.Category" resultMap="CategoryMgrMap">
-        SELECT * FROM Category
-        <where>
-            <if test="code1 != null and code2 == null">
-                code2 = 0
-            </if>
-            <if test="code1 != null and code2 != null">
-                code2 > 0
-            </if>
-            <if test="code1 != null and category_use != null">
-                and category_use = 1
-            </if>
-        </where>
-        ORDER BY 2,3        
+	<select id="getCategoriesUse" resultMap="CategoryMgrMap">
+        SELECT * FROM Category WHERE category_use = 1 ORDER BY 2,3        
     </select>
     
-    <select id="getCategoriesUseCode1" resultMap="CategoryMgrMap">
+    <select id="getCategoriesCode1" resultMap="CategoryMgrMap">
         SELECT * FROM Category WHERE code2 = 0 ORDER BY 2,3
     </select>
     
-    <select id="getCategoriesUseCode2" resultMap="CategoryMgrMap">
+    <select id="getCategoriesCode2" resultMap="CategoryMgrMap">
         SELECT * FROM Category WHERE code2 > 0 ORDER BY 2,3
     </select>
 	
 	<select id="getCategory" parameterType="int" resultMap="CategoryMgrMap">
-		SELECT * FROM Category WHERE category_id = #{category_id}
+		SELECT * FROM Category WHERE category_id = #{categoryID}
 	</select>
 	
 	<select id="getRegionCategories" parameterType="int" resultMap="CategoryMgrMap">
 		SELECT * FROM Category WHERE code1 = #{code1}
 	</select>
 	
-	<update id="setCategory" parameterType="domain.Category">
+	<update id="updateCategory" parameterType="domain.Category">
 	    update Category 
-	    set categoryID = #{category_id}, code1 = #{code1}, code2 = #{code2}, categoryName = #{category_name,jdbcType=VARCHAR}, categorySubject = #{category_subject,jdbcType=VARCHAR}, categoryUse= #{categoryUse}
-	    where categoryID = #{category_id}
+	    set category_name=#{categoryName}, category_subject = #{categorySubject}, category_use= #{categoryUse}
+	    where category_id=#{categoryID}
     </update>
 </mapper>

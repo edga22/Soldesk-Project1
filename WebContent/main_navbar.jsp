@@ -2,7 +2,8 @@
 <%@ page import="domain.Category"
 		 import="mgr.CategoryMgr"
 		 import="domain.Member"
-		 import="service.MemberService" %>
+		 import="service.MemberService" 
+		 import="java.util.List"%>
 <%
 CategoryMgr catemgr = new CategoryMgr();
 
@@ -69,18 +70,20 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
 								<a href="/mainCategory.jsp?cata=all">전체도서</a>
 							</li>
 							<%		    
-						    for(Category result1:catemgr.listCategoriesUseCode1()){
+						    for(Category result1:catemgr.listCategoriesCode1()){
 						    	String cateHeaderStr = "";
 						    	if(cataCode != 0){
 						    		if(cataCode == result1.getCode1()){
 						    		    cateHeaderStr = "active";
 						    		}
-						    	} 
+						    	}
+						    	if(result1.getCategoryUse() == 1){
 						    %>
 					        <li class="<%= cateHeaderStr %>">
 	                        	<a href="/mainCategory.jsp?cata=<%=result1.getCode1() %>"><%=result1.getCategoryName() %></a>
 	                       	</li>   		              
-							<% 	
+							<%
+						    	}
 							} %>		            
                    	</ul>
                	</div>
