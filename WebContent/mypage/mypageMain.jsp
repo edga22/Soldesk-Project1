@@ -48,7 +48,7 @@
 <div class="container">
 	<table>
 	<tr>
-		<th><img src="<%=img %>" style="width:90px; height:70px;"></th>
+		<th><a href="/mypageAnswer/memberLevel.jsp"><img src="<%=img %>" style="width:90px; height:auto;"></a></th>
     </tr> 
     <tr>
     	<th>회원명: <%=member.getName() %></th>
