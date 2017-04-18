@@ -43,7 +43,7 @@ for(Category result:mymgr.listCategories()){
 	}else{ 
 		   if(result.getCategoryUse() == 1){
 	%>
-	    temp.append('<option value="<%=result.getCategoryID()%>" class="usecategory"><%=result.getCategoryName() %></option>');
+	    temp.append('<option value="<%=result.getCategoryID()%>"><%=result.getCategoryName() %></option>');
    <% 
 		   }else{
     %>
