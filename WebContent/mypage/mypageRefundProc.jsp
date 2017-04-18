@@ -29,7 +29,7 @@ dm.updateOrder(po);
 <%
 }else if(select==3){
 PurchaseOrder po = dm.getOrder(orderID);
-po.setProgress(1);
+po.setProgress(4);
 dm.updateOrder(po);
 }
 %>

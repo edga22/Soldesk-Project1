@@ -5,7 +5,8 @@
 		 import="domain.Book"
 		 import="service.OrderState"
 		 import="domain.OrderDetail"
-		 import="mgr.BookMgr"%>
+		 import="mgr.BookMgr"
+		 import="service.MypageService"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +29,7 @@ DeliveryMgr dm = new DeliveryMgr();
 BookMgr bm = new BookMgr();
 OrderState order = new OrderState();
 OrderDetail od = new OrderDetail();
+MypageService mps = new MypageService();
 
 int tmp = (Integer)session.getAttribute("memberID");
 int userID=1;
@@ -59,10 +61,11 @@ PurchaseOrder[] purchaseOrders = dm.getMember(userID);
 	</thead>
 	<tbody>
 <%
-for(PurchaseOrder po:purchaseOrders){
+for(PurchaseOrder po:purchaseOrders){ 
 	Book book = bm.getBook(po.getPurchaseOrderID());
-	OrderDetail[] ods = order.getIdDetails(po.getPurchaseOrderID());
+	OrderDetail[] ods =mps.getIdDetails(po.getPurchaseOrderID());
 	int orderID =po.getPurchaseOrderID();
+	int point= mps.getPoint(ods);
 %>	
 		<tr>
 			<td><%=po.getPurchaseOrderID()%></td>
@@ -71,9 +74,8 @@ for(PurchaseOrder po:purchaseOrders){
 			<td><%=order.change(po.getProgress())%></td>
 			<td><a href="/mypage/mypageRefundProc.jsp?a=1&orderID=<%=orderID %>" class="btn btn-danger btn-xs">교환</a>
 			    <a href="/mypage/mypageRefundProc.jsp?a=2&orderID=<%=orderID %>" class="btn btn-danger btn-xs">환불</a>
-			    <a href="/mypage/mypageRefundProc.jsp?a=3&orderID=<%=orderID %>" class="btn btn-primary btn-xs">교환/환불취소</a>
-			    
-			    </td>
+			    <a href="/mypage/mypageRefundProc.jsp?a=3&orderID=<%=orderID %>" class="btn btn-primary btn-xs">교환/환불취소</a> </td>
+			<td><%=point %></td>    
 		</tr>
 <%
 } 
