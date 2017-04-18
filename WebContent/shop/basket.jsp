@@ -25,18 +25,12 @@
 		int bookID = Integer.parseInt(bID);			
 		int cnt=(count!=null)?Integer.parseInt(count):1;
 		mgr.add(bookID, cnt);
-        flag = true;			
+        flag = true;
+        out.println("<script>location.href='basket.jsp';</script>");
 	}
 	
-    basketList=mgr.getlist();
-    
-    if(flag)
-    {
-%>
-        <jsp:forward page="basketproc.jsp"></jsp:forward>
-<%
-    }
-    
+	basketList=mgr.getlist();
+	
     //도서 금액
     int bookPrice = 0;
     //배송비
