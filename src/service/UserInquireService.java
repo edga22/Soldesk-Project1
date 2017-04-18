@@ -16,6 +16,8 @@ public class UserInquireService {
 	OrderState orderState;
 	GregorianCalendar now;
 	MemberDao memberDao;	
+	UserInquire userInquire;
+	
 	String askType;		//질문유형
 	
 //	class에서 공통적으로 사용할 method를 정의한것.
@@ -26,10 +28,15 @@ public class UserInquireService {
 		orderState = new OrderState();
 		now = new GregorianCalendar();
 		memberDao = new DbBasedMemberDao();
+		userInquire = new UserInquire();
+	}
+	
+	public UserInquire[] setTitle(int memberID){		
+		return userInquireDao.getAskTitle(memberID);	//읽어들일 데이터를 인식할수 있도록 준비를 하자! (데이터 타입확인)		
 	}
 	
 	public void setAsk(int memberID, int uiqt, String uit, String uic)throws ParseException{	//도메인 초기화		
-		UserInquire userInquire = new UserInquire();		
+		/*UserInquire userInquire = new UserInquire();*/		
 		/*java.sql.Date date = new java.sql.Date(ps.changeDate(String.format("%TY-%Tm-%Td",now, now, now)).getTime());*/
 		java.sql.Date date = new java.sql.Date(payService.changeDate(String.format("%TY-%Tm-%Td",now, now, now)).getTime());
 		
@@ -50,8 +57,7 @@ public class UserInquireService {
 		userInquire.setDate(date);	
 		
 		userInquireDao.addUserInquire(userInquire);
-	}
-	
+	}	
 	/*	질문유형 선택		
 	public String typeChange(int number){
 		switch(number){

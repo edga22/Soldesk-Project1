@@ -18,23 +18,21 @@
 		order by USERINQUIRE_ID
 	</select>
 	
-	<select id="getUserInquire" resultMap="UserInquireMap">
+	<select id="getUserInquire" resultMap="UserInquireMap" parameterType="domain.UserInquire">
 		select * from USERINQUIRES 
 		where USERINQUIRE_ID = #{userInuqerId}
-	</select>
+	</select>	
+	
+	<select id="getAskTitle" resultMap="UserInquireMap" parameterType="int">
+		select * from USERINQUIRES
+		where MEMBER_ID = #{memberID}
+	</select>	
 	
 	<insert id="addUserInquire" parameterType="domain.UserInquire">
 		insert into USERINQUIRES(MEMBER_ID, TYPE, TITLE, CONTENT, DATE)
 		values(#{memberID},#{Type},#{Title,jdbcType=VARCHAR},#{Content,jdbcType=VARCHAR},#{Date,jdbcType=DATE})
 	</insert>
-	<!-- 
-	<insert id="addUserInquire" parameterType="domain.UserInquire">
-		insert into USERINQUIRES(Q_TYPE, Q_TITLE, Q_CONTENT, Q_DATE, Q_ANSWER, Q_STATE)
-		values( #{qType,jdbcType=VARCHAR}, #{qTitle,jdbcType=VARCHAR},  
-				#{qContent,jdbcType=NUMERIC}, #{qDate,jdbcType=VARCHAR},  
-				#{qAnswer,jdbcType=VARCHAR}, #{qState,jdbcType=VARCHAR})
-	</insert> 
-	-->
+	
 	<!-- 
 	<update id="resultUserInquire" parameterType="domain.UserInquire">	
 		

@@ -13,6 +13,8 @@ public class UserInquire {
 	private String Answer;
 	private int State;
 	
+	
+	
 	public int getUserInquireID() {
 		return userInquireID;
 	}
