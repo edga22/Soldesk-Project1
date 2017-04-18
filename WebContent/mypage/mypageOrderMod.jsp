@@ -45,7 +45,6 @@ PurchaseOrder[] purchaseOrders = dm.getMember(userID);
     <div class="col-sm-3 sidenav">
 		<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
     </div>
-  <div class="col-sm-10">
   <div class="col-sm-9">
       <h2>주문조회/변경/취소</h2>
       <h3>-배송문의:CJ대한통운</h3>
@@ -83,7 +82,6 @@ for(PurchaseOrder po:purchaseOrders){
 	</table>
 	</div>
 	</div>
-</div>
 <jsp:include page="/main_foot.jsp"></jsp:include>
 </div>
 </body>
