@@ -67,7 +67,6 @@
       <br>
       <h4>개인정보관리</h4>
       <h5><a href="mypageModify.jsp">개인정보 수정</a></h5>
-      <h5><a href="mypagePoint.jsp">포인트 조회</a></h5>
       <h5><a href="mypageOut.jsp">회원 탈퇴</a></h5>
       <br>
       <br>

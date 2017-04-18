@@ -28,17 +28,10 @@ margin:3rem;
 DeliveryMgr dm = new DeliveryMgr();
 BookMgr bm = new BookMgr();
 OrderState order = new OrderState();
-OrderDetail od = new OrderDetail();
 MypageService mps = new MypageService();
 
-int tmp = (Integer)session.getAttribute("memberID");
-int userID=1;
-if(tmp == 0){
-}else{
-	userID = tmp;
-}
-
-PurchaseOrder[] purchaseOrders = dm.getMember(userID);
+int memberID = (Integer)session.getAttribute("memberID");
+PurchaseOrder[] purchaseOrders = dm.getMember(memberID);
 %>          
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
