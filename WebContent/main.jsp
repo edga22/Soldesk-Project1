@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/css/main.css">
 <title>BookkCafe</title>
 
 <jsp:include page="/main_navbar.jsp"></jsp:include>

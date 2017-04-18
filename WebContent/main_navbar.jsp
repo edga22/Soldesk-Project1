@@ -29,14 +29,13 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="/bookcafe.css">
+<link rel="stylesheet" href="/css/bookcafe.css">
 <style>
 #searchform{
 	width : 100%;
@@ -65,17 +64,18 @@ $(document).ready(function(){
 		}
 	});
 });
-
 </script>
 </head>
 <body>
 <div id="topheader" class="container-fluid">
     <div class="row">
        <div class="col-sm-6 text-right" style="background-color:#ffd11a;height:70px;">
-         <h2 style="margin-right:7%"><span class="glyphicon">&#xe233;</span> 북앤카페 새학기 맞이 대잔치</h2>
+         <h2 style="margin-right:8rem"><span class="glyphicon">&#xe233;</span> 북앤카페 새학기 맞이 대잔치</h2>
        </div>
-       <div class="col-sm-6 text-left" style="background-color:#ff99bb;height:70px;">
-         <h2 style="margin-left:7%"><span class="glyphicon">&#xe103;</span> 봄도 독서의 계절, 졸음싹 커피</h2>
+       <div class="col-sm-1 text-left" style="border-bottom:70px solid #ff99bb;border-left:40px solid #ffd11a;">
+       </div>
+       <div class="col-sm-5 text-left" style="background-color:#ff99bb;height:70px;">
+         <h2 style="margin-left:-3rem"><span class="glyphicon">&#xe103;</span> 봄도 독서의 계절, 졸음싹 커피</h2>
        </div>
     </div>
 </div>
