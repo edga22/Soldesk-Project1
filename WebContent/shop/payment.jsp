@@ -33,7 +33,7 @@ String[] cnts = request.getParameterValues("cnt");
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container" id="Payment">
 <h3>주문 상품 확인</h3>
-<form action="/shop/payResult.jsp">
+<form action="/shop/paymentProc.jsp">
 <%
 // 회원정보 불러오기
 Integer memberID;
