@@ -4,10 +4,18 @@
 <%@ page import="mgr.CategoryMgr" %>
 <%@ page import="java.util.List" %>
 <%
-CategoryMgr mymgr = new CategoryMgr();
-List<Category> categories = mymgr.listCategories();
+CategoryMgr mycate = new CategoryMgr();
+List<Category> categories = mycate.listCategories();
 pageContext.setAttribute("categories", categories);
 int categoriesSize = categories.size();
+int categoryID = 0;
+String categoryid = request.getParameter("categoryID");
+
+if(categoryid != null){
+	categoryID = Integer.parseInt(categoryid);
+	Category cate = mycate.findCategory(categoryID);
+	pageContext.setAttribute("cate", cate);
+}
 %>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,13 +37,14 @@ int categoriesSize = categories.size();
 
 <%
 int i =0;
-for(Category result:mymgr.listCategories()){
+for(Category result:mycate.listCategories()){
 	if(result.getCode2() == 0){
-		if(i != 0){ %>
-		}	   
-     <% }%>   
+		if(i == 0){ %>
+		if(a == '<%=result.getCode1() %>'){
+     <% }else{ %>
+        }
         if(a == '<%=result.getCode1() %>'){
-     <% 
+     <% }
 	}else{ 
 		if(result.getCategoryUse() != 1){ %>
            temp.append('<option value="<%=result.getCategoryID()%>" class="usecategory"><%=result.getCategoryName() %></option>');
@@ -63,17 +72,27 @@ for(Category result:mymgr.listCategories()){
 	<select id="sel1">
 		<option value="">-1차분류-</option>           
            <c:forEach var="category" items="${categories}">
-            <c:if test="${category.code2 == 0}">
-               <c:if test="${category.categoryUse != 1}">
-               <option value="${category.code1}" class="usecategory">${category.categoryName}</option>
-               </c:if>
-               <c:if test="${category.categoryUse == 1}">
-                <option value="${category.code1}">${category.categoryName}</option>
-               </c:if>
-            </c:if>
-           </c:forEach>
+                <c:if test="${category.code2 == 0}">
+                    <c:if test="${category.categoryUse != 1}">
+                        <c:if test="${category.code1 == cate.code1}">
+                            <option value="${category.code1}" class="usecategory" selected>${category.categoryName}</option>
+                        </c:if>
+                        <c:if test="${category.code1 != cate.code1}">
+                            <option value="${category.code1}" class="usecategory">${category.categoryName}</option>
+                        </c:if>
+                    </c:if>
+                    <c:if test="${category.categoryUse == 1}">
+                        <c:if test="${category.code1 == cate.code1}">
+                            <option value="${category.code1}" selected>${category.categoryName}</option>
+                        </c:if>
+                        <c:if test="${category.code1 != cate.code1}">
+                            <option value="${category.code1}">${category.categoryName}</option>
+                        </c:if>
+                    </c:if>
+                </c:if>
+            </c:forEach>
 	</select>
 	<select id="sel2" name=categoryID>
-	    <option>--2차분류--</option>
+	    <option value="">--2차분류--</option>
 	</select>		
 </div>
