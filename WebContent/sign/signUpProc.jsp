@@ -28,7 +28,7 @@
 		MemberService newMember = new MemberService();
 		
 		member.setEmail(ID);
-		if(pw.length()<=6){
+		if(pw.length()<6){
 	%>
 		<script>
 			alert("비밀번호 숫자가 너무 적습니다.");
