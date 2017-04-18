@@ -36,7 +36,7 @@
     </resultMap>
         
     <!-- 도서 리스트를 불러온다. -->
-    <select id="getBookWithCategorycode1" parameterType="domain.Book"  resultMap="BookWithCategoryMap">
+    <select id="getBookWithCategorybook" parameterType="domain.Book"  resultMap="BookWithCategoryMap">
         SELECT b.code1,b.code2,a.*
         FROM books a
         LEFT JOIN category b

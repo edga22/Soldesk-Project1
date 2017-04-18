@@ -186,9 +186,9 @@ $(document).ready(function(){
                 <form class="navbar-form navbar-left" id="searchform" role="search" action="/shop/searchresult.jsp">
                     <select class="form-control" id="sel1" name="SearchTarget">
                         <option value="all">통합검색</option>
-                        <option value="domestic">국내도서</option>
-                        <option value="oversea">외국도서</option>
-                        <option value="ebook">eBook</option>
+                  <% for(Category result1:catemgr.listCategoriesCode1()){  %>
+                        <option value="<%=result1.getCode1() %>"><%=result1.getCategoryName() %></option>
+                  <% } %>
                     </select>
                     <input type="text" class="form-control" id="search" name="SearchWord"/>                            
                     <button type="submit" id="search-btn" class="btn btn-primary">검색</button>

@@ -2,9 +2,37 @@
 <%@ page import="domain.Book"
 		 import="mgr.BookMgr"
 		 import="mgr.EventMgr"
-		 import="java.text.NumberFormat" %>
+		 import="java.text.NumberFormat" 
+		 import="domain.Category"
+         import="mgr.CategoryMgr"
+         import="java.util.List" %>
+		 
 <%
 	BookMgr bookmgr = new BookMgr();
+    CategoryMgr catemgr = new CategoryMgr();
+%>
+<%	
+	String cataPage = request.getParameter("cata");
+	String codePage = request.getParameter("code");
+	int categoriesSize = catemgr.listCategories().size();
+	int cataCode = 0;
+	int codeId = 0;
+	int cateInt = 0;
+	int[] cateArr;
+	
+	if(cataPage != null){
+	    if(cataPage.equals("all")) ;        
+	    else cataCode = Integer.parseInt(cataPage);
+	    if(codePage != null) codeId = Integer.parseInt(codePage);   
+	    cateArr = new int[categoriesSize];
+	}
+	//전체 카테고리 리스트
+	
+	for(Category result:catemgr.listCategoriesUse()){
+		cateInt = result.getCode1();
+		out.print(result.getCategoryID()+",");		
+	}
+	cateArr = cateInt.join();
 %>
 
 <title>분류페이지</title>
@@ -89,29 +117,31 @@ a {
 			<%
 				Book[] books = bookmgr.getBooks();
 			    EventMgr evmgr = new EventMgr();
-			    
+			    //숫자1000자리 콤마
 			    NumberFormat nf = NumberFormat.getNumberInstance();
 			    
 					for(Book book: books){
-						int bookPoint = 0;
-						int bookPrice = 0;
-	                    int bookdiscount = 0;
-	                    int bookSalePrice = 0;
+						int bookPoint = 0; //포이트 초기화
+						int bookPrice = 0; //등록된 책가격
+	                    int bookdiscount = 0; //할인률
+	                    int bookSalePrice = 0; //책 판매가
 	                    int pointPer = 10; //포인트 % 100기준
 	                    int discountPer = 100; //판매가 % 100기준
-	                    double eventdiscount = 0.0;
-	                    int bookIdInt = book.getBookID();
-	                    
-	                    eventdiscount = evmgr.getDiscountMult(bookIdInt);
-	                    bookPrice = book.getPrice();
-	                    
+	                    double eventdiscount = 0.0; //이벤트할인 초기화
+	                    int bookIdInt = book.getBookID(); //북아이디 숫자
+	                   
+	                    eventdiscount = evmgr.getDiscountMult(bookIdInt);  //이벤트 할인
+	                    bookPrice = book.getPrice(); //책가격
+	                    //할인률 계산
 	                    if(eventdiscount != 0){
-	                        bookSalePrice = (int)(bookPrice*eventdiscount);
-	                        bookdiscount = 100-(int)(eventdiscount*100);
+	                        bookSalePrice = (int)(bookPrice*eventdiscount); //이벤트 할인된 가격
+	                        bookdiscount = 100-(int)(eventdiscount*100); //할인률 %
 	                    }else{
-	                        bookSalePrice = bookPrice*discountPer/100;                  
+	                        bookSalePrice = bookPrice*discountPer/100; //일반 할인된 가격         
 	                    }
-	                    bookPoint = bookSalePrice*pointPer/100;
+	                    bookPoint = bookSalePrice*pointPer/100; //포인트
+	                    
+	                    
 			%>
 			<div class="row" id="categoryLine"> <!-- items -->
 				<div class="col-md-1">

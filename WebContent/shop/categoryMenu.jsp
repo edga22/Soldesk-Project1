@@ -6,13 +6,16 @@
 CategoryMgr catemgr = new CategoryMgr();
 
 String cataPage = request.getParameter("cata");
+String codePage = request.getParameter("code");
 int categoriesSize = catemgr.listCategories().size();
 int cataCode = 0;
+int codeId = 0;
 int[] cateArr;
 
 if(cataPage != null){
 	if(cataPage.equals("all")) ;		
 	else cataCode = Integer.parseInt(cataPage);
+	if(codePage != null) codeId = Integer.parseInt(codePage);	
 	cateArr = new int[categoriesSize];
 }
 %>
@@ -66,7 +69,7 @@ if(cataPage != null){
 		            <div class="panel-body">
     	 <% i++;
 		}else{ %>		
-		                <a href="/mainCategory.jsp?cata=<%=result.getCode1()%>&code="><%=result.getCategoryName() %></a><br>      
+		                <a href="/mainCategory.jsp?cata=<%=result.getCode1()%>&code=<%=result.getCategoryID()%>"><%=result.getCategoryName() %></a><br>      
    	 <% }
     } %>
 		            </div>
