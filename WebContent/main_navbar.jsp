@@ -45,6 +45,28 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
 	width : 70%;
 }
 </style>
+
+<script>
+$(document).ready(function(){
+		
+	$("#searchform").submit(function(){		
+		var inputtext = $("#search").val();
+		
+		var trimtext = $.trim(inputtext);
+		
+		if(trimtext.length < 2){
+			alert("2글자 이상 입력해주세요");
+			$("#search").val(trimtext);
+			$("#search").focus();
+			return false;
+		}else {
+			$("#search").val(trimtext);
+			$("#searchform").submit();
+		}
+	});
+});
+
+</script>
 </head>
 <body>
 <div id="topheader" class="container-fluid">
@@ -169,7 +191,7 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
                         <option value="ebook">eBook</option>
                     </select>
                     <input type="text" class="form-control" id="search" name="SearchWord"/>                            
-                    <button type="submit" class="btn btn-primary">검색</button>
+                    <button type="submit" id="search-btn" class="btn btn-primary">검색</button>
                     <button type="button" class="btn btn-link" style="display:none;"><strong>상세검색</strong></button>
                 </form>
             <!-- 검색 끝 -->  

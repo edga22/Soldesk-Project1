@@ -47,4 +47,5 @@
 		where book_ID = #{bookID}
 	</update>
 	
+	<cache/>
 </mapper>

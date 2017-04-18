@@ -3,7 +3,8 @@
 <%@ page import="domain.Book"
 	import="mgr.search.SearchMgr"
 	import="mgr.search.SearchBox"
-	import="mgr.BookSortMgr" %>
+	import="mgr.BookSortMgr"
+	import="service.CategoryCounter" %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -15,6 +16,11 @@ String scTarget = "";
 String scWord = "";
 String sortOrder = "";
 int order = 9;
+
+int domesticCnt=0;
+int overseaCnt=0;
+int ebookCnt=0;
+
 if(request.getParameter("SearchTarget") != null) scTarget = request.getParameter("SearchTarget");
 if(request.getParameter("SearchWord") != null) scWord = request.getParameter("SearchWord");
 if(request.getParameter("SortOrder") != null) sortOrder = request.getParameter("SortOrder");
@@ -33,9 +39,9 @@ if(request.getParameter("inSc") != null && request.getParameter("inSc").equals("
 		scbox = (SearchBox)session.getAttribute("scbox");
 		if(!scWord.equals(""))scbox.wordFilter(scWord);
 		scResult = scbox.getBooks();
-	}	
+	}
 }
-else{ // 최초 검색일때
+else if(!scWord.equals("")){ // 최초 검색일때
 	SearchMgr scmgr = new SearchMgr();
 	if(scTarget.equals("") || scTarget.equals("all")){
 		scResult = scmgr.getBooks(scWord);
@@ -46,28 +52,34 @@ else{ // 최초 검색일때
 	session.setAttribute("scbox", scbox);	
 }
 
-/* 정렬방식 order
-0 : 출시일순 (기본값)
-1 : 제목순
-2 : 저자순
-3 : 가격순
-*/
-BookSortMgr sortMgr = new BookSortMgr();
-switch(order){
-case 0:
-	scResult = sortMgr.toArray(sortMgr.dateSort(sortMgr.toList(scResult)));
-	break;
-case 1:
-	scResult = sortMgr.toArray(sortMgr.nameSort(sortMgr.toList(scResult)));
-	break;
-case 2:
-	scResult = sortMgr.toArray(sortMgr.authorSort(sortMgr.toList(scResult)));
-	break;
-case 3:
-	scResult = sortMgr.toArray(sortMgr.priceSort(sortMgr.toList(scResult)));
-	break;
+if(scResult != null && scResult.length > 0){
+	/* 정렬방식 order
+	0 : 출시일순 (기본값)
+	1 : 제목순
+	2 : 저자순
+	3 : 가격순
+	*/
+	BookSortMgr sortMgr = new BookSortMgr();
+	switch(order){
+	case 0:
+		scResult = sortMgr.toArray(sortMgr.dateSort(sortMgr.toList(scResult)));
+		break;
+	case 1:
+		scResult = sortMgr.toArray(sortMgr.nameSort(sortMgr.toList(scResult)));
+		break;
+	case 2:
+		scResult = sortMgr.toArray(sortMgr.authorSort(sortMgr.toList(scResult)));
+		break;
+	case 3:
+		scResult = sortMgr.toArray(sortMgr.priceSort(sortMgr.toList(scResult)));
+		break;
+	}
+	
+	CategoryCounter cCnter = new CategoryCounter();
+	domesticCnt = cCnter.code1Counter(scResult, 10);
+	overseaCnt = cCnter.code1Counter(scResult, 20);
+	ebookCnt = cCnter.code1Counter(scResult, 30);
 }
-
 %>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -123,10 +135,10 @@ case 3:
 <div class="container"> <!-- Main container -->
 <div class="row" id="cate-top">
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="#">통합검색(100)</a></li>
-		<li><a href="#">국내도서(50)</a></li>
-		<li><a href="#">외국도서(25)</a></li>
-		<li><a href="#">E-Book(25)</a></li>
+		<li class="active"><a href="#">통합검색(<%=(scResult!=null)?scResult.length:0 %>)</a></li>
+		<li><a href="#">국내도서(<%=domesticCnt %>)</a></li>
+		<li><a href="#">외국도서(<%=overseaCnt %>)</a></li>
+		<li><a href="#">E-Book(<%=ebookCnt %>)</a></li>
 	</ul>
 </div>
 <div class="row">
@@ -134,7 +146,7 @@ case 3:
 		<div class="inSearch-group">			
 			<p>결과 내 검색</p>
 			<form action="">
-			<input type="text" style="width : 75%;" name="SearchWord" value="<%=scWord%>">
+			<input type="text" style="width : 75%;" name="SearchWord">
 			<button class="btn btn-default btn-sm" type="submit" name="inSc" value="1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>	
 			</form>		
 		</div>
@@ -155,15 +167,15 @@ case 3:
 			<div class="col-md-2 col-md-offset-1"><a id="order0" href="/shop/searchresult.jsp?SortOrder=0&inSc=1">출간일순</a></div>
 			<div class="col-md-2 col-md-offset-1">
 			<select name="display_number" class="">
+				<option value="10">10개</option>
+				<option value="20">20개</option>
 				<option value="25">25개</option>
-				<option value="50">50개</option>
-				<option value="100">100개</option>
 			</select>
 			</div>
 			
 		</div>
 		
-		<%if(scResult != null){if(scResult.length <= 1){
+		<%if(scResult != null){if(scResult.length > 0){
 			for(int i=1;i<=scResult.length;i++){
 			int idx = i-1;%>
 		<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
@@ -191,8 +203,7 @@ case 3:
 			<div class="col-md-5 col-md-offset-1"><p>검색 결과가 없습니다.</p></div>
 		</div>
 		<%		
-		}		
-		}else{%>
+		}}else{%>
 		<div class="row" style="margin-bottom: 1rem;">
 			<div class="col-md-5 col-md-offset-1"><p>검색 결과가 없습니다.</p></div>
 		</div>

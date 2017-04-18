@@ -1,6 +1,7 @@
 package mgr.search;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import domain.Book;
@@ -25,17 +26,18 @@ public class SearchBox {
 		else return pickBooks.toArray(new Book[pickBooks.size()]);
 	}
 	
-	public boolean wordFilter(String word){
-		boolean isFiltered = false;
-		int fullsize = pickBooks.size();
-		for(int idx=0; idx < fullsize ; idx++){
-			if(pickBooks.size() <= idx) break;
-			if(!pickBooks.get(idx).getBookName().contains(word)){
-				pickBooks.remove(idx);
-				isFiltered = true;
+	public boolean wordFilter(String word){		
+		LinkedList<Book> filterBooks = new LinkedList<Book>();
+		boolean filtered = true;
+		
+		for(Book book : pickBooks){
+			if(book.getBookName().contains(word)) {
+				filterBooks.add(book);
 			}
 		}
-		return isFiltered;
+		if(pickBooks.size() == filterBooks.size()) filtered = false;
+		pickBooks = filterBooks;
+		return filtered;
 	}
 	
 	public boolean categoryFilter(int categoryID){
