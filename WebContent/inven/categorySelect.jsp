@@ -30,24 +30,21 @@ int categoriesSize = categories.size();
 <%
 int i =0;
 for(Category result:mymgr.listCategories()){
-	
 	if(result.getCode2() == 0){
-		if(i == 0){
+		if(i != 0){
 %>
-	   if(a == '<%=result.getCode1() %>'){
-     <% }else{ %>
-       }
-	   
-       if(a == '<%=result.getCode1() %>'){
-     <% }
+		}	   
+     <% }%>   
+        if(a == '<%=result.getCode1() %>'){
+     <% 
 	}else{ 
-		   if(result.getCategoryUse() == 1){
+		if(result.getCategoryUse() != 1){
 	%>
-	    temp.append('<option value="<%=result.getCategoryID()%>"><%=result.getCategoryName() %></option>');
+           temp.append('<option value="<%=result.getCategoryID()%>" class="usecategory"><%=result.getCategoryName() %></option>');
    <% 
 		   }else{
     %>
-		temp.append('<option value="<%=result.getCategoryID()%>" class="usecategory"><%=result.getCategoryName() %></option>');
+           temp.append('<option value="<%=result.getCategoryID()%>"><%=result.getCategoryName() %></option>');
 	<%
 		   }
       }
