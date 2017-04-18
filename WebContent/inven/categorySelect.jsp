@@ -40,9 +40,16 @@ for(Category result:mymgr.listCategories()){
 	   
        if(a == '<%=result.getCode1() %>'){
      <% }
-	}else{ %>
-	    temp.append('<option value="<%=result.getCategoryID()%>"><%=result.getCategoryName() %></option>');
+	}else{ 
+		   if(result.getCategoryUse() == 1){
+	%>
+	    temp.append('<option value="<%=result.getCategoryID()%>" class="usecategory"><%=result.getCategoryName() %></option>');
    <% 
+		   }else{
+    %>
+		temp.append('<option value="<%=result.getCategoryID()%>" class="usecategory"><%=result.getCategoryName() %></option>');
+	<%
+		   }
       }
    i++;
 }
@@ -55,12 +62,23 @@ for(Category result:mymgr.listCategories()){
 });
 </script>
 
+<style>
+.usecategory {
+    color:red;
+}
+</style>
+
 <div>
 	<select id="sel1">
 		<option value="">-1차분류-</option>           
            <c:forEach var="category" items="${categories}">
             <c:if test="${category.code2 == 0}">
-               <option value="${category.code1}">${category.categoryName}</option>
+               <c:if test="${category.categoryUse != 1}">
+               <option value="${category.code1}" class="usecategory">${category.categoryName}</option>
+               </c:if>
+               <c:if test="${category.categoryUse == 1}">
+                <option value="${category.code1}">${category.categoryName}</option>
+               </c:if>
             </c:if>
            </c:forEach>
 	</select>

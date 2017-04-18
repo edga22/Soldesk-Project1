@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="domain.Category" %>
 <%@ page import="mgr.CategoryMgr" %>
 <%@ page import="java.util.List" %>
 <%
 CategoryMgr mymgr = new CategoryMgr();
 List<Category> categories = mymgr.listCategories();
-List<Category> categoriesusecode1 = mymgr.listCategoriesUseCode1();
-pageContext.setAttribute("categoriesusecode1", categoriesusecode1);
+List<Category> categoriescode1 = mymgr.listCategoriesCode1();
 int categoriesSize = categories.size();
-int categoriesCode1Size = categoriesusecode1.size();
-int categoriesCode2Size = categoriesSize-categoriesusecode1.size();
+int categoriesCode1Size = categoriescode1.size();
+int categoriesCode2Size = categoriesSize-categoriescode1.size();
 %>
 <!DOCTYPE html PUBLIC>
 <html>
@@ -126,11 +124,8 @@ td, th {
 		    int code;	        
 		    for(Category result:mymgr.listCategories()){
 		    	int categoryUse = result.getCategoryUse();
-		        if(result.getCode2() == 0){
-		            code = result.getCode1();  
-		        }else{
-		            code = ((result.getCode1()*100)+result.getCode2());
-		        }
+		        if(result.getCode2() == 0) code = result.getCode1();  
+		        else code = ((result.getCode1()*100)+result.getCode2());
 		    %>
 		  <form action="/admin/design/categorymod.jsp" method="get">	  
           <tr>
@@ -253,11 +248,7 @@ $(document).ready(function(){
 
 	$("#addInfoClose").click(function(){
 		$("#categoryAddInfo").hide();
-	});
-	
-/* 	$("#categoryAddBanner").click(function(){
-        $("#categoryAddBanner").hide();
-    }); */
+	});	
 });
 </script>
 
