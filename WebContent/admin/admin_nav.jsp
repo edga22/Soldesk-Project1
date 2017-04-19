@@ -22,6 +22,7 @@
 				<li><a href="/inven/invenMain.jsp">재고 관리</a></li>
 				<li><a href="/admin/design/categorymgr.jsp">분류 관리</a></li>
 				<li><a href="/admin/design/bannermgr.jsp">베너 관리</a></li>
+				<li><a href="/admin/qa/qaList.jsp">문의 답변</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="disabled"><a href="#">Settings</a>
