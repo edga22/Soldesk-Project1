@@ -4,7 +4,8 @@
 	import="mgr.search.SearchMgr"
 	import="mgr.search.SearchBox"
 	import="mgr.BookSortMgr"
-	import="service.CategoryCounter" %>
+	import="service.CategoryCounter"
+	 %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -45,6 +46,15 @@ else if(!scWord.equals("")){ // 최초 검색일때
 	SearchMgr scmgr = new SearchMgr();
 	if(scTarget.equals("") || scTarget.equals("all")){
 		scResult = scmgr.getBooks(scWord);
+	}
+	else{
+		int code1 = 0;
+		try{
+			code1 = Integer.parseInt(scTarget);
+		}catch(Exception e){
+			code1 = 0;
+		}
+		scResult = scmgr.getCode1Books(scWord, code1);
 	}
 	
 	// 검색결과를 세션에 저장

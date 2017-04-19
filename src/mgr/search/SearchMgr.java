@@ -21,6 +21,12 @@ public class SearchMgr {
 	public Book[] getBooks(String target){		
 		return bookdao.getBooks(target);
 	}
+	
+	public Book[] getCode1Books(String target, int code1){
+		if(code1 == 0) return getBooks(target);
+		else return bookdao.getCode1Books(target, code1).toArray(new Book[0]);
+	}
+	
 	public Book[] getCateBooks(String category){
 		return null;
 	}

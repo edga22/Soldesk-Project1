@@ -4,7 +4,8 @@ import java.util.List;
 
 import config.BookMapper;
 import config.Factory;
-import domain.Book; 
+import config.param.BookCode1Target;
+import domain.Book;
 
 public class DbBasedBookDao implements BookDao {
 	BookMapper mapper ;
@@ -17,6 +18,14 @@ public class DbBasedBookDao implements BookDao {
 	public Book[] getBooks(String target){
 		if(target != null && target.equals("")) target = null;
 		return mapper.getBooks(target).toArray(new Book[mapper.getBooks(target).size()]);
+	}
+	
+	@Override
+	public List<Book> getCode1Books(String target, int code1) {
+		BookCode1Target bcTarget = new BookCode1Target();
+		bcTarget.setTarget(target);
+		bcTarget.setCode1(code1);
+		return mapper.getCode1Books(bcTarget);
 	}
 	
 	public List<Book> getAllBooks(){
