@@ -120,10 +120,10 @@
 	<!-- 이달의 베스트셀러 -->
     <div id="month" class="tab-pane fade in active">
   	<div class="row" id="menu">
-    	<div class="col-md-8">
+    	<div class="col-md-9">
     		<label><input type="checkbox" checked="checked" id="allCheck"/> 전체선택</label>
     	</div>
-    	<div class="col-md-3">
+    	<div class="col-md-2">
     		<input type="submit" class="btn btn-default" value="장바구니에 담기" id="btnSelectBasket">
     	</div>
     	<div class="col-md-1">
@@ -172,13 +172,13 @@
 	<!-- 신간 베스트셀러 -->
 	<div id="new" class="tab-pane fade">
 	<div class="row" id="menu">
-    	<div class="col-md-8">
+    	<div class="col-md-9">
     		<label><input type="checkbox" checked="checked" id="allCheck2"/> 전체선택</label>
     	</div>
     	<div class="col-md-2">
     		<input type="submit" class="btn btn-default" value="장바구니에 담기" id="btnSelectBasket2">
     	</div>
-    	<div class="col-md-2">
+    	<div class="col-md-1">
  	  		<input type="submit" class="btn btn-default btn-primary" value="바로구매" id="btnSelectPayment2">
     	</div>
     </div>
