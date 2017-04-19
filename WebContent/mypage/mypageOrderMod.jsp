@@ -55,11 +55,16 @@ PurchaseOrder[] purchaseOrders = dm.getMember(memberID);
 	</thead>
 	<tbody>
 <%
+
 for(PurchaseOrder po:purchaseOrders){ 
 	Book book = bm.getBook(po.getPurchaseOrderID());
 	OrderDetail[] ods =mps.getIdDetails(po.getPurchaseOrderID());
 	int orderID =po.getPurchaseOrderID();
-	int point= mps.getPoint(ods);
+	int point =0;
+	if(po.getProgress()==4 ||po.getProgress()==5){
+	 point= mps.getPoint(ods);
+
+	}
 %>	
 		<tr>
 			<td><%=po.getPurchaseOrderID()%></td>

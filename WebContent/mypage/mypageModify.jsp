@@ -142,7 +142,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 					
 						<table style="padding:1rem;margin:1rem;">
 						<tr>
-						<th>새 전화번호:</th><td><input type="text" style="margin:0.5rem;"name="newph" placeholder="'-'생략하고입력하세요"></td>
+						<th>새 전화번호:</th><td><input type="number" style="margin:0.5rem;"name="newph" placeholder="'-'생략하고입력하세요"></td>
 						</tr>
 						</table>
 						</div>
