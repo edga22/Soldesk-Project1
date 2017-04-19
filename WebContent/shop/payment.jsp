@@ -22,6 +22,9 @@
 	padding:1rem;
 	align:right;
 }
+#prt th, td{
+	text-align:center;
+}
 
 </style>
 </head>
@@ -73,16 +76,16 @@ if(memberID == 0){
 		<input type="hidden" name="bookID" value="<%=bID%>"><!-- 책번호 넘겨주기 -->
 		<input type="hidden" name="cnt" value="<%=cnt%>"><!-- 책 수량 넘겨주기 -->
 		<div style="border:0.1rem solid black; margin:2rem; padding:1rem;">
-		<table class="table table-condensed">
+		<table class="table table-condensed" id="prt">
 		 <thead>
 		  <tr>
-			<th>상 품</th>
-			<th>정 가(원)</th>
-			<th>판 매 가(원)</th>
-			<th>수 량</th>
-			<th>합 계</th>
-			<th>적 립 금(p)</th>
-			<th>사 은 품</th>
+			<th style="width:50rem">상 품</th>
+			<th style="width:12rem">정 가(원)</th>
+			<th style="width:20rem">판 매 가(원)</th>
+			<th style="width:6rem">수 량</th>
+			<th style="width:20rem">합 계</th>
+			<th style="width:20rem">적 립 금(p)</th>
+			<th style="width:25rem">사 은 품</th>
 		  </tr>
 		 </thead>
 		 <tbody>	 	

@@ -38,11 +38,11 @@ if(memberID == 0){
 %>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div id="obm" class="container">
-<h3>구매 결과확인</h3>
+<h3>구매 결과확인</h3><br>
+<h4>주문번호 : <%=ps.getOrderID() %></h4>
 	<table class="table table-condensed">
 	 <thead>
-	  <tr>
-		<th>주문번호</th>
+	  <tr class="active">		
 		<th>도서명</th>
 		<th>수량</th>
 		<th>구매날짜</th>
@@ -64,7 +64,6 @@ if(memberID == 0){
 			point += ps.getPoint(bookID, cnt); // 구매목록마다 포인트 누적		
 %>	 	
 	  <tr>
-		<th><%=ps.getOrderID() %></th>
 		<th><%=book.getBookName()%></th>
 		<th><%=cnt%></th>
 		<th><%=ps.getToday()%></th>
@@ -76,7 +75,7 @@ if(memberID == 0){
 %>
 	 </tbody>
 	</table>
-	<p>적립 예정 포인트:<%=point %></p>
+	<p>적립 예정 포인트:<%=point %> point</p>
 	<p>구매해 주셔서 갑사합니다.</p>
 	<p>적립금은 주문이 완료될경우 자동으로 적립됩니다.</p>
 </div>
