@@ -39,6 +39,10 @@ public class PayService {
 		return ms.getMember(memberID);
 	}
 	
+	public OrderDetail[] getOrderDetail(int perchaseID){
+		return odmgr.getIdDetails(perchaseID);
+	}
+	
 	//회원정보 DB에 수정하기(포인트 차감용)
 	public int updatePoint(Member member){
 		return ms.updatePoint(member);

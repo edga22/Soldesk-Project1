@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import="service.OrderState"
 		 import="service.PayService"
+		 import="mgr.DeliveryMgr"
+		 import="domain.PurchaseOrder"
+		 import="domain.OrderDetail"
 		 import="domain.Book"%>
 <!DOCTYPE html>
 <html>
@@ -17,72 +20,37 @@
 <%
 PayService ps = new PayService();
 OrderState state = new OrderState();
-int point=0;
-int i=0;
-int memberID =0; 
+DeliveryMgr mymgr = new DeliveryMgr();
 
-//로그인 되있는지 검사
-memberID = (Integer)session.getAttribute("memberID");
-if(memberID == 0){
+OrderDetail[] ods = ps.getOrderDetail(ps.getOrderID());
+int orderID = ps.getOrderID();
+PurchaseOrder po = mymgr.getOrder(orderID);
 %>
-	<p>로그인이 안되었습니다.</p>
-<%
-}else{
-	// 이전 페이지에서 데이터 받아오기, 주문번호 자동생성
-	String[] bookIDs = request.getParameterValues("bookID"); 
-	String[] cnts = request.getParameterValues("cnt"); 
-	String userName = request.getParameter("userName");
-	String phone = request.getParameter("phone");
-	String email = request.getParameter("postCode");
-	String address = request.getParameter("address");
-%>
-<jsp:include page="/main_navbar.jsp"></jsp:include>
+<jsp:include page="/main_navbar.jsp"/>
 <div id="obm" class="container">
 <h3>구매 결과확인</h3><br>
-<h4>주문번호 : <%=ps.getOrderID() %></h4>
 	<table class="table table-condensed">
 	 <thead>
 	  <tr class="active">		
-		<th>도서명</th>
-		<th>수량</th>
+		<th>주문번호</th>
+		<th>품목</th>
 		<th>구매날짜</th>
 		<th>상태</th>
 	  </tr>
 	 </thead>
 	 <tbody>
-<%
-	// 책 한권씩 구매목록에 추가하기
-	if( bookIDs == null || bookIDs.equals("") || cnts == null || cnts.equals("")){
-%>	
-	<tr><th> 데이터가 잘못 넘어왔습니다. </th></tr>
-<%	
-	}else{
-		ps.setOrder(memberID, bookIDs, cnts); // 배송관리 DB에 저장(재고에서 판매수량만큼 차감됨)
-		for(String bookID : bookIDs){
-			Book book = ps.getBook(bookID); // 도서 생성
-			int cnt = Integer.parseInt(cnts[i]);
-			point += ps.getPoint(bookID, cnt); // 구매목록마다 포인트 누적		
-%>	 	
 	  <tr>
-		<th><%=book.getBookName()%></th>
-		<th><%=cnt%></th>
-		<th><%=ps.getToday()%></th>
-		<th><%=state.change(1)%></th>
+		<th><%=orderID%></th>
+		<th><%=state.getProduct(ods)%></th>
+		<th><%=po.getPurchaseDate()%></th>
+		<th><%=state.change(po.getProgress())%></th>
 	  </tr>
-<%	
-			i++;
-			}
-%>
 	 </tbody>
 	</table>
-	<p>적립 예정 포인트:<%=point %> point</p>
+	<br><br>
 	<p>구매해 주셔서 갑사합니다.</p>
 	<p>적립금은 주문이 완료될경우 자동으로 적립됩니다.</p>
 </div>
-<%		
-	}
-}
-%>
-<jsp:include page="/main_foot.jsp"></jsp:include>
+<jsp:include page="/main_foot.jsp"/>
 </body>
 </html>
