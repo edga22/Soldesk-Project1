@@ -232,7 +232,7 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>        
-        <div id="allMenuPannel">
+<%--         <div id="allMenuPannel">
             <div class="allMenu-container panel-body">
                 <div class="allMenu">
                     <%
@@ -256,9 +256,8 @@ $(document).ready(function(){
 			            </ul>
 	                </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </div> --%>
+	</div>
 </header>
 <script> 
 $(document).ready(function(){

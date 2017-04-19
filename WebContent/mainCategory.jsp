@@ -14,6 +14,8 @@
 <%	
 	String cataPage = request.getParameter("cata");
 	String codePage = request.getParameter("code");
+	String cateTitlestr = "";
+	String cateTitlestr2 = "";
 	int categoriesSize = catemgr.listCategories().size();
 	int cataCode = 0; //넘어온 1차분류 숫자변환
 	int codeId = 0; //넘어온 카테고리아이디 숫자변환 
@@ -24,7 +26,21 @@
 	    if(codePage != null) codeId = Integer.parseInt(codePage); //넘어온 카테고리아이디 숫자변환
 	}
 	
-/* 	if(cateResult != null && cateResult.length > 0){
+	if(codeId != 0){
+		cateTitlestr2 = " > "+catemgr.findCategory(codeId).getCategoryName();
+	}else{}
+	
+	if(cataCode != 0){
+		for(Category result1:catemgr.listCategoriesCode1()){
+			if(cataCode == result1.getCode1()){
+				cateTitlestr = result1.getCategoryName();
+			}
+		}
+	}else{
+		cateTitlestr = "전체도서";
+	}
+	
+//	if(cateResult != null && cateResult.length > 0){
 	    /* 정렬방식 order
 	    0 : 출시일순 (기본값)
 	    1 : 제목순
@@ -55,7 +71,7 @@
 	} */
 %>
 
-<title>분류페이지</title>
+<title><%=cateTitlestr %><%=cateTitlestr2 %></title>
 
 <jsp:include page="/main_navbar.jsp"/>
 
