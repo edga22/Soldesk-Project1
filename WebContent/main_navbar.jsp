@@ -35,7 +35,7 @@ if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribu
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="/css/bookcafe.css">
+<link rel="stylesheet" href="/bookcafe.css">
 <style>
 #searchform{
 	width : 100%;
