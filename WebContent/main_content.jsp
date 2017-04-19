@@ -3,6 +3,7 @@
 <%@ page import="domain.Category"
          import="mgr.CategoryMgr"
          import="java.util.List" %>
+
 <!-- 메인 화면 시작 -->   
 <section id="section">
     <div class="row">

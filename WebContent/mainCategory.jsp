@@ -54,7 +54,7 @@ a {
     margin-bottom:1.8rem;
 }
 #categoryLine h3 {
-    margin:0 0 0.8rem 0;
+    margin:0.1rem 0 0.5rem 0;
     padding:0;
 }
 #categoryLine img{
@@ -62,9 +62,36 @@ a {
     height:auto;
     max-height:125px;
     padding-bottom:1.5rem;
+    float: left;
+}
+#categoryLine .number{
+    float: left;
+    width:20px;
+    height:16px;
+    margin-top:2rem;
+    margin-right:2rem;
+    color: white;    
+    text-align: center;
+    font-size:1.2rem;
+    background-color: #bbb;    
+    border-radius: 3px;
 }
 </style>
-
+<script type="text/javascript">
+$(document).ready(function(){     
+    $('#checkall').click(function(){
+        //만약 전체 선택 체크박스가 체크된상태일경우 
+        if($("#checkall").prop("checked")){ 
+            //해당화면에 전체 checkbox들을 체크해준다 
+            $(":checkbox").prop("checked",true);
+        // 전체선택 체크박스가 해제된 경우 
+        }else{ 
+            //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+            $(":checkbox").prop("checked",false);
+        } 
+    });
+});
+</script>
 	<!-- 상품 진열 1줄에 4개씩  -->
 <div class="container">		
 	<!-- 좌측 카테고리 메뉴바 -->
@@ -78,9 +105,6 @@ a {
 		<!-- result -->
 		<div class="col-md-10" id="result">
 		   <div class="row" id="align-bar">
-		        <div class="col-md-1">
-		            <label><input type="checkbox" name="all" value=""> 전체</label>
-                </div>
 				<div class="col-md-2 text-center">
 					<a href="#">제목순</a>
 				</div>
@@ -92,24 +116,27 @@ a {
 				</div>
 				<div class="col-md-2 text-center">
 					<a href="#">출간일순</a>
-				</div>				
-				<div class="col-md-3 text-right">
-				    리스트 갯수 : 
+				</div>
+				<div class="col-md-2 text-right">
+                    <label><input type="checkbox" id="checkall" name="all" value=""> 전체</label>
+                </div>				
+				<div class="col-md-2 text-right">
+				    리스트 : 
 					<select name="display_number" class="">
-						<option value="25">25개</option>
-						<option value="50">50개</option>
-						<option value="100">100개</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
 					</select>
 				</div>
 			</div>
-			<form>
+			<form action="/shop/basketAddValues.jsp">
 			<button type="submit" class="btn btn-default">선택한것 찜하기</button><br>
 			<%
 			Book[] books = bookmgr.getBooks();
 		    EventMgr evmgr = new EventMgr();
 		    //숫자1000자리 콤마
 		    NumberFormat nf = NumberFormat.getNumberInstance();
-		    
+		    int i = 0;
 			for(Book book: books){
 				int bookPoint = 0; //포인트 
 				int bookPrice = 0; //등록된 책가격
@@ -130,6 +157,24 @@ a {
                     bookSalePrice = bookPrice*discountPer/100; //일반 할인된 가격         
                 }
                 bookPoint = bookSalePrice*pointPer/100; //포인트
+                String author = book.getAuthor(); //저자
+                String authorList; //저자 / 번역가
+                //String[] getAuthor = author.split(",");
+                // ,를 기준으로 문자열을 추출할 것이다.
+                // 먼저 , 의 인덱스를 찾는다 
+                int idx = author.indexOf(","); 
+                // , 앞부분을 추출
+                // substring은 첫번째 지정한 인덱스는 포함하지 않는다.
+                // 아래의 경우는 첫번째 문자열인 a 부터 추출된다.
+                if(idx != -1){
+	                String author1 = author.substring(0, idx);
+	                // 뒷부분을 추출
+	                // 아래 substring은 @ 바로 뒷부분인 n부터 추출된다.
+	                String author2 = author.substring(idx+1);
+	                
+	                authorList = author1+" 저 / "+author2+" 역";
+	                
+                }else  authorList = author+" 저";
                 
                 int cateInt = 0; //도서리스트 1차분류 숫자
     			int cateInt2 = 0; //도서리스트 2차분류 숫자
@@ -157,13 +202,11 @@ a {
 	            		break;
     				}
     			}
+    			i++;
 			%>
 			<div class="row" id="categoryLine"> <!-- items -->
-				<div class="col-md-1">
-					<p><%=book.getBookID() %></p>
-					<input type="checkbox" name="bookID" value="<%=book.getBookID() %>">
-				</div>
 				<div class="col-md-2">
+				    <div class="number"><%=i %></div>										
 					<a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>"/></a>
 				</div>
 				<div class="col-md-7">
@@ -171,15 +214,18 @@ a {
 						[<%=cateInt %>][<%=cateInt2 %>][<%=cateName %>][<%=cateSubject %>][<%=cateName2 %>][<%=cateSubject2 %>]
 					</p>
 					<h3><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><%=book.getBookName() %></a></h3>
-					<p style="margin:0 0 0.2rem 0;">저자 :<%=book.getAuthor() %>  | 옮긴이 :<%=book.getAuthor() %> | 출판사 : <%=book.getPublisher() %></p>
+					<p style="margin:0 0 0.2rem 0;"><%=authorList %> | <%=book.getPublisher() %> | <%=book.getPublishDate() %></p>
 					<ul>
 						<li>정가: <%=nf.format(bookPrice) %>원 <i class="glyphicon glyphicon-arrow-right"></i>
 						판매가: <%=nf.format(bookSalePrice) %>원<% if(bookdiscount != 0) out.print("("+bookdiscount+"%)"); %></li>
 						<li>적립포인트 : <%=nf.format(bookPoint) %>P (<%=pointPer%>% 지급)P</li>						
 					</ul>
 				</div>
+				<div class="col-md-1">
+                    <input type="checkbox" name="bookID" value="<%=book.getBookID() %>">
+                </div>
 				<div class="col-md-2" style="vertical-align:middle;">
-					<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a></p>
+					<p><a class="btn btn-default" href="/shop/basketAddValues.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a></p>
 					<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a></p>
 				</div>				
 			</div>			
