@@ -12,10 +12,9 @@
 <%
 BookMgr mymgr = new BookMgr();
 String tmpID = request.getParameter("bookID");
-Book[] books = mymgr.getBooks();
 int bookID = 0;
 %>
-<jsp:include page="/inven/invenMain.jsp"></jsp:include>
+<jsp:include page="/inven/invenMain_nav.jsp"></jsp:include>
 <%
 if(tmpID == null || tmpID.equals("")){
 %>		

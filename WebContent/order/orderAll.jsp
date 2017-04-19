@@ -40,11 +40,11 @@ PurchaseOrder[] PurchaseOrders = mymgr.getOrders();
 		 <table class="table table-condensed">
 	  	 <thead>
 	 	   <tr>
-			<th>회원번호</th>
-			<th>주문번호</th>
-			<th>품목</th>
-			<th>구매날짜</th>
-			<th>상태</th>
+			<th style="width:5rem;">회원<br>번호</th>
+			<th style="width:5rem;">주문<br>번호</th>
+			<th style="width:80rem; text-align:center;">품목</th>
+			<th style="width:9rem;">구매날짜</th>
+			<th style="width:9rem;">상태</th>
 		  </tr>
 		 </thead>
 		 <tbody>

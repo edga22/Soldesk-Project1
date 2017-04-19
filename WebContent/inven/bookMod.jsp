@@ -71,9 +71,9 @@ if(tmpID == null || tmpID.equals("")){
 	  </tr>	  			
 	 </tbody>
 	 <tfoot>
-		<tr class="active"><th colspan="10" style="text-align:center;">소제목</th></tr>
+		<tr><th colspan="10" style="text-align:center;">소제목</th></tr>
 		<tr><td colspan="10"><%=book.getSubtitle() %></td></tr>		
-		<tr class="active"><th colspan="10" style="text-align:center;">내용</th></tr>
+		<tr><th colspan="10" style="text-align:center;">내용</th></tr>
 		<tr><td colspan="10"><%=book.getDescription() %></td></tr>
 	 </tfoot>
 	</table>	

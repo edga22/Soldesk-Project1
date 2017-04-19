@@ -12,6 +12,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
+#it th {
+text-align:center;
+}
 </style>
 </head>
 <body>
@@ -45,19 +48,19 @@ BookMgr mymgr = new BookMgr();
 		<button type="submit" formaction="/inven/bookDel.jsp" class="btn btn-default">삭제</button>
 <hr style="border: solid 0.1rem;"> 
 <h3>전체 도서 검색 결과</h3>
-	<table class="table table-condensed">
+	<table class="table table-condensed" id="it">
 	 <thead>
 	  <tr>
-		<th>도서번호</th>
-		<th>도서명</th>
-		<th>카테고리번호</th>
-		<th>작가</th>
-		<th>출판사</th>
-		<th>출판일</th>
-		<th>금 액(원)</th>
-		<th>책표지 주소</th>
-		<th>재고</th>
-		<th>상태</th>
+		<th style="width:5rem;">도서번호</th>
+		<th style="width:25rem;">도서명</th>
+		<th style="width:5rem;">카테고리</th>
+		<th style="width:15rem;">작가/번역</th>
+		<th style="width:15rem;">출판사</th>
+		<th style="width:15rem;">출판일</th>
+		<th style="width:10rem;">금 액(원)</th>
+		<th style="width:20rem;">책표지 주소</th>
+		<th style="width:5rem;">재고</th>
+		<th style="width:5rem;">상태</th>
 	  </tr>
 	 </thead>
 	 <tbody>

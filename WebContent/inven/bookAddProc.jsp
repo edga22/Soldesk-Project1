@@ -37,7 +37,7 @@ mymgr.addBook(newbook);
 <h2>도서 추가 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
-	  <tr>
+	  <tr class="active">
 		<th>도서명</th>
 		<th>카테고리번호</th>
 		<th>작가</th>
@@ -61,12 +61,12 @@ mymgr.addBook(newbook);
 	  </tr>	  
 	 </thead>
 	 <tbody>	 	
-	    <tr><th>소제목</th></tr>
-	 	<tr><td><%=newbook.getSubtitle() %></td></tr>		
+	    <tr class="active"><th colspan="10" style="text-align:center;">소제목</th></tr>
+		<tr><td colspan="10"><%=newbook.getSubtitle() %></td></tr>			
 	 </tbody>
 	 <tfoot> 	
-	 	<tr><th>내용</th></tr>
-	 	<tr><td><%=newbook.getDescription() %></td></tr>
+	 	<tr class="active"><th colspan="10" style="text-align:center;">내용</th></tr>
+		<tr><td colspan="10"><%=newbook.getDescription() %></td></tr>
 	 </tfoot>
 	</table>	
 </div>

@@ -82,18 +82,18 @@ $(function() {
 			<th> 재     고:</th><td><input type="number" name="stock" placeholder="등록 수량" required></td>
 		 </tr>		
 		  <tr>
-			<th>추천상태</th><td><input type="number" name="recommend" placeholder="추천상태(1:추천, 0:비추)" ></td>
+			<th>추천상태</th><td><input type="number" name="recommend" placeholder="추천상태(1:추천, 0:비추)" required></td>
 		 </tr>		
 		</table>         
       </div>    
 	  <div id="block">
 		  <h4>부 제목</h4>
 		  <textarea rows="3" cols=100% name="subtitle" id="content" maxlength="250"
-				style="width: 100%; resize:none;" placeholder="내용 작성"required></textarea>
+				style="width: 100%; resize:none;" placeholder="내용 작성" required></textarea>
    		  	<span id="counter">255</span><br><br>
 		  <h4>책 내용</h4>
 		  <textarea rows="8" cols=100% name="description"
-				style="width: 100%; resize:none;" placeholder="내용 작성"required></textarea>
+				style="width: 100%; resize:none;" placeholder="내용 작성" required></textarea>
 	  </div>
 		 </div>
 	  <button type="submit" class="btn btn-danger">추가</button>         
