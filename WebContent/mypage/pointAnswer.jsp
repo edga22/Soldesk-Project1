@@ -14,16 +14,17 @@
 <body>
 <div class="container">
 <div class="row content">
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
 <jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
 </div>
 <div class="col-sm-10">
 <div id="MypageQuestion">
-	<h1>3.회원가입(로그인)을 안한상태에서 구매는 불가능한건가요?</h1>
-	<p>죄송합니다 고객님. 저희 북cafe에서는 회원가입후 로그인을 하지않았을경우</p><br>
-	<p>구매가 불가능합니다. 단 장바구니에 추가 미리 시켜놓으셧을경우 회원가입후 로그인</p><br>
-	<p>하면 그대로 남아있어 서비스를 계속 이용 하실 수 있습니다.</p><br>
-	<p>또한 포인트가 적립되고, 할인등 다양한 이벤트 혜택을 받으실 수 있습니다. 가입하셔도 가입비는 받지않습니다.</p><br>
+	<h1>5.적립된 포인트로 뭘 할 수있나요?</h1>
+	<p>안녕하세요 저희 북cafe 에서는 책 구매시 적립되는 포인트를</p><br>
+	<p>다양한 서비스에 이용 하실 수 있도록 준비 되어있습니다.</p><br>
+	<p>포인트는 현실세계의 돈(원)과 똑같은 개념으로 책한권 구매시 포인트를 이용</p><br>
+	<p>할인 혹은 무료구매가 가능합니다.</p><br>
+	<p>또한, 다양한 이벤트 혜택을 포인트를 이용하여 받으실 수 있습니다. 감사합니다.</p><br>
 	<br>
 	<br>
 	<br>	

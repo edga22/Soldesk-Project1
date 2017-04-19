@@ -14,17 +14,17 @@
 <body>
 <div class="container">
 <div class="row content">
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
 <jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
 </div>
 <div class="col-sm-10">
 <div id="MypageQuestion">
-	<h1>2.로그아웃을 해도 장바구니가 남아있나요?</h1>
-	<p>정답부터 말씀드리면 답은 yes입니다.</p><br>
-	<p>저희 북cafe에서는 로그아웃을 하여도 아이디 만 서버에서 끊어질 뿐</p><br>
-	<p>웹 브라우저를 종료하지 않는 한 장바구니는 그대로 남아있습니다.</p><br>
-	<p>단, 로그아웃을 눌렀을시 장바구니에 포함된 책이라고 하더라도 구매는 불가능하오니</p><br>
-	<p>이점 양해 부탁드립니다 감사합니다.</p><br>
+	<h1>6.회원 탈퇴 하고싶어요.</h1>
+	<p>안녕하세요 저희 북cafe의 서비스가 마음에 들지 않으셧나보군요 ㅠㅠ</p><br>
+	<p>회원 탈퇴를 하고싶다면 마이페이지에서 회원 탈퇴 탭을 클릭하신후,</p><br>
+	<p>회원가입시 입력하셧던 비밀번호를 적으시고 탈퇴 버튼을 누르시면 탈퇴됩니다.</p><br>
+	<p>탈퇴시 등록했던 장바구니, 적립 포인트등 모든 정보가 사라지게 되오니 </p><br>
+	<p>신중하게 생각하시고 탈퇴하시길 바랍니다. 감사합니다.</p><br>
 	<br>
 	<br>
 	<br>	
