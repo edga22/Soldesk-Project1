@@ -23,6 +23,36 @@
 	    else cataCode = Integer.parseInt(cataPage); //넘어온 1차분류 숫자변환
 	    if(codePage != null) codeId = Integer.parseInt(codePage); //넘어온 카테고리아이디 숫자변환
 	}
+	
+/* 	if(cateResult != null && cateResult.length > 0){
+	    /* 정렬방식 order
+	    0 : 출시일순 (기본값)
+	    1 : 제목순
+	    2 : 저자순
+	    3 : 가격순
+	    */
+	    /*
+	    BookSortMgr sortMgr = new BookSortMgr();
+	    switch(order){
+	    case 0:
+	        scResult = sortMgr.toArray(sortMgr.dateSort(sortMgr.toList(scResult)));
+	        break;
+	    case 1:
+	        scResult = sortMgr.toArray(sortMgr.nameSort(sortMgr.toList(scResult)));
+	        break;
+	    case 2:
+	        scResult = sortMgr.toArray(sortMgr.authorSort(sortMgr.toList(scResult)));
+	        break;
+	    case 3:
+	        scResult = sortMgr.toArray(sortMgr.priceSort(sortMgr.toList(scResult)));
+	        break;
+	    }
+	    
+	    CategoryCounter cCnter = new CategoryCounter();
+	    domesticCnt = cCnter.code1Counter(scResult, 10);
+	    overseaCnt = cCnter.code1Counter(scResult, 20);
+	    ebookCnt = cCnter.code1Counter(scResult, 30);
+	} */
 %>
 
 <title>분류페이지</title>
@@ -120,12 +150,11 @@ $(document).ready(function(){
 				<div class="col-md-2 text-right">
                     <label><input type="checkbox" id="checkall" name="all" value=""> 전체</label>
                 </div>				
-				<div class="col-md-2 text-right">
-				    리스트 : 
+				<div class="col-md-2 text-right">				     
 					<select name="display_number" class="">
-						<option value="25">25</option>
-						<option value="50">50</option>
-						<option value="100">100</option>
+						<option value="10">10개</option>
+						<option value="20">20개</option>
+						<option value="30">30개</option>
 					</select>
 				</div>
 			</div>
@@ -137,6 +166,7 @@ $(document).ready(function(){
 		    //숫자1000자리 콤마
 		    NumberFormat nf = NumberFormat.getNumberInstance();
 		    int i = 0;
+		    int j = 1;
 			for(Book book: books){
 				int bookPoint = 0; //포인트 
 				int bookPrice = 0; //등록된 책가격
@@ -196,17 +226,20 @@ $(document).ready(function(){
     			
     			//1차 카테고리 매칭
     			for(Category result1:catemgr.listCategoriesCode1()){
-    				if(cateInt == result1.getCode1()){
+    				if(cateInt == result1.getCode1()){    					
     					cateName = result1.getCategoryName();
 	            		cateSubject = result1.getCategorySubject();
 	            		break;
     				}
     			}
     			i++;
+    			
+    			 // if(codeId == cateInt2){
+    			     if(cataCode == cateInt){
 			%>
 			<div class="row" id="categoryLine"> <!-- items -->
 				<div class="col-md-2">
-				    <div class="number"><%=i %></div>										
+				    <div class="number"><%=j %></div>										
 					<a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>"/></a>
 				</div>
 				<div class="col-md-7">
@@ -233,7 +266,12 @@ $(document).ready(function(){
 					<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a></p>
 				</div>				
 			</div>			
-			<% } %>
+			<%
+			   j++;
+			   }
+    			  
+			}
+			%>
 			</form>
 		</div>
 	    <!--// result -->

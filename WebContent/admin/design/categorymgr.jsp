@@ -149,7 +149,7 @@ td, th {
             <% } %>
             </td>
             <td><input name="categorySubject" class="form-control input-sm" id="inputsm" type="text" value="<%=result.getCategorySubject() %>"></td>
-            <td><label><input name="categoryUse" type="checkbox" value="<%=categoryUse %>" <% if(categoryUse == 1){ %>checked<% } %>>사용</label></td>
+            <td><label><input name="categoryUse" type="checkbox" value="1" <% if(categoryUse == 1){ %>checked<% } %>>사용</label></td>
             <td>
                <input type="submit" class="btn btn-info btn-sm" value="적용">          
             </td>            
