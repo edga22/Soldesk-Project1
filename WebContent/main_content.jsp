@@ -48,7 +48,7 @@
                     </div>               
                 </div>
                 <div class="col-md-12 text-center panel-footer" id="slideshow_list">
-                   <ul class="slideshow_list">
+                    <ul class="slideshow_list">
                        <li>
                            <span class="dot" onmouseenter="stopSlides(1)">MD 초이스</span><span class="divider"></span>
                        </li>
@@ -64,267 +64,265 @@
                        <li>
                            <span class="dot" onmouseenter="stopSlides(5)">e-Book</span><span class="divider"></span>
                        </li>
-                   </ul>
-               </div>              
+                    </ul>
+                </div>              
             </div>
        </div>
     </div>   
     <div class="row">
         <div class="col-md-2">
             <div class="list-group">
-                <a href="#" class="list-group-item"><strong>전체카타고리</strong></a>
-            <div class="list-group-item">
-                <ul class="main_lmenu">
-                    <li class="title">국내도서</li>
-                    <li><a href="/mainCategory.jsp?cata=domestic" class="list-group">교양</a></li>
-                    <li><a href="/mainCategory.jsp?cata=domestic" class="list-group">소설</a></li>
-                    <li><a href="/mainCategory.jsp?cata=domestic" class="list-group">전공도서</a></li>                    
-                </ul>
-            </div>
-            <div class="list-group-item">
-                <ul class="main_lmenu">
-                    <li class="title">외국도서</li>
-                    <li><a href="/mainCategory.jsp?cata=oversea" class="list-group">교양</a></li>
-                    <li><a href="/mainCategory.jsp?cata=oversea" class="list-group">소설</a></li>
-                    <li><a href="/mainCategory.jsp?cata=oversea" class="list-group">전공도서</a></li>                    
-                </ul>
-            </div>
-            <div class="list-group-item">
-                <ul class="main_lmenu">
-                    <li class="title">전자책</li>
-                    <li><a href="/mainCategory.jsp?cata=ebook" class="list-group">교양</a></li>
-                    <li><a href="/mainCategory.jsp?cata=ebook" class="list-group">소설</a></li>
-                    <li><a href="/mainCategory.jsp?cata=ebook" class="list-group">전공도서</a></li>
-                </ul>
-            </div>            
-        </div>
-    </div>
-    <div class="col-md-7">
-        <div class="row">
-            <div class="col-md-12 main_book_titel">MD 초이스</div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="MD 초이스1" src="./img/main/8956605815_2.jpg" />
-                </p>
-                <p>작은 친구들 1<br>
-                <span>어째서 진실은 밝혀져야 하는지</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="MD 초이스2" src="./img/main/8937434067_1.jpg" />
-                </p>
-                <p>어떻게 질문할 것인가<br>
-                <span>뇌과학자 김대식 교수의 질문 찾는 법</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="MD 초이스3" src="./img/main/k512536684_1.jpg" />
-                </p>
-                <p>여중생A 1~3 세트 - 전3권<br>
-                <span>그냥 내가 나인게 잘못인가요?</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="MD 초이스4" src="./img/main/894916194x_1.jpg" />
-                </p>
-                <p>변신돼지<br>
-                <span>제6회 비룡소 문학상 대상 수상작</span>
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 main_book_titel">이달의 추천도서</div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의추천도서1" src="./img/main/k272536082_1.jpg" />
-                </p>
-                <p>고발<br>
-                <span>반디 지음 / 다산책방</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의추천도서2" src="./img/main/8950968983_1.jpg" />
-                </p>
-                <p>고슴도치의 소원<br>
-                <span>톤 텔레헨 지음 / arte(아르테)</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의추천도서3" src="./img/main/8934976837_1.jpg" />
-                </p>
-                <p>꿈은 토리노를 달리고<br>
-                <span>히가시노 게이고 지음 / 비채</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의추천도서4" src="./img/main/k842536287_2.jpg" />
-                </p>
-                <p>페미니스트 유토피아<br>
-                <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 main_book_titel">화제의 책 소식</div>
-            <div class="col-md-6 main_book_info2">
-                <img alt="화제의책소식1" src="./img/main/8949112752_1.jpg" />
-                <div class="main_book_info">
-                    <p>하늘을 나는 마법약<br>
-                        <span>칼데콧 상 2회, 뉴베리 상 수상 작가 윌리엄 스타이그의 신나는 상상</span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 main_book_info2">                
-                <img alt="화제의책소식2" src="./img/main/8956253455_2.jpg" />                
-                <div class="main_book_info">
-                    <p>길 위의 인생<br>
-                        <span>벨 훅스, 엠마 왓슨 추천. 글로리아 스타이넘 '여전히 도전 중'</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 main_book_info2">
-                <img alt="화제의책소식3" src="./img/main/8960863262_1.jpg" />
-                <div class="main_book_info">
-                    <p>오래된 생각<br>
-                        <span>'노무현의 필사' 윤태영, 삶과 죽음을 가로지는 이야기</span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 main_book_info2">
-                <img alt="화제의책소식4" src="./img/main/k362536482_1.jpg" />
-                <div class="main_book_info">
-                    <p>처음 늙어보는 사람들에게<br>
-                        <span>아툴 가완디 강력 추천작, 남들보다 일찍 늙어가며 깨달은 것들</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 main_book_titel">이달의 이벤트도서</div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의이벤트도서1" src="./img/main/k272536082_1.jpg" />
-                </p>
-                <p>고발<br>
-                <span>반디 지음 / 다산책방</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의이벤트도서2" src="./img/main/8950968983_1.jpg" />
-                </p>
-                <p>고슴도치의 소원<br>
-                <span>톤 텔레헨 지음 / arte(아르테)</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의이벤트도서3" src="./img/main/8934976837_1.jpg" />
-                </p>
-                <p>꿈은 토리노를 달리고<br>
-                <span>히가시노 게이고 지음 / 비채</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의이벤트도서4" src="./img/main/k842536287_2.jpg" />
-                </p>
-                <p>페미니스트 유토피아<br>
-                <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 main_book_titel">이달의 새로운 도서</div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의새로운도서1" src="./img/main/k272536082_1.jpg" />
-                </p>
-                <p>고발<br>
-                <span>반디 지음 / 다산책방</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의새로운도서2" src="./img/main/8950968983_1.jpg" />
-                </p>
-                <p>고슴도치의 소원<br>
-                <span>톤 텔레헨 지음 / arte(아르테)</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의새로운도서3" src="./img/main/8934976837_1.jpg" />
-                </p>
-                <p>꿈은 토리노를 달리고<br>
-                <span>히가시노 게이고 지음 / 비채</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의새로운도서4" src="./img/main/k842536287_2.jpg" />
-                </p>
-                <p>페미니스트 유토피아<br>
-                <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 main_book_titel">이달의 eBook</div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의eBook1" src="./img/main/k272536082_1.jpg" />
-                </p>
-                <p>고발<br>
-                <span>반디 지음 / 다산책방</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의eBook2" src="./img/main/8950968983_1.jpg" />
-                </p>
-                <p>고슴도치의 소원<br>
-                <span>톤 텔레헨 지음 / arte(아르테)</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의eBook3" src="./img/main/8934976837_1.jpg" />
-                </p>
-                <p>꿈은 토리노를 달리고<br>
-                <span>히가시노 게이고 지음 / 비채</span>
-                </p>
-            </div>
-            <div class="col-md-3 text-center main_book_info">
-                <p class="main_book_img">
-                    <img alt="이달의eBook4" src="./img/main/k842536287_2.jpg" />
-                </p>
-                <p>페미니스트 유토피아<br>
-                <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
-                </p>
-            </div>
-        </div>
-    </div>    
-    <div class="col-md-3">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="ad2">
-                    <img alt="ad2" src="./img/main/170320_ebook.jpg" />
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="best10">
-                    <div class="title">베스트셀러 <font color="#0275d8">TOP10</font></div>
+                <strong class="list-group-item disabled">전체도서</strong>
+		        <%
+		        CategoryMgr catemgr = new CategoryMgr();
+		        int i = 0;
+		    
+		        for(Category result:catemgr.listCategoriesUse()){
+		            String cateMenuStr = "";
+		            
+		            if(result.getCode2() == 0){  
+		                if(i != 0){ %>
+                    </ul>
+                </div>                     
+                 <% } %>                  
+                <div class="list-group-item">
+                    <ul class="main_lmenu">
+                        <li class="title"><a href="/mainCategory.jsp?cata=<%=result.getCode1()%>"><%=result.getCategoryName() %></a></li>
+                <% i++;
+                }else{ %>    
+                        <li><a href="/mainCategory.jsp?cata=<%=result.getCode1()%>&code=<%=result.getCategoryID()%>"><%=result.getCategoryName() %></a></li>    
+		         <% }
+		        } %>
+                    </ul>
+                </div>             
+            </div>         
+	    </div>
+	    <div class="col-md-7">
+	        <div class="row">
+	            <div class="col-md-12 main_book_titel">MD 초이스</div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="MD 초이스1" src="./img/main/8956605815_2.jpg" />
+	                </p>
+	                <p>작은 친구들 1<br>
+	                   <span>어째서 진실은 밝혀져야 하는지</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="MD 초이스2" src="./img/main/8937434067_1.jpg" />
+	                </p>
+	                <p>어떻게 질문할 것인가<br>
+	                   <span>뇌과학자 김대식 교수의 질문 찾는 법</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="MD 초이스3" src="./img/main/k512536684_1.jpg" />
+	                </p>
+	                <p>여중생A 1~3 세트 - 전3권<br>
+	                   <span>그냥 내가 나인게 잘못인가요?</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="MD 초이스4" src="./img/main/894916194x_1.jpg" />
+	                </p>
+	                <p>변신돼지<br>
+	                   <span>제6회 비룡소 문학상 대상 수상작</span>
+	                </p>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-md-12 main_book_titel">이달의 추천도서</div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                   <img alt="이달의추천도서1" src="./img/main/k272536082_1.jpg" />
+	                </p>
+	                <p>고발<br>
+	                   <span>반디 지음 / 다산책방</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의추천도서2" src="./img/main/8950968983_1.jpg" />
+	                </p>
+	                <p>고슴도치의 소원<br>
+	                   <span>톤 텔레헨 지음 / arte(아르테)</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의추천도서3" src="./img/main/8934976837_1.jpg" />
+	                </p>
+	                <p>꿈은 토리노를 달리고<br>
+	                   <span>히가시노 게이고 지음 / 비채</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의추천도서4" src="./img/main/k842536287_2.jpg" />
+	                </p>
+	                <p>페미니스트 유토피아<br>
+	                   <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
+	                </p>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-md-12 main_book_titel">화제의 책 소식</div>
+	            <div class="col-md-6 main_book_info2">
+	                <img alt="화제의책소식1" src="./img/main/8949112752_1.jpg" />
+	                <div class="main_book_info">
+	                    <p>하늘을 나는 마법약<br>
+	                        <span>칼데콧 상 2회, 뉴베리 상 수상 작가 윌리엄 스타이그의 신나는 상상</span>
+	                    </p>
+	                </div>
+	            </div>
+	            <div class="col-md-6 main_book_info2">                
+	                <img alt="화제의책소식2" src="./img/main/8956253455_2.jpg" />                
+	                <div class="main_book_info">
+	                    <p>길 위의 인생<br>
+	                        <span>벨 훅스, 엠마 왓슨 추천. 글로리아 스타이넘 '여전히 도전 중'</span>
+	                    </p>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-md-6 main_book_info2">
+	                <img alt="화제의책소식3" src="./img/main/8960863262_1.jpg" />
+	                <div class="main_book_info">
+	                    <p>오래된 생각<br>
+	                        <span>'노무현의 필사' 윤태영, 삶과 죽음을 가로지는 이야기</span>
+	                    </p>
+	                </div>
+	            </div>
+	            <div class="col-md-6 main_book_info2">
+	                <img alt="화제의책소식4" src="./img/main/k362536482_1.jpg" />
+	                <div class="main_book_info">
+	                    <p>처음 늙어보는 사람들에게<br>
+	                        <span>아툴 가완디 강력 추천작, 남들보다 일찍 늙어가며 깨달은 것들</span>
+	                    </p>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-md-12 main_book_titel">이달의 이벤트도서</div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의이벤트도서1" src="./img/main/k272536082_1.jpg" />
+	                </p>
+	                <p>고발<br>
+	                   <span>반디 지음 / 다산책방</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의이벤트도서2" src="./img/main/8950968983_1.jpg" />
+	                </p>
+	                <p>고슴도치의 소원<br>
+	                   <span>톤 텔레헨 지음 / arte(아르테)</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의이벤트도서3" src="./img/main/8934976837_1.jpg" />
+	                </p>
+	                <p>꿈은 토리노를 달리고<br>
+	                   <span>히가시노 게이고 지음 / 비채</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의이벤트도서4" src="./img/main/k842536287_2.jpg" />
+	                </p>
+	                <p>페미니스트 유토피아<br>
+	                   <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
+	                </p>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-md-12 main_book_titel">이달의 새로운 도서</div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의새로운도서1" src="./img/main/k272536082_1.jpg" />
+	                </p>
+	                <p>고발<br>
+	                    <span>반디 지음 / 다산책방</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의새로운도서2" src="./img/main/8950968983_1.jpg" />
+	                </p>
+	                <p>고슴도치의 소원<br>
+	                   <span>톤 텔레헨 지음 / arte(아르테)</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의새로운도서3" src="./img/main/8934976837_1.jpg" />
+	                </p>
+	                <p>꿈은 토리노를 달리고<br>
+	                   <span>히가시노 게이고 지음 / 비채</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의새로운도서4" src="./img/main/k842536287_2.jpg" />
+	                </p>
+	                <p>페미니스트 유토피아<br>
+	                   <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
+	                </p>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-md-12 main_book_titel">이달의 eBook</div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의eBook1" src="./img/main/k272536082_1.jpg" />
+	                </p>
+	                <p>고발<br>
+	                   <span>반디 지음 / 다산책방</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의eBook2" src="./img/main/8950968983_1.jpg" />
+	                </p>
+	                <p>고슴도치의 소원<br>
+	                   <span>톤 텔레헨 지음 / arte(아르테)</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의eBook3" src="./img/main/8934976837_1.jpg" />
+	                </p>
+	                <p>꿈은 토리노를 달리고<br>
+	                   <span>히가시노 게이고 지음 / 비채</span>
+	                </p>
+	            </div>
+	            <div class="col-md-3 text-center main_book_info">
+	                <p class="main_book_img">
+	                    <img alt="이달의eBook4" src="./img/main/k842536287_2.jpg" />
+	                </p>
+	                <p>페미니스트 유토피아<br>
+	                   <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
+	                </p>
+	            </div>
+	        </div>
+	    </div>    
+	    <div class="col-md-3">
+	        <div class="row">
+	            <div class="col-md-12">
+	                <div id="ad2">
+	                    <img alt="ad2" src="./img/main/170320_ebook.jpg" />
+	                </div>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-md-12">
+	                <div class="best10">
+	                    <div class="title">베스트셀러 <font color="#0275d8">TOP10</font></div>
                         <ul class="best10_text">
                             <li>
                                 <div class="best10_1">

@@ -10,10 +10,12 @@ CategoryMgr catemgr = new CategoryMgr();
 String cataPage = request.getParameter("cata");
 String catastr="";
 String catastr2="";
+String catastr3="";
 int cataCode = 0;
 
 if(cataPage != null){
-	if(cataPage.equals("all"))	catastr2="active";		
+	if(cataPage.equals("all"))	catastr2="active";
+	else if(cataPage.equals("best"))    catastr3="active";
 	else cataCode = Integer.parseInt(cataPage);
 }else{
 	catastr="active";
@@ -83,7 +85,7 @@ $(document).ready(function(){
 	<div class="row" id="wrap">
     	<div class="col-md-12"> 
         	<div class="row" >
-            	<div class="col-md-5">
+            	<div class="col-md-6">
                 	<ul class="nav nav-tabs">
 							<li class="<%=catastr %>">
 								<a href="/main.jsp">Home</a>
@@ -106,10 +108,13 @@ $(document).ready(function(){
 	                       	</li>   		              
 							<%
 						    	}
-							} %>		            
+							} %>							
+							<li class="<%=catastr3 %>">
+                                <a href="/shop/monthBestseller.jsp?cata=best">베스트셀러</a>
+                            </li>		            
                    	</ul>
                	</div>
-               	<div class="col-md-7 text-right">
+               	<div class="col-md-6 text-right">
                    	<ul class="breadcrumb" style="height:36px">
                        	<%if(!memberID.equals("")){ 
                        		MemberService ms = new MemberService();
@@ -152,9 +157,9 @@ $(document).ready(function(){
                        	</li>
                        	<li>
                            	<a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>
-                       </li>
+                        </li>
                         <li>
-                           	<a href="/game/miniGame.jsp">Game zone</a>
+                           	<a href="/game/miniGame.jsp">Game</a> <span class="divider"></span>
                        	</li>
                        	<%}else{ %>
                        	<li>
@@ -204,14 +209,14 @@ $(document).ready(function(){
         </div>
         <div class="row">
             <div class="col-md-2">               
-                <button id="allMenu" type="button" class="btn btn-default">
+                <button id="allMenu" type="button" class="btn btn-default" style="display:none;">
                    	 전체카타고리
                 </button>
             </div>
             <div class="col-md-10">
                 <div class="btn-group">
                    <a href="/shop/monthBestseller.jsp">
-                    <button class="btn btn-default" type="button">
+                    <button class="btn btn-default" type="button" style="display:none;">
                         <em class="glyphicon glyphicon-align-left"></em> 베스트셀러
                     </button> 
                     </a>
@@ -229,33 +234,27 @@ $(document).ready(function(){
         </div>        
         <div id="allMenuPannel">
             <div class="allMenu-container panel-body">
-                <div class="allMenu">                     
-		            <div class="allMenu_list">
-		                <ul>
-		                    <li class="title">국내도서</li>
-		                    <li><a href="/mainCategory.jsp?cata=domestic" class="list-group">교양</a></li>
-		                    <li><a href="/mainCategory.jsp?cata=domestic" class="list-group">소설</a></li>
-		                    <li><a href="/mainCategory.jsp?cata=domestic" class="list-group">전공도서</a></li>		                    
-		                </ul>
-		            </div>
-		            <div class="allMenuLine"></div>
-		            <div class="allMenu_list">
-		                <ul>
-		                    <li class="title">외국도서</li>
-		                    <li><a href="/mainCategory.jsp?cata=oversea" class="list-group">교양</a></li>
-		                    <li><a href="/mainCategory.jsp?cata=oversea" class="list-group">소설</a></li>
-		                    <li><a href="/mainCategory.jsp?cata=oversea" class="list-group">전공도서</a></li>		                    
-		                </ul>
-		            </div>
-		            <div class="allMenuLine"></div>
-		            <div class="allMenu_list">
-		                <ul>
-		                    <li class="title">전자책</li>
-		                    <li><a href="/mainCategory.jsp?cata=ebook" class="list-group">교양</a></li>
-		                    <li><a href="/mainCategory.jsp?cata=ebook" class="list-group">소설</a></li>
-		                    <li><a href="/mainCategory.jsp?cata=ebook" class="list-group">전공도서</a></li>
-		                </ul>
-		            </div>       
+                <div class="allMenu">
+                    <%
+	    int i = 0;
+	
+	    for(Category result:catemgr.listCategoriesUse()){
+	        if(result.getCode2() == 0){  
+	            if(i != 0){ %>
+                    </ul>
+                </div>
+                <div class="allMenuLine"></div>                      
+            <% } %>
+                    <div class="allMenu_list">
+                        <ul>
+                            <li class="title"><%=result.getCategoryName() %></li>                    
+            <% i++;
+            }else{ %>       
+                            <li><a href="/mainCategory.jsp?cata=<%=result.getCode1()%>&code=<%=result.getCategoryID()%>" class="list-group"><%=result.getCategoryName() %></a></li>      
+	     <% }
+	    } %>
+			            </ul>
+	                </div>
                 </div>
             </div>
         </div>

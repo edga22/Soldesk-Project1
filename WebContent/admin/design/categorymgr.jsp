@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="domain.Category" %>
 <%@ page import="mgr.CategoryMgr" %>
 <%@ page import="java.util.List" %>
@@ -6,6 +7,7 @@
 CategoryMgr mymgr = new CategoryMgr();
 List<Category> categories = mymgr.listCategories();
 List<Category> categoriescode1 = mymgr.listCategoriesCode1();
+pageContext.setAttribute("categoriescode1", categoriescode1);
 int categoriesSize = categories.size();
 int categoriesCode1Size = categoriescode1.size();
 int categoriesCode2Size = categoriesSize-categoriescode1.size();
@@ -178,9 +180,9 @@ td, th {
     	$("#categoryAddBanner").show();
         
     	var addBannerText =  '<tr name="trBanner2">'+
-            '   <td colspan="3"><input name="code1" class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="두자리 숫자입력"></td>'+
-            '   <td><input name="categoryName" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류1 이름입력"></td>'+
-            '   <td><input name="categorySubject" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류1 설명입력"></td>'+
+            '   <td colspan="3"><input name="code1" class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="두자리 숫자입력" required></td>'+
+            '   <td><input name="categoryName" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류1 이름입력" required></td>'+
+            '   <td><input name="categorySubject" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류1 설명입력" required></td>'+
             '   <td><label><input name="categoryUse" type="checkbox" value="1" checked>사용</label></td>'+
             '   <td>'+
             '       <button name="delBanner" class="btn btn-info btn-sm">삭제</button>'+
@@ -208,20 +210,20 @@ td, th {
     	var addBannerText2 =  '<tr name="trBanner2">'+            
             '   <td colspan="2">'+
 	        '      <select class="form-control input-sm" name="code1">'+
-		    '         <option value="default">-1차분류-</option>'+
-		    '         <c:forEach var="categoryuse" items="${categoriesusecode1}">'+
-		    '         <option value="${categoryuse.code1}">${categoryuse.categoryName}</option>'+
+		    '         <option value="default" required>-1차분류-</option>'+
+		    '         <c:forEach var="category" items="${categoriescode1}">'+
+		    '         <option value="${category.code1}">${category.categoryName}</option>'+
 		    '         </c:forEach>'+
 	        '      </select>'+
             '   </td>'+
-            '   <td><input name="code2" class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="2자리숫자입력"></td>'+
+            '   <td><input name="code2" class="form-control input-sm text-center" id="inputsm" type="text" value="" placeholder="2자리숫자입력" required></td>'+
             '   <td>'+
             '   <div class="input-group">'+
             '       <span class="input-group-addon"><i class="fa fa-plus" style="font-size:15px"></i></span>'+
-            '       <input name="categoryName" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류2 이름입력">'+
+            '       <input name="categoryName" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류2 이름입력" required>'+
             '   </div>'+
             '   </td>'+
-            '   <td><input name="categorySubject" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류2 설명입력"></td>'+
+            '   <td><input name="categorySubject" class="form-control input-sm" id="inputsm" type="text" value="" placeholder="분류2 설명입력" required></td>'+
             '   <td><label><input name="categoryUse" type="checkbox" value="1" checked>사용</label></td>'+
             '   <td>'+
             '      <button name="delBanner2" class="btn btn-info btn-sm">삭제</button>'+
