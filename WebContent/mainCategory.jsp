@@ -83,8 +83,8 @@ a {
     border-bottom:1px solid #eee;
     margin-bottom:1.8rem;
 }
-#categoryLine h3 {
-    margin:0.1rem 0 0.5rem 0;
+#categoryLine h4 {
+    margin:2rem 0 0.5rem 0;
     padding:0;
 }
 #categoryLine img{
@@ -167,6 +167,7 @@ $(document).ready(function(){
 		    NumberFormat nf = NumberFormat.getNumberInstance();
 		    int i = 0;
 		    int j = 1;
+		    int s = 0;
 			for(Book book: books){
 				int bookPoint = 0; //포인트 
 				int bookPrice = 0; //등록된 책가격
@@ -233,20 +234,31 @@ $(document).ready(function(){
     				}
     			}
     			i++;
-    			
-    			 // if(codeId == cateInt2){
-    			     if(cataCode == cateInt){
+    		    
+    			int cataLinkLIst1 = 0;
+    			int cataLinkLIst2 = 0;
+    			//1차분류 리스트
+    			if(codeId != 0 && cataCode != 0){
+    				cataLinkLIst1 = codeId;
+    				cataLinkLIst2 = cateInt2;
+    			}
+    			//2차분류 리스트
+    			if(codeId == 0 && cataCode != 0){
+    				cataLinkLIst1 = cataCode;
+                    cataLinkLIst2 = cateInt;
+    			}
+    			//리스트 출력
+    		    if(cataLinkLIst1 == cataLinkLIst2){
 			%>
 			<div class="row" id="categoryLine"> <!-- items -->
-				<div class="col-md-2">
-				    <div class="number"><%=j %></div>										
+				<div class="col-md-2 text-center">
+				    <div class="number"><%=j %></div>
+				    <%=cateName %><br>										
 					<a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>"/></a>
 				</div>
-				<div class="col-md-7">
-					<p style="margin:0.2rem 0;">
-						[<%=cateInt %>][<%=cateInt2 %>][<%=cateName %>][<%=cateSubject %>][<%=cateName2 %>][<%=cateSubject2 %>]
-					</p>
+				<div class="col-md-7">										
 					<h4>
+					   <span style="font-size:1.4rem;color:gray;">[<%=cateName2 %>]</span>
 					   <a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 바로가기"><%=book.getBookName() %></a>
 					   <a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 새창으로보기" target="_blank">
                        <i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
@@ -255,7 +267,7 @@ $(document).ready(function(){
 					<ul>
 						<li>정가: <%=nf.format(bookPrice) %>원 <i class="glyphicon glyphicon-arrow-right"></i>
 						판매가: <%=nf.format(bookSalePrice) %>원<% if(bookdiscount != 0) out.print("("+bookdiscount+"%)"); %></li>
-						<li>적립포인트 : <%=nf.format(bookPoint) %>P (<%=pointPer%>% 지급)P</li>						
+						<li>적립포인트 : <%=nf.format(bookPoint) %>P (<%=pointPer%>% 지급)</li>						
 					</ul>
 				</div>
 				<div class="col-md-1">
@@ -266,10 +278,9 @@ $(document).ready(function(){
 					<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a></p>
 				</div>				
 			</div>			
-			<%
-			   j++;
-			   }
-    			  
+			<%       
+				   j++;
+    		    }
 			}
 			%>
 			</form>
