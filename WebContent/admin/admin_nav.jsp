@@ -26,7 +26,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="disabled"><a href="#">Settings</a>
-				<li><a href="logout.jsp">로그아웃</a></li>
+				<li><a href="/sign/signOut.jsp">로그아웃</a></li>
 				<li><a href="/main.jsp">쇼핑몰</a></li>
 			</ul>
 		</div>
