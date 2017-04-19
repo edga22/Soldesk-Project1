@@ -62,14 +62,14 @@
 									<input type="hidden" name="qID" value="<%=memberID%>">									
 									<input type="text" class="form-control" name="userInquireName"
 										autofocus="autofocus" placeholder="이름"
-										value="<%=mb.getName()%>">
+										value="<%=mb.getName()%>" readonly>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="text">이메일:</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" name="userInquireEmail"
-										placeholder="E-Mail" value="<%=mb.getEmail()%>">
+										placeholder="E-Mail" value="<%=mb.getEmail()%>" readonly>
 								</div>
 							</div>
 							<div class="form-group">
@@ -100,7 +100,7 @@
 								<label class="control-label col-sm-2" for="text">내용:</label>
 								<div class="col-sm-10">
 									<textarea rows="10" cols=100% name="userInquireContents"
-										style="width: 100%; hight: 800px;"
+										style="width: 100%; hight: 1200px; resize:none;" 
 										placeholder=" ※구매내역(책 제목, 구매일)을 함께 남겨주시면 보다 빠른 답변이 가능합니다."
 										required></textarea>
 								</div>

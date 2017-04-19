@@ -18,9 +18,9 @@
 		order by USERINQUIRE_ID
 	</select>
 	
-	<select id="getUserInquire" resultMap="UserInquireMap" parameterType="domain.UserInquire">
+	<select id="getUserInquire" resultMap="UserInquireMap" parameterType="int">
 		select * from USERINQUIRES 
-		where USERINQUIRE_ID = #{userInuqerId}
+		where USERINQUIRE_ID = #{userInquireID}
 	</select>	
 	
 	<select id="getAskTitle" resultMap="UserInquireMap" parameterType="int">
@@ -29,13 +29,14 @@
 	</select>	
 	
 	<insert id="addUserInquire" parameterType="domain.UserInquire">
-		insert into USERINQUIRES(MEMBER_ID, TYPE, TITLE, CONTENT, DATE)
-		values(#{memberID},#{Type},#{Title,jdbcType=VARCHAR},#{Content,jdbcType=VARCHAR},#{Date,jdbcType=DATE})
+		insert into USERINQUIRES(MEMBER_ID, TYPE, TITLE, CONTENT, DATE, STATE)
+		values(#{memberID},#{Type},#{Title,jdbcType=VARCHAR},#{Content,jdbcType=VARCHAR},#{Date,jdbcType=DATE}, #{State})
 	</insert>
 	
-	<!-- 
-	<update id="resultUserInquire" parameterType="domain.UserInquire">	
-		
+	<update id="updateUserInquire" parameterType="domain.UserInquire">
+		update USERINQUIRES
+		set ANSWER=#{Answer,jdbcType=VARCHAR}, STATE=#{State}
+		where USERINQUIRE_ID = #{userInquireID}	
 	</update>
-	 -->
+	
 </mapper>

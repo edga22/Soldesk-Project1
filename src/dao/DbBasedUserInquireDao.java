@@ -15,21 +15,26 @@ public class DbBasedUserInquireDao implements UserInquireDao{
 	@Override
 	public UserInquire[] getUserInquires(){
 		return mapper.getUserInquires().toArray(new UserInquire[mapper.getUserInquires().size()]);
-	}
-	
-	@Override
-	public UserInquire getUserInquire(){
-		return mapper.getUserInquire();
-	}
+	}	
 	
 	@Override
 	public UserInquire[] getAskTitle(int memberID){
-		return mapper.getAskTitle();
+		return mapper.getAskTitle(memberID);
+	}
+	
+	@Override
+	public UserInquire getUserInquire(int userInquireID){
+		return mapper.getUserInquire(userInquireID);
 	}
 	
 	@Override
 	public int addUserInquire(UserInquire addUserInquire){
 		return mapper.addUserInquire(addUserInquire);
 	}
-
+	
+	@Override
+	public int updateUserInquire(UserInquire userInquireID){
+		return mapper.updateUserInquire(userInquireID);
+	}
+	
 }

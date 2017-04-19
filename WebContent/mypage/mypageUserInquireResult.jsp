@@ -20,20 +20,28 @@
 <title>마이페이지 1:1문의결과</title>
 </head>
 <body>
-	<%
-		int memberID = (Integer) session.getAttribute("memberID");
-		int userID = 1;
-		if (memberID == 0) {
-		} else {
-			userID = memberID;
-		}		
+<%
+MemberDao mbDao = new DbBasedMemberDao();
+UserInquireDao uiDao = new DbBasedUserInquireDao();
 
-		MemberDao mbDao = new DbBasedMemberDao();		
-		Member mb = mbDao.getMember(userID);
-		
-		UserInquireDao uiDao = new DbBasedUserInquireDao();
-		UserInquire[] userInquire = uiDao.getAskTitle(userID);	//배열로 해서 받자
-	%>
+int memberID = (Integer) session.getAttribute("memberID");
+	
+Member mb = mbDao.getMember(memberID);		
+UserInquire[] userInquire = uiDao.getAskTitle(memberID);	//배열로 해서 받자
+
+/*int memberID = (Integer) session.getAttribute("memberID");
+int userID = 1;
+if (memberID == 0) {
+} else {
+	userID = memberID;
+}		
+
+MemberDao mbDao = new DbBasedMemberDao();		
+Member mb = mbDao.getMember(userID);
+
+UserInquireDao uiDao = new DbBasedUserInquireDao();
+UserInquire[] userInquire = uiDao.getAskTitle(userID);	//배열로 해서 받자 */
+%>
 
 	<jsp:include page="/main_navbar.jsp"></jsp:include>
 	<div class="container">
@@ -65,33 +73,34 @@
 					</td>
 				</tr>
 				<!-- 1:1 질문 답변 준비 -->
-				<tr>
 				<% 
 				if(userInquire.length >0){
 					for(int i = 0 ; i<userInquire.length ; i++){ %>
+				<tr>				
 					<td>						
 						<form class="form-horizontal">
 							<div class="form-group">
-								<a href="mypageUserInquireView.jsp" class="col-sm-8"
+								<a href="mypageUserInquireView.jsp?userInquireID=<%=userInquire[i].getUserInquireID()%>" class="col-sm-8"
 									style="text-align: center;"><%=userInquire[i].getTitle()%></a> 
 								<label class="col-sm-2" for="text" style="text-align: center;"><%=userInquire[i].getDate() %></label>
-								<label class="col-sm-2" for="text" style="text-align: center;">답변여부</label>
+								<label class="col-sm-2" for="text" style="text-align: center;">
+									<%if(userInquire[i].getState() == 1){%>
+										진행중										
+									<%
+									}else{%>
+										답변완료
+									<%	
+									}
+									%>
+								</label>
 							</div>
 						</form> 						
-					</td>
+					</td>				
+				</tr>
 				<%
 					}
-				}else
-					%>
-					<td>
-					왜 안되는것이냐 왜이렇게 문제인것이냐<%=userInquire[0].getTitle() %>
-					</td>
-					
-					
-				<%	
-				
+				}				
 				%>
-				</tr>
 			</table>
 		</div>
 	</div>
