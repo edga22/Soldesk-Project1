@@ -48,7 +48,7 @@
 	
 		Member mem = mapper.findPwMember(member);
 		
-		if(mem != null && !mem.equals("")){
+	if(mem != null && !mem.equals("")){
 %>
 	<div class="row" id="wrap">
 	<h4><%=ID %>님의 비밀번호는 <%=mem.getPassword() %>입니다.</h4>

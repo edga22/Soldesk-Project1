@@ -21,6 +21,7 @@
 <div class="container" id="pws4">
 	<jsp:include page="../logo.jsp"/>
 <%	
+	request.setCharacterEncoding("utf-8");
 	String name = "";
 	String phone = "";	
 
@@ -32,18 +33,18 @@
 	}
 	
 	Member member = new Member();
+	MemberService mapper = new MemberService();
 	
 	if((name != null && !name.equals(""))
 			&& (phone != null && !phone.equals(""))){	// id찾기
 		member.setName(name);
 		member.setPhone(phone);
 		
-		MemberService mapper = new MemberService();
+		Member mem = mapper.findIdMember(member);
 		
-		member = mapper.findIdMember(member);
-	if(member != null && !member.equals("")){
+	if(mem != null && !mem.equals("")){
 %>
-	<h4>당신의 아이디는<%=member.getEmail()%> 입니다.</h4>
+	<h4>당신의 아이디는<%=mem.getEmail()%> 입니다.</h4>
 	
 	<a href="signInPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
 <%

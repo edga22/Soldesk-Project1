@@ -44,13 +44,13 @@
 	</update>
 	
 	<select id="findIdMember" parameterType="domain.Member" resultMap="MemberMap">
-		select email
+		select *
 		from members
 		where name = #{name} and phone = #{phone}
 	</select>
 	
 	<select id="findPwMember" parameterType="domain.Member" resultMap="MemberMap">
-		select passwd
+		select *
 		from members 
 		where email = #{email} and name = #{name} and phone = #{phone}
 	</select>
