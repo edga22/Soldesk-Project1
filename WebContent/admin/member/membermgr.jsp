@@ -22,6 +22,10 @@ h3 {
 .result-group{
     margin-bottom : 1.5em;
 }
+td, th{
+	text-align: center;
+	font-size: 1.4rem;	
+}
 </style>
 </head>
 <body>
