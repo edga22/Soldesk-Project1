@@ -22,6 +22,7 @@
 	padding:1rem;
 	align:right;
 }
+
 </style>
 </head>
 <body>
@@ -111,16 +112,22 @@ if(memberID == 0){
 		<table class="table table-condensed">
 		 <tbody>	 	
 		  <tr>
-			<th>이름</th> <td><input type="text" name="userName" placeholder="주문자 성함" value="<%=member.getName()%>" required></td>
+			<th>이름</th> <td><input type="text" name="userName" class="form-control"placeholder="주문자 성함" value="<%=member.getName()%>" required></td>
 		  </tr>  			
 		  <tr>
-			<th>연락처</th> <td><input type="text" name="phone" placeholder="연락처" value="<%=member.getPhone()%>" required></td>
+			<th>연락처</th> <td><input type="text" name="phone" class="form-control"placeholder="연락처" value="<%=member.getPhone()%>" required></td>
 		  </tr>  			
 		  <tr>
-			<th>우편번호</th> <td><input type="number" name="postCode" placeholder="우편번호" value="<%=member.getPostCode()%>" required></td>
-		  </tr>  			
-		  <tr>
-			<th>주소</th> <td><input type="text" id="address" name="address" placeholder="배송 주소" value="<%=member.getAddress()%>" required></td>
+			<th>주소/우편번호</th> 
+			<td>
+			<input type="text" name="postCode" class="postcodify_postcode5 form-control" id="postNumber" value="<%=member.getPostCode()%>" readonly/>
+			<input type="text" name="address" class="postcodify_address form-control" value="<%=member.getAddress()%>" required readonly/><br />
+			<input type="text" name="address2" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요."/>
+			<button type="button" id="postcodify_search_button" class="btn btn-danger btn-xs">주소변경</button>
+			<button type="submit" formaction="/shop/paymentAddress.jsp"  class="btn btn-danger btn-xs">변경완료</button>
+			<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+			<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
+			</td>
 		  </tr>  			
 		 </tbody>
 		</table>		

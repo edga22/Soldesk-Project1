@@ -74,7 +74,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 
 <div class="container">
 	<div class="row content">
-    	<div class="col-sm-2 sidenav">
+    	 <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
 			<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
 		</div>
 <div class="col-sm-8">
@@ -82,10 +82,6 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
       <h4>회원정보</h4>
       <table class="table table-bordered">
 	<thead>
-		<tr>
-			<th>회원번호</th>
-			<td><%=member.getMemberID()%></td>
-		</tr>
 		<tr>
 			<th>아이디</th>
 			<td><%=member.getEmail()%></td>

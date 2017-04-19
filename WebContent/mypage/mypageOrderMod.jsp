@@ -18,9 +18,10 @@
 <title>마이페이지 주문조회/변경/취소</title>
 <style>
 button{
-margin:3rem;
+margin:2rem;
 
 }
+
 </style>
 </head>
 <body>
@@ -37,7 +38,7 @@ PurchaseOrder[] purchaseOrders = dm.getMember(memberID);
 
 <div class="container">
   <div class="row content">
-    <div class="col-sm-2 sidenav">
+   <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
 		<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
     </div>
   <div class="col-sm-10">
@@ -45,7 +46,7 @@ PurchaseOrder[] purchaseOrders = dm.getMember(memberID);
 	<thead>
 		<tr>
 			<th>구매번호</th>
-			<th>상품</th>
+			<th style="width:40rem;">상품</th>
 			<th>구매일</th>
 			<th>배송상태</th>
 			<th>반품</th>
@@ -65,7 +66,7 @@ for(PurchaseOrder po:purchaseOrders){
 			<td><%=order.getProduct(ods) %></td>
 			<td><%=po.getPurchaseDate() %></td>
 			<td><%=order.change(po.getProgress())%></td>
-			<td><a href="/mypage/mypageRefundProc.jsp?a=1&orderID=<%=orderID %>" class="btn btn-danger btn-xs">교환</a>
+			<td style="text-align:center; height:auto;"><a href="/mypage/mypageRefundProc.jsp?a=1&orderID=<%=orderID %>" class="btn btn-danger btn-xs">교환</a>
 			    <a href="/mypage/mypageRefundProc.jsp?a=2&orderID=<%=orderID %>" class="btn btn-danger btn-xs">환불</a>
 			    <a href="/mypage/mypageRefundProc.jsp?a=3&orderID=<%=orderID %>" class="btn btn-primary btn-xs">교환/환불취소</a> </td>
 			<td><%=point %></td>    

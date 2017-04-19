@@ -14,7 +14,7 @@
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container">
 	<div class="row content">
-    	<div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
 			<jsp:include page="mypageMain.jsp"></jsp:include>
 		</div> 		
 		<div class="col-sm-10">
