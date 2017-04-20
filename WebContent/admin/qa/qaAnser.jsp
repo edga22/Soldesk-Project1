@@ -53,7 +53,7 @@ int a = userInquire.getUserInquireID();
 								<input type="hidden" name="UserInquireID" value="<%=userInquire.getUserInquireID()%>">		
 								<label class="control-label col-sm-2" for="text">질문제목:</label>
 								<label class="control-label"><%=userInquire.getTitle() %></label>								
-							</div>
+							</div>							
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="text">등록일:</label>
 								<label class="control-label"><%=userInquire.getDate() %></label>								
@@ -69,7 +69,9 @@ int a = userInquire.getUserInquireID();
 								<label class="control-label col-sm-2" for="text">답변내용:</label>
 								<div class="col-sm-10">
 									<textarea rows="10" cols=100% name="userInquireAsk"
-										style="width: 100%; hight: 900px; resize:none;"></textarea>
+										style="width: 100%; hight: 900px; resize:none;"><%
+										if(userInquire.getAnswer() == null || userInquire.getAnswer().equals("")){%> <%										
+										}else{%><%=userInquire.getAnswer()%><%}%></textarea>
 								</div>
 							</div>
 							<div>
