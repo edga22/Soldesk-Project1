@@ -15,7 +15,7 @@
 <div class="container">
 <div class="row content">
     <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
-<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
+<jsp:include page="mypageMain.jsp"></jsp:include>
 </div>
 <div class="col-sm-10">
 <div id="MypageQuestion">
@@ -28,7 +28,7 @@
 	<br>
 	<br>
 	<br>	
-	<a href="/mypage/mypageQuestion.jsp"><button type="button" class="btn btn-primary">질문페이지로</button></a>
+	<a href="mypageQuestion.jsp"><button type="button" class="btn btn-primary">질문페이지로</button></a>
 </div>
 </div>
 </div>
