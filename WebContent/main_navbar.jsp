@@ -212,7 +212,7 @@ $(document).ready(function(){
             </div>
             <div class="col-md-3">
                <div id="ad1">
-                   <img alt="상단광고" src="/img/main/161111_head_mgt.jpg" />
+                   <a href="/inven/bookDetail.jsp?bookID=14" title="언어의 온도 바로가기"><img alt="상단광고" src="/img/main/161111_head_mgt.jpg" /></a>
                </div>
             </div>
         </div>

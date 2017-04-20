@@ -19,7 +19,7 @@
 	</resultMap>
 		
 	<select id="getAllBooks" resultMap="BookMap">
-		SELECT * FROM Books ORDER BY BOOK_ID desc
+		SELECT * FROM Books ORDER BY publish_date DESC
 	</select>
 	
 	<select id="getCode1Books" parameterType="config.param.BookCode1Target" resultMap="BookMap">
@@ -41,7 +41,7 @@
 		<if test="value != null">
 		WHERE book_name	LIKE CONCAT('%',#{value},'%') OR author LIKE CONCAT('%',#{value},'%') OR publisher LIKE CONCAT('%',#{value},'%')
 		</if>
-		ORDER BY publish_date desc
+		ORDER BY publish_date DESC
 	</select>	
 		
 	<insert id="addBook" parameterType="domain.Book">

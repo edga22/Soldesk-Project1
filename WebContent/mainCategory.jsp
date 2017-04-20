@@ -6,7 +6,6 @@
 		 import="domain.Category"
          import="mgr.CategoryMgr"
          import="java.util.List" %>
-		 
 <%
 	BookMgr bookmgr = new BookMgr();
     CategoryMgr catemgr = new CategoryMgr();
@@ -290,7 +289,7 @@ $(document).ready(function(){
                     <input type="checkbox" name="bookID" value="<%=book.getBookID() %>">
                 </div>
 				<div class="col-md-2" style="vertical-align:middle;">
-					<p><a class="btn btn-default" href="/shop/basketAddValues.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a></p>
+					<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a></p>
 					<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a></p>
 				</div>				
 			</div>			

@@ -16,6 +16,8 @@
 <%
 BookMgr mymgr = new BookMgr();
 // 이전 페이지에서 넘어온 값들 저장
+response.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 String tmpID = request.getParameter("bookID");
 int bookID=0;
 String bookName = request.getParameter("bookName");
