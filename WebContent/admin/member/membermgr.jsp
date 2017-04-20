@@ -62,18 +62,18 @@ td, th{
 <div class="container"> <!-- main container -->
 
 <div class="row">
-    <div class="event event-header">
+    <div class="event event-header" style="text-align:center">
         <h2>회원 관리</h2>
     </div>
 <form action="membermgr.jsp">
 		<div class="col-sm-4">
 			<input type="number" class="form-control" name="point" max="999999" placeholder="보너스 포인트 변경">
-			<button type="submit" class="btn btn-info" name="mod" value="update" style="margin-top:10px;"><span>포인트 수정</span></button>
-			<button type="submit" class="btn btn-danger" name="mod" value="delete" style="margin-top:10px;"><span>회원 삭제</span></button>
+			<button type="submit" class="btn btn-info" name="mod" value="update" style="margin:10px;"><span>포인트 수정</span></button>
+			<button type="submit" class="btn btn-danger" name="mod" value="delete" style="margin:10px;"><span>회원 삭제</span></button>
 		</div>
-	<table class="table">
+	<table class="table table-hover">
 		<thead>
-			<tr>
+			<tr class="info">
 				<th>사용자 번호</th>
 				<th>아이디</th>
 				<th>이름</th>
