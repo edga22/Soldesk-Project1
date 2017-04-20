@@ -39,4 +39,9 @@
 		where USERINQUIRE_ID = #{userInquireID}	
 	</update>
 	
+	<delete id="delUserInquireAsk" parameterType="int">
+		delete from USERINQUIRES
+		where MEMBER_ID = #{memberID}
+	</delete>	
+	
 </mapper>

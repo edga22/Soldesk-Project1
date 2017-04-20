@@ -37,4 +37,9 @@ public class DbBasedUserInquireDao implements UserInquireDao{
 		return mapper.updateUserInquire(userInquireID);
 	}
 	
+	@Override
+	public int delUserInquireAsk(int memberID){
+		return mapper.delUserInquireAsk(memberID);
+	}
+	
 }

@@ -4,6 +4,7 @@
 		 import="service.MemberService"
 		 import="dao.MypageDao"
 	 	 import="dao.DbBasedMypageDao"%>
+<%@ page import="service.UserInquireService"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,13 +34,17 @@ margin-top:2%;
 int memberID = (Integer)session.getAttribute("memberID");
 MypageDao md = new DbBasedMypageDao();
 MemberService ms = new MemberService();
+UserInquireService us = new UserInquireService();
+
 Member member= ms.getMember(memberID);
 
 String pw = request.getParameter("password");
 	
-if(pw.equals(member.getPassword())){
+if(pw.equals(member.getPassword())){	
+	us.delUserInquireAsk(memberID);	
 	md.getoutMember(member);
-	session.invalidate();		
+	session.invalidate();
+
 %>
 <jsp:include page="../logo.jsp"/>
 <div class="container" id="out">

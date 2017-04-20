@@ -11,9 +11,7 @@ public class UserInquire {
 	private String Content;
 	private Date Date;
 	private String Answer;
-	private int State;
-	
-	
+	private int State;	
 	
 	public int getUserInquireID() {
 		return userInquireID;

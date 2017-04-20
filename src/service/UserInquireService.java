@@ -69,4 +69,9 @@ public class UserInquireService {
 	public int updateAsk(UserInquire userInquire){			
 		return userInquireDao.updateUserInquire(userInquire);
 	}
+	
+	public int delUserInquireAsk(int memberID){			
+		return userInquireDao.delUserInquireAsk(memberID);
+	}
+	
 }	
