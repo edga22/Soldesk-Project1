@@ -25,6 +25,15 @@ String memberID = "";
 if(session.getAttribute("ID") != null)memberID = (String)session.getAttribute("ID");
 int memberNum = 0;
 if(session.getAttribute("memberID") != null) memberNum = (int)session.getAttribute("memberID");
+
+String scTarget = "";
+if(request.getParameter("SearchTarget") != null) scTarget = request.getParameter("SearchTarget");
+int scTargetCode = 0;
+try{
+	scTargetCode = Integer.parseInt(scTarget);
+}catch(Exception e){
+	scTargetCode = 0;
+}
 %>
 <!DOCTYPE html PUBLIC>
 <html>
@@ -192,7 +201,7 @@ $(document).ready(function(){
                     <select class="form-control" id="sel1" name="SearchTarget">
                         <option value="all">통합검색</option>
                   <% for(Category result1:catemgr.listCategoriesCode1()){  %>
-                        <option value="<%=result1.getCode1() %>"><%=result1.getCategoryName() %></option>
+                        <option value="<%=result1.getCode1() %>" <%=(result1.getCode1()==scTargetCode)?"selected":"" %>><%=result1.getCategoryName() %></option>
                   <% } %>
                     </select>
                     <input type="text" class="form-control" id="search" name="SearchWord"/>                            

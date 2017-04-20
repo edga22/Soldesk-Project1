@@ -17,6 +17,7 @@ String scTarget = "";
 String scWord = "";
 String sortOrder = "";
 int order = 9;
+int code1 = 0;
 
 int domesticCnt=0;
 int overseaCnt=0;
@@ -47,8 +48,7 @@ else if(!scWord.equals("")){ // 최초 검색일때
 	if(scTarget.equals("") || scTarget.equals("all")){
 		scResult = scmgr.getBooks(scWord);
 	}
-	else{
-		int code1 = 0;
+	else{		
 		try{
 			code1 = Integer.parseInt(scTarget);
 		}catch(Exception e){
@@ -145,7 +145,7 @@ if(scResult != null && scResult.length > 0){
 <div class="container"> <!-- Main container -->
 <div class="row" id="cate-top">
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="#">통합검색(<%=(scResult!=null)?scResult.length:0 %>)</a></li>
+		<li><a href="#">통합검색(<%=(scResult!=null)?scResult.length:0 %>)</a></li>
 		<li><a href="#">국내도서(<%=domesticCnt %>)</a></li>
 		<li><a href="#">외국도서(<%=overseaCnt %>)</a></li>
 		<li><a href="#">E-Book(<%=ebookCnt %>)</a></li>
@@ -160,7 +160,7 @@ if(scResult != null && scResult.length > 0){
 			<button class="btn btn-default btn-sm" type="submit" name="inSc" value="1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>	
 			</form>		
 		</div>
-		<div class="cate-group">		
+		<div class="cate-group" style="display:none;">		
 			<p>카테고리 선택</p>
 			<ul class="list-group">
 				<li class="list-group-item">소설 <span class="badge">12</span></li>

@@ -26,9 +26,9 @@
 		SELECT b.* FROM Books b
 		LEFT JOIN category c
 		ON b.CATEGORY_ID = c.CATEGORY_ID
-		WHERE book_name	LIKE CONCAT('%',#{target},'%') 
+		WHERE (book_name	LIKE CONCAT('%',#{target},'%') 
 			OR author LIKE CONCAT('%',#{target},'%') 
-			OR publisher LIKE CONCAT('%',#{target},'%')
+			OR publisher LIKE CONCAT('%',#{target},'%'))
 			AND c.CODE1 = #{code1};
 	</select>
 	
