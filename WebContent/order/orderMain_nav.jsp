@@ -17,7 +17,7 @@
 	<div>
 	<form>	
 	 회원번호로 조회: <input type="number" name="memberID" placeholder="유저 번호" required>
-	 <button type="submit" formaction="/order/ordersByMemberID.jsp" class="btn btn-default">검색</button>
+	 <button type="submit" formaction="/order/ordersByMemberID.jsp" class="btn btn-info btn-xs glyphicon glyphicon-search">검색</button>
 	</form>
 	<form> 	
 	 배송상태로 조회:
@@ -32,14 +32,16 @@
 			<option value="7">환불접수</option>
 			<option value="8">환불완료</option>
 		</datalist> 
-	 <button type="submit" formaction="/order/ordersByProgress.jsp" class="btn btn-default">검색</button>
+	 <button type="submit" formaction="/order/ordersByProgress.jsp" class="btn btn-info btn-xs glyphicon glyphicon-search">검색</button>
 	</form>	
 	<form>	
 	 주문번호로 조회: <input type="number" name="orderID" placeholder="주문번호" required>
-	 <button type="submit" formaction="/order/ordersByOrderID.jsp" class="btn btn-default">검색</button>
+	 <button type="submit" formaction="/order/ordersByOrderID.jsp" class="btn btn-info btn-xs glyphicon glyphicon-search">검색</button>
 	</form>
-	</div>	
-	<a href="/order/orderAll.jsp" class="btn btn-default">전체검색</a><br><br>
+	</div>
+		<div style="margin:1rem;">	
+		 <a href="/order/orderAll.jsp" class="btn btn-success btn-sm glyphicon glyphicon-list">전체검색</a><br><br>
+		</div>
 	</div>
 </div>  
 </body>

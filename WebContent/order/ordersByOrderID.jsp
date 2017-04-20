@@ -35,12 +35,14 @@ PurchaseOrder po = mymgr.getOrder(orderID);
 			<option value="7">환불접수</option>
 			<option value="8">환불완료</option>
 		</datalist>
-		<button type="submit" class="btn btn-default">수정</button>	
+		<button type="submit" class="btn btn-warning">수정</button>	
 <hr style="border: solid 0.1rem;">
-		<h4>주문 번호 조회 결과</h4>
-		 <table class="table table-condensed">
+		<div style="text-align:center;">
+		 <h4>주문 번호 조회 결과</h4>
+		</div>
+		 <table class="table table-condensed table-striped">
 	  	 <thead>
-	 	   <tr>
+	 	   <tr class="info">
 			<th>회원번호</th>
 			<th>주문번호</th>
 			<th>품목</th>
