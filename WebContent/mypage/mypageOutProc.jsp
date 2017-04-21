@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"
 		 import="service.MemberService"
-		 import="dao.MypageDao"
-	 	 import="dao.DbBasedMypageDao"%>
-<%@ page import="service.UserInquireService"%>
+		 import="service.UserInquireService"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +30,7 @@ margin-top:2%;
 <body>
 <%
 int memberID = (Integer)session.getAttribute("memberID");
-MypageDao md = new DbBasedMypageDao();
+
 MemberService ms = new MemberService();
 UserInquireService us = new UserInquireService();
 
@@ -42,7 +40,7 @@ String pw = request.getParameter("password");
 	
 if(pw.equals(member.getPassword())){	
 	us.delUserInquireAsk(memberID);	
-	md.getoutMember(member);
+	ms.getoutMember(member);
 	session.invalidate();
 
 %>
