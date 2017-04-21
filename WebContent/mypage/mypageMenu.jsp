@@ -4,7 +4,6 @@
          import="service.MemberService" 
          import="java.text.NumberFormat"%>
 
-<title>마이페이지</title>
 <style>
 .panel-body a {
     color:#000;

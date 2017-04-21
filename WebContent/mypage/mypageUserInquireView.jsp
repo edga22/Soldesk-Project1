@@ -3,19 +3,7 @@
 <%@ page import="domain.UserInquire"%>
 <%@ page import="dao.UserInquireDao"%>
 <%@ page import="dao.DbBasedUserInquireDao"%>
-<!DOCTYPE html PUBLIC >
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<title>마이페이지 1:1문의결과</title>
-</head>
-<body>
+
 <%
 int userInquireID = Integer.parseInt(request.getParameter("userInquireID"));
 
@@ -24,10 +12,11 @@ UserInquireDao uiDao = new DbBasedUserInquireDao();
 UserInquire userInquire = uiDao.getUserInquire(userInquireID);
 int a = userInquire.getUserInquireID();
 %>
-	<jsp:include page="/main_navbar.jsp"></jsp:include>
+	<jsp:include page="/main_navbar.jsp"/>
+	
 	<div class="container">
 		<div class="col-sm-2 sidenav" style="float: left;">
-			<jsp:include page="mypageMain.jsp"></jsp:include>
+			<jsp:include page="/mypage/mypageMenu.jsp"/>
 		</div>
 		<div class="col-sm-10" id="MypageUserInquire">
 			<table class="col-sm-10">
@@ -76,6 +65,5 @@ int a = userInquire.getUserInquireID();
 			</table>
 		</div>
 	</div>
-	<jsp:include page="/main_foot.jsp"></jsp:include>
-</body>
-</html>
+	
+	<jsp:include page="/main_foot.jsp"/>

@@ -7,19 +7,9 @@
 <%@ page import="dao.MemberDao"%>
 <%@ page import="dao.DbBasedMemberDao"%>
 <%@ page import="domain.Member"%>
-<!DOCTYPE html PUBLIC>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 <title>마이페이지 1:1문의결과</title>
-</head>
-<body>
+
 <%
 MemberDao mbDao = new DbBasedMemberDao();
 UserInquireDao uiDao = new DbBasedUserInquireDao();
@@ -43,10 +33,11 @@ UserInquireDao uiDao = new DbBasedUserInquireDao();
 UserInquire[] userInquire = uiDao.getAskTitle(userID);	//배열로 해서 받자 */
 %>
 
-	<jsp:include page="/main_navbar.jsp"></jsp:include>
+	<jsp:include page="/main_navbar.jsp"/>
+	
 	<div class="container">
 		<div class="col-sm-2 sidenav" style="float: left;">
-			<jsp:include page="mypageMain.jsp"></jsp:include>
+			<jsp:include page="/mypage/mypageMenu.jsp"></jsp:include>
 		</div>
 		<div class="col-sm-10" id="MypageUserInquire">
 			<table class="col-sm-10">
@@ -104,6 +95,5 @@ UserInquire[] userInquire = uiDao.getAskTitle(userID);	//배열로 해서 받자
 			</table>
 		</div>
 	</div>
-	<jsp:include page="/main_foot.jsp"></jsp:include>
-</body>
-</html>
+	
+	<jsp:include page="/main_foot.jsp"/>

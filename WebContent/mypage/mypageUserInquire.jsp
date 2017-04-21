@@ -31,11 +31,11 @@ label {
 }
 </style>
 
-<jsp:include page="/main_navbar.jsp"></jsp:include>
+<jsp:include page="/main_navbar.jsp"/>
 
 <div class="container">
 	<div class="col-sm-2 sidenav" style="float: left;">
-		<jsp:include page="mypageMain.jsp"/>
+		<jsp:include page="/mypage/mypageMenu.jsp"/>
 	</div>
 	<div class="col-sm-10" id="MypageUserInquire">
 		<table>
@@ -129,4 +129,4 @@ $('#inquireResult').on('click', function(e) {
 });
 </script>
 
-<jsp:include page="/main_foot.jsp"></jsp:include>
+<jsp:include page="/main_foot.jsp"/>
