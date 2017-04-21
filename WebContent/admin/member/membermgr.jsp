@@ -66,10 +66,10 @@ td, th{
         <h2>회원 관리</h2>
     </div>
 <form action="membermgr.jsp">
-		<div class="col-sm-4">
-			<input type="number" class="form-control" name="point" max="999999" placeholder="보너스 포인트 변경">
-			<button type="submit" class="btn btn-info" name="mod" value="update" style="margin:10px;"><span>포인트 수정</span></button>
-			<button type="submit" class="btn btn-danger" name="mod" value="delete" style="margin:10px;"><span>회원 삭제</span></button>
+		<div class="col-sm-12 form-inline" style="margin-bottom:1rem">
+			<input type="number" class="form-control" name="point" max="999999" placeholder="보너스 포인트 변경" style="margin-bottom:-0.3rem">
+			<button type="submit" class="btn btn-info glyphicon glyphicon-plus-sign" name="mod" value="update">포인트수정</button>
+			<button type="submit" class="btn btn-danger glyphicon glyphicon-ban-circle" name="mod" value="delete">회원삭제</button>
 		</div>
 	<table class="table table-hover">
 		<thead>
