@@ -152,7 +152,7 @@ $(document).ready(function(){
                        			}        
                        	%>
                        		<li>
-                       		<a href="/mypageAnswer/memberLevel.jsp"><span class="member_rate" style="background-color: <%=color%>;"><%=font %>회원</span></a>
+                       		<a href="/mypage/memberLevel.jsp"><span class="member_rate" style="background-color: <%=color%>;"><%=font %>회원</span></a>
                                	
                            	<%if(memberID.equals("admin@admin.com")){%>
                            	<a href="/admin/index.jsp"><b><%=memberID %></b></a>                       	
