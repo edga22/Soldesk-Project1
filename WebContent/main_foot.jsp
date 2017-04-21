@@ -63,7 +63,7 @@
         <div class="col-md-5">               
             <address>
                 <strong></strong><br />
-                    <i class="glyphicon glyphicon-comment" style="color:#555;font-size:0.2rem"></i> 1:1고객상담 : 메일로 빠르게 답신드립니다.  <a href="/mypage/MypageUserInquire.jsp" target="blank">문의하기</a><br />
+                    <i class="glyphicon glyphicon-comment" style="color:#555;font-size:0.2rem"></i> 1:1고객상담 : 메일로 빠르게 답신드립니다.  <a href="/mypage/mypageUserInquire.jsp" target="blank">문의하기</a><br />
                     <i class="glyphicon glyphicon-lock" style="color:#555;font-size:0.2rem"></i> 구매안전 에스크로 서비스 : <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;안전거래를 위해 현금 결제시 이용가능  <a href="#" target="blank">서비스가입확인</a>
             </address>

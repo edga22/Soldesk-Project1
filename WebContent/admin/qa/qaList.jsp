@@ -26,6 +26,10 @@ h3 {
 .result-group{
     margin-bottom : 1.5em;
 }
+td, th{
+	text-align: center;
+	font-size: 1.4rem;	
+}
 </style>
 </head>
 <body>
@@ -44,13 +48,13 @@ MemberDao mbDao = new DbBasedMemberDao();
 <div class="container"> <!-- main container -->
 
 <div class="row">
-    <div class="event event-header">
+    <div class="event event-header" style="text-align:center">
         <h2>문의 목록</h2>
     </div>
 
 <table class="table">
 		<thead>
-			<tr>
+			<tr class="info">
 				<th>등록번호</th>
 				<th>아이디</th>				
 				<th>제목</th>
