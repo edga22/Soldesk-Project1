@@ -54,14 +54,23 @@ int a = userInquire.getUserInquireID();
 								<label class="control-label"><%=userInquire.getDate() %></label>								
 							</div>
 							<div class="form-group">
+                                <label class="control-label col-sm-2" for="text">문의내용:</label>
+                                <div class="col-sm-10" style="border:1px solid #999;padding:2rem;">
+                                    <%=userInquire.getContent() %>
+                                </div>                                
+                            </div>
+							<div class="form-group">
 								<label class="control-label col-sm-2" for="text">답변내용:</label>
-								<div class="col-sm-10">
-									<textarea rows="10" cols=100% name="userInquireAsk"	style="width: 100%; hight: 900px; resize:none;"	readonly><%if(userInquire.getAnswer() != null && !userInquire.getAnswer().equals("")){%><%=userInquire.getAnswer()%><%}else{%>답변 처리 중입니다.<%}%></textarea>
+								<div class="col-sm-10" style="border:1px solid #999;padding:2rem;">
+									<%if(userInquire.getAnswer() != null && !userInquire.getAnswer().equals("")){%>
+									   <%=userInquire.getAnswer()%>
+									<%}else{%>
+									   답변 처리 중입니다.
+									<%}%>>
 								</div>
 							</div>							
 						</form></td>
 						<%}else{ %>
-					
 				<%} %>
 				</tr>				
 			</table>
