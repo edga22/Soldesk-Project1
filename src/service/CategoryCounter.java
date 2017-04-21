@@ -1,5 +1,7 @@
 package service;
 
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import mgr.CategoryMgr;
@@ -28,5 +30,17 @@ public class CategoryCounter {
 			}
 		}
 		return cnt;
+	}
+	
+	public Category[] getCategoryList(Book[] books){
+		List<Category> cList = cMgr.listCategoriesUse();
+		List<Category> cUseList = new LinkedList<Category>();
+		for(int i=0;i<books.length;i++){
+			for(Category cate : cList)
+				if(cate.getCategoryID() == books[i].getCategoryID()){ cUseList.add(cate); break; }
+		}
+		Collections.sort(cUseList);
+		
+		return cUseList.toArray(new Category[0]);
 	}
 }

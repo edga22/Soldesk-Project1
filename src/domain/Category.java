@@ -1,6 +1,6 @@
 package domain;
 
-public class Category {
+public class Category implements Comparable<Category>{
 	private int categoryID;
 	private int code1;
 	private int code2;
@@ -49,5 +49,16 @@ public class Category {
 	@Override
 	public String toString(){
 		return String.format("%d %d %d %s %s %d", categoryID, code1, code2, categoryName, categorySubject, categoryUse);
+	}
+
+	@Override
+	public int compareTo(Category arg0) {
+		if(this.getCode1() > arg0.getCode1()) return 1;
+		else if(this.getCode1() < arg0.getCode1()) return -1;
+		else {
+			if(this.getCode2() > arg0.getCode2()) return 1;
+			else if(this.getCode2() < arg0.getCode2()) return -1;
+			else return 0;
+		}
 	}
 }

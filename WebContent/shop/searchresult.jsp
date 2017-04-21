@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
+	import="domain.Category"
 	import="mgr.search.SearchMgr"
 	import="mgr.search.SearchBox"
 	import="mgr.BookSortMgr"
@@ -62,6 +63,7 @@ else if(!scWord.equals("")){ // 최초 검색일때
 	session.setAttribute("scbox", scbox);	
 }
 
+CategoryCounter cCnter = new CategoryCounter();
 if(scResult != null && scResult.length > 0){
 	/* 정렬방식 order
 	0 : 출시일순 (기본값)
@@ -85,11 +87,14 @@ if(scResult != null && scResult.length > 0){
 		break;
 	}
 	
-	CategoryCounter cCnter = new CategoryCounter();
+	
 	domesticCnt = cCnter.code1Counter(scResult, 10);
 	overseaCnt = cCnter.code1Counter(scResult, 20);
 	ebookCnt = cCnter.code1Counter(scResult, 30);
 }
+
+Category[] useCategory = cCnter.getCategoryList(scResult);
+
 %>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -132,10 +137,12 @@ if(scResult != null && scResult.length > 0){
 #order<%=order%>{
 	font-weight : bold;
 }
+
+label {
+	vertical-align:-1px;
+	font-size:12px;
+}
 </style>
-
-
-
 <title>북카페: 검색 결과</title>
 </head>
 <body>
@@ -151,6 +158,19 @@ if(scResult != null && scResult.length > 0){
 		<li><a href="#">E-Book(<%=ebookCnt %>)</a></li>
 	</ul>
 </div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+<%for(Category output : useCategory){ %>
+	$("input[name='<%=output.getCategoryID()%>']").click(function(){
+		$("div[name='<%=output.getCategoryID()%>']").toggle();
+	});
+<%}%>
+});
+</script>
+
+
 <div class="row">
 	<div class="col-md-2" id="cate-side">
 		<div class="inSearch-group">			
@@ -160,13 +180,23 @@ if(scResult != null && scResult.length > 0){
 			<button class="btn btn-default btn-sm" type="submit" name="inSc" value="1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>	
 			</form>		
 		</div>
-		<div class="cate-group" style="display:none;">		
+		<div class="cate-group">		
 			<p>카테고리 선택</p>
+			<form action="">
 			<ul class="list-group">
-				<li class="list-group-item">소설 <span class="badge">12</span></li>
-				<li class="list-group-item">과학 <span class="badge">12</span></li> 
+				<%
+				for(Category output : useCategory){ 
+				%>
+					<li class="list-group-item">
+					 <%if(output.getCode2()!=0){ %>	
+					 <input style="vertical-align:text-top;" type="checkbox" name="<%=output.getCategoryID() %>" checked /> &nbsp; <%} %>
+					 <label for=""><%=output.getCategorySubject() %> </label>
+					</li>
+				<%} %>
 			</ul>
+			</form>
 		</div>
+		
 	</div>
 	<div class="col-md-10" id="result"> <!-- result -->
 		<div class="row" id="align-bar">
@@ -187,15 +217,19 @@ if(scResult != null && scResult.length > 0){
 		
 		<%if(scResult != null){if(scResult.length > 0){
 			for(int i=1;i<=scResult.length;i++){
-			int idx = i-1;%>
-		<div class="row" style="margin-bottom: 1rem;"> <!-- items -->
+			int idx = i-1;
+			Category currentCate = null;
+			for(Category c : useCategory){
+				if(scResult[idx].getCategoryID() == c.getCategoryID()){ currentCate = c; break; }}			
+		%>
+		<div class="row" style="margin-bottom: 1rem;" name="<%=currentCate.getCategoryID() %>"> <!-- items -->
 			<div class="col-md-1">
 				<p><%=i %>.</p>
 				<input type="checkbox" name="bookID" value="<%=scResult[idx].getBookID() %>">
 			</div>
 			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=scResult[idx].getBookID()%>"><img src="<%=scResult[idx].getImageID()%>"></a></div>
 			<div class="col-md-7">
-				<p id="booktitle"><a href="/inven/bookDetail.jsp?bookID=<%=scResult[idx].getBookID()%>"><%=scResult[idx].getBookName() %></a></p>
+				<p id="booktitle"><%=currentCate.getCategoryID()%>|<%=currentCate.getCode1() %>|<%=currentCate.getCode2() %>|<%=currentCate.getCategoryName() %>|<a href="/inven/bookDetail.jsp?bookID=<%=scResult[idx].getBookID()%>"><%=scResult[idx].getBookName() %></a></p>
 				<p>저자 : <%=scResult[idx].getAuthor() %> 출판사 : <%=scResult[idx].getPublisher() %></p>
 				<ul>
 					<li><%=scResult[idx].getPrice() %>원</li>
