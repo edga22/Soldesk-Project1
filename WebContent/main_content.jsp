@@ -4,7 +4,6 @@
          import="mgr.CategoryMgr"
          import="domain.Book"
          import="mgr.BookMgr"
-         import="mgr.EventMgr"
          import="java.text.NumberFormat"
          import="java.util.List" 
          import="mgr.BestsellerMgr"
@@ -102,78 +101,90 @@
             </div>         
 	    </div>
 	    <div class="col-md-7">
+            <%   
+			int l = 0;
+            int m = 0;
+			for(Book book2: bookmgr.getBooks()){
+				int bookIdInt = book2.getBookID(); //북아이디 숫자
+				
+				//저자 번역가 나누기
+				String author = book2.getAuthor(); //저자
+				String authorList; //저자 / 번역가
+				int idx = author.indexOf(",");
+				
+				if(idx != -1){
+				    String author1 = author.substring(0, idx);
+				    // 뒷부분을 추출
+				    // 아래 substring은 @ 바로 뒷부분인 n부터 추출된다.
+				    String author2 = author.substring(idx+1);
+				    authorList = author1+" 지음";
+				}else  authorList = author+" 지음";
+				
+				if(book2.getRecommend() == 1){
+					if(l == 0){
+                %>
             <div class="row">
                 <div class="col-md-12 main_book_titel">이달의 추천도서</div>
-                <div class="col-md-3 text-center main_book_info">
-                    <p class="main_book_img">
-                       <img alt="이달의추천도서1" src="./img/main/k272536082_1.jpg" />
-                    </p>
-                    <p>고발<br>
-                       <span>반디 지음 / 다산책방</span>
-                    </p>
-                </div>
-                <div class="col-md-3 text-center main_book_info">
-                    <p class="main_book_img">
-                        <img alt="이달의추천도서2" src="./img/main/8950968983_1.jpg" />
-                    </p>
-                    <p>고슴도치의 소원<br>
-                       <span>톤 텔레헨 지음 / arte(아르테)</span>
-                    </p>
-                </div>
-                <div class="col-md-3 text-center main_book_info">
-                    <p class="main_book_img">
-                        <img alt="이달의추천도서3" src="./img/main/8934976837_1.jpg" />
-                    </p>
-                    <p>꿈은 토리노를 달리고<br>
-                       <span>히가시노 게이고 지음 / 비채</span>
-                    </p>
-                </div>
-                <div class="col-md-3 text-center main_book_info">
-                    <p class="main_book_img">
-                        <img alt="이달의추천도서4" src="./img/main/k842536287_2.jpg" />
-                    </p>
-                    <p>페미니스트 유토피아<br>
-                       <span>리아 페이- 베르퀴스트·정희진 외 62인 지음 / 휴머니스트</span>
-                    </p>
-                </div>
-            </div>
+	                <%
+					}
+	                if(l < 4){
+				    %>
+			    <div class="col-md-3 text-center main_book_info">
+			        <p class="main_book_img">
+			            <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 바로가기">
+			             <img src="<%=book2.getImageID() %>" alt="<%=book2.getBookName() %>"/>
+			            </a>
+			        </p>
+			        <p class="main_book_txt">
+			           <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 바로가기">
+			             <%=book2.getBookName() %>
+			           </a>
+			           <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 새창으로보기" target="_blank">
+			             <i class="glyphicon glyphicon-new-window" style="font-size:1.3rem;color:#555;margin-left:0.5rem"></i>
+			           </a><br>
+			           <span><%=authorList %> / <%=book2.getPublisher() %> <%=l %></span>
+			        </p>
+			    </div>
+                <% l++;
+	                }
+                }
+				if(l == 4 ){ 
+					if(m == 0){
+				%>
+				   
+			</div>
+			<div class="row">
+				<div class="col-md-12 main_book_titel">이달의 신간</div>
+						<%
+	                }
+					if(m == 2){ %>
+				</div>
             <div class="row">
-                <div class="col-md-12 main_book_titel">이달의 신간</div>
+		        <%  }
+		            if(m < 4){ %>
                 <div class="col-md-6 main_book_info2">
-                    <img alt="화제의책소식1" src="./img/main/8949112752_1.jpg" />
+                    <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 바로가기">
+                         <img src="<%=book2.getImageID() %>" alt="<%=book2.getBookName() %>"/>
+                    </a>
                     <div class="main_book_info">
-                        <p>하늘을 나는 마법약<br>
-                            <span>칼데콧 상 2회, 뉴베리 상 수상 작가 윌리엄 스타이그의 신나는 상상</span>
-                        </p>
+                        <p class="main_book_txt">
+	                       <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 바로가기">
+	                         <%=book2.getBookName() %>
+	                       </a>
+	                       <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 새창으로보기" target="_blank">
+	                         <i class="glyphicon glyphicon-new-window" style="font-size:1.3rem;color:#555;margin-left:0.5rem"></i>
+	                       </a><br>
+	                       <span><%=authorList %> / <%=book2.getPublisher() %> <%=l %></span>
+	                    </p>
                     </div>
                 </div>
-                <div class="col-md-6 main_book_info2">                
-                    <img alt="화제의책소식2" src="./img/main/8956253455_2.jpg" />                
-                    <div class="main_book_info">
-                        <p>길 위의 인생<br>
-                            <span>벨 훅스, 엠마 왓슨 추천. 글로리아 스타이넘 '여전히 도전 중'</span>
-                        </p>
-                    </div>
-                </div>
+			<% 	
+			    m++;
+			       }
+               }
+            } %> 
             </div>
-            <div class="row">
-                <div class="col-md-6 main_book_info2">
-                    <img alt="화제의책소식3" src="./img/main/8960863262_1.jpg" />
-                    <div class="main_book_info">
-                        <p>오래된 생각<br>
-                            <span>'노무현의 필사' 윤태영, 삶과 죽음을 가로지는 이야기</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 main_book_info2">
-                    <img alt="화제의책소식4" src="./img/main/k362536482_1.jpg" />
-                    <div class="main_book_info">
-                        <p>처음 늙어보는 사람들에게<br>
-                            <span>아툴 가완디 강력 추천작, 남들보다 일찍 늙어가며 깨달은 것들</span>
-                        </p>
-                    </div>
-                </div>
-            </div>  
+            <div style="height:2rem;"> </div>
         <%
         i = 0;
         for(Category result1:catemgr.listCategoriesCode1()){
@@ -190,6 +201,8 @@
                 int j = 0;
                 for(Book book: bookmgr.getBooks()){
                     int bookIdInt = book.getBookID(); //북아이디 숫자
+                    
+                    //저자 번역가 나누기
                     String author = book.getAuthor(); //저자
                     String authorList; //저자 / 번역가
                     int idx = author.indexOf(",");
@@ -204,8 +217,8 @@
                     
                     int cateInt = 0; //도서리스트 1차분류 숫자
                     cateInt = catemgr.findCategory(book.getCategoryID()).getCode1();
-	                //리스트 출력
-	                
+
+                    //리스트 출력
 	                if(cataInt == cateInt){
 	                	if(j < 4){
                 %>
@@ -216,7 +229,7 @@
                     <p class="main_book_txt"><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 바로가기"><%=book.getBookName() %></a>
                        <a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 새창으로보기" target="_blank">
                        <i class="glyphicon glyphicon-new-window" style="font-size:1.3rem;color:#555;margin-left:0.5rem"></i></a><br>
-                       <span><%=authorList %> / <%=book.getPublisher() %> <%=j %></span>
+                       <span><%=authorList %> / <%=book.getPublisher() %></span>
                     </p>
                 </div>
                 
@@ -228,7 +241,7 @@
         } %>
             </div>
         </div>
-                <div class="col-md-3">
+        <div class="col-md-3">
             <div class="row">
                 <div class="col-md-12">
                     <div id="ad2">

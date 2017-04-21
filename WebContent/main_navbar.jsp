@@ -193,11 +193,10 @@ $(document).ready(function(){
         <div class="row">
             <div class="col-md-2">
               <a class="navbar-brand" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
-            </div>        
-                          
-            <div class="col-md-7">     
+            </div>    
+            <div class="col-md-8">     
             <!-- 검색 시작 -->         
-                <form class="navbar-form navbar-left" id="searchform" role="search" action="/shop/searchresult.jsp">
+                <form class="navbar-form navbar-left form-group-lg" id="searchform" role="search" action="/shop/searchresult.jsp">
                     <select class="form-control" id="sel1" name="SearchTarget">
                         <option value="all">통합검색</option>
                   <% for(Category result1:catemgr.listCategoriesCode1()){  %>
@@ -205,69 +204,20 @@ $(document).ready(function(){
                   <% } %>
                     </select>
                     <input type="text" class="form-control" id="search" name="SearchWord"/>                            
-                    <button type="submit" id="search-btn" class="btn btn-primary">검색</button>
+                    <button type="submit" id="search-btn" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-search"></span> 검색</button>
                     <button type="button" class="btn btn-link" style="display:none;"><strong>상세검색</strong></button>
                 </form>
             <!-- 검색 끝 -->  
             </div>
-            <div class="col-md-3">
-               <div id="ad1">
+            <div class="col-md-2">
+               <div id="ad1" style="float: right;">
                    <a href="/inven/bookDetail.jsp?bookID=14" title="언어의 온도 바로가기"><img alt="상단광고" src="/img/main/161111_head_mgt.jpg" /></a>
                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-2">               
-                <button id="allMenu" type="button" class="btn btn-default" style="display:none;">
-                   	 전체카타고리
-                </button>
-            </div>
-            <div class="col-md-10">
-                <div class="btn-group">
-                   <a href="/shop/monthBestseller.jsp">
-                    <button class="btn btn-default" type="button" style="display:none;">
-                        <em class="glyphicon glyphicon-align-left"></em> 베스트셀러
-                    </button> 
-                    </a>
-                    <button class="btn btn-default" type="button" style="display:none;">
-                        <em class="glyphicon glyphicon-align-center"></em> 새로나온책
-                    </button> 
-                    <button class="btn btn-default" type="button" style="display:none;">
-                        <em class="glyphicon glyphicon-align-right"></em> 이벤트
-                    </button> 
-                    <button class="btn btn-default" type="button" style="display:none;">
-                        <em class="glyphicon glyphicon-align-justify"></em> 추천도서
-                    </button>
-                </div>
-            </div>
-        </div>        
-<%--         <div id="allMenuPannel">
-            <div class="allMenu-container panel-body">
-                <div class="allMenu">
-                    <%
-	    int i = 0;
-	
-	    for(Category result:catemgr.listCategoriesUse()){
-	        if(result.getCode2() == 0){  
-	            if(i != 0){ %>
-                    </ul>
-                </div>
-                <div class="allMenuLine"></div>                      
-            <% } %>
-                    <div class="allMenu_list">
-                        <ul>
-                            <li class="title"><%=result.getCategoryName() %></li>                    
-            <% i++;
-            }else{ %>       
-                            <li><a href="/mainCategory.jsp?cata=<%=result.getCode1()%>&code=<%=result.getCategoryID()%>" class="list-group"><%=result.getCategoryName() %></a></li>      
-	     <% }
-	    } %>
-			            </ul>
-	                </div>
-                </div>
-            </div> --%>
 	</div>
 </header>
+<div id="headerLine" class="container-fluid"> </div>
 <script> 
 $(document).ready(function(){
     $("#allMenu").click(function(){

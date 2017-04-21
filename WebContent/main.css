@@ -211,7 +211,9 @@ ul.slideshow_list li+li:before {
 .main_book_info2 {
      padding:0 20px 5px 35px;
 }
-.main_book_info2 img{
+.main_book_info2 a img {
+	 height:122px;
+     width: auto;
      padding:5px 7px 0 10px;
      float:left;
 }

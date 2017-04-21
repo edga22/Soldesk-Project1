@@ -86,24 +86,27 @@ body {
 /* 최상단 메뉴 끝 */
 /* 최상단 로고 검색창 */
 #headerwrap {
-    margin-bottom:10px;	
+    margin-bottom:1.5rem;
 }
 #headerwrap .navbar-brand {
-    font-size:2.6rem;
+    font-size:4rem;
     color:#0275d8;
+    margin-top:-0.6rem;
+    margin-left:-1rem;    
 }
 #headerwrap .navbar-brand span{
-    font-size:3rem;
+    font-size:4.5rem;
     color:#0275d8;
 }
 #headerwrap .navbar-brand font{
-    font-size:1.6rem;
+    font-size:2.2rem;
     color:#0275d8;
 }
 
-headerwrap .navbar-form {
+#headerwrap .navbar-form {
     width:100%;
-    margin-top:15px;
+    margin-top:1.2rem;
+    margin-left:2rem;
 }
 
 #sel1 {
@@ -112,8 +115,8 @@ headerwrap .navbar-form {
     background-color:#e6f2ff;
 }
 
-headerwrap .navbar-form #search {
-    width:52%;
+#headerwrap .navbar-form #search {
+    width:60%;
     background-color:#e6f2ff;
 }
 
@@ -123,65 +126,12 @@ headerwrap .navbar-form #search {
     height:68px;
 }
 
-/* 상단 전체메뉴 버튼 */
-#allMenuPannel {
-	display:none;
-	position: absolute;
-	margin-top:10px;
-	z-index:900;
+/* 상단 구분선  */
+#headerLine {
+	border-bottom:1px solid #33afe9;
+	margin-bottom:1rem;
 }
-.allMenu-container {
-  width: 600px;
-  height:310px;  
-  position: relative;
-  margin: auto;
-  background-color:#FFF;
-  border:1px solid #0275d8;
-}
-.allMenu_list {
-	display: inline;
-	float: left;
-	width: 28%;
-}
-/* 메인상단 전체메뉴 시작 */
-.allMenu ul{
-    list-style: none outside;
-    margin:0;
-    padding:0;
-}
-.allMenu li{
-    font-size:1.38rem;
-    font-weight: 400;
-    padding:2px 10px;
-}
-.allMenu .title{
-    width:100%;
-    height:28px;
-    margin-bottom:8px;
-    padding:5px 0 0 10px;
-    color: white;    
-    text-align: left;
-    font-size:1.4rem;
-    font-weight: 800;
-    background-color: #555;    
-    border-radius: 3px;
-}
-.allMenu li a {
-    color:#000;
-}
-.allMenu li a.white {
-    color: white;
-}
-.allMenuLine {
-    border-left:1px solid #ccc;
-    width:15px;
-    height:280px;
-    margin-left:15px;
-    display: inline;
-    float: left;
-}
-
-/* 공통 상단 메뉴 끝 */
+/* //공통 상단 */
 
 /* 공통 하단 시작 */
 #footer {
