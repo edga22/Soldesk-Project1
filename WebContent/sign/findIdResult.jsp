@@ -44,9 +44,11 @@
 		
 	if(mem != null && !mem.equals("")){
 %>
-	<h4>당신의 아이디는<%=mem.getEmail()%> 입니다.</h4>
+	<h4 style="text-align:center">당신의 아이디는<%=mem.getEmail()%> 입니다.</h4>
 	
-	<a href="signInPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
+	<div class="col-sm-12">
+	<a href="signInPage.jsp"><button type="button" class="btn btn-primary" style="margin:30px">로그인 페이지</button></a>
+	</div>
 <%
 	}else{
 %>	

@@ -51,8 +51,11 @@
 	if(mem != null && !mem.equals("")){
 %>
 	<div class="row" id="wrap">
-	<h4><%=ID %>님의 비밀번호는 <%=mem.getPassword() %>입니다.</h4>
+	
+	<h4 style="text-align:center"><%=ID %>님의 비밀번호는 <%=mem.getPassword() %>입니다.</h4>
+	<div class=col-sm-12>
 	<a href="signInPage.jsp"><button type="button" class="btn btn-primary" style="margin-top:30px">로그인 페이지</button></a>
+	</div>
 <%
 	}else{
 %>
