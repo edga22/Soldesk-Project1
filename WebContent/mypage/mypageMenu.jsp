@@ -107,3 +107,4 @@
             <div class="panel-body"><a href="/mypage/mypageUserInquireResult.jsp">1:1문의</a></div>
         </div>      
     </div>
+</div> 
