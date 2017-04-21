@@ -16,9 +16,9 @@
 	<h3> 재고관리 페이지 입니다.</h3><br>
 	<form action="bookList.jsp">	
 	 <input type="text" name="bookName" placeholder="도서 제목" required>
-	 <input type="submit" class="btn btn-default" value="검색">
-	 <a href="/inven/bookListAll.jsp" class="btn btn-default">전체검색</a>
-	 <a href="/inven/bookAdd.jsp" class="btn btn-default">도서추가</a><br>
+	 <button type="submit" class="btn btn-info btn-xs glyphicon glyphicon-search">검색</button>
+	 <a href="/inven/bookListAll.jsp" class="btn btn-info btn-sm glyphicon glyphicon-list">전체검색</a>
+	 <a href="/inven/bookAdd.jsp" class="btn btn-success btn-sm glyphicon glyphicon-plus">도서추가</a><br>
 	</form>		
 </div>
 </body>

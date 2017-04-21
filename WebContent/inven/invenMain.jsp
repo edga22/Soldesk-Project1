@@ -44,8 +44,8 @@
 			</tr>
 		</table>
 	</div>
-	<button class="btn btn-default">수정</button>	
-	<button class="btn btn-default">삭제</button>
+	<button class="btn btn-warning btn-sm glyphicon glyphicon-floppy-saved">수정</button>	
+	<button class="btn btn-danger btn-sm glyphicon glyphicon-trash">삭제</button>
 	<hr style="border: solid 0.1rem;"> 
 </div>
 </body>

@@ -34,7 +34,7 @@ PurchaseOrder[] PurchaseOrders = mymgr.getOrders();
 			<option value="7">환불접수</option>
 			<option value="8">환불완료</option>
 		</datalist>
-		<button type="submit" class="btn btn-warning glyphicon-asterisk">수정</button>	
+		<button type="submit" class="btn btn-warning btn-xs glyphicon glyphicon-floppy-saved">수정</button>	
 <hr style="border: solid 0.1rem;">
 		<div style="text-align:center;">	
 		 <h4>전체 조회 결과</h4>

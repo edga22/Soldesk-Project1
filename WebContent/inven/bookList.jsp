@@ -74,11 +74,11 @@ String bookName = request.getParameter("bookName");
 <h3>전체 도서 검색 결과</h3>
 	<table class="table table-condensed">
 	 <thead>
-	  <tr class=active>
+	  <tr class="info">
 		<th>도서번호</th>
 		<th>도서명</th>
 		<th>카테고리번호</th>
-		<th>작가</th>
+		<th>작가/번역</th>
 		<th>출판사</th>
 		<th>출판일</th>
 		<th>금 액(원)</th>

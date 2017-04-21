@@ -44,13 +44,13 @@ BookMgr mymgr = new BookMgr();
 		</table>
 		<br>		
 </div>
-		<button type="submit" formaction="/inven/bookMod.jsp" class="btn btn-default">수정</button>
-		<button type="submit" formaction="/inven/bookDel.jsp" class="btn btn-default">삭제</button>
+		<button type="submit" formaction="/inven/bookMod.jsp" class="btn btn-warning btn-sm glyphicon glyphicon-floppy-saved">수정</button>
+		<button type="submit" formaction="/inven/bookDel.jsp" class="btn btn-danger btn-sm glyphicon glyphicon-trash">삭제</button>
 <hr style="border: solid 0.1rem;"> 
 <h3>전체 도서 검색 결과</h3>
-	<table class="table table-condensed" id="it">
+	<table class="table table-condensed table-striped" id="it">
 	 <thead>
-	  <tr>
+	  <tr class="info">
 		<th style="width:5rem;">도서번호</th>
 		<th style="width:25rem;">도서명</th>
 		<th style="width:5rem;">카테고리</th>

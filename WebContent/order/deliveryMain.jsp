@@ -24,7 +24,7 @@
 			<option value="7">환불접수</option>
 			<option value="8">환불완료</option>
 		</datalist> 
-	<button class="btn btn-warning btn-xs">수정</button>	
+	<button class="btn btn-warning btn-xs glyphicon glyphicon-floppy-saved">수정</button>	
 <hr style="border: solid 0.1rem;">  
 </div>
 </body>

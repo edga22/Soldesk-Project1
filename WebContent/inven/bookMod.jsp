@@ -47,7 +47,7 @@ if(tmpID == null || tmpID.equals("")){
 <h2>도서 수정 결과</h2>
 	<table class="table table-condensed">
 	 <thead>
-	  <tr class="active">
+	  <tr class="info">
 		<th>도서명</th>
 		<th>카테고리번호</th>
 		<th>작가</th>
@@ -73,9 +73,9 @@ if(tmpID == null || tmpID.equals("")){
 	  </tr>	  			
 	 </tbody>
 	 <tfoot>
-		<tr><th colspan="10" style="text-align:center;">소제목</th></tr>
+		<tr class="info"><th colspan="10" style="text-align:center;">소제목</th></tr>
 		<tr><td colspan="10"><%=book.getSubtitle() %></td></tr>		
-		<tr><th colspan="10" style="text-align:center;">내용</th></tr>
+		<tr class="info"><th colspan="10" style="text-align:center;">내용</th></tr>
 		<tr><td colspan="10"><%=book.getDescription() %></td></tr>
 	 </tfoot>
 	</table>	
