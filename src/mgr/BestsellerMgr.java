@@ -6,13 +6,20 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
 
+import dao.BestsellerDao;
 import dao.DbBasedBestsellerDao;
+import domain.BestSeller;
 import domain.Book;
 import domain.OrderDetail;
 
 public class BestsellerMgr {
-	BookMgr mgr=new BookMgr();
-	DbBasedBestsellerDao dao=new DbBasedBestsellerDao();
+	BookMgr mgr;
+	BestsellerDao dao;
+	
+	public BestsellerMgr(){
+		mgr=new BookMgr();
+		dao=new DbBasedBestsellerDao();
+	}
 	
 	//오늘 날짜 (String type/yyyy-mm-dd)
 	public String getCurrentDate(){
@@ -35,6 +42,11 @@ public class BestsellerMgr {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
 		String bookDate=df.format(publishDate);
 		return bookDate;
+	}
+	
+	public BestSeller[] getBestseller(){
+		BestSeller[] bestseller=dao.getBestseller();
+		return bestseller;
 	}
 	
 	//신간 베스트셀러 뽑아내기

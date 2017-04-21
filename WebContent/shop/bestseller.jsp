@@ -1,14 +1,12 @@
 <%@page import="java.text.NumberFormat"%>
 <%@page import="mgr.BestsellerMgr"%>
 <%@page import="domain.BestSeller"%>
-<%@page import="dao.DbBasedBestsellerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	BestsellerMgr mgr=new BestsellerMgr();
-	DbBasedBestsellerDao dao=new DbBasedBestsellerDao();
-	BestSeller[] bestseller=dao.getBestseller();
+	BestSeller[] bestseller=mgr.getBestseller();
 	
 	String monthAgo=mgr.getMonthAgoDate();
 	NumberFormat nf = NumberFormat.getNumberInstance();
@@ -111,13 +109,13 @@
 <!-- 시작 -->
 <div class="container"> 
 	<ul class="nav nav-tabs">
-  		<li class="active"><a data-toggle="tab" href="#month">이 달의 베스트</a></li>
+  		<li class="active"><a data-toggle="tab" href="#month">전체 베스트</a></li>
   		<li><a data-toggle="tab" href="#new">신간 베스트</a></li>
   		<!-- <li><a data-toggle="tab" href="#">e-book 베스트</a></li> -->
 	</ul>
 	
 	<div class="tab-content"> <!-- 탭 내용 -->
-	<!-- 이달의 베스트셀러 -->
+	<!-- 전체 베스트셀러 -->
     <div id="month" class="tab-pane fade in active">
   	<div class="row" id="menu">
     	<div class="col-md-9">

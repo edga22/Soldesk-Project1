@@ -119,7 +119,7 @@ $(document).ready(function(){
 						    	}
 							} %>							
 							<li class="<%=catastr3 %>">
-                                <a href="/shop/monthBestseller.jsp?cata=best">베스트셀러</a>
+                                <a href="/shop/bestseller.jsp?cata=best">베스트셀러</a>
                             </li>		            
                    	</ul>
                	</div>
