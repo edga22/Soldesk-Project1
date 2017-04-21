@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"
-		 import="dao.MypageDao"
-		 import="dao.DbBasedMypageDao"
-		 import="dao.DbBasedMemberDao"
 		 import="service.MemberService"%>
 <!DOCTYPE html>
 <html>
@@ -22,8 +19,7 @@
 
 <body>
 <%
-DbBasedMemberDao ms = new DbBasedMemberDao();
-DbBasedMypageDao dm = new DbBasedMypageDao();
+
 MemberService memser = new MemberService();
 
 
@@ -39,7 +35,7 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 	if(oldpw.equals(member.getPassword()) ){
 		if(newpw1.equals(newpw2)){
 			member.setPassword(newpw1);
-			dm.updateMember(member);				
+			memser.updateMember(member);				
 %>
 	<script>
 	swal({
@@ -71,12 +67,11 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 }
 %>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
-
 <div class="container">
-	<div class="row content">
-    	 <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
-			<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
-		</div>
+<div class="col-sm-2">
+<jsp:include page="/mypage/mypageMain_nav.jsp"/>
+</div> 
+<div class="container">
 <div class="col-sm-8">
       <br>
       <h4>회원정보</h4>
@@ -177,6 +172,5 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
   </div>
   </div>
   <jsp:include page="/main_foot.jsp"></jsp:include>
-
 </body>
 </html>

@@ -11,21 +11,21 @@
 <title>마이페이지 회원탈퇴</title>
 </head>   
 <body>
+
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container">
-	<div class="row content">
-    <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
-			<jsp:include page="mypageMain.jsp"></jsp:include>
-		</div> 		
+<div class="col-sm-2">
+<jsp:include page="/mypage/mypageMain_nav.jsp"/>
+</div> 
 		<div class="col-sm-10">
 		<form action="/mypage/mypageOutProc.jsp">
       	  <h3> -회원 탈퇴시 적립금,예치금,마일리지 등이 자동삭제 됩니다.</h3>
       	   비밀번호:<input type="password" name="password">
       	  <button type="submit" class="btn btn-danger">회원탈퇴</button>
       	</form>
-		</div>		
+		</div>	
 	</div>
-</div>
 <jsp:include page="/main_foot.jsp"></jsp:include>
+
 </body>
 </html>

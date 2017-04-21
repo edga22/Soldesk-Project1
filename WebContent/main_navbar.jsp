@@ -162,7 +162,7 @@ $(document).ready(function(){
                       		<span class="divider"></span> 
                       	</li>
                        	<li>
-                           	<a href="/mypage/mypageOrderMod.jsp">마이페이지</a> <span class="divider"></span>
+                           	<a href="/mypage/mypageMain.jsp">마이페이지</a> <span class="divider"></span>
                        	</li>
                        	<li>
                            	<a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>

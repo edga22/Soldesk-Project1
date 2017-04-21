@@ -33,14 +33,12 @@ MypageService mps = new MypageService();
 
 int memberID = (Integer)session.getAttribute("memberID");
 PurchaseOrder[] purchaseOrders = dm.getMember(memberID);
-%>          
+%>
 <jsp:include page="/main_navbar.jsp"></jsp:include>
-
 <div class="container">
-  <div class="row content">
-   <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
-		<jsp:include page="/mypage/mypageMain.jsp"></jsp:include>
-    </div>
+<div class="col-sm-2">
+<jsp:include page="/mypage/mypageMain_nav.jsp"/>
+</div>           
   <div class="col-sm-10">
       <table class="table table-hover">
 	<thead>
@@ -84,6 +82,5 @@ for(PurchaseOrder po:purchaseOrders){
 	</div>
 	</div>
 <jsp:include page="/main_foot.jsp"></jsp:include>
-</div>
 </body>
 </html>

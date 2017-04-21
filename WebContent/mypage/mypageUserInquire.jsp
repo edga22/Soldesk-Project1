@@ -31,12 +31,11 @@
 %>
 </head>
 <body>
-
-	<jsp:include page="/main_navbar.jsp"></jsp:include>
-	<div class="container">
-		<div class="col-sm-2 sidenav" style="float: left; border:solid 0.1rem;">
-			<jsp:include page="mypageMain.jsp"></jsp:include>
-		</div>
+<jsp:include page="/main_navbar.jsp"></jsp:include>
+<div class="container">
+<div class="col-sm-2">
+<jsp:include page="/mypage/mypageMain_nav.jsp"/>
+</div>
 		<div class="col-sm-10" id="MypageUserInquire">
 			<table>
 				<tr>
@@ -114,7 +113,8 @@
 									</div>
 								</div>
 							</div>
-						</form></td>
+						</form>
+					</td>
 				</tr>
 			</table>
 		</div>

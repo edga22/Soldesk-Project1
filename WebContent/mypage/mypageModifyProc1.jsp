@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Member"
-		 import="dao.MypageDao"
-		 import="dao.DbBasedMypageDao"
-		 import="dao.DbBasedMemberDao"
 		 import="service.MemberService"%>
 <!DOCTYPE html>
 <html>

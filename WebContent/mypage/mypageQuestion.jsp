@@ -9,14 +9,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>마이페이지 자주묻는질문</title>
-</head>           
-<jsp:include page="/main_navbar.jsp"></jsp:include>
+</head> 
 <body>
+<jsp:include page="/main_navbar.jsp"></jsp:include>
 <div class="container">
-	<div class="row content">
-    	 <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
-		<jsp:include page="mypageMain.jsp"></jsp:include>
-	</div>
+<div class="col-sm-2">
+<jsp:include page="/mypage/mypageMain_nav.jsp"/>
+</div>           
 		<div class="col-sm-10">
 			<div id="MypageQuestion">
 				<h3>-Q&A</h3>
@@ -29,8 +28,7 @@
 					<a href="foreginAnswer.jsp">7.재외국인은 어떻게 가입해야하죠?(주소문제)</a><br>
 			</div>
 		</div>
-	</div>
- </div>
+</div>
 </body>
 <jsp:include page="/main_foot.jsp"></jsp:include>
 </html>
