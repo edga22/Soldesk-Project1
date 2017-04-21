@@ -10,11 +10,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>구매 완료 페이지</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style>
+#PRT th{
+	text-align: center;
+	font-size: 1.4rem;	
+}
+</style>
+
 </head>
 <body>
 <%
@@ -29,9 +36,9 @@ PurchaseOrder po = mymgr.getOrder(orderID);
 <jsp:include page="/main_navbar.jsp"/>
 <div id="obm" class="container">
 <h3>구매 결과확인</h3><br>
-	<table class="table table-condensed">
+	<table class="table table-condensed" >
 	 <thead>
-	  <tr class="active">		
+	  <tr class="active" id="PRT">		
 		<th>주문번호</th>
 		<th>품목</th>
 		<th>구매날짜</th>
@@ -39,8 +46,8 @@ PurchaseOrder po = mymgr.getOrder(orderID);
 	  </tr>
 	 </thead>
 	 <tbody>
-	  <tr>
-		<th><%=orderID%></th>
+	  <tr id="PRT">
+		<th ><%=orderID%></th>
 		<th><%=state.getProduct(ods)%></th>
 		<th><%=po.getPurchaseDate()%></th>
 		<th><%=state.change(po.getProgress())%></th>
