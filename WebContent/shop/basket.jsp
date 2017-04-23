@@ -123,7 +123,9 @@ $(document).ready(function(){
 <style>
 #total th, #total td {
     text-align:center;
+    vertical-align:middle;
     width:25%;
+    height:4.5rem;
 }
 #basketTable img{
     width:85px;
@@ -208,14 +210,16 @@ $(document).ready(function(){
 			        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기">
 			        	<img src="<%=basketList[i].getBook().getImageID() %>"></a>
 			        </td>
-			        <td>
-			        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
-			        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 새창으로보기" target="_blank">
-			        	<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a><br>
-			        	*지금 주문하면 "오늘 출고" 가능(출고후 1~2일 이내 수령)
+			        <td style="vertical-align:top;">
+			        	<h4>
+				        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
+				        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 새창으로보기" target="_blank">
+				        	<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+			        	</h4>
+			        	<p>* 지금 주문하면 "오늘 출고" 가능(출고후 1~2일 이내 수령)</p>
 			        </td>
 			        <td>
-			        	정가: <del><%=nf.format(bookPrice) %></del>원<br>
+			        	정가: <%=nf.format(bookPrice) %>원<br>
 			        	판매가: <%=nf.format(bookSalePrice) %>원<% if(bookdiscount != 0) out.print("("+bookdiscount+"%)"); %><br>
 			        	포인트: <%=nf.format(bookPoint) %>P (<%=pointPer%>%)<br>	        	
 			        </td>
@@ -245,28 +249,34 @@ $(document).ready(function(){
     totalPrice = totalBookPrice + delivery;
     %>
 	<!-- 가격 테이블 -->
-	<div class="row">
-		<div class="col-sm-12">
-			<h3> <span class="glyphicon glyphicon-check"></span> 가격</h3>
-			<table class="table table-bordered table-condensed" id="total">
-			    <thead>
-			      <tr class="active text-center">
-			        <th>총 상품금액</th>
-			        <th>배송비</th>
-			        <th>총 결제 예상금액</th>
-			        <th>총 적립 예상 포인트</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			      <tr>
-			    	<td><span class="total"><%= nf.format(totalBookPrice) %></span><span class="result1"></span>원</td>
-			    	<td><span class="total"><%= nf.format(delivery) %></span><span class="result2"></span>원</td>
-			    	<td><span class="total"><%= nf.format(totalPrice) %></span><span class="result3"></span>원</td>
-			    	<td><span class="total"><%= nf.format(totalBookPrice*10/100) %></span><span class="result4"></span>P</td>
-			       </tr>
-			    </tbody>
-			</table> 
+	<div class="table-responsive">
+		<!-- 전체선택과 버튼들 -->
+		<div class="row" style="margin:0;padding:0">
+			<div class="col-sm-4">
+				<h3><i class="glyphicon glyphicon-check"></i> 가격</h3>
+			</div>
+			<div class="col-sm-8 text-right" style="margin-top:18px;">
+			</div>
 		</div>
+		<!--// 전체선택과 버튼들 -->
+		<table class="table table-bordered table-condensed" id="total">
+		    <thead>
+		      <tr class="active text-center">
+		        <th>총 상품금액</th>
+		        <th>배송비</th>
+		        <th>총 결제 예상금액</th>
+		        <th>총 적립 예상 포인트</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+		    	<td><span class="total"><%= nf.format(totalBookPrice) %></span><span class="result1"></span>원</td>
+		    	<td><span class="total"><%= nf.format(delivery) %></span><span class="result2"></span>원</td>
+		    	<td><span class="total"><%= nf.format(totalPrice) %></span><span class="result3"></span>원</td>
+		    	<td><span class="total"><%= nf.format(totalBookPrice*10/100) %></span><span class="result4"></span>P</td>
+		       </tr>
+		    </tbody>
+		</table> 
 	</div>
 	<!--// 가격 테이블 -->	
 	<!-- 주문 및 되돌아가기 -->

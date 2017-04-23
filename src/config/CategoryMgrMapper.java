@@ -13,6 +13,7 @@ public interface CategoryMgrMapper {
 	List<Category> getCategoriesCode1();
 	List<Category> getCategoriesCode2();
 	Category getCategory(int categoryID);
+	Category getCode1(int code1);
 	List<Category> getRegionCategories(int code1);
 	int updateCategory(Category category);
 	

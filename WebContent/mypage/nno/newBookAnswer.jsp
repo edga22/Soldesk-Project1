@@ -8,7 +8,7 @@
 <div class="container">
 	<div class="row content">
 	    <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
-		  <jsp:include page="mypageMain.jsp"/>
+		  <jsp:include page="/mypage/mypageMain.jsp"/>
 		</div>
 		<div class="col-sm-10">
 			<div id="MypageQuestion">

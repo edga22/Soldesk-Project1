@@ -7,8 +7,7 @@
          import="java.text.NumberFormat"
          import="java.util.List" 
          import="mgr.BestsellerMgr"
-         import="domain.BestSeller"
-         import="dao.DbBasedBestsellerDao"%>
+         import="domain.BestSeller"%>
 
 <!-- 메인 화면 시작 -->   
 <section id="section">
@@ -142,7 +141,7 @@
 			           <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 새창으로보기" target="_blank">
 			             <i class="glyphicon glyphicon-new-window" style="font-size:1.3rem;color:#555;margin-left:0.5rem"></i>
 			           </a><br>
-			           <span><%=authorList %> / <%=book2.getPublisher() %> <%=l %></span>
+			           <span><%=authorList %> / <%=book2.getPublisher() %></span>
 			        </p>
 			    </div>
                 <% l++;
@@ -174,7 +173,7 @@
 	                       <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 새창으로보기" target="_blank">
 	                         <i class="glyphicon glyphicon-new-window" style="font-size:1.3rem;color:#555;margin-left:0.5rem"></i>
 	                       </a><br>
-	                       <span><%=authorList %> / <%=book2.getPublisher() %> <%=l %></span>
+	                       <span><%=authorList %> / <%=book2.getPublisher() %></span>
 	                    </p>
                     </div>
                 </div>
@@ -257,12 +256,11 @@
                         <div class="title">베스트셀러 <font color="#0275d8">TOP10</font></div>
                         <ul class="best10_text">
                         <%
-						    BestsellerMgr mgr=new BestsellerMgr();
-						    DbBasedBestsellerDao dao=new DbBasedBestsellerDao();
-						    BestSeller[] bestseller=dao.getBestseller();
+	                        BestsellerMgr mgr=new BestsellerMgr();
+	                    	BestSeller[] bestseller=mgr.getBestseller();
+	                    	
+	                    	String monthAgo=mgr.getMonthAgoDate();
 						    
-						    String monthAgo=mgr.getMonthAgoDate();
-
 					        for(int k=0;k<10;k++){
 						        int bookIdInt = bestseller[k].getBookID();
 						        String bookIdLink = "/inven/bookDetail.jsp?bookID="+bookIdInt;

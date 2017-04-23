@@ -35,64 +35,61 @@ UserInquire[] userInquire = uiDao.getAskTitle(userID);	//배열로 해서 받자
 
 	<jsp:include page="/main_navbar.jsp"/>
 	
+	<style>
+	#to1 th, #to1 td{
+		text-align:center;
+	}
+	#to1 .infot {
+		text-align:left;
+	}
+	</style>
+	
 	<div class="container">
 		<div class="col-sm-2 sidenav" style="float: left;">
 			<jsp:include page="/mypage/mypageMenu.jsp"></jsp:include>
 		</div>
 		<div class="col-sm-10" id="MypageUserInquire">
-			<table class="col-sm-10">
-				<tr>
-					<th><h3 style="text-align: center;">1:1 문의</h3></th>
-				</tr>
-				<tr>
-					<td>
-						<form action="mypageUserInquire.jsp">
-							<button type="submit" class="btn btn-default"
-								style="float: right;">문의 하기</button>
-						</form>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<form class="form-horizontal">
-							<div class="form-group">
-								<label class="col-sm-8" for="text" style="text-align: center;">제목</label>
-								<label class="col-sm-2" for="text" style="text-align: center;">등록일</label>
-								<label class="col-sm-2" for="text" style="text-align: center;">답변여부</label>
-							</div>
-						</form>
-					</td>
-				</tr>
-				<!-- 1:1 질문 답변 준비 -->
-				<% 
-				if(userInquire.length >0){
-					for(int i = 0 ; i<userInquire.length ; i++){ %>
-				<tr>				
-					<td>						
-						<form class="form-horizontal">
-							<div class="form-group">
-								<a href="mypageUserInquireView.jsp?userInquireID=<%=userInquire[i].getUserInquireID()%>" class="col-sm-8"
-									style="text-align: center;"><%=userInquire[i].getTitle()%></a> 
-								<label class="col-sm-2" for="text" style="text-align: center;"><%=userInquire[i].getDate() %></label>
-								<label class="col-sm-2" for="text" style="text-align: center;">
-									<%if(userInquire[i].getState() == 1){%>
-										진행중										
-									<%
-									}else{%>
-										답변완료
-									<%	
-									}
-									%>
-								</label>
-							</div>
-						</form> 						
-					</td>				
-				</tr>
-				<%
-					}
-				}				
-				%>
-			</table>
+			<div class="panel panel-default"> 
+			  <div class="panel-heading"><h2><i class="glyphicon glyphicon-pencil"></i> 1:1 문의</h2></div>
+			  <div class="panel-body">북앤카페의 문의사항이나 불편한 거나 건의할 내용을 보내면 답변을 드립니다.</div>
+			</div>
+			<div class="table-responsive"> 
+				<table class="table table-hover table-striped" id="to1">
+					<tr>
+						<th>번호</th>
+						<th>제목</th>
+						<th>등록일</th>
+						<th>답변여부</th>
+					</tr>
+					<!-- 1:1 질문 답변 준비 -->
+					<% 
+					if(userInquire.length >0){
+						for(int i = 0 ; i<userInquire.length ; i++){ %>
+					<tr>
+						<td><%=i+1 %></td>				
+						<td class="infot">						
+							<a href="/mypage/mypageUserInquireView.jsp?userInquireID=<%=userInquire[i].getUserInquireID()%>">
+							<%=userInquire[i].getTitle()%></a>
+						</td>
+						<td><%=userInquire[i].getDate() %></td>
+						<td>
+						<% if(userInquire[i].getState() == 1){ %>
+							진행중
+						<%
+						}else{ %>
+							답변완료
+						<% } %>
+						</td>									
+					</tr>
+					<%
+						}
+					}				
+					%>
+				</table>
+			</div>
+			<div class="text-right">
+				<a href="/mypage/mypageUserInquire.jsp"><button type="button" class="btn btn-primary">문의하기</button></a>
+			</div>
 		</div>
 	</div>
 	

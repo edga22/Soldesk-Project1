@@ -174,7 +174,12 @@ $(document).ready(function(){
 				</div>
 			</div>
 			<form action="/shop/basketAddValues.jsp">
-			<button type="submit" class="btn btn-default">선택한것 찜하기</button><br>
+			<div class="row">
+				<div class="col-md-10"></div>
+				<div class="col-md-2 text-right">
+					<button type="submit" class="btn btn-info btn-block">선택한것 찜하기</button>
+				</div>
+			</div>
 			<%
 			Book[] books = bookmgr.getBooks();
 		    EventMgr evmgr = new EventMgr();
@@ -195,31 +200,26 @@ $(document).ready(function(){
                   
                 eventdiscount = evmgr.getDiscountMult(bookIdInt);  //이벤트 할인
                 bookPrice = book.getPrice(); //책가격
+                
                 //할인률 계산
                 if(eventdiscount != 0){
                     bookSalePrice = (int)(bookPrice*eventdiscount); //이벤트 할인된 가격
                     bookdiscount = 100-(int)(eventdiscount*100); //할인률 %
-                }else{
-                    bookSalePrice = bookPrice*discountPer/100; //일반 할인된 가격         
-                }
+                }else bookSalePrice = bookPrice*discountPer/100; //일반 할인된 가격         
+                
                 bookPoint = bookSalePrice*pointPer/100; //포인트
+                
                 String author = book.getAuthor(); //저자
                 String authorList; //저자 / 번역가
                 //String[] getAuthor = author.split(",");
-                // ,를 기준으로 문자열을 추출할 것이다.
-                // 먼저 , 의 인덱스를 찾는다 
+                // ,를 기준으로 문자열을 추출할 것이다. 먼저 , 의 인덱스를 찾는다 
                 int idx = author.indexOf(","); 
-                // , 앞부분을 추출
-                // substring은 첫번째 지정한 인덱스는 포함하지 않는다.
-                // 아래의 경우는 첫번째 문자열인 a 부터 추출된다.
+                // , 앞부분을 추출. substring은 첫번째 지정한 인덱스는 포함하지 않는다.
                 if(idx != -1){
 	                String author1 = author.substring(0, idx);
-	                // 뒷부분을 추출
-	                // 아래 substring은 @ 바로 뒷부분인 n부터 추출된다.
+	                // 뒷부분을 추출. 아래 substring은 , 바로 뒷부분인 n부터 추출된다.
 	                String author2 = author.substring(idx+1);
-	                
 	                authorList = author1+" 저 / "+author2+" 역";
-	                
                 }else  authorList = author+" 저";
                 
                 int cateInt = 0; //도서리스트 1차분류 숫자
@@ -230,6 +230,7 @@ $(document).ready(function(){
     			String cateSubject2 = ""; //도서리스트 2차분류 설명 
     			
                 //카테고리 매칭
+                //도서 카테고리 아이디에서 해당 카테고리 아이디의 정보를 찾는다. 
                 for(Category result:catemgr.listCategoriesUse()){
             		if(book.getCategoryID() == result.getCategoryID()){
 	                	cateInt = result.getCode1();
@@ -288,9 +289,9 @@ $(document).ready(function(){
 				<div class="col-md-1">
                     <input type="checkbox" name="bookID" value="<%=book.getBookID() %>">
                 </div>
-				<div class="col-md-2" style="vertical-align:middle;">
-					<p><a class="btn btn-default" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a></p>
-					<p><a class="btn btn-default" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a></p>
+				<div class="col-md-2" style="vertical-align:bottom;margin-top:1rem;">
+					<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니 추가</a>
+					<a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로 구매</a>
 				</div>				
 			</div>			
 			<%       

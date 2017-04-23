@@ -28,6 +28,9 @@ public class DbBasedCategoryMgrDao implements CategoryMgrDao{
 	public Category getCategory(int categoryID){
 		return mapper.getCategory(categoryID);
 	}
+	public Category getCode1(int code1){
+		return mapper.getCode1(code1);
+	}
 	public List<Category> getRegionCategories(int code1){
 		return mapper.getRegionCategories(code1);
 	}

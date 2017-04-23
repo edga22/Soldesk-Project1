@@ -220,11 +220,4 @@ $(document).ready(function(){
 	</div>
 </header>
 <div id="headerLine" class="container-fluid"> </div>
-<script> 
-$(document).ready(function(){
-    $("#allMenu").click(function(){
-        $("#allMenuPannel").slideToggle("slow");
-    });
-});
-</script>
 <!-- 공통 상단 끝 -->

@@ -6,28 +6,76 @@
 <jsp:include page="/main_navbar.jsp"/>
 
 <style>
-	img{
+	#level img{
 		width:80px;
 		height:auto;
+	}
+	#level th{
+		text-align:center;
+	}
+	#level td {
+		text-align:center;
+		vertical-align:middle;
+	}
+	#level .infot {
+		text-align:left;
 	}
 </style>
 
 <div class="container">
 	<div class="row content">
-	    <div class="col-sm-2 sidenav" style="border:solid 0.1rem; width:16rem;">
+	    <div class="col-sm-2">
 		   <jsp:include page="/mypage/mypageMenu.jsp"/>
 		</div>
 		<div class="col-sm-10">
-			<div id="MypageQuestion">
-				<p><img src="/img/member/bronze.PNG"> 브론즈등급 2000포인트 이하회원</p><br>
-				<p><img src="/img/member/silver.PNG"> 실버등급 2001포인트 이상 5000 포인트 이하회원</p><br>
-				<p><img src="/img/member/gold.PNG"> 골드등급 5001포인트 이상 10000포인트 이하회원</p><br>
-				<p><img src="/img/member/platinum.PNG"> 플레티넘등급 10001포인트 이상 30000포인트 이하회원</p><br>
-				<p><img src="/img/member/diamond.PNG"> 다이아등급 30001포인트 이상 50000포인트 이하회원</p><br>
-				<p><img src="/img/member/vip.PNG"> VIP등급 50001 포인트 이상회원</p>
-				<br>
-				<br>
-				<br>	
+			<div class="panel panel-default"> 
+			  <div class="panel-heading"><h2><i class="glyphicon glyphicon-user"></i> 회원 등급 안내</h2></div>
+			  <div class="panel-body">북앤카페의 회원 등급에 관하여 알려 드립니다.</div>
+			</div>
+			<div class="table-responsive">      
+		        <table class="table table-hover table-striped" id="level">
+	                <thead>
+			            <tr class="info">
+		                    <th>레벨 문장</th>
+		                    <th>등급</th>
+		                    <th class="infot">필요 포인트</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+			            <tr>
+			                <td><img src="/img/member/bronze.PNG"></td>
+			                <td>브론즈등급</td>
+			             	<td class="infot">2000포인트 이하회원</td>
+			            </tr>
+			            <tr>
+			                <td><img src="/img/member/silver.PNG"></td>
+			            	<td>실버등급</td>
+			            	<td class="infot">2001포인트 이상 5000 포인트 이하회원</td>
+			            </tr>
+			            <tr>
+			            	<td><img src="/img/member/gold.PNG"></td>
+							<td>골드등급 </td>
+							<td class="infot">5001포인트 이상 10000포인트 이하회원</td>
+						</tr>
+			            <tr>
+			            	<td><img src="/img/member/platinum.PNG"></td>
+			            	<td>플레티넘등급</td>
+			            	<td class="infot">10001포인트 이상 30000포인트 이하회원</td>
+			            </tr>
+			            <tr>
+			            	<td><img src="/img/member/diamond.PNG"></td>
+			            	<td>다이아등급</td>
+			            	<td class="infot">30001포인트 이상 50000포인트 이하회원</td>
+			            </tr>
+			            <tr>
+				            <td><img src="/img/member/vip.PNG"></td>
+				            <td>VIP등급</td>
+				            <td class="infot">50001 포인트 이상회원</td>
+			            </tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="text-right">
 				<a href="/mypage/mypageQuestion.jsp"><button type="button" class="btn btn-primary">질문페이지로</button></a>
 			</div>
 		</div>

@@ -31,6 +31,10 @@
 		SELECT * FROM Category WHERE category_id = #{categoryID}
 	</select>
 	
+	<select id="getCode1" parameterType="int" resultMap="CategoryMgrMap">
+		SELECT * FROM Category WHERE code1 = #{code1} AND code2 = 0
+	</select>
+	
 	<select id="getRegionCategories" parameterType="int" resultMap="CategoryMgrMap">
 		SELECT * FROM Category WHERE code1 = #{code1}
 	</select>
