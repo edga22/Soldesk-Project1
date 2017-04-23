@@ -108,7 +108,7 @@ Category[] useCategory = cCnter.getCategoryList(scResult);
 #cate-side {
 	margin-top : 2rem;
 	background-color : white ;
-	border : 1px black solid;
+	
 }
 
 #align-bar {
@@ -128,7 +128,8 @@ Category[] useCategory = cCnter.getCategoryList(scResult);
 }
 
 .inSearch-group{
-	padding-top : 1rem;
+	padding : 1rem;
+	border : 1px solid silver;
 }
 .cate-group{
 	padding-top : 1rem;
@@ -176,7 +177,7 @@ $(document).ready(function(){
 		<div class="inSearch-group">			
 			<p>결과 내 검색</p>
 			<form action="">
-			<input type="text" style="width : 75%;" name="SearchWord">
+			<input type="text" style="width : 70%;" name="SearchWord">
 			<button class="btn btn-default btn-sm" type="submit" name="inSc" value="1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>	
 			</form>		
 		</div>
