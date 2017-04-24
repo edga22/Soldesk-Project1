@@ -141,6 +141,11 @@ EventMgr evmgr = new EventMgr();
 	font-weight : bold;
 }
 
+.image {
+	max-height : 125px;
+	width : 85px;
+}
+
 label {
 	vertical-align:-1px;
 	font-size:12px;
@@ -230,7 +235,7 @@ $(document).ready(function(){
 				<p><%=i %>.</p>
 				<input type="checkbox" name="bookID" value="<%=scResult[idx].getBookID() %>">
 			</div>
-			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=scResult[idx].getBookID()%>"><img src="<%=scResult[idx].getImageID()%>"></a></div>
+			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=scResult[idx].getBookID()%>"><img class="image" src="<%=scResult[idx].getImageID()%>"></a></div>
 			<div class="col-md-7">
 				<p id="booktitle">[<%=currentCate.getCategoryName() %>]<a href="/inven/bookDetail.jsp?bookID=<%=scResult[idx].getBookID()%>"><%=scResult[idx].getBookName() %></a></p>
 				<p>저자 : <%=scResult[idx].getAuthor() %> 출판사 : <%=scResult[idx].getPublisher() %></p>

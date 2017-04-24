@@ -50,6 +50,11 @@ h3 {
 .result-group{
 	margin-bottom : 1.5em;
 }
+
+.image {
+	max-height : 125px;
+	width : 85px;
+}
 </style>
 </head>
 <body>
@@ -91,7 +96,7 @@ for(Book result: scResult){ %>
 		<label><input type="checkbox" name="bookID"value="<%= result.getBookID() %>"></label>
 		</div>
 	</div>
-	<div class="col-md-2"><img src="<%=result.getImageID()%>"></div>
+	<div class="col-md-2"><img class="image" src="<%=result.getImageID()%>"></div>
 	<div class="col-md-6">
 		<p id="booktitle"><%=result.getBookName() %></p>
 		<p>저자 : <%= result.getAuthor() %>  출판사 : <%= result.getPublisher() %></p>
