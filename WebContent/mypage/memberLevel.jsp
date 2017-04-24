@@ -44,33 +44,33 @@
 		            <tbody>
 			            <tr>
 			                <td><img src="/img/member/bronze.PNG"></td>
-			                <td>브론즈등급</td>
-			             	<td class="infot">2000포인트 이하회원</td>
+			                <td><span style="background-color: brown;color:#fff;">브론즈등급</span></td>
+			             	<td class="infot">2,000포인트 이하회원</td>
 			            </tr>
 			            <tr>
 			                <td><img src="/img/member/silver.PNG"></td>
-			            	<td>실버등급</td>
-			            	<td class="infot">2001포인트 이상 5000 포인트 이하회원</td>
+			            	<td><span style="background-color: #e6e6e6;color:#555;">실버등급</span></td>
+			            	<td class="infot">2,001포인트 이상 5,000포인트 이하회원</td>
 			            </tr>
 			            <tr>
 			            	<td><img src="/img/member/gold.PNG"></td>
-							<td>골드등급 </td>
-							<td class="infot">5001포인트 이상 10000포인트 이하회원</td>
+							<td><span style="background-color: #ffd633;color:#fff;">골드등급</span></td>
+							<td class="infot">5,001포인트 이상 10,000포인트 이하회원</td>
 						</tr>
 			            <tr>
 			            	<td><img src="/img/member/platinum.PNG"></td>
-			            	<td>플레티넘등급</td>
-			            	<td class="infot">10001포인트 이상 30000포인트 이하회원</td>
+			            	<td><span style="background-color: #009999;color:#fff;">플레티넘등급</span></td>
+			            	<td class="infot">10,001포인트 이상 30,000포인트 이하회원</td>
 			            </tr>
 			            <tr>
 			            	<td><img src="/img/member/diamond.PNG"></td>
-			            	<td>다이아등급</td>
-			            	<td class="infot">30001포인트 이상 50000포인트 이하회원</td>
+			            	<td><span style="background-color: #00bfff;color:#fff;">다이아등급</span></td>
+			            	<td class="infot">30,001포인트 이상 50,000포인트 이하회원</td>
 			            </tr>
 			            <tr>
 				            <td><img src="/img/member/vip.PNG"></td>
-				            <td>VIP등급</td>
-				            <td class="infot">50001 포인트 이상회원</td>
+				            <td><span style="background-color: #9933ff;color:#fff;">VIP등급</span></td>
+				            <td class="infot">50,001포인트 이상회원</td>
 			            </tr>
 					</tbody>
 				</table>

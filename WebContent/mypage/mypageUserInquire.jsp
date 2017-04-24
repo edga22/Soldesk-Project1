@@ -90,9 +90,9 @@ label {
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="text">내용</label>
 				<div class="col-sm-10">
-					<textarea class="form-control" rows="5" name="userInquireContents" style="resize:none;" 
-						placeholder="※구매내역(책 제목, 구매일)을 함께 남겨주시면 보다 빠른 답변이 가능합니다."
-						required></textarea>
+					<textarea class="form-control" rows="8" name="userInquireContents" required>
+					※구매내역(책 제목, 구매일)을 함께 남겨주시면 보다 빠른 답변이 가능합니다.					
+					</textarea>
 				</div>
 			</div>
 			<script>

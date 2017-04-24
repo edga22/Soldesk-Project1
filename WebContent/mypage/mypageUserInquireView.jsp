@@ -13,56 +13,53 @@ UserInquire userInquire = uiDao.getUserInquire(userInquireID);
 int a = userInquire.getUserInquireID();
 %>
 	<jsp:include page="/main_navbar.jsp"/>
-	
+
+    <style>
+	#to1v th {
+	   text-align:center;
+	}
+	</style>	
 	<div class="container">
 		<div class="col-sm-2 sidenav" style="float: left;">
 			<jsp:include page="/mypage/mypageMenu.jsp"/>
 		</div>
 		<div class="col-sm-10" id="MypageUserInquire">
-			<table class="col-sm-10">
-				<tr>
-					<th><h3 style="text-align: center;">1:1 문의</h3></th>
-				</tr>
-				<tr>
-					<td>
-						<form action="mypageUserInquire.jsp">
-							<button type="submit" class="btn btn-default"
-								style="float: right;">문의 하기</button>
-						</form>
-					</td>
-				</tr>
-				<tr>
-				<%if(/* userInquireID.equals(a ) */ userInquireID== a ) { %>
-					<td><form action="#" class="form-horizontal">
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="text">질문제목:</label>
-								<label class="control-label"><%=userInquire.getTitle() %></label>								
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="text">등록일:</label>
-								<label class="control-label"><%=userInquire.getDate() %></label>								
-							</div>
-							<div class="form-group">
-                                <label class="control-label col-sm-2" for="text">문의내용:</label>
-                                <div class="col-sm-10" style="border:1px solid #999;padding:2rem;">
-                                    <%=userInquire.getContent() %>
-                                </div>                                
-                            </div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="text">답변내용:</label>
-								<div class="col-sm-10" style="border:1px solid #999;padding:2rem;">
-									<%if(userInquire.getAnswer() != null && !userInquire.getAnswer().equals("")){%>
-									   <%=userInquire.getAnswer()%>
-									<%}else{%>
-									   답변 처리 중입니다.
-									<%}%>>
-								</div>
-							</div>							
-						</form></td>
-						<%}else{ %>
-				<%} %>
-				</tr>				
-			</table>
+		  <div class="panel panel-default"> 
+              <div class="panel-heading"><h2><i class="glyphicon glyphicon-pencil"></i> 1:1 문의 결과</h2></div>
+              <div class="panel-body">북앤카페의 문의사항이나 불편한 거나 건의할 내용을 보내면 답변을 드립니다.</div>
+            </div>
+            <div class="table-responsive"> 
+                <table class="table table-hover table-bordered table-striped" id="to1v">
+					<%if(/* userInquireID.equals(a ) */ userInquireID== a ) { %>
+					<tr>
+						<th width="20%">질문제목</th>
+						<td><%=userInquire.getTitle() %></td>
+					</tr>
+					<tr>
+                        <th>등록일</th>
+                        <td><%=userInquire.getDate() %></td>
+                    </tr>
+                    <tr>
+                        <th>문의내용</th>
+                        <td><%=userInquire.getContent() %></td>
+                    </tr>
+                     <tr>
+                        <th>답변내용</th>
+                        <td>
+                            <%if(userInquire.getAnswer() != null && !userInquire.getAnswer().equals("")){%>
+                                <%=userInquire.getAnswer()%>
+                            <%}else{%>
+                                답변 처리 중입니다.
+                            <%}%>>
+                         </td>
+                    </tr>
+					<%}else{ %>
+					<%} %>
+				</table>
+			</div>
+			<div class="text-right">
+                <a href="/mypage/mypageUserInquireResult.jsp"><button type="button" class="btn btn-primary">문의목록</button></a>
+            </div>
 		</div>
 	</div>
 	

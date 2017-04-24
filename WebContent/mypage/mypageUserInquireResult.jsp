@@ -55,7 +55,7 @@ UserInquire[] userInquire = uiDao.getAskTitle(userID);	//배열로 해서 받자
 			</div>
 			<div class="table-responsive"> 
 				<table class="table table-hover table-striped" id="to1">
-					<tr>
+					<tr class="info">
 						<th>번호</th>
 						<th>제목</th>
 						<th>등록일</th>

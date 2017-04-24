@@ -48,24 +48,31 @@
  
  int level = member.getBonusPoint();
  String img = "";
+ String color = "";
  String font = "";
  	if(level<=2000){
  		img="/img/member/bronze.PNG";
+ 		color = "brown";
     	font = "브론즈";
  	}else if(2000<level && level<=5000){
  		img="/img/member/silver.PNG";
+ 		color = "#e6e6e6";
     	font = "실버";
     }else if(5000<level && level<=10000){
     	img="/img/member/gold.PNG";
+    	color = "#ffd633";
     	font = "골드";
     }else if(10000<level && level<=30000){
     	img="/img/member/platinum.PNG";
+    	color = "#009999";
         font = "플레티넘";
     }else if(30000<level && level<=50000){
     	img="/img/member/diamond.PNG";
+    	color = "#00bfff";
     	font = "다이아";
     }else{
     	img="/img/member/vip.PNG";
+    	color = "#9933ff";
    		font = "VIP";
     }
 %>
@@ -78,10 +85,10 @@
 			<th><%=member.getName() %> 님은</th>
 	    </tr>
         <tr>  
-            <th><span class="label label-info"><%=font %></span></th> 
+            <th><span class="label label-info" style="background-color: <%=color%>;"><%=font %></span></th> 
         </tr> 
 	    <tr>  
-	        <th>등급 입니다.</td> 
+	        <th>등급 입니다.</th> 
 	    </tr>
 	   	<tr>
 	    	<td colspan="2">
