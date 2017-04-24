@@ -4,6 +4,10 @@
 		import="domain.Book" %>
 <!DOCTYPE html PUBLIC>
 <html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+</head>
 <body>
 <%
 String[] bookIDs;

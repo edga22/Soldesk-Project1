@@ -18,12 +18,18 @@ public class EventMgr {
 		bookdao = new DbBasedBookDao();
 	}
 	
+	public int getDiscout(int bookID){
+		int eventID = bookdao.getBook(bookID).getEventID();
+		if(eventID == 0) return 0;
+		else return eventdao.getEvent(eventID).getDiscount();
+	}
+	
 	// 책 할인율을 실제 비율로 반환합니다
 	// param : 책 ID
 	// return : (1 -할인율 % * 0.01)
 	public double getDiscountMult(int bookID){
 		int eventID = bookdao.getBook(bookID).getEventID();
-		if(eventID == 0) return 0;
+		if(eventID == 0) return 1;
 		else return (1 - (double)(eventdao.getEvent(eventID).getDiscount() * 0.01));		
 	}
 	

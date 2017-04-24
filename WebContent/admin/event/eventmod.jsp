@@ -39,6 +39,10 @@ body {
 #percent{
 	width : 7rem;
 }
+
+.hidden{
+	display : none;
+}
 </style>
 </head>
 <body>
@@ -54,15 +58,17 @@ body {
 <div class="row">
 	
 	<div class="form-inline form-group">
-		<input type="text" name="eventname">
+		<p class="form-control-static">이벤트 이름:</p>
+		<input type="text" name="eventname" class="form-control">
 		<p class="form-control-static">할인율:</p>
 		<input type="number" min="0" max="100" class="form-control" id="percent" name="dc_percent">
 		
+		<div class="hidden">
 		<p class="form-control-static">%   사은품:</p>
 		<select name="gift" class="form-control">
 			<option>준비된 사은품이 없습니다</option>
 		</select>
-		
+		</div>
 		<p style="margin-top:0.5rem;">행사 기간 : <input class="form-control" type="date" name="event_start"> ~ <input class="form-control" type="date" name="event_end"> <button class="btn btn-primary" type="submit">적용</button></p>
 			
 	</div>

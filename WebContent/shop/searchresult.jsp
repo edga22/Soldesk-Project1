@@ -1,3 +1,4 @@
+<%@page import="mgr.EventMgr"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
@@ -6,6 +7,7 @@
 	import="mgr.search.SearchBox"
 	import="mgr.BookSortMgr"
 	import="service.CategoryCounter"
+	import="mgr.EventMgr"
 	 %>
 <!DOCTYPE html PUBLIC>
 <html>
@@ -94,7 +96,7 @@ if(scResult != null && scResult.length > 0){
 }
 
 Category[] useCategory = cCnter.getCategoryList(scResult);
-
+EventMgr evmgr = new EventMgr();
 %>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -230,12 +232,11 @@ $(document).ready(function(){
 			</div>
 			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=scResult[idx].getBookID()%>"><img src="<%=scResult[idx].getImageID()%>"></a></div>
 			<div class="col-md-7">
-				<p id="booktitle"><%=currentCate.getCategoryID()%>|<%=currentCate.getCode1() %>|<%=currentCate.getCode2() %>|<%=currentCate.getCategoryName() %>|<a href="/inven/bookDetail.jsp?bookID=<%=scResult[idx].getBookID()%>"><%=scResult[idx].getBookName() %></a></p>
+				<p id="booktitle">[<%=currentCate.getCategoryName() %>]<a href="/inven/bookDetail.jsp?bookID=<%=scResult[idx].getBookID()%>"><%=scResult[idx].getBookName() %></a></p>
 				<p>저자 : <%=scResult[idx].getAuthor() %> 출판사 : <%=scResult[idx].getPublisher() %></p>
 				<ul>
-					<li><%=scResult[idx].getPrice() %>원</li>
-					<li>적립포인트 : <%=i %>%</li>
-					<li>사은품 : </li>
+					<li>판매가 : <%=scResult[idx].getPrice() %>원</li>
+					<li>할인가 : <%=(int)(scResult[idx].getPrice() * evmgr.getDiscountMult(scResult[idx].getBookID())) %>원  <%= (evmgr.getDiscout(scResult[idx].getBookID())!=0)? "<b>"+evmgr.getDiscout(scResult[idx].getBookID())+"% off </b>":"" %></li>					
 				</ul>
 			</div>
 			<div class="col-md-2">

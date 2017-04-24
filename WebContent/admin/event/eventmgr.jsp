@@ -12,6 +12,7 @@ String scTarget = "";
 String scWord = "";
 Book[] scResult = null;	// 검색 결과를 저장할 배열
 SearchMgr scmgr = new SearchMgr();
+EventMgr evmgr = new EventMgr();
 
 if(request.getParameter("SearchTarget") != null) scTarget = request.getParameter("SearchTarget");
 if(request.getParameter("SearchWord") != null) scWord = request.getParameter("SearchWord");
@@ -22,6 +23,7 @@ if(scTarget.equals("all") && !scWord.equals("")){
 else {
 	scResult = scmgr.getBooks("");
 }
+
 %>
 
 <html>
@@ -64,7 +66,7 @@ h3 {
 	<form class="form-inline">
 	<div class="form-group">
 		<p class="form-control-static">대상도서:</p>
-		<select name="SearchTarget" class="form-control">
+		<select name="SearchTarget" class="form-control" style="display:none;">
 			<option value="all">통합</option>
 			<option value="title">제목</option>
 			<option value="author">저자</option>
@@ -72,7 +74,7 @@ h3 {
 		</select>
  		<input type="text" class="form-control" id="keyword" name="SearchWord">
  		<button class="btn btn-primary" type="submit">검색</button>
-		<button class="btn btn-info" type="submit" name="type" value="all">전체 이벤트 불러오기</button>
+		<button class="btn btn-info" type="submit" name="type" value="all">전체 도서 불러오기</button>
 	</div>	
 	</form>
 </div>
@@ -93,10 +95,9 @@ for(Book result: scResult){ %>
 	<div class="col-md-6">
 		<p id="booktitle"><%=result.getBookName() %></p>
 		<p>저자 : <%= result.getAuthor() %>  출판사 : <%= result.getPublisher() %></p>
-		<p>진행중인 이벤트 정보</p>
 		<ul>
-			<li>할인 : %</li>
-			<li>사은품 : </li>
+			<li>할인 :<%= evmgr.getDiscout(result.getBookID()) %> %</li>
+			<li>원가 : <%= result.getPrice() %> -> 할인가 : <%= (int)(result.getPrice() * evmgr.getDiscountMult(result.getBookID())) %>
 		</ul>
 	</div>
 	<div class="col-md-3">
