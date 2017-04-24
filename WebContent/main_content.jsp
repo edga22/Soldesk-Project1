@@ -245,7 +245,7 @@
                 <div class="col-md-12">
                     <div id="ad2">
                         <a href="http://localhost/inven/bookDetail.jsp?bookID=218">
-                            <img alt="ad2" src="./img/main/170320_ebook.jpg" />
+                            <img alt="ad2" src="/img/main/170320_ebook.jpg" />
                         </a>
                     </div>
                 </div>

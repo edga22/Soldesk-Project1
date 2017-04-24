@@ -1,16 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="domain.Category"
 		 import="mgr.CategoryMgr"
-   		 import="java.util.List" %>
+   		 import="java.util.List" 
+   		 import="domain.Book"
+         import="mgr.BookMgr"%>
 <%
 CategoryMgr catemgr = new CategoryMgr();
+BookMgr bookmgr = new BookMgr();
 
-String cataPage = request.getParameter("cata");
-String codePage = request.getParameter("code");
+String cataPage = request.getParameter("cata"); //분류1
+String codePage = request.getParameter("code"); //분류2
+String cataBookID = request.getParameter("bookID"); //도서아이디
 int categoriesSize = catemgr.listCategories().size();
-int cataCode = 0;
-int codeId = 0;
+int cataCode = 0; //분류1 숫자
+int codeId = 0; //분류2 숫자
+int cateBookID = 0; //도서아이디 숫자
 int[] cateArr;
+
+if(cataBookID != null){
+	int codeID = 0;
+	cateBookID = Integer.parseInt(cataBookID);
+    Book book = bookmgr.getBook(cateBookID);
+    codeID = book.getCategoryID();
+    Category codeCateg = catemgr.findCategory(codeID);
+    cataPage = Integer.toString(codeCateg.getCode1());
+    codePage =  Integer.toString(codeID);
+}
 
 if(cataPage != null){
 	if(cataPage.equals("all")) ;		
@@ -68,8 +83,14 @@ if(cataPage != null){
 		            <div class="panel-body">
     	   <% i++;
     	   }else{ %>		
-		                <a href="/mainCategory.jsp?cata=<%=result.getCode1()%>&code=<%=result.getCategoryID()%>"><%=result.getCategoryName() %></a><br>      
-	   	 <% }
+		                <a href="/mainCategory.jsp?cata=<%=result.getCode1()%>&code=<%=result.getCategoryID()%>">
+		   <%  if(codeId == result.getCategoryID()){   %>
+		                <strong style="color:darkblue;font-size:1.6rem;"><%=result.getCategoryName() %></strong></a><br>
+		   <% }else{ %>
+		                <%=result.getCategoryName() %></a><br>
+		                      
+	   	 <%   }
+		  }
 	    } %>
 
 		            </div>

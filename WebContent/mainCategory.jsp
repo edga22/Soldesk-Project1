@@ -143,7 +143,7 @@ $(document).ready(function(){
 	
 	<div class="row">
         <div class="col-md-2">
-        <jsp:include page="/shop/categoryMenu.jsp"/>
+            <jsp:include page="/shop/categoryMenu.jsp"/>
 		</div>
 		<!--// 카테고리 -->
 			
