@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<link rel="stylesheet" href="/bookcafe.css">
+<!DOCTYPE html PUBLIC>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<link rel="stylesheet" href="/bookcafe.css">
+<style>
+#searchform{
+	width : 100%;
+}
+#search{
+	width : 70%;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+		
+	$("#searchform").submit(function(){		
+		var inputtext = $("#search").val();
+		
+		var trimtext = $.trim(inputtext);
+		
+		if(trimtext.length < 2){
+			alert("2글자 이상 입력해주세요");
+			$("#search").val(trimtext);
+			$("#search").focus();
+			return false;
+		}else {
+			$("#search").val(trimtext);
+			$("#searchform").submit();
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div id="topheader" class="container-fluid">
+    <div class="row">
+       <div class="col-sm-6 text-right" style="background-color:#ffd11a;height:70px;">
+         <h2 style="margin-right:8rem"><span class="glyphicon">&#xe233;</span> 북앤카페 새학기 맞이 대잔치</h2>
+       </div>
+       <div class="col-sm-1 text-left" style="border-bottom:70px solid #ff99bb;border-left:40px solid #ffd11a;">
+       </div>
+       <div class="col-sm-5 text-left" style="background-color:#ff99bb;height:70px;">
+         <h2 style="margin-left:-3rem"><span class="glyphicon">&#xe103;</span> 봄도 독서의 계절, 졸음싹 커피</h2>
+       </div>
+    </div>
+</div>
+<nav id="topheaderwrap" class="headerwrap" data-spy="affix" data-offset-top="70">
+	<div class="row" id="wrap">
+    	<div class="col-md-12"> 
+        	<div class="row" >
+            	<div class="col-md-6">
+                	<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="/main.jsp">Home</a>
+							</li>
+							<li class="">
+								<a href="/mainCategory.jsp?cata=all">전체도서</a>
+							</li>
+							
+					        <li class="">
+	                        	<a href="/mainCategory.jsp?cata=10">국내도서</a>
+	                       	</li>   		              
+							
+					        <li class="">
+	                        	<a href="/mainCategory.jsp?cata=20">외국도서</a>
+	                       	</li>   		              
+							
+					        <li class="">
+	                        	<a href="/mainCategory.jsp?cata=30">전자책</a>
+	                       	</li>   		              
+														
+							<li class="">
+                                <a href="/shop/bestseller.jsp?cata=best">베스트셀러</a>
+                            </li>		            
+                   	</ul>
+               	</div>
+               	<div class="col-md-6 text-right">
+                   	<ul class="breadcrumb" style="height:36px">
+                       	
+                       		<li>
+                       		<a href="/mypage/memberLevel.jsp"><span class="member_rate" style="background-color: #9933ff;">VIP회원</span></a>
+                               	
+                           	
+                           	<a href="/mypage/mypageOrderMod.jsp"><b>mosa10@nate.com</b></a>                      	
+                      		
+                      		<span class="divider"></span> 
+                      	</li>
+                       	<li>
+                           	<a href="/mypage/mypageMain.jsp">마이페이지</a> <span class="divider"></span>
+                       	</li>
+                       	<li>
+                           	<a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>
+                        </li>
+                        <li>
+                           	<a href="/game/miniGame.jsp">Game</a> <span class="divider"></span>
+                       	</li>
+                       	
+                       	<li>
+                           	<a href="/shop/basket.jsp">장바구니</a>
+                       	</li>
+                   	</ul>
+               	</div>
+           	</div>
+       	</div>
+    </div>
+</nav>
+
+<header id="headerwrap">
+    <div class="container-fluid">      
+        <div class="row">
+            <div class="col-md-2">
+              <a class="navbar-brand" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
+            </div>    
+            <div class="col-md-8">     
+            <!-- 검색 시작 -->         
+                <form class="navbar-form navbar-left form-group-lg" id="searchform" role="search" action="/shop/searchresult.jsp">
+                    <select class="form-control" id="sel1" name="SearchTarget">
+                        <option value="all">통합검색</option>
+                  
+                        <option value="10" >국내도서</option>
+                  
+                        <option value="20" >외국도서</option>
+                  
+                        <option value="30" >전자책</option>
+                  
+                    </select>
+                    <input type="text" class="form-control" id="search" name="SearchWord"/>                            
+                    <button type="submit" id="search-btn" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-search"></span> 검색</button>
+                    <button type="button" class="btn btn-link" style="display:none;"><strong>상세검색</strong></button>
+                </form>
+            <!-- 검색 끝 -->  
+            </div>
+            <div class="col-md-2">
+               <div id="ad1" style="float: right;">
+                   <a href="/inven/bookDetail.jsp?bookID=14" title="언어의 온도 바로가기"><img alt="상단광고" src="/img/main/161111_head_mgt.jpg" /></a>
+               </div>
+            </div>
+        </div>
+	</div>
+</header>
+<div id="headerLine" class="container-fluid"> </div>
+<!-- 공통 상단 끝 -->
+
+
+<div class="container">
+    <div class="col-sm-2">
+        
+
+
+<style>
+.panel-body a {
+    color:#000;
+    text-decoration: none;
+}
+#memberLevellTb {
+    width:100%;
+    align:center;
+    margin-bottom:1.2rem;
+    border: 1px solid #ddd;
+}
+#memberLevellTb th {
+    height:3rem;
+    font-size:1.3rem;
+    text-align:left;
+}
+#memberLevellTb td {
+    height:3rem;
+    font-size:1.3rem;
+    text-align:center;
+}
+#memberLevellTb th{
+    font-size:1.4rem;
+}
+#memberLevellTb th span {
+    font-size:1.7rem;
+}
+#memberLevellTb td span {
+    font-size:1.5rem;
+}
+</style>
+
+ 
+<div class="row" >
+	<table id="memberLevellTb">
+		<tr>
+			<td rowspan="3">
+	            <a href="/mypage/memberLevel.jsp"><img src="/img/member/vip.PNG" style="width:75px; height:auto;"></a>
+			</td>
+			<th>송성우 님은</th>
+	    </tr>
+        <tr>  
+            <th><span class="label label-info" style="background-color: #9933ff;">VIP</span></th> 
+        </tr> 
+	    <tr>  
+	        <th>등급 입니다.</th> 
+	    </tr>
+	   	<tr>
+	    	<td colspan="2">
+                포인트 <span class="badge">554,555P </span>
+            </td>
+	   	</tr>
+    </table>
+    
+    <div class="panel-group">
+	    <div class="panel panel-default">
+            <div class="panel-heading">주문내역</div>
+            <div class="panel-body"><a href="/mypage/mypageOrderMod.jsp">주문조회/변경/취소</a></div>
+	    </div>
+		<div class="panel panel-default">
+		    <div class="panel-heading">개인정보 수정</div>
+		    <div class="panel-body"><a href="/mypage/mypageModify.jsp">개인정보 수정</a></div>
+		    <div class="panel-body"><a href="/mypage/mypageOut.jsp">회원 탈퇴</a></div>
+		</div>
+		<div class="panel panel-default">
+            <div class="panel-heading">고객센터</div>
+            <div class="panel-body"><a href="/mypage/mypageQuestion.jsp">자주 묻는 질문</a></div>
+            <div class="panel-body"><a href="/mypage/mypageUserInquireResult.jsp">1:1문의</a></div>
+        </div>      
+    </div>
+</div> 
+
+    </div> 
+    <div class="col-sm-10">
+        <div class="panel panel-default"> 
+		  <div class="panel-heading"><h2><i class="glyphicon glyphicon-log-in"></i> 개인정보 수정</h2></div>
+		  <div class="panel-body">가입시 입력한 개인정보를 확인 및 수정, 변경할 수 있습니다.</div>
+		</div>
+		<div class="table-responsive">
+        <table class="table table-bordered table-striped">
+	      <tr>
+		     <th>아이디</th>
+		     <td>mosa10@nate.com</td>
+	      </tr>		
+	      <tr>
+		     <th>비밀번호</th>
+		     <td>
+		     	<form action="mypageModify.jsp">
+		         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#mySmallModal">비밀번호변경</button>
+
+					<div class="modal fade" id="mySmallModal">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+								<h4 class="modal-title">아래에 변경할 비밀번호를 입력하세요.</h4>
+								</div>
+								<div class="modal-body">
+									<table style="padding:1rem;margin:1rem;">
+									   <tr>
+										  <th>기존 비밀번호:</th><td><input type="password" style="margin:0.5rem;" name="oldpw"></td>
+									   </tr>
+									   <tr>
+									       <th>새 비밀번호:</th><td><input type="password" style="margin:0.5rem;"name="newpw1"></td>
+									   </tr>
+									   <tr>
+									       <th>새 비밀번호확인:</th><td><input type="password" style="margin:0.5rem;"name="newpw2"></td>
+									   </tr>
+									</table>
+								</div>
+						        <div class="modal-footer">
+									<button type="submit" class="btn btn-primary" >변경완료</button>
+									<button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                   </div>
+				           </div>
+			            </div>
+		             </div>
+		          </form>
+				</td>
+			</tr>
+         
+			<tr>
+				<th>이름</th>
+				<td>송성우</td>
+			</tr>
+			<tr>
+				<th>전화번호</th>
+				<td>01050404946
+					<form action="/mypage/mypageModifyProc1.jsp">
+					<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#mySmallModal2">전화번호변경</button>
+						<div class="modal fade" id="mySmallModal2">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title">아래에 변경할 전화번호를 입력하세요.</h4>
+									</div>
+									<div class="modal-body">
+										<table style="padding:1rem;margin:1rem;">
+											<tr>
+												<th>새 전화번호:</th>
+												<td><input type="number" style="margin:0.5rem;"name="newph" placeholder="'-'생략하고입력하세요"></td>
+											</tr>
+										</table>
+									</div>
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary" >변경완료</button>
+										<button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>우편번호/주소</th>
+				<td>
+					<form action="/mypage/mypageModifyProc2.jsp">
+						<input type="text" name="postCode" class="postcodify_postcode5 form-control" id="postNumber" value="1012" readonly/>
+						<input type="text" name="address" class="postcodify_address form-control" value="서울특별시 강북구 4.19로 84-1 솔데스크 101동 101호" required readonly/><br />
+						<input type="text" name="address2" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요." required />
+						<button type="button" id="postcodify_search_button" class="btn btn-danger btn-xs">주소변경</button>
+						<button type="submit" class="btn btn-danger btn-xs">변경완료</button>
+						<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+						<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
+					</form>
+				</td>
+			</tr>
+
+	    </table>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- 공통 하단 -->
+<footer id="footer">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="footer_line"></div>
+            <div class="footer_header">
+                <ul class="breadcrumb">
+                   <li>
+                       <a href="/sign/instroCop.jsp">회사소개</a>                   
+                   </li>
+                   <li>
+                       <a href="/sign/accessTerm.jsp">이용약관</a>                   
+                   </li>
+                   <li>
+                       <a href="/sign/personalInfo.jsp">개인정보취급방침</a> 
+                   </li>
+                   <li>
+                       <a href="#">고객센터</a> 
+                   </li>
+                               
+                   <li style="float:right">
+                       <a href="#">▲TOP</a>
+                   </li>
+               </ul>                            
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 text-center">
+            <a class="navbar-brand" href="#"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe<br><span style="font-size:2rem;">북앤카페</span></a>
+        </div>
+        <div class="col-md-5">
+            <div style="width:50%;float: left;">   
+                <address>
+                    <strong>Book&#38;Cafe, Inc.</strong><br />
+                    대표이사 : 윤광재<br /> 
+                    <abbr title="Phone">전화상담 : 02) 1234-5678</abbr><br />                 
+                    <abbr style="position: absolute;width:100%;clear: left;margin:0;">주소 : 서울 종로구 종로12길 15 코아빌딩1 5층  <a href="http://naver.me/xicaa2oH" target="blank">약도</a></abbr>
+                </address>
+                
+            </div>
+            <div style="width:50%;float: left;">               
+                <address>
+                    <strong></strong><br />
+                    고객정보보호 책임자 : 유강현<br />
+                    <i class="glyphicon glyphicon-envelope" style="color:#555;font-size:0.2rem"></i> E-mail:master@bookncafe
+                </address>
+            </div>          
+        </div>   
+        <div class="col-md-5">               
+            <address>
+                <strong></strong><br />
+                    <i class="glyphicon glyphicon-comment" style="color:#555;font-size:0.2rem"></i> 1:1고객상담 : 메일로 빠르게 답신드립니다.                    
+					                 
+						<a href="/mypage/mypageUserInquire.jsp">문의하기</a><br />					 
+					
+                <i class="glyphicon glyphicon-lock" style="color:#555;font-size:0.2rem"></i> 구매안전 에스크로 서비스 : <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;안전거래를 위해 현금 결제시 이용가능  <a href="#" target="blank">서비스가입확인</a>
+            </address>
+        </div>
+    </div>
+    <p class="text-center">Copyright 2017ⓒ BookNcafe Inc.. All rights reserved. System by: cwsys</p>
+</footer>
+<!-- 맨아래 탑버튼 -->
+<img id="MOVE_TOP_BTN" src="/img/main/btn_top2.png" alt="맨위로">
+<script>
+$(function() {
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 500) {
+            $('#MOVE_TOP_BTN').fadeIn();
+        } else {
+            $('#MOVE_TOP_BTN').fadeOut();
+        }
+    });
+    
+    $("#MOVE_TOP_BTN").click(function() {
+        $('html, body').animate({
+            scrollTop : 0
+        }, 400);
+        return false;
+    });
+});
+</script>
+</body>
+</html>
+
+   
