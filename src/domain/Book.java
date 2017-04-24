@@ -16,6 +16,7 @@ public class Book {
 	private String subtitle;
 	private String description;
 	private int recommend;
+	private String contents;
 	
 	public int getStock() {
 		return stock;
@@ -94,5 +95,11 @@ public class Book {
 	}
 	public void setRecommend(int recommend) {
 		this.recommend = recommend;
+	}
+	public String getContents() {
+		return contents;
+	}
+	public void setContents(String contents) {
+		this.contents = contents;
 	}
 }

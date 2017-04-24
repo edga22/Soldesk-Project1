@@ -28,15 +28,39 @@ if(code1str != null){
 	CategoryMgr mymgr = new CategoryMgr();
 	
 	if(mymgr.addCategory(cate) == true){ %>
+	<!DOCTYPE html>
+	<html>
+	<head>  
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+	</head>
+    <body>
 		<script>
-		   	alert("카테고리 생성성공");
-		   	window.location.replace("/admin/design/categorymgr.jsp");
+			swal({
+	            title: "성공",
+	            text: "카테고리 생성성공",
+	            type: "success"
+	        },
+	                function(){
+	            window.location.replace("/admin/design/categorymgr.jsp");
+	            
+	        });
 		</script>
 <%  }else{ %>
 	   	<script>
-	    	alert("카테고리 생성실패");
-	     	window.location.replace("/admin/design/categorymgr.jsp");
+		   	swal({
+	            title: "실패",
+	            text: "카테고리 생성실패",
+	            type: "error"
+	        },
+	                function(){
+	            window.location.replace("/admin/design/categorymgr.jsp");
+	            
+	        });
 	   	</script>
 <%  }
 }
 %>
+</body>
+</html>

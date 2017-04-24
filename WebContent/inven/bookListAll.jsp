@@ -80,6 +80,7 @@ if( books != null){
 				<th><%=book.getImageID() %></th>
 				<th><%=book.getStock()%></th>
 				<th><%=book.getRecommend()%></th>
+				<th><%=book.getContents()%></th>
 			  </tr>
 <%
 	}

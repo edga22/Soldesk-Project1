@@ -3,7 +3,8 @@
 <%@ page import="domain.Book"
 		 import="mgr.BookMgr"
 		 import="mgr.BestsellerMgr"
-         import="domain.BestSeller"%>
+         import="domain.BestSeller"
+         import="java.text.NumberFormat"%>
 
 <%
 BookMgr mymgr = new BookMgr();
@@ -14,6 +15,8 @@ if(tmp == null || tmp.equals("")){
 	bookID = Integer.parseInt(tmp);
 	}
 Book book = mymgr.getBook(bookID);
+//숫자1000자리 콤마
+NumberFormat nf = NumberFormat.getNumberInstance();
 
 String author = book.getAuthor(); //저자
 String authorList; //저자 / 번역가
@@ -27,6 +30,8 @@ if(idx != -1){
     String author2 = author.substring(idx+1);
     authorList = "지은이 : "+author1+" 저<br> 옮긴이 : "+author2+" 역";
 }else  authorList = "지은이 : "+author+" 저";
+
+
 %>
 <title><%=book.getBookName()%></title>
 
@@ -46,6 +51,10 @@ if(idx != -1){
     border-top:1px solid gray;
     border-bottom:1px solid gray;
 }
+#tb1 td {
+    padding:2rem;
+    line-height: 1.8;
+}
 </style>
 
 <jsp:include page="/main_navbar.jsp"></jsp:include>
@@ -63,7 +72,6 @@ if(idx != -1){
 	        <div class="panel panel-default">
 				<div class="panel-heading">
 				    <h3><%=book.getBookName()%></h3>
-				    
 				</div>
 				<div class="row">
 				    <div class="col-md-12">
@@ -76,15 +84,15 @@ if(idx != -1){
                                     <div class="col-md-12">
 				                        <%=authorList %><br>
 				                        출판사 : <%=book.getPublisher() %><br>
-				                        금  액 : <%=book.getPrice() %>원<br>   
-				                        적  립 : <%= (int)(book.getPrice()*0.1) %>point<br>   
+				                        금  액 : <%=nf.format(book.getPrice()) %>원<br>   
+				                        적  립 : <%=nf.format((int)(book.getPrice()*0.1)) %>point<br>   
 				                        재  고 : <%=book.getStock() %>권<br> 
 				                        출간일 : <%=book.getPublishDate() %>
 			                        </div>
 			                    </div>
 		                        <form >
                                 <div class="col-md-12" id="detail2">
-			                        배송료 : 2500원(1만원 이상시 무료)<br>
+			                        배송료 : 2,500원(1만원 이상시 무료)<br>
 			                        수령 예상일 : 온라인 주문시 2일 소요<br>
 			                                 (오프라인 방문시 당일 수령가능)<br>
 			                        <input type="hidden" name="bookID" value="<%=bookID%>">
@@ -105,9 +113,25 @@ if(idx != -1){
                     <div class="col-md-12">
                         <table id="tb1" class="table table-condensed table-striped">
                             <tr><th>목차</th></tr>
-                            <tr><td><%=book.getSubtitle() %></td></tr>
+                            <tr>
+                                <td>
+		                            <%if(book.getSubtitle() != null){ %>
+		                              <%=book.getSubtitle() %>
+		                            <% }else{ %>
+		                              이 책은 목차가 없습니다.
+		                            <% } %>
+                                </td>
+                            </tr>
                             <tr><th>내용</th></tr>
-                            <tr><td><%=book.getDescription() %></td></tr>
+                            <tr>
+                                <td>
+                                    <%if(book.getDescription() != null){ %>
+                                        <%=book.getDescription() %>
+                                    <% }else{ %>
+                                        이 책은 내용이 없습니다.
+                                    <% } %>
+                                </td>
+                            </tr>
                         </table><br><br>
                     </div>
                 </div>

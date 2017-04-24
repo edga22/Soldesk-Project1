@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
 <style>
 #counter {
   background:rgba(255,0,0,0.5);
@@ -34,9 +35,10 @@ $(function() {
 <%
 BookMgr mymgr = new BookMgr();
 String bookName = request.getParameter("bookName");
+int bookID = Integer.parseInt(request.getParameter("bookID"));
 %>
 <jsp:include page="/inven/invenMain_nav.jsp"></jsp:include>
-<form action="/inven/bookMod.jsp">
+<form action="/inven/bookMod.jsp" method="post">
 <div class="container" id="bim">
 	<br>
 	<div style="border:0.1rem solid black; padding:1rem; margin:1rem;"><!-- 도서 수정 -->
@@ -62,11 +64,21 @@ String bookName = request.getParameter("bookName");
 		  <textarea rows="3" cols=100% name="subtitle" id="content" maxlength="250"
 				style="width: 100%; resize:none;" placeholder="내용 작성"></textarea>
    		  	<span id="counter">255</span><br><br>
+   		  <h4>목차</h4>
+          <textarea rows="5" cols=100% name="contents" id="contents"
+                style="width: 100%; resize:none;" placeholder="내용 작성"></textarea>
 		  <h4>책 내용</h4>
-		  <textarea rows="8" cols=100% name="description"
+		  <textarea rows="8" cols=100% name="description" id="description"
 				style="width: 100%; resize:none;" placeholder="내용 작성"></textarea>
 	  </div>
 	</div>
+	<script>
+	   // Replace the <textarea id="editor1"> with a CKEditor
+	   // instance, using default configuration.
+	   CKEDITOR.replace( 'content' );
+	   CKEDITOR.replace( 'contents' );
+	   CKEDITOR.replace( 'description' );
+	</script>
 	<button type="submit" class="btn btn-default">수정</button>	
 	<hr style="border: solid 0.1rem;"> 
 </div>
@@ -110,6 +122,8 @@ if( books != null){
 			  </tr>	
 				<tr class="active"><th colspan="10" style="text-align:center;">소제목</th></tr>
 				<tr><td colspan="10"><%=book.getSubtitle() %></td></tr>		
+				<tr class="active"><th colspan="10" style="text-align:center;">목차</th></tr>
+                <tr><td colspan="10"><%=book.getContents() %></td></tr>     
 	 			<tr class="active"><th colspan="10" style="text-align:center;">내용</th></tr>
 	 			<tr><td colspan="10"><%=book.getDescription() %></td></tr>
 

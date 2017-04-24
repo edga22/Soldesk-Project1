@@ -46,7 +46,7 @@ public class BookMgr {
 	}
 
 	public Book setBook(int bookID,String bookName,String author,String date, 
-			String price, String publisher,String categoryID,String imageID,String stock,String recommend,String subtitle,String description) throws ParseException{
+			String price, String publisher,String categoryID,String imageID,String stock,String recommend,String subtitle,String description,String contents) throws ParseException{
 		Book[] books = invenDao.getBooks();
 		Book modbook = new Book();
 
@@ -93,6 +93,9 @@ public class BookMgr {
 				
 				if(description == null || description.equals("")) modbook.setDescription(book.getDescription()); 
 				else modbook.setDescription(description);
+				
+				if(contents == null || contents.equals("")) modbook.setContents(book.getContents()); 
+				else modbook.setContents(contents);
 				
 				invenDao.updateBook(modbook);
 			}
