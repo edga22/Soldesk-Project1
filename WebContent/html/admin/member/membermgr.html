@@ -1,0 +1,175 @@
+
+
+
+
+<!DOCTYPE html PUBLIC>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<title>이벤트 관리</title>
+<style>
+body {
+    border-radius: 0px;
+}
+h3 {
+    margin-top : 0.5em;
+}
+
+.result-group{
+    margin-bottom : 1.5em;
+}
+td, th{
+	text-align: center;
+	font-size: 1.4rem;	
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+       	   </button>
+			<a class="navbar-brand" href="/admin/index.jsp">서점 관리자</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse"> <!-- nav 내용 시작 -->
+			<ul class="nav navbar-nav">
+                <li><a href="/admin/member/membermgr.jsp">회원 관리</a></li>
+                <li><a href="/order/deliveryMain.jsp">배송 관리</a></li>
+				<li><a href="/admin/event/eventmgr.jsp">이벤트 관리</a></li>
+				<li><a href="/admin/event/giftmgr.jsp">사은품 관리</a></li>
+				<li><a href="/inven/invenMain.jsp">재고 관리</a></li>
+				<li><a href="/admin/design/categorymgr.jsp">분류 관리</a></li>
+				<li><a href="/admin/design/bannermgr.jsp">베너 관리</a></li>
+				<li><a href="/admin/qa/qaList.jsp">문의 답변</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="disabled"><a href="#">Settings</a>
+				<li><a href="/sign/signOut.jsp">로그아웃</a></li>
+				<li><a href="/main.jsp">쇼핑몰</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container"> <!-- main container -->
+
+<div class="row">
+    <div class="event event-header" style="text-align:center">
+        <h2>회원 관리</h2>
+    </div>
+<form action="membermgr.jsp">
+		<div class="col-sm-12 form-inline" style="margin-bottom:1rem">
+			<input type="number" class="form-control" name="point" max="999999" placeholder="보너스 포인트 변경" style="margin-bottom:-0.3rem">
+			<button type="submit" class="btn btn-info glyphicon glyphicon-plus-sign" name="mod" value="update">포인트수정</button>
+			<button type="submit" class="btn btn-danger glyphicon glyphicon-ban-circle" name="mod" value="delete">회원삭제</button>
+		</div>
+	<table class="table table-hover">
+		<thead>
+			<tr class="info">
+				<th>사용자 번호</th>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>우편번호</th>
+				<th>주소</th>
+				<th>전화번호</th>
+				<th>포인트</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr>
+				<td><input type="radio" name="userNo" value="1"/>1</td>
+				<td>admin@admin.com
+				<td>운영자</td>
+				<td>0</td>
+				<td>null</td>
+				<td>123-4567</td>
+				<td>1015499
+			</tr>
+
+			<tr>
+				<td><input type="radio" name="userNo" value="10"/>10</td>
+				<td>new@naver.com
+				<td>임민혁</td>
+				<td>3191</td>
+				<td>서울특별시 종로구 삼일대로 390-3 솔데스크</td>
+				<td>123-456-1234</td>
+				<td>27450
+			</tr>
+
+			<tr>
+				<td><input type="radio" name="userNo" value="11"/>11</td>
+				<td>aaa@naver.com
+				<td>왕예나</td>
+				<td>12086</td>
+				<td>경기도 남양주시 별내면 청학로114번길 17 몰라</td>
+				<td>01011112222</td>
+				<td>14900
+			</tr>
+
+			<tr>
+				<td><input type="radio" name="userNo" value="13"/>13</td>
+				<td>dbseoen@naver.com
+				<td>윤광재</td>
+				<td>41201</td>
+				<td>대구광역시 동구 신암로20길 39 청아람아파트</td>
+				<td>01086294687</td>
+				<td>30000
+			</tr>
+
+			<tr>
+				<td><input type="radio" name="userNo" value="17"/>17</td>
+				<td>mosa10@nate.com
+				<td>송성우</td>
+				<td>1012</td>
+				<td>서울특별시 강북구 4.19로 84-1 솔데스크 101동 101호</td>
+				<td>01050404946</td>
+				<td>554555
+			</tr>
+
+			<tr>
+				<td><input type="radio" name="userNo" value="18"/>18</td>
+				<td>pdords@naver.com
+				<td>박원서</td>
+				<td>10498</td>
+				<td>경기도 고양시 덕양구 백양로 126 은빛마을</td>
+				<td>01072883718</td>
+				<td>39500
+			</tr>
+
+			<tr>
+				<td><input type="radio" name="userNo" value="21"/>21</td>
+				<td>yoo5459@gmail.com
+				<td>유강현</td>
+				<td>13306</td>
+				<td>경기도 성남시 수정구 태평로 2 123</td>
+				<td>012354456</td>
+				<td>0
+			</tr>
+
+		</tbody>
+</table>
+</form>
+</div>
+</div> <!-- main container -->
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,660 @@
+
+
+
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+	<script>
+	$(document).ready(function(){  
+		$("#allCheck").click(function(){ //만약 전체 선택 체크박스가 체크된상태일경우 
+			if($("#allCheck").prop("checked")) { //해당화면에 전체 checkbox들을 체크해준다 
+				$("input[type=checkbox]").prop("checked",true); // 전체선택 체크박스가 해제된 경우 
+			}else { //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+				$("input[type=checkbox]").prop("checked",false); 
+			} 
+		});
+		
+		$("#allCheck2").click(function(){ //만약 전체 선택 체크박스가 체크된상태일경우 
+			if($("#allCheck2").prop("checked")) { //해당화면에 전체 checkbox들을 체크해준다 
+				$("input[type=checkbox]").prop("checked",true); // 전체선택 체크박스가 해제된 경우 
+			}else { //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+				$("input[type=checkbox]").prop("checked",false); 
+			} 
+		});
+		
+		$('#btnSelectBasket').on('click', function(e) {
+			var arrChecked = $('[name="bookIdList"]:checked');
+			var arrParam = new Array();
+	        $.each(arrChecked, function(i,v) {
+	           var arrCheckedStr = $(v).val();
+	           var arrBookInfo = arrCheckedStr.split(',');
+	           var arrBookId = 'bookID='+arrBookInfo[0];
+	           //arrBooId = arrBookId.join("&");
+	           arrParam.push(arrBookId);
+	        });
+	        var arrboolid = arrParam.join('&');
+	        
+	        location.href = '/shop/basketAddValues.jsp?' + arrboolid;
+	     });
+		
+		$('#btnSelectBasket2').on('click', function(e) {
+			var arrChecked = $('[name="bookIdList2"]:checked');
+			var arrParam = new Array();
+	        $.each(arrChecked, function(i,v) {
+	           var arrCheckedStr = $(v).val();
+	           var arrBookInfo = arrCheckedStr.split(',');
+	           var arrBookId = 'bookID='+arrBookInfo[0];
+	           //arrBooId = arrBookId.join("&");
+	           arrParam.push(arrBookId);
+	        });
+	        var arrboolid = arrParam.join('&');
+	        
+	        location.href = '/shop/basketAddValues.jsp?' + arrboolid;
+	     });
+		
+		$('#btnSelectPayment').on('click', function(e) {
+			var arrChecked = $('[name="bookIdList"]:checked');
+			var arrParam = new Array();
+	        $.each(arrChecked, function(i,v) {
+	           var arrCheckedStr = $(v).val();
+	           var arrBookInfo = arrCheckedStr.split(',');
+	           var arrBookId = 'bookID='+arrBookInfo[0];
+	           //arrBooId = arrBookId.join("&");
+	           arrParam.push(arrBookId);
+	        });
+	        var arrboolid = arrParam.join('&');
+	        
+	        location.href = '/shop/payment.jsp?' + arrboolid;
+	     });
+		
+		$('#btnSelectPayment2').on('click', function(e) {
+			var arrChecked = $('[name="bookIdList2"]:checked');
+			var arrParam = new Array();
+	        $.each(arrChecked, function(i,v) {
+	           var arrCheckedStr = $(v).val();
+	           var arrBookInfo = arrCheckedStr.split(',');
+	           var arrBookId = 'bookID='+arrBookInfo[0];
+	           //arrBooId = arrBookId.join("&");
+	           arrParam.push(arrBookId);
+	        });
+	        var arrboolid = arrParam.join('&');
+	        
+	        location.href = '/shop/payment.jsp?' + arrboolid;
+	    });
+	});
+	</script>
+	
+	<style type="text/css">
+		#img{float: left;}
+		.center {text-align: center;}
+		#menu div{ 
+		height: 70px;
+		padding: 15px 2px 10px 2px;}
+	</style>
+
+<title>베스트셀러</title>
+
+
+
+
+<!DOCTYPE html PUBLIC>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<link rel="stylesheet" href="/bookcafe.css">
+<style>
+#searchform{
+	width : 100%;
+}
+#search{
+	width : 70%;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+		
+	$("#searchform").submit(function(){		
+		var inputtext = $("#search").val();
+		
+		var trimtext = $.trim(inputtext);
+		
+		if(trimtext.length < 2){
+			alert("2글자 이상 입력해주세요");
+			$("#search").val(trimtext);
+			$("#search").focus();
+			return false;
+		}else {
+			$("#search").val(trimtext);
+			$("#searchform").submit();
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div id="topheader" class="container-fluid">
+    <div class="row">
+       <div class="col-sm-6 text-right" style="background-color:#ffd11a;height:70px;">
+         <h2 style="margin-right:8rem"><span class="glyphicon">&#xe233;</span> 북앤카페 새학기 맞이 대잔치</h2>
+       </div>
+       <div class="col-sm-1 text-left" style="border-bottom:70px solid #ff99bb;border-left:40px solid #ffd11a;">
+       </div>
+       <div class="col-sm-5 text-left" style="background-color:#ff99bb;height:70px;">
+         <h2 style="margin-left:-3rem"><span class="glyphicon">&#xe103;</span> 봄도 독서의 계절, 졸음싹 커피</h2>
+       </div>
+    </div>
+</div>
+<nav id="topheaderwrap" class="headerwrap" data-spy="affix" data-offset-top="70">
+	<div class="row" id="wrap">
+    	<div class="col-md-12"> 
+        	<div class="row" >
+            	<div class="col-md-6">
+                	<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="/main.jsp">Home</a>
+							</li>
+							<li class="">
+								<a href="/mainCategory.jsp?cata=all">전체도서</a>
+							</li>
+							
+					        <li class="">
+	                        	<a href="/mainCategory.jsp?cata=10">국내도서</a>
+	                       	</li>   		              
+							
+					        <li class="">
+	                        	<a href="/mainCategory.jsp?cata=20">외국도서</a>
+	                       	</li>   		              
+							
+					        <li class="">
+	                        	<a href="/mainCategory.jsp?cata=30">전자책</a>
+	                       	</li>   		              
+														
+							<li class="">
+                                <a href="/shop/bestseller.jsp?cata=best">베스트셀러</a>
+                            </li>		            
+                   	</ul>
+               	</div>
+               	<div class="col-md-6 text-right">
+                   	<ul class="breadcrumb" style="height:36px">
+                       	
+                       		<li>
+                       		<a href="/mypage/memberLevel.jsp"><span class="member_rate" style="background-color: #00bfff;">다이아회원</span></a>
+                               	
+                           	
+                           	<a href="/mypage/mypageOrderMod.jsp"><b>pdords@naver.com</b></a>                      	
+                      		
+                      		<span class="divider"></span> 
+                      	</li>
+                       	<li>
+                           	<a href="/mypage/mypageMain.jsp">마이페이지</a> <span class="divider"></span>
+                       	</li>
+                       	<li>
+                           	<a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>
+                        </li>
+                        <li>
+                           	<a href="/game/miniGame.jsp">Game</a> <span class="divider"></span>
+                       	</li>
+                       	
+                       	<li>
+                           	<a href="/shop/basket.jsp">장바구니</a>
+                       	</li>
+                   	</ul>
+               	</div>
+           	</div>
+       	</div>
+    </div>
+</nav>
+
+<header id="headerwrap">
+    <div class="container-fluid">      
+        <div class="row">
+            <div class="col-md-2">
+              <a class="navbar-brand" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
+            </div>    
+            <div class="col-md-8">     
+            <!-- 검색 시작 -->         
+                <form class="navbar-form navbar-left form-group-lg" id="searchform" role="search" action="/shop/searchresult.jsp">
+                    <select class="form-control" id="sel1" name="SearchTarget">
+                        <option value="all">통합검색</option>
+                  
+                        <option value="10" >국내도서</option>
+                  
+                        <option value="20" >외국도서</option>
+                  
+                        <option value="30" >전자책</option>
+                  
+                    </select>
+                    <input type="text" class="form-control" id="search" name="SearchWord"/>                            
+                    <button type="submit" id="search-btn" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-search"></span> 검색</button>
+                    <button type="button" class="btn btn-link" style="display:none;"><strong>상세검색</strong></button>
+                </form>
+            <!-- 검색 끝 -->  
+            </div>
+            <div class="col-md-2">
+               <div id="ad1" style="float: right;">
+                   <a href="/inven/bookDetail.jsp?bookID=14" title="언어의 온도 바로가기"><img alt="상단광고" src="/img/main/161111_head_mgt.jpg" /></a>
+               </div>
+            </div>
+        </div>
+	</div>
+</header>
+<div id="headerLine" class="container-fluid"> </div>
+<!-- 공통 상단 끝 -->
+
+
+<div id="monthBestseller">
+	<!-- 시작 -->
+	<div class="container"> 
+		<ul class="nav nav-tabs">
+	  		<li class="active"><a data-toggle="tab" href="#month">전체 베스트</a></li>
+	  		<li><a data-toggle="tab" href="#new">신간 베스트</a></li>
+	  		<!-- <li><a data-toggle="tab" href="#">e-book 베스트</a></li> -->
+		</ul>
+		
+		<div class="tab-content"> <!-- 탭 내용 -->
+		<!-- 전체 베스트셀러 -->
+		    <div id="month" class="tab-pane fade in active">
+			  	<div class="row" id="menu">
+			    	<div class="col-md-1 text-right">
+			    		<label><input type="checkbox" checked="checked" id="allCheck"/> 전체선택</label>
+			    	</div>
+			    	<div class="col-md-8">
+			    		
+			    	</div>
+			    	<div class="col-md-2 text-right">
+			    		<input type="submit" class="btn btn-default" value="장바구니에 담기" id="btnSelectBasket">
+			    	</div>
+			    	<div class="col-md-1">
+			 	  		<input type="submit" class="btn btn-default btn-primary" value="바로구매" id="btnSelectPayment">
+			    	</div>
+			    </div>
+		    
+			    <ul class="list-group">
+			    
+			    
+			      <!-- 도서 한권 리스트 -->
+			      
+			 	  <li class="list-group-item"> 
+					<div class="row">
+				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="7"/> 1.</div>
+				 	  	<div class="col-md-2"><img id="img" src="/img/item/보노보노처럼살다니.jpg" style="width:85px;height:auto;"/></div>
+				 	  	<div class="col-md-7">
+				 	  		<h4>
+					 	  		<a href="/inven/bookDetail.jsp?bookID=7" title="보노보노처럼 살다니 다행이야 바로가기">보노보노처럼 살다니 다행이야</a>
+								<a href="/inven/bookDetail.jsp?bookID=7" title="보노보노처럼 살다니 다행이야 새창으로보기" target="_blank">
+								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+							</h4>
+				 	  		김신회 지음 | 
+				 	  		놀 | 
+				 	  		2017-04-06<br> 
+				 	  		판매가: 16,000원<br>
+				 	  		적립포인트: 1,600P
+				 	  	</div>
+				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=7">장바구니에 담기</a>
+				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=7">바로 구매</a>
+				 	  	</div>
+					</div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+			 	  <li class="list-group-item"> 
+					<div class="row">
+				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="20"/> 2.</div>
+				 	  	<div class="col-md-2"><img id="img" src="/img/item/조선.jpg" style="width:85px;height:auto;"/></div>
+				 	  	<div class="col-md-7">
+				 	  		<h4>
+					 	  		<a href="/inven/bookDetail.jsp?bookID=20" title="설민석의 조선왕조실록 바로가기">설민석의 조선왕조실록</a>
+								<a href="/inven/bookDetail.jsp?bookID=20" title="설민석의 조선왕조실록 새창으로보기" target="_blank">
+								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+							</h4>
+				 	  		설민석 지음 | 
+				 	  		세계사 | 
+				 	  		2016-07-25<br> 
+				 	  		판매가: 22,000원<br>
+				 	  		적립포인트: 2,200P
+				 	  	</div>
+				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=20">장바구니에 담기</a>
+				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=20">바로 구매</a>
+				 	  	</div>
+					</div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+			 	  <li class="list-group-item"> 
+					<div class="row">
+				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="2"/> 3.</div>
+				 	  	<div class="col-md-2"><img id="img" src="/img/item/국가란무엇인가.jpg" style="width:85px;height:auto;"/></div>
+				 	  	<div class="col-md-7">
+				 	  		<h4>
+					 	  		<a href="/inven/bookDetail.jsp?bookID=2" title="국가란 무엇인가 바로가기">국가란 무엇인가</a>
+								<a href="/inven/bookDetail.jsp?bookID=2" title="국가란 무엇인가 새창으로보기" target="_blank">
+								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+							</h4>
+				 	  		유시민 지음 | 
+				 	  		돌베게 | 
+				 	  		2017-01-23<br> 
+				 	  		판매가: 15,000원<br>
+				 	  		적립포인트: 1,500P
+				 	  	</div>
+				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=2">장바구니에 담기</a>
+				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=2">바로 구매</a>
+				 	  	</div>
+					</div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+			 	  <li class="list-group-item"> 
+					<div class="row">
+				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="10"/> 4.</div>
+				 	  	<div class="col-md-2"><img id="img" src="/img/item/센서티브.jpg" style="width:85px;height:auto;"/></div>
+				 	  	<div class="col-md-7">
+				 	  		<h4>
+					 	  		<a href="/inven/bookDetail.jsp?bookID=10" title="센서티브 바로가기">센서티브</a>
+								<a href="/inven/bookDetail.jsp?bookID=10" title="센서티브 새창으로보기" target="_blank">
+								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+							</h4>
+				 	  		일자 샌드 지음 | 
+				 	  		다산 | 
+				 	  		2017-02-15<br> 
+				 	  		판매가: 14,000원<br>
+				 	  		적립포인트: 1,400P
+				 	  	</div>
+				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=10">장바구니에 담기</a>
+				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=10">바로 구매</a>
+				 	  	</div>
+					</div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+			 	  <li class="list-group-item"> 
+					<div class="row">
+				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="1"/> 5.</div>
+				 	  	<div class="col-md-2"><img id="img" src="/img/item/공터.jpg" style="width:85px;height:auto;"/></div>
+				 	  	<div class="col-md-7">
+				 	  		<h4>
+					 	  		<a href="/inven/bookDetail.jsp?bookID=1" title="공터에서 바로가기">공터에서</a>
+								<a href="/inven/bookDetail.jsp?bookID=1" title="공터에서 새창으로보기" target="_blank">
+								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+							</h4>
+				 	  		김훈 지음 | 
+				 	  		해냄 | 
+				 	  		2017-02-01<br> 
+				 	  		판매가: 14,000원<br>
+				 	  		적립포인트: 1,400P
+				 	  	</div>
+				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=1">장바구니에 담기</a>
+				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=1">바로 구매</a>
+				 	  	</div>
+					</div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+			 	  <li class="list-group-item"> 
+					<div class="row">
+				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="9"/> 6.</div>
+				 	  	<div class="col-md-2"><img id="img" src="/img/item/설민석의한국사대모험.jpg" style="width:85px;height:auto;"/></div>
+				 	  	<div class="col-md-7">
+				 	  		<h4>
+					 	  		<a href="/inven/bookDetail.jsp?bookID=9" title="설민석의 한국사 대모험 바로가기">설민석의 한국사 대모험</a>
+								<a href="/inven/bookDetail.jsp?bookID=9" title="설민석의 한국사 대모험 새창으로보기" target="_blank">
+								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+							</h4>
+				 	  		설민석 지음 | 
+				 	  		아이휴먼 | 
+				 	  		2017-01-23<br> 
+				 	  		판매가: 9,800원<br>
+				 	  		적립포인트: 980P
+				 	  	</div>
+				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=9">장바구니에 담기</a>
+				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=9">바로 구매</a>
+				 	  	</div>
+					</div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+			 	  <li class="list-group-item"> 
+					<div class="row">
+				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="8"/> 7.</div>
+				 	  	<div class="col-md-2"><img id="img" src="/img/item/사피엔스.jpg" style="width:85px;height:auto;"/></div>
+				 	  	<div class="col-md-7">
+				 	  		<h4>
+					 	  		<a href="/inven/bookDetail.jsp?bookID=8" title="사피엔스 바로가기">사피엔스</a>
+								<a href="/inven/bookDetail.jsp?bookID=8" title="사피엔스 새창으로보기" target="_blank">
+								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+							</h4>
+				 	  		유발 하라리 지음 | 
+				 	  		김영사 | 
+				 	  		2015-11-23<br> 
+				 	  		판매가: 22,000원<br>
+				 	  		적립포인트: 2,200P
+				 	  	</div>
+				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=8">장바구니에 담기</a>
+				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=8">바로 구매</a>
+				 	  	</div>
+					</div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+			 	  <li class="list-group-item"> 
+					<div class="row">
+				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="18"/> 8.</div>
+				 	  	<div class="col-md-2"><img id="img" src="/img/item/영어회화100일의기적.jpg" style="width:85px;height:auto;"/></div>
+				 	  	<div class="col-md-7">
+				 	  		<h4>
+					 	  		<a href="/inven/bookDetail.jsp?bookID=18" title="영어회화 100일의 기적 바로가기">영어회화 100일의 기적</a>
+								<a href="/inven/bookDetail.jsp?bookID=18" title="영어회화 100일의 기적 새창으로보기" target="_blank">
+								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+							</h4>
+				 	  		문성현 지음 | 
+				 	  		넥서스 | 
+				 	  		2015-05-25<br> 
+				 	  		판매가: 13,500원<br>
+				 	  		적립포인트: 1,350P
+				 	  	</div>
+				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=18">장바구니에 담기</a>
+				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=18">바로 구매</a>
+				 	  	</div>
+					</div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+			 	  <li class="list-group-item"> 
+					<div class="row">
+				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="3"/> 9.</div>
+				 	  	<div class="col-md-2"><img id="img" src="/img/item/그릿.jpg" style="width:85px;height:auto;"/></div>
+				 	  	<div class="col-md-7">
+				 	  		<h4>
+					 	  		<a href="/inven/bookDetail.jsp?bookID=3" title="그릿 Grit 바로가기">그릿 Grit</a>
+								<a href="/inven/bookDetail.jsp?bookID=3" title="그릿 Grit 새창으로보기" target="_blank">
+								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+							</h4>
+				 	  		엔젤라 더크워스,김미정 지음 | 
+				 	  		비즈니스 북스 | 
+				 	  		2016-10-25<br> 
+				 	  		판매가: 16,000원<br>
+				 	  		적립포인트: 1,600P
+				 	  	</div>
+				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=3">장바구니에 담기</a>
+				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=3">바로 구매</a>
+				 	  	</div>
+					</div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+			 	  <li class="list-group-item"> 
+					<div class="row">
+				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="13"/> 10.</div>
+				 	  	<div class="col-md-2"><img id="img" src="/img/item/알사탕.jpg" style="width:85px;height:auto;"/></div>
+				 	  	<div class="col-md-7">
+				 	  		<h4>
+					 	  		<a href="/inven/bookDetail.jsp?bookID=13" title="알사탕 바로가기">알사탕</a>
+								<a href="/inven/bookDetail.jsp?bookID=13" title="알사탕 새창으로보기" target="_blank">
+								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+							</h4>
+				 	  		백희나 지음 | 
+				 	  		책읽는 곰 | 
+				 	  		2017-03-21<br> 
+				 	  		판매가: 12,000원<br>
+				 	  		적립포인트: 1,200P
+				 	  	</div>
+				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=13">장바구니에 담기</a>
+				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=13">바로 구매</a>
+				 	  	</div>
+					</div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+				</ul>
+			</div> <!--//전체 베스트셀러 -->
+			
+			<!-- 신간 베스트셀러 -->
+			<div id="new" class="tab-pane fade">
+				<div class="row" id="menu">
+			    	<div class="col-md-1 text-right">
+			    		<label><input type="checkbox" checked="checked" id="allCheck"/> 전체선택</label>
+			    	</div>
+			    	<div class="col-md-8">
+			    		
+			    	</div>
+			    	<div class="col-md-2 text-right">
+			    		<input type="submit" class="btn btn-default" value="장바구니에 담기" id="btnSelectBasket">
+			    	</div>
+			    	<div class="col-md-1">
+			 	  		<input type="submit" class="btn btn-default btn-primary" value="바로구매" id="btnSelectPayment">
+			    	</div>
+			    </div>
+			    
+			    <ul class="list-group">
+			    
+			    
+			      <!-- 도서 한권 리스트 -->
+			      
+			 	  <li class="list-group-item"> 
+			 	  <div class="row">
+			 	  	<div class="col-md-1"><input name="bookIdList2" type="checkbox" checked="checked" value="7"/> 1.</div>
+			 	  	<div class="col-md-2"><img id="img" src="/img/item/보노보노처럼살다니.jpg" style="width:85px;height:auto;"/></div>
+			 	  	<div class="col-md-7">
+			 	  		<h4>
+				 	  		<a href="/inven/bookDetail.jsp?bookID=7" title="보노보노처럼 살다니 다행이야 바로가기">보노보노처럼 살다니 다행이야</a>
+							<a href="/inven/bookDetail.jsp?bookID=7" title="보노보노처럼 살다니 다행이야 새창으로보기" target="_blank">
+							<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+						</h4>
+			 	  		김신회 지음 | 
+			 	  		놀 | 
+			 	  		2017-04-06<br> 
+			 	  		판매가: 16,000원<br>
+			 	  		적립포인트: 1,600P
+			 	  	</div>
+			 	  	<div class="col-md-2">
+			 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=7">장바구니에 담기</a>
+			            <a class="btn btn-default btn-block" href="/shop/payment.jsp?bookID=7">바로 구매</a>
+			 	  	</div>
+			 	   </div>
+			 	  </li> <!-- 도서 한권 리스트 -->
+			 	  
+				</ul>
+			</div><!-- 신간 베스트셀러 -->
+		</div><!-- 탭 내용 -->
+	</div> <!-- 끝 -->
+</div>
+
+
+
+<!-- 공통 하단 -->
+<footer id="footer">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="footer_line"></div>
+            <div class="footer_header">
+                <ul class="breadcrumb">
+                   <li>
+                       <a href="/sign/instroCop.jsp">회사소개</a>                   
+                   </li>
+                   <li>
+                       <a href="/sign/accessTerm.jsp">이용약관</a>                   
+                   </li>
+                   <li>
+                       <a href="/sign/personalInfo.jsp">개인정보취급방침</a> 
+                   </li>
+                   <li>
+                       <a href="#">고객센터</a> 
+                   </li>
+                               
+                   <li style="float:right">
+                       <a href="#">▲TOP</a>
+                   </li>
+               </ul>                            
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 text-center">
+            <a class="navbar-brand" href="#"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe<br><span style="font-size:2rem;">북앤카페</span></a>
+        </div>
+        <div class="col-md-5">
+            <div style="width:50%;float: left;">   
+                <address>
+                    <strong>Book&#38;Cafe, Inc.</strong><br />
+                    대표이사 : 윤광재<br /> 
+                    <abbr title="Phone">전화상담 : 02) 1234-5678</abbr><br />                 
+                    <abbr style="position: absolute;width:100%;clear: left;margin:0;">주소 : 서울 종로구 종로12길 15 코아빌딩1 5층  <a href="http://naver.me/xicaa2oH" target="blank">약도</a></abbr>
+                </address>
+                
+            </div>
+            <div style="width:50%;float: left;">               
+                <address>
+                    <strong></strong><br />
+                    고객정보보호 책임자 : 유강현<br />
+                    <i class="glyphicon glyphicon-envelope" style="color:#555;font-size:0.2rem"></i> E-mail:master@bookncafe
+                </address>
+            </div>          
+        </div>   
+        <div class="col-md-5">               
+            <address>
+                <strong></strong><br />
+                    <i class="glyphicon glyphicon-comment" style="color:#555;font-size:0.2rem"></i> 1:1고객상담 : 메일로 빠르게 답신드립니다.                    
+					                 
+						<a href="/mypage/mypageUserInquire.jsp">문의하기</a><br />					 
+					
+                <i class="glyphicon glyphicon-lock" style="color:#555;font-size:0.2rem"></i> 구매안전 에스크로 서비스 : <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;안전거래를 위해 현금 결제시 이용가능  <a href="#" target="blank">서비스가입확인</a>
+            </address>
+        </div>
+    </div>
+    <p class="text-center">Copyright 2017ⓒ BookNcafe Inc.. All rights reserved. System by: cwsys</p>
+</footer>
+<!-- 맨아래 탑버튼 -->
+<img id="MOVE_TOP_BTN" src="/img/main/btn_top2.png" alt="맨위로">
+<script>
+$(function() {
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 500) {
+            $('#MOVE_TOP_BTN').fadeIn();
+        } else {
+            $('#MOVE_TOP_BTN').fadeOut();
+        }
+    });
+    
+    $("#MOVE_TOP_BTN").click(function() {
+        $('html, body').animate({
+            scrollTop : 0
+        }, 400);
+        return false;
+    });
+});
+</script>
+</body>
+</html>
