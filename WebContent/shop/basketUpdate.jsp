@@ -7,8 +7,12 @@
 	int bookID=Integer.parseInt(bID);
 	
 	String count=request.getParameter("cnt");
+	if(count.equals("")){
+		response.sendRedirect("/shop/basket.jsp");
+	}else{
 	int cnt=Integer.parseInt(count);
 	
 	mgr.update(bookID, cnt);
 	response.sendRedirect("/shop/basket.jsp");
+	}
 %>
