@@ -84,7 +84,7 @@ public class DbBasedMemberDao implements MemberDao {
 	//회원탈퇴
 	//param : Member
 	//return : 비밀번호
-	public Member getoutMember(Member psw){
-		return mapper.getoutMember(psw);
+	public int getoutMember(int MemberID){
+		return mapper.getoutMember(MemberID);
 	}
 }

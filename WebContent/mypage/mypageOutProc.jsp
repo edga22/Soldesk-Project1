@@ -37,12 +37,13 @@ UserInquireService us = new UserInquireService();
 Member member= ms.getMember(memberID);
 
 String pw = request.getParameter("password");
-	
+if(pw!=null &&!pw.equals("")){
+
 if(pw.equals(member.getPassword())){	
 	us.delUserInquireAsk(memberID);	
-	ms.getoutMember(member);
+	ms.getoutMember(memberID);
 	session.invalidate();
-
+	
 %>
 <jsp:include page="../logo.jsp"/>
 <div class="container" id="out">
@@ -55,6 +56,7 @@ if(pw.equals(member.getPassword())){
 <a href="/main.jsp"><button type="button" class="btn btn-danger">메인화면으로</button></a>
 </div>
 <%
+}
 }else{
 %>
 <script>

@@ -71,5 +71,10 @@
 		from members
 		where email = #{email} or phone = #{phone}
 	</select>
+	
+	<delete id="getoutMember" parameterType="int">
+		delete from members
+		where member_id=#{memberID}
+	</delete>
 
 </mapper>

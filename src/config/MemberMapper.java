@@ -15,5 +15,5 @@ public interface MemberMapper {
 	int updatePoint(Member point);		//admin 보너스 보인트 수정
 	int delMember(int MemberID);		//맴버 강제 탈퇴
 	boolean idCheck(Member email);		//아이디 및 전화번호 중복체크
-	Member getoutMember(Member psw);	//회원이 직접 탈퇴.
+	int getoutMember(int MemberID);	//회원이 직접 탈퇴.
 }

@@ -13,5 +13,5 @@ public interface MemberDao {
 	int updatePoint(Member point);		//admin 보너스 포인트 수정
 	int delMember(int MemberID);		//admin 회원 강제탈퇴
 	boolean idCheck(Member email);		//아이디, 전화번호 중복시 회원가입 불가
-	Member getoutMember(Member psw);	//회원 탈퇴
+	int getoutMember(int MemberID);	//회원 탈퇴
 }

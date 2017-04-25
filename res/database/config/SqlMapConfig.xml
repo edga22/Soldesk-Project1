@@ -53,5 +53,6 @@
 			<mapper resource="database/mapper/OrderDetailMapper.xml"/>
 			<mapper resource="database/mapper/MypageMapper.xml"/>
 			<mapper resource="database/mapper/UserInquireMapper.xml"/>
+			<mapper resource="database/mapper/MBMapper.xml"/>
     </mappers>
 </configuration>
