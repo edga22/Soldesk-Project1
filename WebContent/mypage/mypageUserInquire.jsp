@@ -67,7 +67,7 @@ label {
 				<!-- 질문유형을 int 값으로 받아 선택할수 있게 한다. -->
 				<label class="control-label col-sm-2" for="text">질문유형</label>
 				<div class="col-sm-10">									
-					<input type="number" class="form-control" name="userInquireType" list="select"
+					<input type="number" class="form-control" min="1" max="7" name="userInquireType" list="select"
 						placeholder="질문유형" required>
 					<datalist id="select">
 						<option value="1">국내도서</option>
