@@ -5,12 +5,15 @@
 		 import="java.text.NumberFormat" 
 		 import="domain.Category"
          import="mgr.CategoryMgr"
-         import="java.util.List" %>
+         import="java.util.List"
+         import="mgr.BookSortMgr"
+         import="java.util.Enumeration" %>
 <%
 	BookMgr bookmgr = new BookMgr();
     CategoryMgr catemgr = new CategoryMgr();
 %>
 <%	
+	request.setCharacterEncoding("UTF-8");
 	String cataPage = request.getParameter("cata");
 	String codePage = request.getParameter("code");
 	String cateTitlestr = "";
@@ -39,35 +42,25 @@
 		cateTitlestr = "전체도서";
 	}
 	
-//	if(cateResult != null && cateResult.length > 0){
-	    /* 정렬방식 order
-	    0 : 출시일순 (기본값)
-	    1 : 제목순
-	    2 : 저자순
-	    3 : 가격순
-	    */
-	    /*
-	    BookSortMgr sortMgr = new BookSortMgr();
-	    switch(order){
-	    case 0:
-	        scResult = sortMgr.toArray(sortMgr.dateSort(sortMgr.toList(scResult)));
-	        break;
-	    case 1:
-	        scResult = sortMgr.toArray(sortMgr.nameSort(sortMgr.toList(scResult)));
-	        break;
-	    case 2:
-	        scResult = sortMgr.toArray(sortMgr.authorSort(sortMgr.toList(scResult)));
-	        break;
-	    case 3:
-	        scResult = sortMgr.toArray(sortMgr.priceSort(sortMgr.toList(scResult)));
-	        break;
-	    }
-	    
-	    CategoryCounter cCnter = new CategoryCounter();
-	    domesticCnt = cCnter.code1Counter(scResult, 10);
-	    overseaCnt = cCnter.code1Counter(scResult, 20);
-	    ebookCnt = cCnter.code1Counter(scResult, 30);
-	} */
+	String sortOrder = "";
+	int order = 9;
+	if(request.getParameter("SortOrder") != null) sortOrder = request.getParameter("SortOrder");
+	
+	try{
+		order = Integer.parseInt(sortOrder);
+	}catch(Exception e){
+		if(request.getParameter("SortOrder")!=null)	order = 9;
+		else order = 0;
+	}
+	
+	Enumeration<String> params = request.getParameterNames();
+	String paramString = "?"; 
+	while(params.hasMoreElements()){		
+		String name = params.nextElement();
+		if(name.equals("SortOrder")) continue;
+		paramString += name + "=" + request.getParameter(name) + "&";
+	}
+	
 %>
 
 <title><%=cateTitlestr %><%=cateTitlestr2 %></title>
@@ -151,16 +144,16 @@ $(document).ready(function(){
 		<div class="col-md-10" id="result">
 		   <div class="row" id="align-bar">
 				<div class="col-md-2 text-center">
-					<a href="#">제목순</a>
+					<a href="<%=paramString + "SortOrder=1"%>">제목순</a>
 				</div>
 				<div class="col-md-2 text-center">
-					<a href="#">저자순</a>
+					<a href="<%=paramString + "SortOrder=2"%>">저자순</a>
 				</div>
 				<div class="col-md-2 text-center">
-					<a href="#">가격순</a>
+					<a href="<%=paramString + "SortOrder=3"%>">가격순</a>
 				</div>
 				<div class="col-md-2 text-center">
-					<a href="#">출간일순</a>
+					<a href="<%=paramString + "SortOrder=0"%>">출간일순</a>
 				</div>
 				<div class="col-md-2 text-right">
                     <label><input type="checkbox" id="checkall" name="all" value=""> 전체</label>
@@ -182,6 +175,29 @@ $(document).ready(function(){
 			</div>
 			<%
 			Book[] books = bookmgr.getBooks();
+			/* 정렬방식 order
+		    0 : 출시일순 (기본값)
+		    1 : 제목순
+		    2 : 저자순
+		    3 : 가격순
+		    */
+		   
+		    BookSortMgr sortMgr = new BookSortMgr();
+		    switch(order){
+		    case 0:
+		    	books = sortMgr.toArray(sortMgr.dateSort(sortMgr.toList(books)));
+		        break;
+		    case 1:
+		    	books = sortMgr.toArray(sortMgr.nameSort(sortMgr.toList(books)));
+		        break;
+		    case 2:
+		    	books = sortMgr.toArray(sortMgr.authorSort(sortMgr.toList(books)));
+		        break;
+		    case 3:
+		    	books = sortMgr.toArray(sortMgr.priceSort(sortMgr.toList(books)));
+		        break;
+		    }
+			
 		    EventMgr evmgr = new EventMgr();
 		    //숫자1000자리 콤마
 		    NumberFormat nf = NumberFormat.getNumberInstance();

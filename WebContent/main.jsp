@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <link rel="stylesheet" href="/main.css">
-<title>BookkCafe</title>
+<title>Book & Cafe</title>
 
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 <jsp:include page="/main_content.jsp"></jsp:include>
