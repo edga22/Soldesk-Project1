@@ -96,7 +96,7 @@ if(idx != -1){
 			                        수령 예상일 : 온라인 주문시 2일 소요<br>
 			                                 (오프라인 방문시 당일 수령가능)<br>
 			                        <input type="hidden" name="bookID" value="<%=bookID%>">
-			                        <label>수량 : <input type="number" name="cnt" style="width:10rem;" value="1"></label>
+			                        <label>수량 : <input type="number" name="cnt" min="1" style="width:10rem;" value="1"></label>
 			                    </div>
 			                    <div class="col-md-12" style="text-align:center;margin-bottom:2rem;">
 				                     <div class="row">
