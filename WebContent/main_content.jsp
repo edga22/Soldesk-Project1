@@ -267,7 +267,7 @@
 						        String bookNamestr = bestseller[k].getBook().getBookName(); 
 						        
 						        if(k == 0){
-						 %>
+						 	%>
                             <li>
                                 <div class="best10_1">
                                     <div class="number active"><%=k+1 %></div>

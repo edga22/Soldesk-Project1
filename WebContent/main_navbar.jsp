@@ -56,8 +56,8 @@ try{
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-<link rel="stylesheet" media="(min-width: 700px)" href="/bookcafe.css">
-<link rel="stylesheet" media="(max-width: 700px)" href="/bookcafe2.css" />
+<link rel="stylesheet" media="(min-width: 767px)" href="/bookcafe.css">
+<link rel="stylesheet" media="(max-width: 767px)" href="/bookcafe2.css" />
 
 <script>
 $(document).ready(function(){
@@ -75,6 +75,22 @@ $(document).ready(function(){
 		}else {
 			$("#search").val(trimtext);
 			$("#searchform").submit();
+		}
+	});
+	
+	$("#searchform2").submit(function(){		
+		var inputtext = $("#search2").val();
+		
+		var trimtext = $.trim(inputtext);
+		
+		if(trimtext.length < 2){
+			alert("2글자 이상 입력해주세요");
+			$("#search2").val(trimtext);
+			$("#search2").focus();
+			return false;
+		}else {
+			$("#search2").val(trimtext);
+			$("#searchform2").submit();
 		}
 	});
 
@@ -207,10 +223,10 @@ $(document).ready(function(){
 <header id="headerwrap">
     <div class="container-fluid">      
         <div class="row">
-            <div class="col-md-3 col-xs-4">
+            <div class="col-md-3 col-sm-4 col-xs-12">
               <a class="navbar-brand" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
             </div>    
-            <div class="col-md-7 hidden-xs">     
+            <div class="col-md-7 col-sm-8 hidden-xs">     
             <!-- 검색 시작 -->         
                 <form class="form-inline form-group-lg" id="searchform" role="search" action="/shop/searchresult.jsp">
                     <select class="form-control" id="sel1" name="SearchTarget">
@@ -224,18 +240,25 @@ $(document).ready(function(){
                 </form>
             <!-- 검색 끝 -->  
             </div>
-            <div class="col-xs-12 visible-xs">
-            <!-- 폰 검색 시작 -->         
-                <form class="form-inline" id="searchform" role="search" action="/shop/searchresult.jsp">
-                <div class="form-group has-success has-feedback">
-					<input type="hidden" name="SearchTarget" value="all"/>
-                    <input type="text" class="form-control" id="search" name="SearchWord"/>
-                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
-			    </div>
-                    <button type="submit" id="search-btn" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> 검색</button>
-                </form>
-            <!-- 검색 끝 -->  
-            </div>
+            <div class="row visible-xs">
+	            <div class="col-xs-1">
+	            </div>
+	            <div class="col-xs-10">
+	            <!-- 폰 검색 시작 -->         
+	                <form class="form-inline" id="searchform2" role="search" action="/shop/searchresult.jsp">          
+		                <div class="input-group">	                	
+							<input type="hidden" id="sel2" name="SearchTarget" value="all"/>
+		                    <input type="text" class="form-control" id="search2" name="SearchWord"/>
+		                    <span class="input-group-btn">
+		                    	<button type="submit" id="search-btn" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> 검색</button>
+		                    </span>
+					    </div>
+	                </form>
+	            <!-- 검색 끝 -->  
+	            </div>
+	            <div class="col-xs-1">
+	            </div>
+	        </div>    
             <div class="col-md-2 hidden-sm hidden-xs" id="ad1Div">
                <div id="ad1" style="float: right;">
                    <a href="/inven/bookDetail.jsp?bookID=14" title="언어의 온도 바로가기"><img alt="상단광고" src="/img/main/161111_head_mgt.jpg" /></a>

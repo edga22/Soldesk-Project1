@@ -136,7 +136,7 @@ a {
 	}
     #categoryLine .bookImg img{
 	    width:auto;
-	    max-width:250px;
+	    max-width:220px;
 	    height:100%;
 	    max-height:300px;
 	    padding-bottom:1.5rem;
@@ -147,8 +147,8 @@ a {
 	    width:20px;
 	    height:16px;
 	    margin-top:2rem;
-	    margin-right:0.5rem;
-	    margin-left:0.8rem;
+	    margin-right:2rem;
+	    margin-left:0.5rem;
 	    color: white;    
 	    text-align: center;
 	    font-size:1.2rem;
@@ -183,24 +183,24 @@ $(document).ready(function(){
 		<!--// 카테고리 -->
 			
 		<!-- result -->
-		<div class="col-md-7 col-sm-9" id="result">
+		<div class="col-md-7 col-sm-9 col-xs-12" id="result">
 		   <div class="row" id="align-bar">
-		        <div class="col-sm-2 text-left">
+		        <div class="col-sm-2 text-left hidden-xs">
                     <label><input type="checkbox" id="checkall" name="all" value=""> 전체</label>
                 </div>  
-				<div class="col-sm-2 text-center">
+				<div class="col-sm-2 col-xs-3 text-center">
 					<a href="<%=paramString + "SortOrder=1"%>">제목순</a>
 				</div>
-				<div class="col-sm-2 text-center">
+				<div class="col-sm-2 col-xs-3 text-center">
 					<a href="<%=paramString + "SortOrder=2"%>">저자순</a>
 				</div>
-				<div class="col-sm-2 text-center">
+				<div class="col-sm-2 col-xs-3 text-center">
 					<a href="<%=paramString + "SortOrder=3"%>">가격순</a>
 				</div>
-				<div class="col-sm-2 text-center">
-					<a href="<%=paramString + "SortOrder=0"%>">출간일순</a>
+				<div class="col-sm-2 col-xs-3 text-center">
+					<a href="<%=paramString + "SortOrder=0"%>">출간일</a>
 				</div>
-				<div class="col-sm-2 text-right">				     
+				<div class="col-sm-2 text-right hidden-xs">				     
 					<select name="display_number" class="">
 						<option value="10">10개</option>
 						<option value="20">20개</option>
@@ -210,8 +210,8 @@ $(document).ready(function(){
 			</div>
 			<form action="/shop/basketAddValues.jsp">
 			<div class="row">
-				<div class="col-md-9 col-sm-9"></div>
-				<div class="col-md-3 col-sm-3 text-right">
+				<div class="col-sm-9 col-xs-6"><label class="visible-xs"><input type="checkbox" id="checkall" name="all" value=""> 전체</label></div>
+				<div class="col-sm-3 col-xs-6 text-right">
 					<button type="submit" class="btn btn-info btn-block">선택 찜하기</button>
 				</div>
 			</div>
@@ -349,7 +349,7 @@ $(document).ready(function(){
 						<li>적립포인트 : <%=nf.format(bookPoint) %>P (<%=pointPer%>% 지급)</li>						
 					</ul>
 				</div>
-				<div class="col-sm-3 col-xs-offset-2 col-xs-8 col-xs-offset-2" style="vertical-align:bottom;margin-top:1rem;margin-bottom:1rem">
+				<div class="col-sm-3 col-xs-offset-1 col-xs-10 col-xs-offset-1" style="vertical-align:bottom;margin-top:1rem;margin-bottom:1rem">
 					<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니</a>
 					<a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로구매</a>
 				</div>				

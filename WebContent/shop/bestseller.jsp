@@ -94,11 +94,54 @@
 	</script>
 	
 	<style type="text/css">
-		#img{float: left;}
-		.center {text-align: center;}
-		#menu div{ 
+	#img {
+		float: left;
+		width:85px;
+		height:auto;
+	}
+	.center {
+		text-align: center;
+	}
+	#menu div{ 
 		height: 70px;
-		padding: 15px 2px 10px 2px;}
+		padding: 15px 2px 10px 2px;
+	}
+	#monthBestseller {
+		margin-top:2rem;
+	}
+	@media (max-width: 767px) {
+	    #dBookimg {
+	        align:center;
+	        text-align:center;
+	    }
+	    #dBookinfo {
+	        padding:0 2rem;
+	    }
+		#categoryLine .bookImg {
+		    text-align:center;
+		}
+	    #img{
+		    width:auto;
+		    max-width:200px;
+		    height:100%;
+		    max-height:300px;
+		    padding-bottom:1.5rem;
+		    float: left;
+		}
+		#categoryLine .number{
+		    float: left;
+		    width:20px;
+		    height:16px;
+		    margin-top:2rem;
+		    margin-right:0.5rem;
+		    margin-left:0.8rem;
+		    color: white;    
+		    text-align: center;
+		    font-size:1.2rem;
+		    background-color: #bbb;    
+		    border-radius: 3px;
+		}
+	}
 	</style>
 
 <title>베스트셀러</title>
@@ -118,16 +161,16 @@
 		<!-- 전체 베스트셀러 -->
 		    <div id="month" class="tab-pane fade in active">
 			  	<div class="row" id="menu">
-			    	<div class="col-md-1 text-right">
+			    	<div class="col-md-1 col-xs-3 text-right">
 			    		<label><input type="checkbox" checked="checked" id="allCheck"/> 전체선택</label>
 			    	</div>
-			    	<div class="col-md-8">
+			    	<div class="col-md-8 col-xs-1">
 			    		
 			    	</div>
-			    	<div class="col-md-2 text-right">
+			    	<div class="col-md-2 col-xs-5 text-right">
 			    		<input type="submit" class="btn btn-default" value="장바구니에 담기" id="btnSelectBasket">
 			    	</div>
-			    	<div class="col-md-1">
+			    	<div class="col-md-1 col-xs-3">
 			 	  		<input type="submit" class="btn btn-default btn-primary" value="바로구매" id="btnSelectPayment">
 			    	</div>
 			    </div>
@@ -147,22 +190,31 @@
 					String bookIdLink = "/inven/bookDetail.jsp?bookID="+bookIdInt;
 					String bookNamestr = bestseller[i].getBook().getBookName();	%>
 			 	  <li class="list-group-item"> 
-					<div class="row">
-				 	  	<div class="col-md-1"><input name="bookIdList" type="checkbox" checked="checked" value="<%=bookIdInt%>"/> <%=i+1 %>.</div>
-				 	  	<div class="col-md-2"><img id="img" src="<%=bestseller[i].getBook().getImageID()%>" style="width:85px;height:auto;"/></div>
-				 	  	<div class="col-md-7">
+					<div class="row" id="categoryLine">
+				 	  	<div class="col-md-1 col-xs-2 ">
+				 	  		<div class="number">
+				 	  		<%=i+1 %><br>
+				 	  		<input name="bookIdList" type="checkbox" checked="checked" value="<%=bookIdInt%>"/>
+				 	  		</div>
+				 	  	</div>
+				 	  	<div class="col-md-2 col-xs-10" id="dBookimg" class="bookImg">
+				 	  		<img id="img" src="<%=bestseller[i].getBook().getImageID()%>"/>
+				 	  	</div>
+				 	  	<div class="col-md-7 col-xs-12" id="dBookinfo">
 				 	  		<h4>
 					 	  		<a href="<%=bookIdLink %>" title="<%=bookNamestr%> 바로가기"><%=bookNamestr%></a>
 								<a href="<%=bookIdLink %>" title="<%=bookNamestr%> 새창으로보기" target="_blank">
 								<i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
 							</h4>
-				 	  		<%=bestseller[i].getBook().getAuthor()%> 지음 | 
-				 	  		<%=bestseller[i].getBook().getPublisher() %> | 
-				 	  		<%=bestseller[i].getBook().getPublishDate() %><br> 
-				 	  		판매가: <%=nf.format(bestseller[i].getBook().getPrice()) %>원<br>
-				 	  		적립포인트: <%=nf.format(bestseller[i].getBook().getPrice()/10) %>P
+							<p>
+					 	  		<%=bestseller[i].getBook().getAuthor()%> 지음 | 
+					 	  		<%=bestseller[i].getBook().getPublisher() %> | 
+					 	  		<%=bestseller[i].getBook().getPublishDate() %><br> 
+					 	  		판매가: <%=nf.format(bestseller[i].getBook().getPrice()) %>원<br>
+					 	  		적립포인트: <%=nf.format(bestseller[i].getBook().getPrice()/10) %>P
+				 	  		</p>
 				 	  	</div>
-				 	  	<div class="col-md-2" style="vertical-align:middle;">
+				 	  	<div class="col-md-2 col-xs-12" style="vertical-align:middle;">
 				 	  		<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=<%=bestseller[i].getBook().getBookID()%>">장바구니에 담기</a>
 				            <a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=<%=bestseller[i].getBook().getBookID()%>">바로 구매</a>
 				 	  	</div>

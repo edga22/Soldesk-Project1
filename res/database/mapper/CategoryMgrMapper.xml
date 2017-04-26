@@ -10,35 +10,35 @@
 		<result property="categorySubject" column="CATEGORY_SUBJECT"/>
 		<result property="categoryUse"     column="CATEGORY_USE"/>
 	</resultMap>
-	
+	<!-- 카테고리 전체 리스트 -->
 	<select id="getCategories" resultMap="CategoryMgrMap">
 		SELECT * FROM Category ORDER BY 2,3
 	</select>
-	
+	<!-- 카테고리 전체 사용 리스트 -->
 	<select id="getCategoriesUse" resultMap="CategoryMgrMap">
         SELECT * FROM Category WHERE category_use = 1 ORDER BY 2,3        
     </select>
-    
+    <!-- 카테고리 대분류 리스트 -->
     <select id="getCategoriesCode1" resultMap="CategoryMgrMap">
         SELECT * FROM Category WHERE code2 = 0 ORDER BY 2,3
     </select>
-    
+    <!-- 카테고리 2차분류 리스트 -->
     <select id="getCategoriesCode2" resultMap="CategoryMgrMap">
         SELECT * FROM Category WHERE code2 > 0 ORDER BY 2,3
     </select>
-	
+	<!-- 카테고리 아이디로 카테고리 정보 조회 -->
 	<select id="getCategory" parameterType="int" resultMap="CategoryMgrMap">
 		SELECT * FROM Category WHERE category_id = #{categoryID}
 	</select>
-	
+	<!-- 대분류 번호로 카테고리 정보 조회 -->
 	<select id="getCode1" parameterType="int" resultMap="CategoryMgrMap">
 		SELECT * FROM Category WHERE code1 = #{code1} AND code2 = 0
 	</select>
-	
+	<!-- 대분류에 속한 하위분류 조회 -->
 	<select id="getRegionCategories" parameterType="int" resultMap="CategoryMgrMap">
 		SELECT * FROM Category WHERE code1 = #{code1}
 	</select>
-	
+	<!-- 카테고리 수정 -->
 	<update id="updateCategory" parameterType="domain.Category">
 	    update Category 
 	    set category_name=#{categoryName}, category_subject = #{categorySubject}, category_use= #{categoryUse}
