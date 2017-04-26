@@ -18,13 +18,14 @@ body {
     padding:0 1rem;
     text-align:left;
 }
-
-#topheaderwrap {
-    background-color:#33afe9;
-    height:36px;
-    border-bottom:1px solid #ddd;
-    z-index: 1000;
+.jbFixed {
+    position: fixed;
+    top: 0px;
 }
+.jbMenu {
+	z-index: 1000;
+}
+
 /* 최상단 메뉴*/
 #topheaderwrap ul.nav-tabs {
     list-style: none;
@@ -84,8 +85,8 @@ body {
 #headerwrap .navbar-brand {
     font-size:1.5rem;
     color:#0275d8;
-    margin-top:-0.6rem;
-    margin-left:-1rem;    
+    margin-top:0.1rem;
+    margin-left:-2rem;    
 }
 #headerwrap .navbar-brand span{
     font-size:2rem;
@@ -96,23 +97,7 @@ body {
     color:#0275d8;
 }
 
-#searchform {
-    width:100%;
-    margin-top:1.2rem;
-    margin-left:2rem;
-}
 
-#sel1 {
-	width:20%;
-    color:#0275d8;
-    font-weight: 600;
-    background-color:#e6f2ff;
-}
-
-#search {
-    width:40%;
-    background-color:#e6f2ff;
-}
 
 /* 상단 구분선  */
 #headerLine {

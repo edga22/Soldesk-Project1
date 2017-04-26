@@ -12,11 +12,18 @@ String cataPage = request.getParameter("cata");
 String catastr="";
 String catastr2="";
 String catastr3="";
+String cateHeaderStr2="btn-primary";
+String cateHeaderStr3="btn-primary";
 int cataCode = 0;
 
 if(cataPage != null){
-	if(cataPage.equals("all"))	catastr2="active";
-	else if(cataPage.equals("best"))    catastr3="active";
+	if(cataPage.equals("all")){
+		catastr2="active"; 
+		cateHeaderStr2="btn-info";
+	}else if(cataPage.equals("best")){
+	    catastr3="active";
+	    cateHeaderStr3="btn-info";
+	}
 	else cataCode = Integer.parseInt(cataPage);
 }else{
 	catastr="active";
@@ -70,6 +77,16 @@ $(document).ready(function(){
 			$("#searchform").submit();
 		}
 	});
+
+	var jbOffset = $( '.jbMenu' ).offset();
+	$( window ).scroll( function() {
+		if ( $( document ).scrollTop() > jbOffset.top ) {
+		   $( '.jbMenu' ).addClass( 'jbFixed' );
+		}
+		else {
+		   $( '.jbMenu' ).removeClass( 'jbFixed' );
+		}
+	});
 });
 </script>
 </head>
@@ -88,9 +105,9 @@ $(document).ready(function(){
 </div>
 <nav id="topheaderwrap" class="headerwrap hidden-xs" data-spy="affix" data-offset-top="70">
 	<div class="row" id="wrap">
-    	<div class="col-md-12"> 
+    	<div class="col-sm-12"> 
         	<div class="row" >
-            	<div class="col-md-6 col-lg-6">
+            	<div class="col-sm-7">
                 	<ul class="nav nav-tabs">
 							<li class="<%=catastr %>">
 								<a href="/main.jsp">홈</a>
@@ -119,7 +136,7 @@ $(document).ready(function(){
                             </li>		            
                    	</ul>
                	</div>
-               	<div class="col-md-6 col-lg-6 hidden-sm hidden-xs text-right">
+               	<div class="col-sm-5 hidden-xs text-right">
                    	<ul class="breadcrumb" style="height:36px">
                        	<%if(!memberID.equals("")){ 
                        		MemberService ms = new MemberService();
@@ -147,7 +164,7 @@ $(document).ready(function(){
                        				font = "VIP";
                        			}        
                        	%>
-                       		<li>
+                       	<li class="hidden-sm">
                        		<a href="/mypage/memberLevel.jsp"><span class="member_rate" style="background-color: <%=color%>;"><%=font %>회원</span></a>
                                	
                            	<%if(memberID.equals("admin@admin.com")){%>
@@ -157,9 +174,12 @@ $(document).ready(function(){
                       		<%} %>
                       		<span class="divider"></span> 
                       	</li>
-                       	<li>
+                       	<li class="hidden-sm">
                            	<a href="/mypage/mypageMain.jsp">마이페이지</a> <span class="divider"></span>
                        	</li>
+                       	<li class="hidden-lg hidden-md">
+                            <a href="/mypage/mypageMain.jsp"><span style="background-color:<%=color%>;"><%=memberID %></span></a>
+                        </li>
                        	<li>
                            	<a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>
                         </li>
@@ -190,7 +210,7 @@ $(document).ready(function(){
             <div class="col-md-3 col-xs-4">
               <a class="navbar-brand" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
             </div>    
-            <div class="col-md-7 col-xs-8">     
+            <div class="col-md-7 hidden-xs">     
             <!-- 검색 시작 -->         
                 <form class="form-inline form-group-lg" id="searchform" role="search" action="/shop/searchresult.jsp">
                     <select class="form-control" id="sel1" name="SearchTarget">
@@ -204,6 +224,18 @@ $(document).ready(function(){
                 </form>
             <!-- 검색 끝 -->  
             </div>
+            <div class="col-xs-12 visible-xs">
+            <!-- 폰 검색 시작 -->         
+                <form class="form-inline" id="searchform" role="search" action="/shop/searchresult.jsp">
+                <div class="form-group has-success has-feedback">
+					<input type="hidden" name="SearchTarget" value="all"/>
+                    <input type="text" class="form-control" id="search" name="SearchWord"/>
+                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+			    </div>
+                    <button type="submit" id="search-btn" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> 검색</button>
+                </form>
+            <!-- 검색 끝 -->  
+            </div>
             <div class="col-md-2 hidden-sm hidden-xs" id="ad1Div">
                <div id="ad1" style="float: right;">
                    <a href="/inven/bookDetail.jsp?bookID=14" title="언어의 온도 바로가기"><img alt="상단광고" src="/img/main/161111_head_mgt.jpg" /></a>
@@ -212,5 +244,34 @@ $(document).ready(function(){
         </div>
 	</div>
 </header>
-<div id="headerLine" class="container-fluid"> </div>
+
+<div id="headerLine" class="container-fluid hidden-xs"> </div>
+
+<div class="btn-group btn-group-justified visible-xs jbMenu">
+    <a href="/mainCategory.jsp?cata=all" class="btn <%=cateHeaderStr2%>">전체</a>
+<%
+    String cateHeaderStr1 = "btn-primary";
+    for(Category result1:catemgr.listCategoriesCode1()){
+        if(cataCode != 0){
+            if(cataCode == result1.getCode1()){
+                cateHeaderStr1 = "btn-info";
+            }else{
+            	cateHeaderStr1 = "btn-primary";
+            }
+        }
+        if(result1.getCategoryUse() == 1){
+    %>
+    <a href="/mainCategory.jsp?cata=<%=result1.getCode1() %>" class="btn <%=cateHeaderStr1%>"><%=result1.getCategoryName() %></a>
+    <%
+        }
+    } %>                            
+    <a href="/shop/bestseller.jsp?cata=best" class="btn <%=cateHeaderStr3%>">베스트</a>
+</div>
+
+<!-- 	<ul class="nav nav-tabs container-fluid visible-xs jbMenu">
+	    <li class="active"><a href="#menu1">Menu 1</a></li>
+	    <li><a href="#menu2">Menu 2</a></li>
+	    <li><a href="#menu3">Menu 3</a></li>
+	    <li><a href="#menu4">Menu 4</a></li>
+	</ul> -->
 <!-- 공통 상단 끝 -->

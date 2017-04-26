@@ -42,8 +42,8 @@ if(cataPage != null){
             margin-top: 5rem;
         }
         </style>
-            
-		<div class="panel-group" id="categori">
+        
+		<div class="panel-group hidden-xs" id="categori">
 			<div class="panel panel-default">
 		        <div class="panel-heading">
 		            <h5 class="panel-title">

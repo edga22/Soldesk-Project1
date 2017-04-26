@@ -45,8 +45,8 @@ if(idx != -1){
     line-height: 1.8;
     padding:1rem 0;
 }
-#detail2 {
-    margin:1rem 0;
+#detail1, #detail2 {
+    margin:1rem 2rem;
     padding:1rem 0;
     border-top:1px solid gray;
     border-bottom:1px solid gray;
@@ -62,55 +62,55 @@ if(idx != -1){
 <div class="container" id="BD">
     <!-- 좌측 카테고리 메뉴바 -->
     <div class="row">
-        <div class="col-md-2" style="margin-top:-2rem;">
+        <div class="col-md-2 col-sm-3" style="margin-top:-2rem;">
             <jsp:include page="/shop/categoryMenu.jsp"/>
         </div>
         <!--// 카테고리 -->
 	        
 	    <!-- result -->
-	    <div class="col-md-7" id="result" style="margin-top:3rem;">
+	    <div class="col-md-7 col-sm-10" id="result" style="margin-top:3rem;">
 	        <div class="panel panel-default">
 				<div class="panel-heading">
 				    <h3><%=book.getBookName()%></h3>
 				</div>
 				<div class="row">
-				    <div class="col-md-12">
+				    <div class="col-sm-12">
 					    <div class="row" id="detail">
-		                    <div class="col-md-5">
+		                    <div class="col-sm-5">
 		                        <img src="<%=book.getImageID()%>" style="width:18rem; height:26rem; margin-left:3rem; margin-bottom:5rem;"/>
 		                    </div>
-		                    <div class="col-md-6">
+		                    <div class="col-sm-6">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-sm-12" id="detail1">
 				                        <%=authorList %><br>
 				                        출판사 : <%=book.getPublisher() %><br>
 				                        금  액 : <%=nf.format(book.getPrice()) %>원<br>   
 				                        적  립 : <%=nf.format((int)(book.getPrice()*0.1)) %>point<br>   
 				                        재  고 : <%=book.getStock() %>권<br> 
 				                        출간일 : <%=book.getPublishDate() %>
-			                        </div>
-			                    </div>
-		                        <form >
-                                <div class="col-md-12" id="detail2">
-			                        배송료 : 2,500원(1만원 이상시 무료)<br>
-			                        수령 예상일 : 온라인 주문시 2일 소요<br>
-			                                 (오프라인 방문시 당일 수령가능)<br>
-			                        <input type="hidden" name="bookID" value="<%=bookID%>">
-			                        <label>수량 : <input type="number" name="cnt" min="1" style="width:10rem;" value="1"></label>
-			                    </div>
-			                    <div class="col-md-12" style="text-align:center;margin-bottom:2rem;">
-				                     <div class="row">
-				                        <button type="submit" formaction="/shop/payment.jsp" class="btn btn-danger glyphicon glyphicon-usd">즉시구매</button>
-				                        <button type="submit" formaction="/shop/basket.jsp" class="btn btn-warning glyphicon glyphicon-gift">찜하기</button>
-			                         </div>
-			                    </div>
-				                </form>
+			                        </div>			                    
+			                        <form >
+	                                <div class="col-sm-12" id="detail2">
+				                        배송료 : 2,500원(1만원 이상시 무료)<br>
+				                        수령 예상일 : 온라인 주문시 2일 소요<br>
+				                                 (오프라인 방문시 당일 수령가능)<br>
+				                        <input type="hidden" name="bookID" value="<%=bookID%>">
+				                        <label>수량 : <input type="number" name="cnt" min="1" style="width:10rem;" value="1"></label>
+				                    </div>
+				                    <div class="col-sm-12" style="text-align:center;margin-bottom:2rem;">
+					                     <div class="row">
+					                        <button type="submit" formaction="/shop/payment.jsp" class="btn btn-danger glyphicon glyphicon-usd">즉시구매</button>
+					                        <button type="submit" formaction="/shop/basket.jsp" class="btn btn-warning glyphicon glyphicon-gift">찜하기</button>
+				                         </div>
+				                    </div>
+					                </form>
+					            </div>
 				            </div>
 			            </div>
 	                </div>
 	            </div>
                 <div class="row">               
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
                         <table id="tb1" class="table table-condensed table-striped">
                             <tr><th>목차</th></tr>
                             <tr>
@@ -137,7 +137,7 @@ if(idx != -1){
                 </div>
 			</div>
 		</div>  
-	    <div class="col-md-3" style="margin-top:3rem;" id="bestDiv">
+	    <div class="col-md-3 hidden-sm hidden-xs" style="margin-top:3rem;" id="bestDiv">
 	        <div class="row">
 	            <div class="col-md-12">
 	                <div id="ad2">
