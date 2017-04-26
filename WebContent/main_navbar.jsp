@@ -4,6 +4,7 @@
 		 import="domain.Member"
 		 import="service.MemberService" 
 		 import="java.util.List"%>
+
 <%
 CategoryMgr catemgr = new CategoryMgr();
 
@@ -48,15 +49,8 @@ try{
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-<link rel="stylesheet" href="/bookcafe.css">
-<style>
-#searchform{
-	width : 100%;
-}
-#search{
-	width : 70%;
-}
-</style>
+<link rel="stylesheet" media="(min-width: 700px)" href="/bookcafe.css">
+<link rel="stylesheet" media="(max-width: 700px)" href="/bookcafe2.css" />
 
 <script>
 $(document).ready(function(){
@@ -80,29 +74,29 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<div id="topheader" class="container-fluid">
-    <div class="row">
-       <div class="col-sm-6 text-right" style="background-color:#ffd11a;height:70px;">
+<div id="topheader" class="container-fluid visible-lg">
+    <div class="row" id="topHeadAd">
+       <div class="col-sm-6 col-xs-6 text-right" style="background-color:#ffd11a;height:70px;">
          <h2 style="margin-right:8rem"><span class="glyphicon">&#xe233;</span> 북앤카페 새학기 맞이 대잔치</h2>
        </div>
        <div class="col-sm-1 text-left" style="border-bottom:70px solid #ff99bb;border-left:40px solid #ffd11a;">
        </div>
-       <div class="col-sm-5 text-left" style="background-color:#ff99bb;height:70px;">
+       <div class="col-sm-5 col-xs-6 text-left" style="background-color:#ff99bb;height:70px;">
          <h2 style="margin-left:-3rem"><span class="glyphicon">&#xe103;</span> 봄도 독서의 계절, 졸음싹 커피</h2>
        </div>
     </div>
 </div>
-<nav id="topheaderwrap" class="headerwrap" data-spy="affix" data-offset-top="70">
+<nav id="topheaderwrap" class="headerwrap hidden-xs" data-spy="affix" data-offset-top="70">
 	<div class="row" id="wrap">
     	<div class="col-md-12"> 
         	<div class="row" >
-            	<div class="col-md-6">
+            	<div class="col-md-6 col-lg-6">
                 	<ul class="nav nav-tabs">
 							<li class="<%=catastr %>">
-								<a href="/main.jsp">Home</a>
+								<a href="/main.jsp">홈</a>
 							</li>
 							<li class="<%=catastr2 %>">
-								<a href="/mainCategory.jsp?cata=all">전체도서</a>
+								<a href="/mainCategory.jsp?cata=all">전체</a>
 							</li>
 							<%		    
 						    for(Category result1:catemgr.listCategoriesCode1()){
@@ -125,7 +119,7 @@ $(document).ready(function(){
                             </li>		            
                    	</ul>
                	</div>
-               	<div class="col-md-6 text-right">
+               	<div class="col-md-6 col-lg-6 hidden-sm hidden-xs text-right">
                    	<ul class="breadcrumb" style="height:36px">
                        	<%if(!memberID.equals("")){ 
                        		MemberService ms = new MemberService();
@@ -169,9 +163,9 @@ $(document).ready(function(){
                        	<li>
                            	<a href="/sign/signOut.jsp">로그아웃</a> <span class="divider"></span>
                         </li>
-                        <li>
+                       <!--  <li>
                            	<a href="/game/miniGame.jsp">Game</a> <span class="divider"></span>
-                       	</li>
+                       	</li> -->
                        	<%}else{ %>
                        	<li>
                            	<a href="/sign/signInPage.jsp">로그인</a> <span class="divider"></span>
@@ -193,12 +187,12 @@ $(document).ready(function(){
 <header id="headerwrap">
     <div class="container-fluid">      
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3 col-xs-4">
               <a class="navbar-brand" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
             </div>    
-            <div class="col-md-8">     
+            <div class="col-md-7 col-xs-8">     
             <!-- 검색 시작 -->         
-                <form class="navbar-form navbar-left form-group-lg" id="searchform" role="search" action="/shop/searchresult.jsp">
+                <form class="form-inline form-group-lg" id="searchform" role="search" action="/shop/searchresult.jsp">
                     <select class="form-control" id="sel1" name="SearchTarget">
                         <option value="all">통합검색</option>
                   <% for(Category result1:catemgr.listCategoriesCode1()){  %>
@@ -207,11 +201,10 @@ $(document).ready(function(){
                     </select>
                     <input type="text" class="form-control" id="search" name="SearchWord"/>                            
                     <button type="submit" id="search-btn" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-search"></span> 검색</button>
-                    <button type="button" class="btn btn-link" style="display:none;"><strong>상세검색</strong></button>
                 </form>
             <!-- 검색 끝 -->  
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 hidden-sm hidden-xs" id="ad1Div">
                <div id="ad1" style="float: right;">
                    <a href="/inven/bookDetail.jsp?bookID=14" title="언어의 온도 바로가기"><img alt="상단광고" src="/img/main/161111_head_mgt.jpg" /></a>
                </div>

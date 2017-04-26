@@ -11,8 +11,8 @@
 
 <!-- 메인 화면 시작 -->   
 <section id="section">
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row" id="slideDiv">
+        <div class="col-sm-12 hidden-xs">
             <div id="myCarousel" class="panel panel-default" onmouseleave="startSlides()">
                 <div class="slideshow-container panel-body">                                      
                     <div class="mySlides fade slide-4" onmouseenter="stopSlides(1)">                     
@@ -47,7 +47,7 @@
                         <img alt="slide-e-Book3" src="./img/main/170307_ebookgoods.jpg" />
                     </div>               
                 </div>
-                <div class="col-md-12 text-center panel-footer" id="slideshow_list">
+                <div class="col-sm-12 text-center panel-footer" id="slideshow_list">
                     <ul class="slideshow_list">
                        <li>
                            <span class="dot" onmouseenter="stopSlides(1)">MD 초이스</span><span class="divider"></span>
@@ -70,7 +70,7 @@
        </div>
     </div>   
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-sm-2 hidden-xs">
             <div class="list-group">
                 <strong class="list-group-item sub" style=""><a href="/mainCategory.jsp?cata=all" class="sub">전체도서</a></strong>
 		        <%
@@ -99,7 +99,7 @@
                 </div>             
             </div>         
 	    </div>
-	    <div class="col-md-7">
+	    <div class="col-md-7 col-sm-10">
             <%   
 			int l = 0;
             int m = 0;
@@ -123,12 +123,12 @@
 					if(l == 0){
                 %>
             <div class="row">
-                <div class="col-md-12 main_book_titel">이달의 추천도서</div>
+                <div class="col-sm-12 main_book_titel">이달의 추천도서</div>
 	                <%
 					}
 	                if(l < 4){
 				    %>
-			    <div class="col-md-3 text-center main_book_info">
+			    <div class="col-sm-3 col-xs-6 text-center main_book_info">
 			        <p class="main_book_img">
 			            <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 바로가기">
 			             <img src="<%=book2.getImageID() %>" alt="<%=book2.getBookName() %>"/>
@@ -153,7 +153,7 @@
 				   
 			</div>
 			<div class="row">
-				<div class="col-md-12 main_book_titel">이달의 신간</div>
+				<div class="col-sm-12 main_book_titel">이달의 신간</div>
 						<%
 	                }
 					if(m == 2){ %>
@@ -161,7 +161,7 @@
             <div class="row">
 		        <%  }
 		            if(m < 4){ %>
-                <div class="col-md-6 main_book_info2">
+                <div class="col-sm-6 col-xs-12 main_book_info2">
                     <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 바로가기">
                          <img src="<%=book2.getImageID() %>" alt="<%=book2.getBookName() %>"/>
                     </a>
@@ -194,7 +194,7 @@
             </div>   
              <% } %>
             <div class="row">
-                <div class="col-md-12 main_book_titel"><%=result1.getCategoryName() %></div>                    
+                <div class="col-sm-12 main_book_titel"><%=result1.getCategoryName() %></div>                    
             <% i++;
                 cataInt = result1.getCode1();
                 int j = 0;
@@ -221,7 +221,7 @@
 	                if(cataInt == cateInt){
 	                	if(j < 4){
                 %>
-                <div class="col-md-3 text-center main_book_info">
+                <div class="col-sm-3 col-xs-6 text-center main_book_info">
                     <p class="main_book_img">
                         <a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 바로가기"><img src="<%=book.getImageID() %>" alt="<%=book.getBookName() %>"/></a>
                     </p>
@@ -240,7 +240,7 @@
         } %>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 hidden-sm hidden-xs" id="bestDiv">
             <div class="row">
                 <div class="col-md-12">
                     <div id="ad2">
@@ -265,7 +265,7 @@
 						        int bookIdInt = bestseller[k].getBookID();
 						        String bookIdLink = "/inven/bookDetail.jsp?bookID="+bookIdInt;
 						        String bookNamestr = bestseller[k].getBook().getBookName(); 
-						 
+						        
 						        if(k == 0){
 						 %>
                             <li>

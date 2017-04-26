@@ -137,7 +137,7 @@ if(idx != -1){
                 </div>
 			</div>
 		</div>  
-	    <div class="col-md-3" style="margin-top:3rem;">
+	    <div class="col-md-3" style="margin-top:3rem;" id="bestDiv">
 	        <div class="row">
 	            <div class="col-md-12">
 	                <div id="ad2">

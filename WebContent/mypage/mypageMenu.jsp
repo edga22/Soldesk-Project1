@@ -111,6 +111,7 @@
             <div class="panel-heading">고객센터</div>
             <div class="panel-body"><a href="/mypage/mypageQuestion.jsp">자주 묻는 질문</a></div>
             <div class="panel-body"><a href="/mypage/mypageUserInquireResult.jsp">1:1문의</a></div>
+            <div class="panel-body"><a href="/game/miniGame.jsp">Game Zone</a></div>
         </div>      
     </div>
 </div> 

@@ -10,16 +10,7 @@
                 <ul class="breadcrumb">
                    <li>
                        <a href="/sign/instroCop.jsp">회사소개</a>                   
-                   </li>
-                   <li>
-                       <a href="/sign/accessTerm.jsp">이용약관</a>                   
-                   </li>
-                   <li>
-                       <a href="/sign/personalInfo.jsp">개인정보취급방침</a> 
-                   </li>
-                   <li>
-                       <a href="#">고객센터</a> 
-                   </li>
+                   </li>                                  
                 <%
                 	String admin="";
                 	if(session.getAttribute("ID") != null && !session.getAttribute("ID").equals("")){
@@ -30,7 +21,14 @@
                    <li>
                       <a href="/admin/index.jsp">판매자 매니저</a> 
                    </li>
-               <%}else{} %>               
+               <%}else{ %>
+            	   <li>
+                       <a href="/sign/accessTerm.jsp">이용약관</a>                   
+                   </li>
+                   <li>
+                       <a href="/sign/personalInfo.jsp">개인정보취급방침</a> 
+                   </li>
+               <% } %>               
                    <li style="float:right">
                        <a href="#">▲TOP</a>
                    </li>
@@ -39,10 +37,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-2 text-center">
-            <a class="navbar-brand" href="#"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe<br><span style="font-size:2rem;">북앤카페</span></a>
+        <div class="col-sm-2 text-center" id="footBrand">
+            <a class="navbar-brand" href="#"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe<br><span style="font-size:1.9rem;">북앤카페</span></a>
         </div>
-        <div class="col-md-5">
+        <div class="col-sm-5">
             <div style="width:50%;float: left;">   
                 <address>
                     <strong>Book&#38;Cafe, Inc.</strong><br />
@@ -56,11 +54,11 @@
                 <address>
                     <strong></strong><br />
                     고객정보보호 책임자 : 유강현<br />
-                    <i class="glyphicon glyphicon-envelope" style="color:#555;font-size:0.2rem"></i> E-mail:master@bookncafe
+                    E-mail:master@bookncafe
                 </address>
             </div>          
         </div>   
-        <div class="col-md-5">               
+        <div class="col-sm-5 col-xs-12">               
             <address>
                 <strong></strong><br />
                     <i class="glyphicon glyphicon-comment" style="color:#555;font-size:0.2rem"></i> 1:1고객상담 : 메일로 빠르게 답신드립니다.                    
@@ -74,10 +72,13 @@
             </address>
         </div>
     </div>
-    <p class="text-center">Copyright 2017ⓒ BookNcafe Inc.. All rights reserved. System by: cwsys</p>
+    <p class="text-center">Copyright 2017ⓒ BookNcafe Inc.. All rights reserved.<br class="visible-xs"> System by: cwsys</p>
 </footer>
 <!-- 맨아래 탑버튼 -->
-<img id="MOVE_TOP_BTN" src="/img/main/btn_top2.png" alt="맨위로">
+<!-- <img id="MOVE_TOP_BTN" src="/img/main/btn_top2.png" alt="맨위로"> -->
+<div id="MOVE_TOP_BTN">
+    <span class="glyphicon glyphicon-circle-arrow-up" title="맨위로"></span>
+</div>
 <script>
 $(function() {
     $(window).scroll(function() {

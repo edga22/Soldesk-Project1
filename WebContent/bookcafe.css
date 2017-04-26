@@ -103,20 +103,28 @@ body {
     color:#0275d8;
 }
 
-#headerwrap .navbar-form {
+#searchform {
     width:100%;
     margin-top:1.2rem;
-    margin-left:2rem;
+    margin-left:-5rem;
 }
 
 #sel1 {
+	width:20%;
     color:#0275d8;
     font-weight: 600;
     background-color:#e6f2ff;
 }
 
-#headerwrap .navbar-form #search {
-    width:60%;
+@media (max-width: 1100px) {
+	#sel1 {
+	   width:25%;
+	   font-size:1.6rem;
+	}
+}
+
+#search {
+    width:50%;
     background-color:#e6f2ff;
 }
 
@@ -135,31 +143,31 @@ body {
 
 /* 공통 하단 시작 */
 #footer {
-    padding:20px 10px;
+    padding:0.5rem 1rem;
     font-size:1.2rem;
     line-height: 1.8;
 }
 #footer p{
-    margin-top:20px;
+    margin-top:0.5rem;
     font-size:1.3rem;
 }
 .footer_line{
     background-color:#0275d8;
-    height:5px;
+    height:0.5rem;
 }
 .footer_header{
     background-color:#F4F4F4;
-    height:30px;
-    margin-bottom:20px;
+    height:3rem;
+    margin-bottom:2rem;
 }
 
 .footer_header ul.breadcrumb {
-    padding: 7px 15px 0 20px;
+    padding: 0.7rem 1.5rem 0 2rem;
     font-size: 1.2rem;
     width:100%;
 }
 .footer_header ul.breadcrumb li+li:before {
-    padding:0 7px;
+    padding:0 0.7rem;
     color: #999;
     content: "|";
 }
@@ -175,10 +183,96 @@ body {
 
 /* 고정 탑 메뉴 */
 #MOVE_TOP_BTN{
+	color: #00ace6;
+    font-size: 5rem;
     position: fixed; 
     bottom: 10px; 
     right: 10px; 
     z-index: 100; 
     cursor: pointer; 
     display: block;
+}
+
+/* 메인 오른쪽 광고 베스트셀러 시작 */
+#ad2 {
+    border:1px solid #e6f2ff;
+    background-color: transparent;
+    width:216px;
+    height:144px;
+    margin-bottom:10px;
+}
+
+.best10 {
+    width:216px;
+    border:1px solid #e6f2ff;
+    background-color: #fff;
+    padding:10px;
+}
+.best10 ul.best10_text {
+    list-style-type: none;
+    color:#000;
+    margin: 0;
+    padding: 0;
+}
+.best10 ul.best10_text li{
+    margin:5px;
+}
+.best10 ul.best10_text li a{
+    color:#000;
+    font-size:1.2rem;
+    text-decoration:none;
+}
+.best10 .title{
+    font-size:1.3rem;
+    padding:1px 0px 5px 10px;
+    font-weight: 600;
+    color:#666;
+}
+.best10_text .number{
+    float: left;
+    width:20px;
+    height:16px;
+    margin-right:5px;
+    margin-top:0.3rem;
+    color: white;    
+    text-align: center;
+    font-size:1.2rem;
+    background-color: #00ace6;    
+    border-radius: 3px;
+}
+.best10_text .active {
+    margin-right:1px;
+    background-color: #ff8c1a;
+    color: white;
+}
+.best10_text .best10_img{
+    color:#000;
+    float: left;
+    width:85%;
+    margin-bottom:5px;
+    text-decoration:none;
+}
+.best10_text .best10_img a{
+    color:#000;  
+    text-decoration:none;
+}
+.best10_text .best10_img img{
+    padding-right:3px;
+    float:left;
+    width:65px;
+    height:auto;
+}
+/* 메인 오른쪽 끝 */
+/* 사진흐리게 */
+.bgBlur:before {
+  content: '';
+  position: absolute;
+  top: 0; left:0; right:0; bottom:0;
+  background: inherit;
+  z-index:-1;
+  filter: blur(6px); 
+  -webkit-filter: blur(6px); 
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  filter:url(#blur);
 }
