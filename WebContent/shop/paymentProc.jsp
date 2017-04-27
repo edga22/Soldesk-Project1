@@ -17,10 +17,12 @@ PayService ps = new PayService();
 BasketMgr mgr=(BasketMgr)session.getAttribute("basket");
 
 // 장바구니에 책 삭제
-	for(int i=0;i<bookIDs.length;i++){
-		int bookID=Integer.parseInt(bookIDs[i]);
-		mgr.remove(bookID);
-	}
+	if(mgr!=null && !mgr.equals("")){
+		for(int i=0;i<bookIDs.length;i++){
+			int bookID=Integer.parseInt(bookIDs[i]);
+			mgr.remove(bookID);
+		}
+	}	
 	ps.setOrder(memberID, bookIDs, cnts);
 
 	response.sendRedirect("/shop/payResult.jsp");
