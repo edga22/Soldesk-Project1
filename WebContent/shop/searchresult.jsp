@@ -171,15 +171,13 @@ $(document).ready(function(){
 		$("div[name='<%=output.getCategoryID()%>']").toggle();
 	});
 <%}%>
+});
 
-/* 표지 엑박일 경우 기본 표지로 변경 */
-<%for(int i=0;i<scResult.length;i++){%>
-$("#img<%=scResult[i].getBookID() %>")
-.on("error",function(){
-	$("#img<%=scResult[i].getBookID() %>").attr("src", "/img/item/normal.gif");
-});
-<%}%>
-});
+function ImgError(source){
+	source.src = "/img/item/normal.gif";
+	source.onerror = "";
+	return true;
+};
 </script>
 
 <div class="container"> <!-- Main container -->
@@ -248,7 +246,8 @@ $("#img<%=scResult[i].getBookID() %>")
 				<p><%=i %>.</p>
 				<input type="checkbox" name="bookID" value="<%=scResult[idx].getBookID() %>">
 			</div>
-			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=scResult[idx].getBookID()%>" class="thumbnail"><img class="image" id="img<%=scResult[idx].getBookID() %>" src="<%=scResult[idx].getImageID()%>"></a></div>
+			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=scResult[idx].getBookID()%>" class="thumbnail">
+			<img class="image" alt="image" onerror="ImgError(this)" src="<%=scResult[idx].getImageID()%>"></a></div>
 			<div class="col-md-7">
 				<p id="booktitle">[<%=currentCate.getCategoryName() %>]<a href="/inven/bookDetail.jsp?bookID=<%=scResult[idx].getBookID()%>"><%=scResult[idx].getBookName() %></a></p>
 				<p>저자 : <%=scResult[idx].getAuthor() %> 출판사 : <%=scResult[idx].getPublisher() %></p>
