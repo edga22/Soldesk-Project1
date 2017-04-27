@@ -28,7 +28,8 @@ if(cataBookID != null){
 }
 
 if(cataPage != null){
-	if(cataPage.equals("all")) ;		
+	if(cataPage.equals("all")) ;
+	else if(cataPage.equals("best")) ;
 	else cataCode = Integer.parseInt(cataPage);
 	if(codePage != null) codeId = Integer.parseInt(codePage);
 }
@@ -75,7 +76,7 @@ if(cataPage != null){
 		                <a data-toggle="collapse" data-parent="#categori" href="#c<%= i %>"><%=result.getCategoryName() %></a>
 		            </h5>
 		        </div>
-		   <% if(cataPage.equals("all") || cataPage.equals(null)){ %>
+		   <% if(cataPage.equals("all") || cataPage.equals("best") ||cataPage.equals(null)){ %>
 		        <div id="c<%= i %>" class="panel-collapse collapse in">
 		   <% }else{ %>
 		        <div id="c<%= i %>" class="panel-collapse collapse <%=cateMenuStr %>">

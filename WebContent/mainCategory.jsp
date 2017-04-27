@@ -325,7 +325,7 @@ $(document).ready(function(){
     		    if(cataLinkLIst1 == cataLinkLIst2){
 			%>
 			<div class="row" id="categoryLine"> <!-- items -->
-				<div class="col-sm-4 col-xs-offset-1 col-xs-11" id="dBookimg">
+				<div class="col-sm-4 col-sm-offset-0 col-xs-offset-1 col-xs-11" id="dBookimg">
 				    <div class="number">
 				        <%=j %><br>
 				        <input type="checkbox" name="bookID" value="<%=book.getBookID() %>">
@@ -335,7 +335,7 @@ $(document).ready(function(){
 						<a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>"/></a>
 					</div>
 				</div>
-				<div class="col-sm-5 col-xs-offset-1 col-xs-11" id="dBookinfo">										
+				<div class="col-sm-5 col-sm-offset-0 col-xs-offset-1 col-xs-11" id="dBookinfo">										
 					<h4>
 					   <span style="font-size:1.4rem;color:gray;">[<%=cateName2 %>]</span>
 					   <a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 바로가기"><%=book.getBookName() %></a>
@@ -349,7 +349,7 @@ $(document).ready(function(){
 						<li>적립포인트 : <%=nf.format(bookPoint) %>P (<%=pointPer%>% 지급)</li>						
 					</ul>
 				</div>
-				<div class="col-sm-3 col-xs-offset-1 col-xs-10 col-xs-offset-1" style="vertical-align:bottom;margin-top:1rem;margin-bottom:1rem">
+				<div class="col-sm-3 col-sm-offset-0 col-sm-offset-0 col-xs-offset-1 col-xs-10 col-xs-offset-1" style="vertical-align:bottom;margin-top:1rem;margin-bottom:1rem">
 					<a class="btn btn-default btn-block" href="/shop/basket.jsp?bookID=<%=book.getBookID()%>">장바구니</a>
 					<a class="btn btn-primary btn-block" href="/shop/payment.jsp?bookID=<%=book.getBookID()%>">바로구매</a>
 				</div>				

@@ -16,35 +16,86 @@
             <div id="myCarousel" class="panel panel-default" onmouseleave="startSlides()">
                 <div class="slideshow-container panel-body">                                      
                     <div class="mySlides fade slide-4" onmouseenter="stopSlides(1)">                     
-                        <img alt="slide-MD초이스1" src="./img/main/170228_book01.png" />
-                        <img alt="slide-MD초이스2" src="./img/main/170228_book02.png" />
-                        <img alt="slide-MD초이스3" src="./img/main/170228_book03.png" />
-                        <img alt="slide-MD초이스4" src="./img/main/170228_book04.png" />
+                        <a href="/inven/bookDetail.jsp?bookID=226">
+                            <img alt="slide-MD초이스1" src="./img/main/170228_book01.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=227">
+                            <img alt="slide-MD초이스2" src="./img/main/170228_book02.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=228">
+                            <img alt="slide-MD초이스3" src="./img/main/170228_book03.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=229">
+                            <img alt="slide-MD초이스4" src="./img/main/170228_book04.png" />
+                        </a>
                     </div>
-                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(2)">                     
-                        <img alt="slide-신간소개1" src="./img/main/170306_ad05.png" />
-                        <img alt="slide-신간소개2" src="./img/main/170306_ad06.png" />
-                        <img alt="slide-신간소개3" src="./img/main/170306_ad07.png" />
-                        <img alt="slide-신간소개4" src="./img/main/170306_ad08.png" />
+                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(2)">
+                        <a href="/inven/bookDetail.jsp?bookID=230">                     
+                            <img alt="slide-신간소개1" src="./img/main/170306_ad05.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=9">
+                            <img alt="slide-신간소개2" src="./img/main/170306_ad06.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=218">
+                            <img alt="slide-신간소개3" src="./img/main/170306_ad07.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=231">
+                            <img alt="slide-신간소개4" src="./img/main/170306_ad08.png" />
+                        </a>
                     </div>
-                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(3)">                     
-                        <img alt="slide-이벤트도서1" src="./img/main/170307_book01.png" />
-                        <img alt="slide-이벤트도서2" src="./img/main/170307_book02.png" />
-                        <img alt="slide-이벤트도서3" src="./img/main/170307_book03.png" />
-                        <img alt="slide-이벤트도서4" src="./img/main/170307_book04.png" />
+                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(3)">
+                        <a href="/inven/bookDetail.jsp?bookID=232">                   
+                            <img alt="slide-이벤트도서1" src="./img/main/170307_book01.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=233">
+                            <img alt="slide-이벤트도서2" src="./img/main/170307_book02.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=234">
+                            <img alt="slide-이벤트도서3" src="./img/main/170307_book03.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=235">
+                            <img alt="slide-이벤트도서4" src="./img/main/170307_book04.png" />
+                        </a>
                     </div>
-                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(4)">                        
-                        <img alt="slide-화제의 책1" src="./img/main/170310_ad01.png" />
-                        <img alt="slide-화제의 책2" src="./img/main/170310_ad02.png" />
-                        <img alt="slide-화제의 책3" src="./img/main/170310_ad03.png" />
-                        <img alt="slide-화제의 책4" src="./img/main/170310_ad04.png" />
+                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(4)">
+                        <a href="/inven/bookDetail.jsp?bookID=236">                      
+                            <img alt="slide-화제의 책1" src="./img/main/170310_ad01.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=237">
+                            <img alt="slide-화제의 책2" src="./img/main/170310_ad02.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=7">
+                            <img alt="slide-화제의 책3" src="./img/main/170424_ad03_1.png" />
+                        </a>
+                        <a href="/inven/bookDetail.jsp?bookID=238">
+                            <img alt="slide-화제의 책4" src="./img/main/170310_ad04.png" />
+                        </a>
                     </div>
-                    <div class="mySlides fade slide-3 " onmouseenter="stopSlides(5)">                       
-                        <img alt="slide-e-Book1" src="./img/main/161207_payback2.jpg" />
-                        <img alt="slide-bar" class="eb1" src="./img/main/ev_line.png" />
-                        <img alt="slide-e-Book2" src="./img/main/170302b_10yrent.jpg" />
-                        <img alt="slide-bar" class="eb1" src="./img/main/ev_line.png" />
-                        <img alt="slide-e-Book3" src="./img/main/170307_ebookgoods.jpg" />
+                    <div class="mySlides fade slide-4" onmouseenter="stopSlides(5)">
+                        <div class="slide-4-img" style="width:23%;display:inline-block;">
+	                        <a href="/inven/bookDetail.jsp?bookID=240">
+	                            <img alt="slide-e-Book1" src="./img/main/e895464481_1.jpg" />
+	                            <span>모두를 위한 페미니즘<br>9,800원</span>
+	                        </a>
+                        </div>
+                        <div class="slide-4-img" style="width:23%;display:inline-block;">
+	                        <a href="/inven/bookDetail.jsp?bookID=239">
+	                            <img alt="slide-e-Book2" src="./img/main/ek41253005_1.jpg" />
+	                            <span>서민적 정치<br>10,000원</span>
+	                        </a>
+                        </div>
+                        <div class="slide-4-img" style="width:23%;display:inline-block;">
+	                        <a href="/inven/bookDetail.jsp?bookID=241">
+	                            <img alt="slide-e-Book3" src="./img/main/e322430642_1.jpg" />
+	                            <span>[고화질 세트] 사랑과...<br>5,400원 (10% )</span>
+	                        </a>
+                        </div>
+                        <div class="slide-4-img" style="width:23%;display:inline-block;">
+	                        <a href="/inven/bookDetail.jsp?bookID=242">
+	                            <img alt="slide-e-Book4" src="./img/main/e895443626_1.jpg" />
+	                            <span>우주와의 인터뷰<br>4,870원 (50% )</span>
+	                        </a>
+                        </div>
                     </div>               
                 </div>
                 <div class="col-sm-12 text-center panel-footer" id="slideshow_list">

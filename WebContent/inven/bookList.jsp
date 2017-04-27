@@ -35,7 +35,8 @@ $(function() {
 <%
 BookMgr mymgr = new BookMgr();
 String bookName = request.getParameter("bookName");
-int bookID = Integer.parseInt(request.getParameter("bookID"));
+
+   //int bookID = Integer.parseInt(request.getParameter("bookID"));
 %>
 <jsp:include page="/inven/invenMain_nav.jsp"></jsp:include>
 <form action="/inven/bookMod.jsp" method="post">
@@ -61,7 +62,7 @@ int bookID = Integer.parseInt(request.getParameter("bookID"));
 		</table>
 		<div id="block">
 		  <br><h4>부 제목</h4>
-		  <textarea rows="3" cols=100% name="subtitle" id="content" maxlength="250"
+		  <textarea rows="3" cols=100% name="subtitle" id="subtitle" maxlength="250"
 				style="width: 100%; resize:none;" placeholder="내용 작성"></textarea>
    		  	<span id="counter">255</span><br><br>
    		  <h4>목차</h4>
@@ -75,7 +76,7 @@ int bookID = Integer.parseInt(request.getParameter("bookID"));
 	<script>
 	   // Replace the <textarea id="editor1"> with a CKEditor
 	   // instance, using default configuration.
-	   CKEDITOR.replace( 'content' );
+	   CKEDITOR.replace( 'subtitle' );
 	   CKEDITOR.replace( 'contents' );
 	   CKEDITOR.replace( 'description' );
 	</script>

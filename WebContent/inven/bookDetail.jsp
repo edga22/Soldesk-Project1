@@ -72,6 +72,9 @@ if(idx != -1){
 	        <div class="panel panel-default">
 				<div class="panel-heading">
 				    <h3><%=book.getBookName()%></h3>
+				    <%if(book.getSubtitle() != null){ %>
+                      <%=book.getSubtitle() %>
+                    <% } %>
 				</div>
 				<div class="row">
 				    <div class="col-sm-12">
@@ -115,8 +118,8 @@ if(idx != -1){
                             <tr><th>목차</th></tr>
                             <tr>
                                 <td>
-		                            <%if(book.getSubtitle() != null){ %>
-		                              <%=book.getSubtitle() %>
+		                            <%if(book.getContents() != null){ %>
+		                              <%=book.getContents() %>
 		                            <% }else{ %>
 		                              이 책은 목차가 없습니다.
 		                            <% } %>

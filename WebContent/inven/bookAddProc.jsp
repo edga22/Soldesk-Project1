@@ -16,6 +16,9 @@
 <%
 BookMgr mymgr = new BookMgr();
 Book newbook = new Book();
+//한글 인식처리 하기 위한 유니코드 처리
+response.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 // 입력한 데이터 저장하기
 java.sql.Date date = new java.sql.Date(mymgr.changeDate(request.getParameter("publishDate")).getTime());
 newbook.setPublishDate(date);
@@ -29,6 +32,7 @@ newbook.setCategoryID(Integer.parseInt(request.getParameter("categoryID")));
 newbook.setSubtitle(request.getParameter("subtitle"));
 newbook.setDescription(request.getParameter("description"));
 newbook.setRecommend(Integer.parseInt(request.getParameter("recommend")));
+newbook.setContents(request.getParameter("contents"));
 //새책 생성
 mymgr.addBook(newbook);
 %>
@@ -64,6 +68,10 @@ mymgr.addBook(newbook);
 	    <tr class="active"><th colspan="10" style="text-align:center;">소제목</th></tr>
 		<tr><td colspan="10"><%=newbook.getSubtitle() %></td></tr>			
 	 </tbody>
+	 <tbody>       
+        <tr class="active"><th colspan="10" style="text-align:center;">목차</th></tr>
+        <tr><td colspan="10"><%=newbook.getContents() %></td></tr>          
+     </tbody>
 	 <tfoot> 	
 	 	<tr class="active"><th colspan="10" style="text-align:center;">내용</th></tr>
 		<tr><td colspan="10"><%=newbook.getDescription() %></td></tr>
