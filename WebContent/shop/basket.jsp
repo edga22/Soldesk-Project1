@@ -118,6 +118,11 @@ $(document).ready(function(){
         var arrBookCnt = arrParam.join('&');
         location.href = '/shop/payment.jsp?' + arrBookCnt;
      });
+ 	 
+ 	$("#backLink").click(function() {
+ 	    event.preventDefault();
+ 	    history.back(1);
+ 	});
 });
 </script>
 <style>
@@ -282,7 +287,7 @@ $(document).ready(function(){
 	<!-- 주문 및 되돌아가기 -->
 	<div class="row" style="margin-bottom:3rem">
 		<div class="col-sm-5"> 
-		   	<a href="/main.jsp" class="btn btn-default btn-lg text-left" role="button">쇼핑 계속하기</a>
+		   	<a href="/main.jsp" class="btn btn-default btn-lg text-left" role="button" id="backLink">쇼핑 계속하기</a>
 		</div>
 		<div class="col-sm-7">
 	    	<input type="button" class="btn btn-default btn-lg btn-primary" value="선택 상품 주문하기" id="btnSelecBasket"/>

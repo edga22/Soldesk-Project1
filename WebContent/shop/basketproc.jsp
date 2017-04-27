@@ -12,7 +12,7 @@
 <script>
 swal({
 	title: "성공",
-	text: "성공",
+	text: "상품을 장바구니에 담았습니다.",
 	type: "success"
 },
 		function(){
