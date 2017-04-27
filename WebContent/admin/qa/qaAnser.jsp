@@ -61,8 +61,9 @@ int a = userInquire.getUserInquireID();
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="text">질문내용:</label>
 								<div class="col-sm-10">
-									<textarea rows="10" cols=100% name="userInquireContent"
-										style="width: 100%; hight: 900px; overflow:hidden; resize:none;"readonly><%=userInquire.getContent() %></textarea>
+									<div class="panel panel-default">
+										<div class="panel-body"><%=userInquire.getContent() %></div>
+									</div>
 								</div>
 							</div>			
 							<div class="form-group">
