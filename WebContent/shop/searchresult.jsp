@@ -103,6 +103,11 @@ EventMgr evmgr = new EventMgr();
 
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <style>
 #cate-top{
 }
@@ -157,6 +162,26 @@ label {
 
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
+<!-- JS 파트  -->
+<script type="text/javascript">
+/* DOM레디 */
+$(document).ready(function(){
+<%for(Category output : useCategory){ %>
+	$("input[name='<%=output.getCategoryID()%>']").click(function(){
+		$("div[name='<%=output.getCategoryID()%>']").toggle();
+	});
+<%}%>
+
+/* 표지 엑박일 경우 기본 표지로 변경 */
+<%for(int i=0;i<scResult.length;i++){%>
+$("#img<%=scResult[i].getBookID() %>")
+.on("error",function(){
+	$("#img<%=scResult[i].getBookID() %>").attr("src", "/img/item/normal.gif");
+});
+<%}%>
+});
+</script>
+
 <div class="container"> <!-- Main container -->
 <div class="row" id="cate-top">
 	<ul class="nav nav-tabs">
@@ -166,18 +191,6 @@ label {
 		<li><a href="#">E-Book(<%=ebookCnt %>)</a></li>
 	</ul>
 </div>
-
-
-<script type="text/javascript">
-$(document).ready(function(){
-<%for(Category output : useCategory){ %>
-	$("input[name='<%=output.getCategoryID()%>']").click(function(){
-		$("div[name='<%=output.getCategoryID()%>']").toggle();
-	});
-<%}%>
-});
-</script>
-
 
 <div class="row">
 	<div class="col-md-2" id="cate-side">
@@ -235,7 +248,7 @@ $(document).ready(function(){
 				<p><%=i %>.</p>
 				<input type="checkbox" name="bookID" value="<%=scResult[idx].getBookID() %>">
 			</div>
-			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=scResult[idx].getBookID()%>" class="thumbnail"><img class="image" src="<%=scResult[idx].getImageID()%>"></a></div>
+			<div class="col-md-2"><a href="/inven/bookDetail.jsp?=bookID=<%=scResult[idx].getBookID()%>" class="thumbnail"><img class="image" id="img<%=scResult[idx].getBookID() %>" src="<%=scResult[idx].getImageID()%>"></a></div>
 			<div class="col-md-7">
 				<p id="booktitle">[<%=currentCate.getCategoryName() %>]<a href="/inven/bookDetail.jsp?bookID=<%=scResult[idx].getBookID()%>"><%=scResult[idx].getBookName() %></a></p>
 				<p>저자 : <%=scResult[idx].getAuthor() %> 출판사 : <%=scResult[idx].getPublisher() %></p>
@@ -265,10 +278,5 @@ $(document).ready(function(){
 
 </div> <!-- Main container -->
 <jsp:include page="/main_foot.jsp"></jsp:include>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
