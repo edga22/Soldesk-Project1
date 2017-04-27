@@ -50,7 +50,7 @@ int a = userInquire.getUserInquireID();
                                 <%=userInquire.getAnswer()%>
                             <%}else{%>
                                 답변 처리 중입니다.
-                            <%}%>>
+                            <%}%>
                          </td>
                     </tr>
 					<%}else{ %>
