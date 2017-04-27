@@ -8,7 +8,11 @@
 		 import="mgr.BookMgr"
 		 import="service.MypageService"
 		 import="java.text.NumberFormat"%>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>주문조회/변경/취소</title>
 
 <style>
@@ -16,7 +20,13 @@
     text-align:center;
 }
 </style>
-
+<script>
+$(document).ready(function(){
+    $("#cancel").click(function(){
+      alert("취소하시겠습니까?")
+    });
+});
+</script>
 <% 
 DeliveryMgr dm = new DeliveryMgr();
 BookMgr bm = new BookMgr();
@@ -71,9 +81,9 @@ PurchaseOrder[] purchaseOrders = dm.getMember(memberID);
 					<td class="text-right"><%=nf.format(point) %>P</td> 
 					<td><%=order.change(po.getProgress())%></td>
 					<td style="text-align:center; height:auto;">
-					   <a href="/mypage/mypageRefundProc.jsp?a=1&orderID=<%=orderID %>" class="btn btn-warning btn-xs">교환</a>
+					  	<a href="/mypage/mypageRefundProc.jsp?a=1&orderID=<%=orderID %>" class="btn btn-warning btn-xs">교환</a>
 					    <a href="/mypage/mypageRefundProc.jsp?a=2&orderID=<%=orderID %>" class="btn btn-danger btn-xs">환불</a>
-					    <a href="/mypage/mypageRefundProc.jsp?a=3&orderID=<%=orderID %>" class="btn btn-primary btn-xs">교환/환불취소</a> </td>
+					    <a href="/mypage/mypageRefundProc.jsp?a=3&orderID=<%=orderID %>" id="cancel" class="btn btn-primary btn-xs">교환/환불취소</a> </td>
 				</tr>
 		<%
 		} 

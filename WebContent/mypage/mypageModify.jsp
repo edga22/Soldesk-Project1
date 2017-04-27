@@ -144,15 +144,15 @@ if(oldpw !=null && !oldpw.equals("") && newpw1 !=null && !newpw1.equals("") && n
 						<input type="text" name="postCode" class="postcodify_postcode5 form-control" id="postNumber" value="<%=member.getPostCode()%>" readonly/>
 						<input type="text" name="address" class="postcodify_address form-control" value="<%=member.getAddress()%>" required readonly/><br />
 						<input type="text" name="address2" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요." required />
-						<button type="button" id="postcodify_search_button" class="btn btn-danger btn-xs">주소변경</button>
-						<button type="submit" class="btn btn-danger btn-xs">변경완료</button>
+						<button type="button" id="postcodify_search_button" class="btn btn-danger btn-xs">우편번호/주소찾기</button>
+						<button type="submit" class="btn btn-danger btn-xs">주소변경</button>
 						<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 						<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 					</form>
 				</td>
 			</tr>
-
 	    </table>
+	 
     </div>
   </div>
 </div>
