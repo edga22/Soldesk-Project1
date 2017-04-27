@@ -59,6 +59,13 @@ try{
 <link rel="stylesheet" media="(min-width: 767px)" href="/bookcafe.css">
 <link rel="stylesheet" media="(max-width: 767px)" href="/bookcafe2.css" />
 
+<script language="JavaScript" type="text/javascript">
+function ImgError(source){
+    source.src = "/img/item/normal.gif";
+    source.onerror = "";
+    return true;
+}
+</script>
 <script>
 $(document).ready(function(){
 		
@@ -104,6 +111,8 @@ $(document).ready(function(){
 		}
 	});
 });
+
+
 </script>
 </head>
 <body>

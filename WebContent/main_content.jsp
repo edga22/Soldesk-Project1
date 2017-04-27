@@ -182,7 +182,7 @@
 			    <div class="col-sm-3 col-xs-6 text-center main_book_info">
 			        <p class="main_book_img">
 			            <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 바로가기">
-			             <img src="<%=book2.getImageID() %>" alt="<%=book2.getBookName() %>"/>
+			             <img src="<%=book2.getImageID() %>" alt="<%=book2.getBookName() %> "onerror="ImgError(this)"/>
 			            </a>
 			        </p>
 			        <p class="main_book_txt">
@@ -214,7 +214,7 @@
 		            if(m < 4){ %>
                 <div class="col-sm-6 col-xs-12 main_book_info2">
                     <a href="/inven/bookDetail.jsp?bookID=<%=book2.getBookID()%>" title="<%=book2.getBookName() %> 바로가기">
-                         <img src="<%=book2.getImageID() %>" alt="<%=book2.getBookName() %>"/>
+                         <img src="<%=book2.getImageID() %>" alt="<%=book2.getBookName() %>" onerror="ImgError(this)"/>
                     </a>
                     <div class="main_book_info">
                         <p class="main_book_txt">
@@ -274,7 +274,7 @@
                 %>
                 <div class="col-sm-3 col-xs-6 text-center main_book_info">
                     <p class="main_book_img">
-                        <a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 바로가기"><img src="<%=book.getImageID() %>" alt="<%=book.getBookName() %>"/></a>
+                        <a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 바로가기"><img src="<%=book.getImageID() %>" alt="<%=book.getBookName() %>" onerror="ImgError(this)"/></a>
                     </p>
                     <p class="main_book_txt"><a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 바로가기"><%=book.getBookName() %></a>
                        <a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 새창으로보기" target="_blank">
@@ -324,7 +324,7 @@
                                     <div class="number active"><%=k+1 %></div>
                                     <div class="best10_img">                          
                                         <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기">
-                                        <img src="<%=bestseller[k].getBook().getImageID()%>" style="width:65px;height:auto;"/>
+                                        <img src="<%=bestseller[k].getBook().getImageID()%>" style="width:65px;height:auto;" onerror="ImgError(this)"/>
                                         </a>
                                         <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
                                     </div>

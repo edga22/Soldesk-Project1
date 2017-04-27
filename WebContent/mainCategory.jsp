@@ -332,7 +332,7 @@ $(document).ready(function(){
 				    </div>
 				    <div class="bookImg">
 					    [<%=cateName %>]<br>										
-						<a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>"/></a>
+						<a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>" onerror="ImgError(this)"/></a>
 					</div>
 				</div>
 				<div class="col-sm-5 col-sm-offset-0 col-xs-offset-1 col-xs-11" id="dBookinfo">										
@@ -408,7 +408,7 @@ $(document).ready(function(){
 	                                <div class="number active"><%=k+1 %></div>
 	                                <div class="best10_img">                          
 	                                    <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기">
-	                                    <img src="<%=bestseller[k].getBook().getImageID()%>" style="width:65px;height:auto;"/>
+	                                    <img src="<%=bestseller[k].getBook().getImageID()%>" style="width:65px;height:auto;" onerror="ImgError(this)"/>
 	                                    </a>
 	                                    <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
 	                                </div>

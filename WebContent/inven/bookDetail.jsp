@@ -80,7 +80,7 @@ if(idx != -1){
 				    <div class="col-sm-12">
 					    <div class="row" id="detail">
 		                    <div class="col-sm-5">
-		                        <img src="<%=book.getImageID()%>" style="width:18rem; height:26rem; margin-left:3rem; margin-bottom:5rem;"/>
+		                        <img src="<%=book.getImageID()%>" style="width:18rem; height:26rem; margin-left:3rem; margin-bottom:5rem;" onerror="ImgError(this)"/>
 		                    </div>
 		                    <div class="col-sm-6">
                                 <div class="row">
@@ -173,7 +173,7 @@ if(idx != -1){
 	                                <div class="number active"><%=k+1 %></div>
 	                                <div class="best10_img">                          
 	                                    <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기">
-	                                    <img src="<%=bestseller[k].getBook().getImageID()%>" style="width:65px;height:auto;"/>
+	                                    <img src="<%=bestseller[k].getBook().getImageID()%>" style="width:65px;height:auto;" onerror="ImgError(this)"/>
 	                                    </a>
 	                                    <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
 	                                </div>
