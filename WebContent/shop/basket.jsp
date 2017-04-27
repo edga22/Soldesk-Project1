@@ -52,15 +52,13 @@
 </head>
 <body>
 <script type="text/javascript">
+function ImgError(source){
+	source.src = "/img/item/normal.gif";
+	source.onerror = "";
+	return true;
+};
+
 $(document).ready(function(){   	
-	/* 표지 엑박일 경우 기본 표지로 변경 */
-	<%for(int i=0;i<basketList.length;i++){%>
-	$("#img<%=basketList[i].getBook().getBookID()%>")
-	.on("error",function(){
-	    $("#img<%=basketList[i].getBook().getBookID()%>").attr("src", "/img/item/normal.gif");
-	});
-	<%}%>
-	
 	$('#checkall').click(function(){
 		//만약 전체 선택 체크박스가 체크된상태일경우 
 		if($("#checkall").prop("checked")){ 
@@ -227,7 +225,7 @@ $(document).ready(function(){
 		   		<tr>				      	
 			        <td style="text-align:right;width:45px;">
 			        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기">
-			        	<img class="image" src="<%=basketList[i].getBook().getImageID() %>" id="img<%=basketList[i].getBook().getBookID()%>"></a>
+			        	<img class="image" src="<%=basketList[i].getBook().getImageID() %>" onerror="ImgError(this)" ></a>
 			        </td>
 			        <td style="vertical-align:top;">
 			        	<h4>
