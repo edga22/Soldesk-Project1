@@ -83,11 +83,14 @@ if(memberID == 0){
 			}
 			totalPrice += (ps.getBook(bID)).getPrice()*cnt;
 			totalPoint += ps.getPoint(bID, cnt);
-			%>	
+			%>
+			
+		  <tr>
+			<td>
+			<%=ps.getBook(bID).getBookName()%>
 			<input type="hidden" name="bookID" value="<%=bID%>"/><!-- 책번호 넘겨주기 -->
 			<input type="hidden" name="cnt" value="<%=cnt%>"/><!-- 책 수량 넘겨주기 --> 	
-		  <tr>
-			<td><%=ps.getBook(bID).getBookName()%></td>
+			</td>
 			<td><%=nf.format(ps.getOverPrice(bID))%>원</td>
 			<td><%=nf.format(ps.getBook(bID).getPrice())%>원</td>
 			<td><%=cnt %></td>
