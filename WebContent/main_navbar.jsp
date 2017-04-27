@@ -231,11 +231,11 @@ $(document).ready(function(){
 
 <header id="headerwrap">
     <div class="container-fluid">      
-        <div class="row">
-            <div class="col-md-3 col-sm-4 col-xs-12">
-              <a class="navbar-brand" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
-            </div>    
-            <div class="col-md-7 col-sm-8 hidden-xs">     
+        <div class="row hidden-xs">
+            <div class="col-md-3 col-sm-4">
+                <a class="navbar-brand" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
+            </div>
+            <div class="col-md-7 col-sm-8">     
             <!-- 검색 시작 -->         
                 <form class="form-inline form-group-lg" id="searchform" role="search" action="/shop/searchresult.jsp">
                     <select class="form-control" id="sel1" name="SearchTarget">
@@ -249,37 +249,54 @@ $(document).ready(function(){
                 </form>
             <!-- 검색 끝 -->  
             </div>
-            <div class="row visible-xs">
-	            <div class="col-xs-1">
-	            </div>
-	            <div class="col-xs-10">
-	            <!-- 폰 검색 시작 -->         
-	                <form class="form-inline" id="searchform2" role="search" action="/shop/searchresult.jsp">          
-		                <div class="input-group">	                	
-							<input type="hidden" id="sel2" name="SearchTarget" value="all"/>
-		                    <input type="text" class="form-control" id="search2" name="SearchWord"/>
-		                    <span class="input-group-btn">
-		                    	<button type="submit" id="search-btn" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> 검색</button>
-		                    </span>
-					    </div>
-	                </form>
-	            <!-- 검색 끝 -->  
-	            </div>
-	            <div class="col-xs-1">
-	            </div>
-	        </div>    
-            <div class="col-md-2 hidden-sm hidden-xs" id="ad1Div">
+            <div class="col-md-2 hidden-sm" id="ad1Div">
                <div id="ad1" style="float: right;">
                    <a href="/inven/bookDetail.jsp?bookID=14" title="언어의 온도 바로가기"><img alt="상단광고" src="/img/main/161111_head_mgt.jpg" /></a>
                </div>
             </div>
         </div>
+        <!-- 모바일용 스킨 -->
+        <div class="row visible-xs" id="ftophead">
+            <div class="col-xs-6">
+                <a class="fband" href="/main.jsp"><span class="glyphicon">&#xe043;</span><font>&#38;</font>cafe</a>
+            </div>
+            <div class="col-xs-6 text-right" id="ftopheadbtn">
+                <%if(!memberID.equals("")){ %>
+                <a href="/mypage/mypageMain.jsp"><span class="glyphicon glyphicon-user"></span></a>
+                <% }else{ %>
+                <a href="/sign/signInPage.jsp"><span class="glyphicon glyphicon-user"></span></a>
+                <% } %>
+                <span class="divider"></span>
+                <a href="/shop/basket.jsp"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            </div>
+        </div>
+        <div class="row visible-xs" id="psearch">
+            <div class="col-xs-1 text-center">
+                <a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+            </div>
+            <div class="col-xs-10 container-fluid">
+            <!-- 모바일 검색 시작 -->         
+                <form class="form-inline" id="searchform2" role="search" action="/shop/searchresult.jsp">          
+                    <div class="input-group">                       
+                        <input type="hidden" id="sel2" name="SearchTarget" value="all"/>
+                        <input type="text" class="form-control" id="search2" name="SearchWord"/>
+                        <span class="input-group-btn">
+                            <button type="submit" id="search-btn" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> 검색</button>
+                        </span>
+                    </div>
+                </form>
+            <!-- //모바일 검색 -->  
+            </div>
+            <div class="col-xs-1">
+                <a href="#"><span class="glyphicon glyphicon-th-large"></span></a>
+            </div>
+        </div>       
 	</div>
 </header>
 
 <div id="headerLine" class="container-fluid hidden-xs"> </div>
 
-<div class="btn-group btn-group-justified visible-xs jbMenu">
+<div class="btn-group btn-group-justified visible-xs jbMenu" style="margin-bottom:1rem;">
     <a href="/mainCategory.jsp?cata=all" class="btn <%=cateHeaderStr2%>">전체</a>
 <%
     String cateHeaderStr1 = "btn-primary";
@@ -299,11 +316,5 @@ $(document).ready(function(){
     } %>                            
     <a href="/shop/bestseller.jsp?cata=best" class="btn <%=cateHeaderStr3%>">베스트</a>
 </div>
-
-<!-- 	<ul class="nav nav-tabs container-fluid visible-xs jbMenu">
-	    <li class="active"><a href="#menu1">Menu 1</a></li>
-	    <li><a href="#menu2">Menu 2</a></li>
-	    <li><a href="#menu3">Menu 3</a></li>
-	    <li><a href="#menu4">Menu 4</a></li>
-	</ul> -->
+<!--// 모바일용 스킨  -->
 <!-- 공통 상단 끝 -->
