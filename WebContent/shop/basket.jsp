@@ -44,9 +44,23 @@
     //총 주문금액
     int totalPrice = 0;
 %>
+<head>
+<title>장바구니</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script>
-$(document).ready(function(){     
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(document).ready(function(){   	
+	/* 표지 엑박일 경우 기본 표지로 변경 */
+	<%for(int i=0;i<basketList.length;i++){%>
+	$("#img<%=basketList[i].getBook().getBookID()%>")
+	.on("error",function(){
+	    $("#img<%=basketList[i].getBook().getBookID()%>").attr("src", "/img/item/normal.gif");
+	});
+	<%}%>
+	
 	$('#checkall').click(function(){
 		//만약 전체 선택 체크박스가 체크된상태일경우 
 		if($("#checkall").prop("checked")){ 
@@ -142,7 +156,7 @@ $(document).ready(function(){
     vertical-align:middle;
 }
 </style>
-<title>장바구니</title>
+
 
 <jsp:include page="/main_navbar.jsp"></jsp:include>
 
@@ -213,7 +227,7 @@ $(document).ready(function(){
 		   		<tr>				      	
 			        <td style="text-align:right;width:45px;">
 			        	<a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기">
-			        	<img src="<%=basketList[i].getBook().getImageID() %>"></a>
+			        	<img class="image" src="<%=basketList[i].getBook().getImageID() %>" id="img<%=basketList[i].getBook().getBookID()%>"></a>
 			        </td>
 			        <td style="vertical-align:top;">
 			        	<h4>
@@ -296,3 +310,4 @@ $(document).ready(function(){
 </div> 
 <!--//장바구니 -->
 <jsp:include page="/main_foot.jsp"></jsp:include>
+</body>
