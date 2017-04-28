@@ -2,12 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ page import="domain.Book"
 		 import="mgr.BookMgr"
-		 import="mgr.BestsellerMgr"
-         import="domain.BestSeller"
-         import="java.text.NumberFormat"%>
+         import="java.text.NumberFormat"
+         import="domain.Category"
+         import="mgr.CategoryMgr"
+         import="java.util.List"%>
 
 <%
 BookMgr mymgr = new BookMgr();
+CategoryMgr catemgr = new CategoryMgr();
+
 int bookID = 1;
 String tmp = request.getParameter("bookID");
 if(tmp == null || tmp.equals("")){
@@ -31,25 +34,58 @@ if(idx != -1){
     authorList = "지은이 : "+author1+" 저<br> 옮긴이 : "+author2+" 역";
 }else  authorList = "지은이 : "+author+" 저";
 
+int cateInt = 0; //도서리스트 1차분류 숫자
+int cateInt2 = 0; //도서리스트 2차분류 숫자
+String cateName = ""; //도서리스트 1차분류 이름
+String cateName2 = ""; //도서리스트 2차분류 이름
+String cateSubject = ""; //도서리스트 1차분류 설명 
+String cateSubject2 = ""; //도서리스트 2차분류 설명 
 
+//카테고리 매칭
+//북 아이디에서 카테고리 아이디를 찾아 해당 카테고리 아이디의 정보를 찾는다. 
+Category cate = catemgr.findCategory(book.getCategoryID());
+cateInt = cate.getCode1();
+cateInt2 = cate.getCategoryID();
+cateName2= cate.getCategoryName();
+cateSubject2= cate.getCategorySubject();
+//1차 카테고리 번호로 1차 카테고리 정보를 찾는다.
+Category cate2 = catemgr.findCode1(cateInt);
+cateName = cate2.getCategoryName();
+cateSubject = cate2.getCategorySubject();
 %>
+
 <title><%=book.getBookName()%></title>
 
 <link rel="stylesheet" href="/main.css">
 
 <style>
-#tb1 th{
-    text-align:center;
-}
 #detail {
     line-height: 1.8;
     padding:1rem 0;
+    text-align:center;
 }
-#detail1, #detail2 {
-    margin:1rem 2rem;
-    padding:1rem 0;
-    border-top:1px solid gray;
-    border-bottom:1px solid gray;
+#detail span {
+    color:#999;
+    font-size:1.5rem;
+}
+#detail img {
+    width:18rem;
+    height:26rem;
+    margin-bottom:5rem;
+}
+#detail1 {
+    padding:0 0 1.5rem 0;
+    border-bottom:1px solid #ccc;
+    text-align:left;
+}
+#detail2 {
+    padding:1.5rem 0 1rem 0;
+    border-bottom:1px solid #ccc;
+    text-align:left;
+}
+
+#tb1 th{
+    text-align:center;
 }
 #tb1 td {
     padding:2rem;
@@ -71,16 +107,17 @@ if(idx != -1){
 	    <div class="col-md-7 col-sm-10" id="result" style="margin-top:3rem;">
 	        <div class="panel panel-default">
 				<div class="panel-heading">
-				    <h3><%=book.getBookName()%></h3>
+				    <h4><%=book.getBookName()%></h4>
 				    <%if(book.getSubtitle() != null){ %>
-                      <%=book.getSubtitle() %>
+                    - <%=book.getSubtitle() %>
                     <% } %>
 				</div>
-				<div class="row">
+				<div class="panel-body">
 				    <div class="col-sm-12">
 					    <div class="row" id="detail">
-		                    <div class="col-sm-5">
-		                        <img src="<%=book.getImageID()%>" style="width:18rem; height:26rem; margin-left:3rem; margin-bottom:5rem;" onerror="ImgError(this)"/>
+		                    <div class="col-sm-6">
+		                        <span>[<%=cateName %>][<%=cateName2 %>]</span>
+		                        <img src="<%=book.getImageID()%>" onerror="ImgError(this)"/>
 		                    </div>
 		                    <div class="col-sm-6">
                                 <div class="row">
@@ -91,23 +128,25 @@ if(idx != -1){
 				                        적  립 : <%=nf.format((int)(book.getPrice()*0.1)) %>point<br>   
 				                        재  고 : <%=book.getStock() %>권<br> 
 				                        출간일 : <%=book.getPublishDate() %>
-			                        </div>			                    
-			                        <form >
+			                        </div>
+			                    </div>
+			                    <form >
+			                    <div class="row">			                    
 	                                <div class="col-sm-12" id="detail2">
 				                        배송료 : 2,500원(1만원 이상시 무료)<br>
 				                        수령 예상일 : 온라인 주문시 2일 소요<br>
 				                                 (오프라인 방문시 당일 수령가능)<br>
 				                        <input type="hidden" name="bookID" value="<%=bookID%>">
-				                        <label>수량 : <input type="number" name="cnt" min="1" style="width:10rem;" value="1"></label>
+				                        <label>수량 : <input type="number" name="cnt" min="1" style="width:5rem;text-align:center;" value="1">권</label>
 				                    </div>
-				                    <div class="col-sm-12" style="text-align:center;margin-bottom:2rem;">
-					                     <div class="row">
-					                        <button type="submit" formaction="/shop/payment.jsp" class="btn btn-danger glyphicon glyphicon-usd">즉시구매</button>
-					                        <button type="submit" formaction="/shop/basket.jsp" class="btn btn-warning glyphicon glyphicon-gift">찜하기</button>
-				                         </div>
+				                </div>
+				                <div class="row">    
+				                    <div class="col-sm-12" style="text-align:center;margin-top:2rem;">
+				                        <button type="submit" formaction="/shop/payment.jsp" class="btn btn-danger glyphicon glyphicon-usd"> 즉시구매</button>
+				                        <button type="submit" formaction="/shop/basket.jsp" class="btn btn-warning glyphicon glyphicon-gift"> 찜하기</button>
 				                    </div>
-					                </form>
 					            </div>
+					           </form>
 				            </div>
 			            </div>
 	                </div>
@@ -135,58 +174,13 @@ if(idx != -1){
                                     <% } %>
                                 </td>
                             </tr>
-                        </table><br><br>
+                        </table><br>
                     </div>
                 </div>
 			</div>
 		</div>  
 	    <div class="col-md-3 hidden-sm hidden-xs" style="margin-top:3rem;" id="bestDiv">
-	        <div class="row">
-	            <div class="col-md-12">
-	                <div id="ad2">
-	                    <a href="http://localhost/inven/bookDetail.jsp?bookID=218">
-	                        <img alt="ad2" src="/img/main/170320_ebook.jpg" />
-	                    </a>
-	                </div>
-	            </div>
-	        </div>
-	        <div class="row">
-	            <div class="col-md-12">
-	                <div class="best10">
-	                    <div class="title">베스트셀러 <font color="#0275d8">TOP10</font></div>
-	                    <ul class="best10_text">
-	                    <%
-	                        BestsellerMgr mgr=new BestsellerMgr();
-	                        BestSeller[] bestseller=mgr.getBestseller();
-	                        
-	                        String monthAgo=mgr.getMonthAgoDate();
-	                        
-	                        for(int k=0;k<10;k++){
-	                            int bookIdInt = bestseller[k].getBookID();
-	                            String bookIdLink = "/inven/bookDetail.jsp?bookID="+bookIdInt;
-	                            String bookNamestr = bestseller[k].getBook().getBookName(); 
-	                     
-	                            if(k == 0){
-	                     %>
-	                        <li>
-	                            <div class="best10_1">
-	                                <div class="number active"><%=k+1 %></div>
-	                                <div class="best10_img">                          
-	                                    <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기">
-	                                    <img src="<%=bestseller[k].getBook().getImageID()%>" style="width:65px;height:auto;" onerror="ImgError(this)"/>
-	                                    </a>
-	                                    <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
-	                                </div>
-	                            </div>                        
-	                        </li>
-	                        <%  }else{ %>
-	                        <li><div class="number"><%=k+1 %></div><a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a></li>
-	                     <% }
-	                     } %>    
-	                    </ul>
-	                </div>
-	            </div>
-	        </div>
+            <jsp:include page="/leftBestseller.jsp"/>	      
 	    </div>
 	</div>
 </div>

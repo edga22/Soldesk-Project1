@@ -142,6 +142,11 @@ body {
 }
 /* //공통 상단 */
 
+/* 왼쪽 베스트셀러 */
+#bestDiv {
+    margin-top:5rem;
+}
+
 /* 공통 하단 시작 */
 #footer {
     padding:0.5rem 1rem;

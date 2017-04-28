@@ -24,7 +24,7 @@ BookMgr mymgr = new BookMgr();
 <jsp:include page="/inven/invenMain_nav.jsp"></jsp:include>
 <div class="container" id="bim">
 <form>
-<div style="border:0.1rem solid black; margin:1rem; padding:1rem;"><!-- 도서 수정 -->		
+<%-- <div style="border:0.1rem solid black; margin:1rem; padding:1rem;"><!-- 도서 수정 -->		
 	 	 <table id="imain">
 			<tr>
 				<th>도 서 명 :</th><td><input type="text" name="bookName" placeholder="책이름" ></td>
@@ -43,8 +43,8 @@ BookMgr mymgr = new BookMgr();
 			</tr>
 		</table>
 		<br>		
-</div>
-		<button type="submit" formaction="/inven/bookMod.jsp" class="btn btn-warning btn-sm glyphicon glyphicon-floppy-saved">수정</button>
+</div> --%>
+		<button type="submit" formaction="/inven/bookList.jsp" class="btn btn-warning btn-sm glyphicon glyphicon-floppy-saved">수정</button>
 		<button type="submit" formaction="/inven/bookDel.jsp" class="btn btn-danger btn-sm glyphicon glyphicon-trash">삭제</button>
 <hr style="border: solid 0.1rem;"> 
 <h3>전체 도서 검색 결과</h3>

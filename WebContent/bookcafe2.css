@@ -8,12 +8,18 @@ body {
     font-family: 'NotoSansKR', 'Nanum Gothic', "Times New Roman", Times, sans-serif;
 }
 
-#topHeadAd,#ad1Div,#bestDiv,#slideDiv,#footBrand {
+#topHeadAd,#ad1Div,#bestDiv,#footBrand {
 	display: none;
 }
 #psearch .col-xs-1{
 	margin:0;
     padding:0;
+}
+.ptopmenubtn a span{
+    font-size:2.8rem;
+    color:#0275d8;
+    padding-top:0.2rem;
+    padding-left:0.7rem;
 }
 
 /* 본문 내용 */

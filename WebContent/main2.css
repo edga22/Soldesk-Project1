@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-/* 메인전용 시작 */
+/* 모바일 메인전용 시작 */
 /* 메인슬라이드 시작 */
 
 /* 슬라이드 외부 */
@@ -8,41 +8,13 @@
   height:auto;
   position: relative;
   margin: auto;
-  border:2px solid #e6f2ff;
-}
-/* 슬라이드 내부 다음 이전 버튼 */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-
-/* 슬라이드 내부 다음 버튼 */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-.prev {
-	left: 0;
-}
-
-/* 슬라이드 내부 버튼 호버시 검정배경 */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  border:1px solid #e6f2ff;
 }
 
 /* 슬라이드 하단 리스트 */
 #slideshow_list {
-    max-height:5rem;
-    margin-bottom:2%;
+    height:3.8rem;
+    margin-bottom:5%;
     background-color:#e6f2ff;
     border:1px solid #ccc;
 }
@@ -51,8 +23,8 @@ ul.slideshow_list {
     color: #00ace6;
     list-style: none;
     background-color: transparent;
-    font-size: 120%;
-    font-weight: 600;
+    font-size: 85%;
+    font-weight: 400;
     width:100%
 }
 ul.slideshow_list li {
@@ -60,28 +32,19 @@ ul.slideshow_list li {
     cursor: pointer;
 }
 ul.slideshow_list li+li:before {
-    padding: 0.8% 4%;
+    padding: 0.8% 1%;
     color: #00ace6;
     content: "|";
 }
-@media (max-width: 900px) {
-	ul.slideshow_list li+li:before {
-		padding: 0.8% 2%;
-	}
-}
-
 
 /* 슬라이드 하단 리스트 버튼 */
 .dot {
     color: #00ace6;
     text-decoration: none;
-    border: 3px solid transparent;
-    border-radius: 15px;
-    padding:0.3% 1.5%;
 }
 .dot.active, .dot:hover {
-    border: 3px solid #0275d8;
-    background-color:#fff;
+	color: #004080;
+	font-weight: 600;
 }
 
 /* 슬라이드 내부 리스트 */
@@ -90,40 +53,29 @@ ul.slideshow_list li+li:before {
     width:100%;
 }
 .slide-4 img{
-    margin: 0 1.3%;
-    width:21.5%;
+    margin: 1% 1.5%;
+    width:45%;
     height:auto;
     border:1px solid #eee;
 }
 .slide-4-img{
-    margin: 0 0.6%;
+	width:47%;
+	display:inline-block;
+    margin: 1% 1%;
     padding-bottom:0.43%;
-    display:inline-block;
-    width:23%;
     height:auto;
     text-align:center;
     border:1px solid #eee;
     display:inline-block;
 }
 .slide-4-img a img{
-	margin:3%;
+	margin:3% 2%;
     width:80%;
     height:auto;
 }
 .slide-4-img a span{
-	font-size:1.6rem;
-	font-weight: bold;
+	font-size:1.2rem;
 	display:block;
-}
-.slide-3 img{
-    margin: 0;
-    width:26%;
-    height:auto;      
-}
-.slide-3 img.eb1{
-    margin: 0 1.3%;
-    width:3.937%;
-    height:auto;
 }
 
 /* Fading animation */
@@ -227,12 +179,13 @@ ul.slideshow_list li+li:before {
 }
 
 .main_book_info2 {
-     padding:0 20px 5px 35px;
+     padding:0 2rem 0.5rem 1rem;
 }
 .main_book_info2 a img {
 	 height:122px;
      width: auto;
-     padding:5px 7px 0 10px;
+     padding:0.5rem 0.7rem 0 3rem;
      float:left;
 }
 /* 메인 중앙책분류 끝 */
+

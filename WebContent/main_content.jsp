@@ -12,7 +12,7 @@
 <!-- 메인 화면 시작 -->   
 <section id="section">
     <div class="row" id="slideDiv">
-        <div class="col-sm-12 hidden-xs">
+        <div class="col-xs-12">
             <div id="myCarousel" class="panel panel-default" onmouseleave="startSlides()">
                 <div class="slideshow-container panel-body">                                      
                     <div class="mySlides fade slide-4" onmouseenter="stopSlides(1)">                     
@@ -72,25 +72,25 @@
                         </a>
                     </div>
                     <div class="mySlides fade slide-4" onmouseenter="stopSlides(5)">
-                        <div class="slide-4-img" style="width:23%;display:inline-block;">
+                        <div class="slide-4-img">
 	                        <a href="/inven/bookDetail.jsp?bookID=240">
 	                            <img alt="slide-e-Book1" src="./img/main/e895464481_1.jpg" />
 	                            <span>모두를 위한 페미니즘<br>9,800원</span>
 	                        </a>
                         </div>
-                        <div class="slide-4-img" style="width:23%;display:inline-block;">
+                        <div class="slide-4-img">
 	                        <a href="/inven/bookDetail.jsp?bookID=239">
 	                            <img alt="slide-e-Book2" src="./img/main/ek41253005_1.jpg" />
 	                            <span>서민적 정치<br>10,000원</span>
 	                        </a>
                         </div>
-                        <div class="slide-4-img" style="width:23%;display:inline-block;">
+                        <div class="slide-4-img">
 	                        <a href="/inven/bookDetail.jsp?bookID=241">
 	                            <img alt="slide-e-Book3" src="./img/main/e322430642_1.jpg" />
 	                            <span>[고화질 세트] 사랑과...<br>5,400원 (10% )</span>
 	                        </a>
                         </div>
-                        <div class="slide-4-img" style="width:23%;display:inline-block;">
+                        <div class="slide-4-img">
 	                        <a href="/inven/bookDetail.jsp?bookID=242">
 	                            <img alt="slide-e-Book4" src="./img/main/e895443626_1.jpg" />
 	                            <span>우주와의 인터뷰<br>4,870원 (50% )</span>
@@ -98,7 +98,7 @@
                         </div>
                     </div>               
                 </div>
-                <div class="col-sm-12 text-center panel-footer" id="slideshow_list">
+                <div class="col-xs-12 text-center panel-footer" id="slideshow_list">
                     <ul class="slideshow_list">
                        <li>
                            <span class="dot" onmouseenter="stopSlides(1)">MD 초이스</span><span class="divider"></span>
@@ -121,7 +121,7 @@
        </div>
     </div>   
     <div class="row">
-        <div class="col-sm-2 hidden-xs">
+        <div class="col-sm-2 hidden-xs" style="margin-top:1.5rem">
             <div class="list-group">
                 <strong class="list-group-item sub" style=""><a href="/mainCategory.jsp?cata=all" class="sub">전체도서</a></strong>
 		        <%
@@ -150,7 +150,7 @@
                 </div>             
             </div>         
 	    </div>
-	    <div class="col-md-7 col-sm-10">
+	    <div class="col-md-7 col-sm-10 col-xs-12">
             <%   
 			int l = 0;
             int m = 0;
@@ -174,7 +174,7 @@
 					if(l == 0){
                 %>
             <div class="row">
-                <div class="col-sm-12 main_book_titel">이달의 추천도서</div>
+                <div class="col-xs-12 main_book_titel">이달의 추천도서</div>
 	                <%
 					}
 	                if(l < 4){
@@ -291,53 +291,8 @@
         } %>
             </div>
         </div>
-        <div class="col-md-3 hidden-sm hidden-xs" id="bestDiv">
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="ad2">
-                        <a href="http://localhost/inven/bookDetail.jsp?bookID=218">
-                            <img alt="ad2" src="/img/main/170320_ebook.jpg" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="best10">
-                        <div class="title">베스트셀러 <font color="#0275d8">TOP10</font></div>
-                        <ul class="best10_text">
-                        <%
-	                        BestsellerMgr mgr=new BestsellerMgr();
-	                    	BestSeller[] bestseller=mgr.getBestseller();
-	                    	
-	                    	String monthAgo=mgr.getMonthAgoDate();
-						    
-					        for(int k=0;k<10;k++){
-						        int bookIdInt = bestseller[k].getBookID();
-						        String bookIdLink = "/inven/bookDetail.jsp?bookID="+bookIdInt;
-						        String bookNamestr = bestseller[k].getBook().getBookName(); 
-						        
-						        if(k == 0){
-						 	%>
-                            <li>
-                                <div class="best10_1">
-                                    <div class="number active"><%=k+1 %></div>
-                                    <div class="best10_img">                          
-                                        <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기">
-                                        <img src="<%=bestseller[k].getBook().getImageID()%>" style="width:65px;height:auto;" onerror="ImgError(this)"/>
-                                        </a>
-                                        <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
-                                    </div>
-                                </div>                        
-                            </li>
-                            <%  }else{ %>
-                            <li><div class="number"><%=k+1 %></div><a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a></li>
-	                     <% }
-	                     } %>    
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-3 hidden-sm hidden-xs" style="margin-top:1.5rem">
+            <jsp:include page="/leftBestseller.jsp"/>
         </div>
     </div>
 </section>

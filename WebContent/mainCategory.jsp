@@ -7,9 +7,7 @@
          import="mgr.CategoryMgr"
          import="java.util.List"
          import="mgr.BookSortMgr"
-         import="java.util.Enumeration"
-         import="mgr.BestsellerMgr"
-         import="domain.BestSeller"%>
+         import="java.util.Enumeration"%>
 <%
 	BookMgr bookmgr = new BookMgr();
     CategoryMgr catemgr = new CategoryMgr();
@@ -70,16 +68,20 @@
 <jsp:include page="/main_navbar.jsp"/>
 
 <style>
-ul {
+#result {
+    margin-top:3rem;
+}
+
+#dBookinfo ul {
     margin: 0;
     padding: 0;
 }
 
-li {
+#dBookinfo li {
 	list-style: none;
 }
 
-a {
+#dBookinfo a {
 	padding: 0.3rem;
 }
 
@@ -93,28 +95,40 @@ a {
     border-bottom:1px solid #eee;
     margin-bottom:1.8rem;
 }
-#categoryLine h4 {
-    margin:2rem 0 0.5rem 0;
+#dBookinfo h4 {
+    font-size:1.7rem;
+    font-weight:bold;
+    margin:1.5rem 0 0.5rem 0;
     padding:0;
 }
-#categoryLine .bookImg {
+#dBookinfo h4 span {
+    font-size:1.4rem;
+    color:gray;
+}
+#dBookinfo h4 i {
+    font-size:1.5rem;
+    color:#555;
+    margin-left:0.5rem;
+}
+
+#dBookimg .bookImg {
     float: left;
     text-align:center;
 }
 
-#categoryLine .bookImg img{
+#dBookimg .bookImg img{
     width:85px;
     height:auto;
     max-height:125px;
     padding-bottom:1.5rem;    
 }
-#categoryLine .number{
+#dBookimg .number{
     float: left;
     width:20px;
     height:16px;
     margin-top:2rem;
-    margin-right:2rem;
-    margin-left:2rem;
+    margin-right:1rem;
+    margin-left:0.5rem;
     color: white;    
     text-align: center;
     font-size:1.2rem;
@@ -123,6 +137,10 @@ a {
 }
 
 @media (max-width: 767px) {
+    #result {
+        margin-top:0;
+    }
+    
     #dBookimg {
         padding:0 2rem;
         align:center;
@@ -134,7 +152,7 @@ a {
 	#categoryLine .bookImg {
 	    text-align:center;
 	}
-    #categoryLine .bookImg img{
+    #dBookimg .bookImg img{
 	    width:auto;
 	    max-width:220px;
 	    height:100%;
@@ -142,13 +160,13 @@ a {
 	    padding-bottom:1.5rem;
 	    float: left;
 	}
-	#categoryLine .number{
+	#dBookimg .number{
 	    float: left;
 	    width:20px;
 	    height:16px;
 	    margin-top:2rem;
-	    margin-right:2rem;
-	    margin-left:0.5rem;
+	    margin-right:1rem;
+	    margin-left:0.1rem;
 	    color: white;    
 	    text-align: center;
 	    font-size:1.2rem;
@@ -173,7 +191,7 @@ $(document).ready(function(){
 });
 </script>
 	<!-- 상품 진열 1줄에 4개씩  -->
-<div class="container">		
+<div class="container" id="mainCate">		
 	<!-- 좌측 카테고리 메뉴바 -->
 	
 	<div class="row">
@@ -185,9 +203,6 @@ $(document).ready(function(){
 		<!-- result -->
 		<div class="col-md-7 col-sm-9 col-xs-12" id="result">
 		   <div class="row" id="align-bar">
-		        <div class="col-sm-2 text-left hidden-xs">
-                    <label><input type="checkbox" id="checkall" name="all" value=""> 전체</label>
-                </div>  
 				<div class="col-sm-2 col-xs-3 text-center">
 					<a href="<%=paramString + "SortOrder=1"%>">제목순</a>
 				</div>
@@ -200,7 +215,8 @@ $(document).ready(function(){
 				<div class="col-sm-2 col-xs-3 text-center">
 					<a href="<%=paramString + "SortOrder=0"%>">출간일</a>
 				</div>
-				<div class="col-sm-2 text-right hidden-xs">				     
+				<div class="col-sm-4 text-right hidden-xs">	
+				    리스트 갯수:			     
 					<select name="display_number" class="">
 						<option value="10">10개</option>
 						<option value="20">20개</option>
@@ -210,8 +226,8 @@ $(document).ready(function(){
 			</div>
 			<form action="/shop/basketAddValues.jsp">
 			<div class="row">
-				<div class="col-sm-9 col-xs-6"><label class="visible-xs"><input type="checkbox" id="checkall" name="all" value=""> 전체</label></div>
-				<div class="col-sm-3 col-xs-6 text-right">
+				<div class="col-sm-9 col-xs-8"><label><input type="checkbox" id="checkall" name="all" value=""> 전체</label></div>
+				<div class="col-sm-3 col-xs-4 text-right">
 					<button type="submit" class="btn btn-info btn-block">선택 찜하기</button>
 				</div>
 			</div>
@@ -243,9 +259,9 @@ $(document).ready(function(){
 		    EventMgr evmgr = new EventMgr();
 		    //숫자1000자리 콤마
 		    NumberFormat nf = NumberFormat.getNumberInstance();
-		    int i = 0;
+		    
 		    int j = 1;
-		    int s = 0;
+		    
 			for(Book book: books){
 				int bookPoint = 0; //포인트 
 				int bookPrice = 0; //등록된 책가격
@@ -288,27 +304,17 @@ $(document).ready(function(){
     			String cateSubject2 = ""; //도서리스트 2차분류 설명 
     			
                 //카테고리 매칭
-                //도서 카테고리 아이디에서 해당 카테고리 아이디의 정보를 찾는다. 
-                for(Category result:catemgr.listCategoriesUse()){
-            		if(book.getCategoryID() == result.getCategoryID()){
-	                	cateInt = result.getCode1();
-	            		cateInt2 = result.getCategoryID();
-	            		cateName2 = result.getCategoryName();
-	            		cateSubject2 = result.getCategorySubject();
-	            		break;
-            		}
-            	}
-    			
-    			//1차 카테고리 매칭
-    			for(Category result1:catemgr.listCategoriesCode1()){
-    				if(cateInt == result1.getCode1()){    					
-    					cateName = result1.getCategoryName();
-	            		cateSubject = result1.getCategorySubject();
-	            		break;
-    				}
-    			}
-    			i++;
-    		    
+                //북 아이디에서 카테고리 아이디를 찾아 해당 카테고리 아이디의 정보를 찾는다. 
+                Category cate = catemgr.findCategory(book.getCategoryID());
+                cateInt = cate.getCode1();
+                cateInt2 = cate.getCategoryID();
+                cateName2= cate.getCategoryName();
+                cateSubject2= cate.getCategorySubject();
+            	//1차 카테고리 번호로 1차 카테고리 정보를 찾는다.
+                Category cate2 = catemgr.findCode1(cateInt);
+                cateName = cate2.getCategoryName();
+                cateSubject = cate2.getCategorySubject();
+                
     			int cataLinkLIst1 = 0;
     			int cataLinkLIst2 = 0;
     			//1차분류 리스트
@@ -325,7 +331,7 @@ $(document).ready(function(){
     		    if(cataLinkLIst1 == cataLinkLIst2){
 			%>
 			<div class="row" id="categoryLine"> <!-- items -->
-				<div class="col-sm-4 col-sm-offset-0 col-xs-offset-1 col-xs-11" id="dBookimg">
+				<div class="col-sm-3 col-sm-offset-0 col-xs-offset-1 col-xs-11" id="dBookimg">
 				    <div class="number">
 				        <%=j %><br>
 				        <input type="checkbox" name="bookID" value="<%=book.getBookID() %>">
@@ -335,12 +341,12 @@ $(document).ready(function(){
 						<a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>"><img src="<%=book.getImageID() %>" onerror="ImgError(this)"/></a>
 					</div>
 				</div>
-				<div class="col-sm-5 col-sm-offset-0 col-xs-offset-1 col-xs-11" id="dBookinfo">										
+				<div class="col-sm-6 col-sm-offset-0 col-xs-offset-1 col-xs-11" id="dBookinfo">										
 					<h4>
-					   <span style="font-size:1.4rem;color:gray;">[<%=cateName2 %>]</span>
+					   <span>[<%=cateName2 %>]</span>
 					   <a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 바로가기"><%=book.getBookName() %></a>
 					   <a href="/inven/bookDetail.jsp?bookID=<%=book.getBookID()%>" title="<%=book.getBookName() %> 새창으로보기" target="_blank">
-                       <i class="glyphicon glyphicon-new-window" style="font-size:1.5rem;color:#555;margin-left:1rem"></i></a>
+                       <i class="glyphicon glyphicon-new-window"></i></a>
 					</h4>
 					<p style="margin:0 0 0.2rem 0;"><%=authorList %> | <%=book.getPublisher() %> | <%=book.getPublishDate() %></p>
 					<ul>
@@ -375,54 +381,11 @@ $(document).ready(function(){
 		</div>
 	    <!--// result -->
 		
+		<!-- 왼쪽 베스트셀러 -->
 	    <div class="col-md-3 hidden-sm hidden-xs" id="bestDiv">
-	        <div class="row">
-	            <div class="col-md-12">
-	                <div id="ad2">
-	                    <a href="http://localhost/inven/bookDetail.jsp?bookID=218">
-	                        <img alt="ad2" src="/img/main/170320_ebook.jpg" />
-	                    </a>
-	                </div>
-	            </div>
-	        </div>
-	        <div class="row">
-	            <div class="col-md-12">
-	                <div class="best10">
-	                    <div class="title">베스트셀러 <font color="#0275d8">TOP10</font></div>
-	                    <ul class="best10_text">
-	                    <%
-	                        BestsellerMgr mgr=new BestsellerMgr();
-	                        BestSeller[] bestseller=mgr.getBestseller();
-	                        
-	                        String monthAgo=mgr.getMonthAgoDate();
-	                        
-	                        for(int k=0;k<10;k++){
-	                            int bookIdInt = bestseller[k].getBookID();
-	                            String bookIdLink = "/inven/bookDetail.jsp?bookID="+bookIdInt;
-	                            String bookNamestr = bestseller[k].getBook().getBookName(); 
-	                            
-	                            if(k == 0){
-	                     %>
-	                        <li>
-	                            <div class="best10_1">
-	                                <div class="number active"><%=k+1 %></div>
-	                                <div class="best10_img">                          
-	                                    <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기">
-	                                    <img src="<%=bestseller[k].getBook().getImageID()%>" style="width:65px;height:auto;" onerror="ImgError(this)"/>
-	                                    </a>
-	                                    <a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a>
-	                                </div>
-	                            </div>                        
-	                        </li>
-	                        <%  }else{ %>
-	                        <li><div class="number"><%=k+1 %></div><a href="<%=bookIdLink %>" title="<%=bookNamestr %> 바로가기"><%=bookNamestr %></a></li>
-	                     <% }
-	                     } %>    
-	                    </ul>
-	                </div>
-	            </div>
-	        </div>
+            <jsp:include page="/leftBestseller.jsp"/>
 	    </div>
+	    <!-- //왼쪽 베스트셀러 -->
     </div>
 </div>	
 

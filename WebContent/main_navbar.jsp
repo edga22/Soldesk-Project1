@@ -271,10 +271,10 @@ $(document).ready(function(){
             </div>
         </div>
         <div class="row visible-xs" id="psearch">
-            <div class="col-xs-1 text-center">
+            <div class="col-xs-1 ptopmenubtn">
                 <a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
             </div>
-            <div class="col-xs-10 container-fluid">
+            <div class="col-xs-11 container-fluid">
             <!-- 모바일 검색 시작 -->         
                 <form class="form-inline" id="searchform2" role="search" action="/shop/searchresult.jsp">          
                     <div class="input-group">                       
@@ -286,9 +286,6 @@ $(document).ready(function(){
                     </div>
                 </form>
             <!-- //모바일 검색 -->  
-            </div>
-            <div class="col-xs-1">
-                <a href="#"><span class="glyphicon glyphicon-th-large"></span></a>
             </div>
         </div>       
 	</div>

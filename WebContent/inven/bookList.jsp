@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 <style>
 #counter {
   background:rgba(255,0,0,0.5);
@@ -35,14 +35,47 @@ $(function() {
 <%
 BookMgr mymgr = new BookMgr();
 String bookName = request.getParameter("bookName");
-
-   //int bookID = Integer.parseInt(request.getParameter("bookID"));
+String bookIDstr = request.getParameter("bookID");
+int bookID = 0;
+if(bookIDstr != null){
+    bookID = Integer.parseInt(bookIDstr);
+    Book book = mymgr.getBook(bookID);
+    bookName = book.getBookName();
+}
 %>
 <jsp:include page="/inven/invenMain_nav.jsp"></jsp:include>
-<form action="/inven/bookMod.jsp" method="post">
+
 <div class="container" id="bim">
-	<br>
-	<div style="border:0.1rem solid black; padding:1rem; margin:1rem;"><!-- 도서 수정 -->
+    <!-- 도서 수정 패널 -->
+    <div class="panel panel-default"> 
+        <div class="panel-heading">
+	        <h2><i class="glyphicon glyphicon-book"></i> 도서 수정</h2>
+	        <h5>- 등록된 도서의 정보를 수정합니다.</h5>
+        </div>
+        <div class="panel-body">
+        <form action="/inven/bookMod.jsp" method="post" class="form-horizontal">
+        <div class="form-group">
+			<label class="col-sm-1 col-xs-3 control-label">도서명</label>
+			<div class="col-sm-5 col-xs-9">
+			  <input class="form-control" name="bookName" type="text" value="책이름">
+			</div>
+		    <div class=" row visible-xs"><br><br></div>
+			<label class="col-sm-1 col-xs-3 control-label">작가명</label>
+            <div class="col-sm-5 col-xs-9">
+              <input class="form-control" name="author" type="text" value="작가">
+            </div>
+	    </div>
+	    <div class="form-group">
+            <label class="col-sm-1 col-xs-3 control-label">출판사</label>
+            <div class="col-sm-5 col-xs-9">
+              <input class="form-control" name="publisher" type="text" value="출판사">
+            </div>
+            <div class=" row visible-xs"><br><br></div>
+            <label class="col-sm-1 col-xs-3 control-label">출판일</label>
+            <div class="col-sm-5 col-xs-9">
+              <input class="form-control" name="publishDate" type="text" value="양식필수(yyyy-mm-dd)">
+            </div>
+        </div>
 		<table id="imain">
 			<tr>
 				<th>도 서 명 :</th><td><input type="text" name="bookName" placeholder="책이름" ></td>
@@ -76,7 +109,6 @@ String bookName = request.getParameter("bookName");
 	<script>
 	   // Replace the <textarea id="editor1"> with a CKEditor
 	   // instance, using default configuration.
-	   CKEDITOR.replace( 'subtitle' );
 	   CKEDITOR.replace( 'contents' );
 	   CKEDITOR.replace( 'description' );
 	</script>
@@ -145,6 +177,7 @@ if( books != null){
 }
 %>
 	</table>
+	</div>
 </div>
 </form>
 </body>
