@@ -5,9 +5,7 @@
          import="domain.Book"
          import="mgr.BookMgr"
          import="java.text.NumberFormat"
-         import="java.util.List" 
-         import="mgr.BestsellerMgr"
-         import="domain.BestSeller"%>
+         import="java.util.List"%>
 
 <!-- 메인 화면 시작 -->   
 <section id="section">

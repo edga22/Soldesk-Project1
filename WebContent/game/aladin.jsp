@@ -23,7 +23,8 @@ ps.updatePoint(member);
 %>
 <p> 키보드 방향키, z(사과투척) x(칼) c(점프)</p>
 <div class="lightsoff" id="fullscreen" style="width:640px;height:480px;">
-<iframe width="640" scrolling="no" height="480" frameborder="0" src="http://flashgames312.com/emulator/Aladdin.html"></iframe><script type="text/javascript">
+<iframe width="640" scrolling="no" height="480" frameborder="0" src="http://flashgames312.com/emulator/Aladdin.html"></iframe>
+<script type="text/javascript">
 $(function() {
 	$('#support').text($.fullscreen.isNativelySupported() ? 'supports' : 'doesn\'t support');
 	$('#fullscreen .requestfullscreen').click(function() {
