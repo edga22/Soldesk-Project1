@@ -74,8 +74,7 @@
 					</tr>
 				</table>
 			</div>
-      <div><img src="http://image.aladin.co.kr/img/aladdin/top_foot.gif" width="912" height="9" alt=""></div></td>
-     <jsp:include page="/main_foot.jsp"></jsp:include>
      </div>
-</body>
-</html>
+     
+     <jsp:include page="/main_foot.jsp"></jsp:include>
+     

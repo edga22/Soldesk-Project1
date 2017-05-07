@@ -14,7 +14,7 @@
 <jsp:include page="../logo.jsp"/>
 <div class="container">
 <div class="txc-textbox" style="padding: 10px; border: 1px dashed rgb(121, 165, 228); background-color: rgb(219, 232, 251);">
-<p><span style="font-size: 24pt;"><span style="font-family:;" malgun="" gothic",="" "맑은="" 고딕";"=""><span style="font-size: 14pt;">북 cafe 이용약관</span></span></span></p></div>
+<p><span style="font-size: 24pt;"><span style="font-family:맑은고딕;"><span style="font-size: 14pt;">북 cafe 이용약관</span></span></span></p></div>
 <p><br></p>
 <p><b><span style="font-size: 12pt;">제1조 (목적)</span></b></p>
 <p><br></p>
